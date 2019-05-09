@@ -18,6 +18,4 @@ public class Main {
 	 * 
 	 * 
 	 * }while(risposta=bevenuto)
-	 */
-
-}
+//sto cazzo di aggiornamento lo vedi?
