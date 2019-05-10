@@ -1,10 +1,11 @@
 package cervello;
-//un utente è dafinito da username e pasword 
+//un utente ï¿½ dafinito da username e pasword 
 public class Utente {
 	
 	private String username;
 	private byte[] password;
-	public Utente(string id,byte[] pw)
+	
+	public Utente(String id,byte[] pw)
 	{
 		username=id;
 		password=pw;
