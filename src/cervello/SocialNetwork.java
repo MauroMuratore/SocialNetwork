@@ -8,6 +8,7 @@ public class SocialNetwork {
 	//UML QUANDO E' FINITO
 	private Hashtable<String,Categoria> categorie;
 	private Utente utente;
+	private ConsultaDB CDB;
 	
 	//FINISHIM
 	public SocialNetwork() {
