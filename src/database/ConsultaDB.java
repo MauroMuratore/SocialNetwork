@@ -2,6 +2,8 @@ package database;
 
 import org.w3c.dom.NodeList;
 
+import cervello.Utente;
+
 public class ConsultaDB {
 	
 	NodeList listaNodi;
@@ -19,17 +21,17 @@ public class ConsultaDB {
 		return false;
 	}
 	
-	public boolean controllaIDreg(String id) //questo metodo controlla se l' id è gia presente nel database e se la lunghezza dell id non è inferiorea 5 caratteri
-	{
+	public boolean isPresentID(String id) {
 		return false;
 	}
-	public boolean controllaPWconferma(byte[] pw,byte[] pwConferma)//questo metodo controlla se le 2 ps sono uguali
-	{
-		return false
-	}
+
 	public Utente aggiungiUtente(String id, byte[] pw)//questo metondo crea e aggiunge un utente al database e ritorna l'oggetto utente creato
 	{
-		
+		return null;
+	}
+	
+	public Utente caricaUtente(String id) {
+		return null;
 	}
 
 }
