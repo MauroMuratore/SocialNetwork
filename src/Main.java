@@ -9,7 +9,7 @@ public class Main() {
 		do{		 
 			Bool rispostaUI =false;
 		
-			 if(UI.isLogin)
+			 if(UI.isLogin())
 			 {
 				 String id=UI.getID();
 				 byte[] pw=UI.getPW();
@@ -18,7 +18,7 @@ public class Main() {
 			 	 sezioneCategorie();
 			  }
 			  
-			 else if(UI.isRegistrazione)
+			 else if(UI.isRegistrazione())
 			 {
 				 String id = UI.getID();
 				 byte[] pw = UI.getPW();

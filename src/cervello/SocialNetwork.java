@@ -1,6 +1,6 @@
 package cervello;
 
-import java.util.*;
+import java.util.*;Ï
 
 import database.ConsultaDB;
 
@@ -55,8 +55,8 @@ public class SocialNetwork {
 			{
 				if(CBD.controllaPWconferma(hash,conferma))//controlle se le due pw sono uguali, se lo sono aggiungo l'utente al database
 				{
-					Utente nuovoUtente= new Utente(id);
-					CDB.aggiungiUtente(nuovoUtente);
+					Utente utenteRegistrato = CDB.aggiungiUtente(username,hash);
+					setUutente(utenteRegistrato);
 					return " registrazione effettuata"
 				}
 				else return "le password non corrispondono";
@@ -73,9 +73,9 @@ public class SocialNetwork {
 	 * private perch√® non puoi entrare senza autentificarti
 	 * 
 	 */
-	private void setUtente(String username,byte[] pw) 
+	private void setUtente(_utente) 
 	{
-		utente= new Utente (username,pw);
+		utente= _utente;
 	}
 	
 	//UML  

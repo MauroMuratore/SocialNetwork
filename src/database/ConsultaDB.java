@@ -27,7 +27,7 @@ public class ConsultaDB {
 	{
 		return false
 	}
-	public void aggiungiUtente(String id, byte[] pw)//questo metondo aggiunge un utente al database 
+	public Utente aggiungiUtente(String id, byte[] pw)//questo metondo crea e aggiunge un utente al database e ritorna l'oggetto utente creato
 	{
 		
 	}
