@@ -1,8 +1,8 @@
 package cervello;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
+import java.util.*;
+
+import database.ConsultaDB;
 
 public class SocialNetwork {
 	//UML QUANDO E' FINITO
@@ -21,50 +21,21 @@ public class SocialNetwork {
 	 * @param hash
 	 * @return torna l'esito del login
 	 */
-	//FINISHIM
-	public String login(String id, byte[] hash) {
-		return null;
-	}
-	
-	/*//FINISHIM
-	 * non mi ricordo come lo volessimo fare, ma se arriva la stringa e l'hash
-	 * non serve riceverlo
-	 * UML
-	*/
-	public void riceviIDPWLog(){
-	}
-	
-	/* IDEA:Al posto dei metodi di risposta mettiamo delle costanti stringa e 
-	 * facciamo rispondere direttamente al login?
-	 * IDEA+:Al posto di fare due query che rispondono vero o falso (metodi controllaIDLog/Reg 
-	 * e ControllaPWLog/Reg) facciamo chiedere tutto al login
-	 * PSEUDO-CODE
-	 * String login{
-	 * database db;
-	 * if !db.presenteID(id) return NON_PRESENTE;
-	 * else if !db.controllaPW(hash) return PW_SBAGLIATA;
-	 * return BENVENUTO
-	 * }  
-	 *  
-	 */
-	//FINISHIM
-	protected boolean controllaIDLog(String id) {
-		return false;
-	}
-	
-	//FINISHIM
-	protected String rispostaIDLog() {
-		return null;
-	}
-	
-	//FINISHIM
-	protected boolean controllaPWLog(byte[] hash) {
-		return false;
-	}
-	
-	//FINISHIM
-	protected String rispostaPWLog() {
-		return null;
+	//il login ritorna una stringa, se id e pw sono corretti risponde benvenuto + il nome id  e setta l'utente, se invece sono errati invia un messaggio di errore
+	public String login(String id, byte[] hash) 
+	{
+		
+		if(CDB.controllaID(id))
+		{
+			if(CBD.controllaPW(hash))
+			{
+				return "benvenuto"+ id;
+				setUtente(id);
+			}
+		}
+		else 
+				return  "id o password errata";
+		
 	}
 	
 	/**
@@ -76,40 +47,35 @@ public class SocialNetwork {
 	 * @return esito della registrazione
 	 */
 	//FINISHIM	
-	public String registrazione(String username, byte[] hash, byte[] conferma) {
-		return null;
-	}
-	//FINISHIM
-	protected boolean controllaIDReg(String id) {
-		return false;
-	}
-	
-	//FINISHIM
-	protected String rispondiIDReg() {
-		return null;
-	}
-	
-	//FINISHIM
-	protected boolean controllaPWReg(byte[] hash, byte[] conferma) {
-		return false;
-	}
-	
-	//FINISHIM
-	protected String rispondiPWReg() {
-		return null;
-	}
-	
-	//FINISHIM
-	protected void aggiungiUtente() {
-		
+	public String registrazione(String username, byte[] hash, byte[] conferma)
+	{
+		if(CDB.controllaIDreg(id))//controllo se cè gia id nel database 
+		{
+			if(CBD.controllaPWreg(hash))//controllo se la pw soddisfa i requisiti di lunghezza
+			{
+				if(CBD.controllaPWconferma(hash,conferma))//controlle se le due pw sono uguali, se lo sono aggiungo l'utente al database
+				{
+					Utente nuovoUtente= new Utente(id);
+					CDB.aggiungiUtente(nuovoUtente);
+					return " registrazione effettuata"
+				}
+				else return "le password non corrispondono";
+			}
+			else return "la password non soddisfa i requisiti di lungheza"
+		}
+		else
+		{
+			return "id gia esistente o troppo corto";
+		}
 	}
 	
 	/*
 	 * private perchÃ¨ non puoi entrare senza autentificarti
 	 * 
 	 */
-	private void setUtente(Utente _utente) {
-		utente=_utente;
+	private void setUtente(String username,byte[] pw) 
+	{
+		utente= new Utente (username,pw);
 	}
 	
 	//UML  
