@@ -36,7 +36,7 @@ public class SocialNetwork {
 		{
 			if(consultaDB.controllaPW(hash))
 			{
-				setUtente(consultaDB.caricaUtente(id));
+				setUtente(id);
 				return BENVENUTO;
 			}
 			else 
@@ -59,13 +59,14 @@ public class SocialNetwork {
 	//FINISHIM	
 	public String registrazione(String username, byte[] hash, byte[] conferma)
 	{
-		if(!consultaDB.isPresentID(username))//controllo se ce gia id nel database 
+		if(!consultaDB.controllaID(username))//controllo se ce gia id nel database 
 		{
 			for(int i=0; i<hash.length; i++) {
 				if(hash[i]!=conferma[i]) //controllo byte per byte se hash e conferma sono uguali
 					return PW_DIVERSE;
 			}
-			setUtente(consultaDB.aggiungiUtente(username, hash));
+			consultaDB.aggiungiUtente(username, hash);
+			setUtente(username);
 			return BENVENUTO;
 		}
 		else
@@ -75,9 +76,9 @@ public class SocialNetwork {
 	 * private perchè non puoi entrare senza autentificarti
 	 * 
 	 */
-	private void setUtente(Utente _utente) 
+	private void setUtente(String id) 
 	{
-		utente=_utente;
+		utente=consultaDB.caricaUtente(id);
 	}
 
 	//UML  
