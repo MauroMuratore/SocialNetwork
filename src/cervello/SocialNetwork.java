@@ -1,6 +1,6 @@
 package cervello;
 
-import java.util.*;ì
+import java.util.*;
 
 import database.ConsultaDB;
 
