@@ -1,35 +1,59 @@
 package database;
 
+import java.io.UnsupportedEncodingException;
+
+import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+
+import cervello.Utente;
 
 public class ConsultaDB {
 	
-	NodeList listaNodi;
+	private Element nodo;
+	private LeggiXML lettura = new LeggiXML();
+	private ScriviXML scrittura = new ScriviXML();
 	
 	//TODO SI POTREBBE PRIVATO E FARE UN COSTRUTTORE A PARTE CHE FACCIA CREARE UN SOLO OGGETTO INTERROGAZIONE
 	public ConsultaDB() {
 		
 	}
 	
+	/**
+	 * lettura degli utenti registrati da file
+	 * @param id
+	 * @return true se c'Ã¨ false se non c'Ã¨
+	 */
 	public boolean controllaID(String id) {
+		nodo = lettura.leggiUtente(id);
+		if(nodo!=null) 
+			return true;
 		return false;
 	}
 	
 	public boolean controllaPW(byte[] hash) {
-		return false;
+		String conferma = nodo.getFirstChild().getTextContent(); //bisognerebbe controllare il tag
+		byte[] confByte=null;
+		try {
+			confByte = conferma.getBytes("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(int i=0; i<hash.length; i++) {
+			if(hash[i]!=confByte[i])
+				return false;
+		}
+		return true;
+	}
+
+
+	public void aggiungiUtente(String id, byte[] pw)//questo metondo crea e aggiunge un utente al database e ritorna l'oggetto utente creato
+	{
+		scrittura.scriviUtente(id, pw);
 	}
 	
-	public boolean controllaIDreg(String id) //questo metodo controlla se l' id è gia presente nel database e se la lunghezza dell id non è inferiorea 5 caratteri
-	{
-		return false;
-	}
-	public boolean controllaPWconferma(byte[] pw,byte[] pwConferma)//questo metodo controlla se le 2 ps sono uguali
-	{
-		return false
-	}
-	public Utente aggiungiUtente(String id, byte[] pw)//questo metondo crea e aggiunge un utente al database e ritorna l'oggetto utente creato
-	{
-		
+	public Utente caricaUtente(String id) {
+		return null;
 	}
 
 }
