@@ -1,3 +1,5 @@
+import java.awt.EventQueue;
+
 import cervello.SocialNetwork;
 import interfacciaUtente.UserInterface;
 
@@ -8,15 +10,25 @@ public class Main {
 		SocialNetwork SN= new SocialNetwork();
 		boolean rispostaUI=false;;
 
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					UserInterface window = new UserInterface();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
 		do{		 
 			String risposta;
 
-			if(UI.isLogin())
+			if(UI.isLog())
 			{
-				String id=UI.getID();
-				byte[] pw=UI.getPW();
+				String id=UI.getUS();
+				byte[] pw=UI.getPASS();
 				risposta=SN.login(id,pw);
-				rispostaUI=UI.riceviStringa(risposta) ;//facciamo che il metodo ricevi sringa di UI ritorna un bool: vero se risposta ï¿½ benvenuto oppure registrazione effettuata, falso se risposta ï¿½ un messaggio di errore
+				rispostaUI=UI.riceviStringa(risposta) ;//facciamo che il metodo ricevi sringa di UI ritorna un bool: vero se risposta è benvenuto oppure registrazione effettuata, falso se risposta è un messaggio di errore
 				//sezioneCategorie();
 			}
 
