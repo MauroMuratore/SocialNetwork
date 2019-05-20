@@ -37,7 +37,7 @@ public class LeggiXML {
 			io.printStackTrace();
 		}
 		
-		ritorno=doc.getElementById(username);		
+		//ritorno=doc.getElementById(NomiDB.TAG_UTENTE.getNome()).getAttribute(NomiDB.TAG_NOME.getNome());		
 		return ritorno;
 	}
 
