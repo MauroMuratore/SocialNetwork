@@ -8,13 +8,13 @@ public class SocialNetwork {
 	//UML QUANDO E' FINITO
 	private Hashtable<String,Categoria> categorie;
 	private Utente utente;
-	private ConsultaDB consultaDB;
+	private ConsultaDB consultaDB= new ConsultaDB();
 
 	public static final String BENVENUTO = "BENVENUTO";
-	public static final String ID_INESISTENTE= "USERNAME INESISTENTE";
-	public static final String PW_SBAGLIATA = "PASSWORD SBAGLIATA";
-	public static final String ID_IN_USO = "USERNAME IN USO";
-	public static final String PW_DIVERSE = "PASSORD DIVERSE";
+	public static final String ID_INESISTENTE= "ATTENZIONE! : username inesistente";
+	public static final String PW_SBAGLIATA = "ATTENZIONE! : password sbalgiata";
+	public static final String ID_IN_USO = "ATTENZIONE! : username in uso";
+	public static final String PW_DIVERSE = "ATTENZIONE! : password diverse";
 
 	//FINISHIM
 	public SocialNetwork() {

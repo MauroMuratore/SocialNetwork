@@ -4,51 +4,63 @@ import cervello.SocialNetwork;
 import interfacciaUtente.UserInterface;
 
 public class Main {
+
 	public static void main(String[] args)
 	{
-		UserInterface UI= new UserInterface();
 		SocialNetwork SN= new SocialNetwork();
-		boolean rispostaUI=false;;
-
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					UserInterface window = new UserInterface();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
+		boolean rispostaUI=false;
+		UserInterface UI =null;
+		
+		try {
+			UI = new UserInterface();
+			UI.getFrame().setVisible(true);
+		} catch (Exception e) {
+			System.out.println("User interface non disponibile!!");
+			e.printStackTrace();
+		}	
 		do{		 
 			String risposta;
-
+			pausa(1);
+			System.out.println("sto ciclando");
+			
 			if(UI.isLog())
 			{
+				System.out.println("prendo credenziali");
 				String id=UI.getUS();
 				byte[] pw=UI.getPASS();
 				risposta=SN.login(id,pw);
+				System.out.println(risposta);
 				rispostaUI=UI.riceviStringa(risposta) ;//facciamo che il metodo ricevi sringa di UI ritorna un bool: vero se risposta è benvenuto oppure registrazione effettuata, falso se risposta è un messaggio di errore
 				//sezioneCategorie();
+				UI.setFalse();//è un metodo che mette a false isLog e isReg  (senò continua a prendere le credenziali in loop)
 			}
-
+			
 			else if(UI.isRegistrazione())
 			{
-				String id = UI.getID();
-				byte[] pw = UI.getPW(); //sono due getPW diversi rispetto a quello del login?
-				byte[] confermaPW = UI.getConfermaPW();
+				System.out.println("prendo credenziali registrazione");
+				String id = UI.getIDREG();
+				byte[] pw = UI.getPWREG(); //sono due getPW diversi rispetto a quello del login?
+				byte[] confermaPW = UI.getConfermaPWREG();
 				risposta=SN.registrazione(id, pw, confermaPW);
+				System.out.println(risposta);
 				rispostaUI=UI.riceviStringa(risposta);
+				UI.setFalse();
 				//sezioneCategorie();//facciamo che dopo la registrazione il sistema presenta direttamente le categorie, senza passare per il login(login implicito)
 			}
-
-
 		}while(!rispostaUI);//il while cicla fino a che la risposta ui diventa vera
 
 		//il sezione categorie dovremmo metterlo dopo
-
-
-
+	}
+	static void pausa(int secondi)
+	{
+		try 
+		{
+			Thread.sleep(1000*secondi);
+			
+		} catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	/*
 	public static void sezioneCategorie()
@@ -58,6 +70,7 @@ public class Main {
 		IU.mostraEventi(SN.mostraBacheca(categoriaScelta));//facciamo che UI abbia un metodo mostra eventi ce riceve una lista di eventi e che li mostri sulla view
 	}
 	 */
+	
 
 
 }
