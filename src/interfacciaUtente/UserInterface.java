@@ -23,6 +23,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JTextPane;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+import java.awt.Font;
 
 	public class UserInterface {
 
@@ -119,6 +120,7 @@ import java.beans.PropertyChangeEvent;
 		private void initialize(){
 				
 				frame = new JFrame("SocialNetwork M&M (login) ");
+				frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 12));
 				frame.setResizable(false);
 				frame.getContentPane().setBackground(new Color(224, 255, 255));
 				frame.setBounds(600, 300, 450, 275);
@@ -126,13 +128,15 @@ import java.beans.PropertyChangeEvent;
 				frame.getContentPane().setLayout(null);
 				
 				JLabel lblLogin = new JLabel("SEZIONE LOGIN:");
+				lblLogin.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 				lblLogin.setOpaque(true);
 				lblLogin.setBounds(10, 11, 95, 23);
-				lblLogin.setBackground(SystemColor.infoText);
+				lblLogin.setBackground(new Color(0, 255, 255));
 				lblLogin.setForeground(SystemColor.textHighlight);
 				frame.getContentPane().add(lblLogin);
 				
 				JLabel lblUsername = new JLabel("username");
+				lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 11));
 				lblUsername.setBounds(10, 45, 95, 14);
 				frame.getContentPane().add(lblUsername);
 				
@@ -170,12 +174,12 @@ import java.beans.PropertyChangeEvent;
 				frame.getContentPane().add(btnNewButton);
 				
 				JLabel lblNonTiSei = new JLabel("Non ti sei ancora registrato? ");
-				lblNonTiSei.setBounds(188, 113, 184, 14);
+				lblNonTiSei.setBounds(198, 113, 184, 14);
 				lblNonTiSei.setForeground(SystemColor.textHighlight);
 				frame.getContentPane().add(lblNonTiSei);
 				
 				JLabel lblPassaAllaraAlla = new JLabel("passa allora alla sezione di registrazione");
-				lblPassaAllaraAlla.setBounds(188, 138, 236, 14);
+				lblPassaAllaraAlla.setBounds(198, 138, 236, 14);
 				lblPassaAllaraAlla.setForeground(SystemColor.textHighlight);
 				frame.getContentPane().add(lblPassaAllaraAlla);
 				
@@ -197,7 +201,7 @@ import java.beans.PropertyChangeEvent;
 						finestraReg.getFrame().setVisible(true);
 					}
 				});
-				btnRegistrazione.setBounds(188, 163, 113, 23);
+				btnRegistrazione.setBounds(198, 163, 113, 23);
 				btnRegistrazione.setBackground(SystemColor.desktop);
 				frame.getContentPane().add(btnRegistrazione);
 				
@@ -210,5 +214,12 @@ import java.beans.PropertyChangeEvent;
 				textPane.setBackground(new Color(224, 255, 255));
 				textPane.setBounds(10, 197, 414, 20);
 				frame.getContentPane().add(textPane);	
+				
+				JTextPane txtpnprogettoIngegneriaDel = new JTextPane();
+				txtpnprogettoIngegneriaDel.setFont(new Font("Sitka Subheading", Font.PLAIN, 10));
+				txtpnprogettoIngegneriaDel.setText("#Progetto Ingegneria del software (parte 1) 2018-2019");
+				txtpnprogettoIngegneriaDel.setBackground(new Color(224, 255, 255));
+				txtpnprogettoIngegneriaDel.setBounds(0, 228, 424, 20);
+				frame.getContentPane().add(txtpnprogettoIngegneriaDel);
 		}
 }

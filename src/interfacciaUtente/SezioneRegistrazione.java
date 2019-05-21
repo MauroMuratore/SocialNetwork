@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextPane;
+import java.awt.Font;
 
 public class SezioneRegistrazione {
 
@@ -78,10 +79,11 @@ public class SezioneRegistrazione {
 		frame.getContentPane().setLayout(null);
 		
 		lblSezione = new JLabel("SEZIONE REGISTRAZIONE:");
+		lblSezione.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		lblSezione.setForeground(SystemColor.textHighlight);
 		lblSezione.setOpaque(true);
-		lblSezione.setBackground(SystemColor.infoText);
-		lblSezione.setBounds(20, 11, 187, 29);
+		lblSezione.setBackground(new Color(0, 255, 255));
+		lblSezione.setBounds(20, 11, 154, 23);
 		frame.getContentPane().add(lblSezione);
 		
 		lblUsername = new JLabel("username");
