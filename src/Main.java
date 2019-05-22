@@ -21,7 +21,6 @@ public class Main {
 		do{		 
 			String risposta;
 			pausa(1);
-			System.out.println("sto ciclando");
 			
 			if(UI.isLog())
 			{
@@ -30,9 +29,9 @@ public class Main {
 				byte[] pw=UI.getPASS();
 				risposta=SN.login(id,pw);
 				System.out.println(risposta);
-				rispostaUI=UI.riceviStringa(risposta) ;//facciamo che il metodo ricevi sringa di UI ritorna un bool: vero se risposta è benvenuto oppure registrazione effettuata, falso se risposta è un messaggio di errore
+				rispostaUI=UI.riceviStringa(risposta) ;//facciamo che il metodo ricevi sringa di UI ritorna un bool: vero se risposta ï¿½ benvenuto oppure registrazione effettuata, falso se risposta ï¿½ un messaggio di errore
 				//sezioneCategorie();
-				UI.setFalse();//è un metodo che mette a false isLog e isReg  (senò continua a prendere le credenziali in loop)
+				UI.setFalse();//ï¿½ un metodo che mette a false isLog e isReg  (senï¿½ continua a prendere le credenziali in loop)
 			}
 			
 			else if(UI.isRegistrazione())
