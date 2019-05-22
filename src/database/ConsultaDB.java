@@ -25,13 +25,13 @@ public class ConsultaDB {
 	 */
 	public boolean controllaID(String id) {
 		nodo = lettura.leggiUtente(id);
-		if(nodo!=null) 
+		if(nodo.getAttribute(NomiDB.TAG_NOME.getNome()).equals(id))
 			return true;
 		return false;
 	}
 	
 	public boolean controllaPW(byte[] hash) {
-		String conferma = nodo.getFirstChild().getTextContent(); //bisognerebbe controllare il tag
+		String conferma = nodo.getTextContent(); //bisognerebbe controllare il tag
 		byte[] confByte=null;
 		try {
 			confByte = conferma.getBytes("UTF-8");
