@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <elenco>
+<utente>
+<nome>mauro</nome>
+<hash>1231231</hash>
+</utente>
+<utente>
+<nome>luca</nome>
+<hash>12312312</hash>
+</utente>
 </elenco>
