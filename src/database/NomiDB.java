@@ -10,6 +10,7 @@ public enum NomiDB {
 	TAG_EVENTO("evento"),
 	TAG_CAMPO("campo"),
 	TAG_NOME("nome"),
+	TAG_ID("id"),
 	TAG_DESCRIZIONE("descrizione"),
 	TAG_VALORE("valore"),
 	TAG_OBBL("obbligatorio");

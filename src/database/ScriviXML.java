@@ -51,8 +51,13 @@ public class ScriviXML {
 		Element root = (Element) doc.getFirstChild();
 		
 		Element newChild = doc.createElement(NomiDB.TAG_UTENTE.getNome());
-		newChild.setAttribute(NomiDB.TAG_NOME.getNome(), username); //come attributo l'username
-		newChild.setTextContent(hashChar);
+		Element childName=doc.createElement(NomiDB.TAG_NOME.getNome());
+		childName.setTextContent(username);
+		Element childPW = doc.createElement(NomiDB.TAG_HASH.getNome());
+		childPW.setTextContent(hashChar);
+		
+		newChild.appendChild(childName);
+		newChild.appendChild(childPW);
 
 		root.appendChild(newChild);
 		
