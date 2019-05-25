@@ -16,9 +16,11 @@ public class SocialNetwork {
 	public static final String ID_IN_USO = "ATTENZIONE! : username in uso";
 	public static final String PW_DIVERSE = "ATTENZIONE! : password diverse";
 
-	//FINISHIM
+	
 	public SocialNetwork() {
 		categorie = new Hashtable<String, Categoria>();
+		PartitaCalcioCat pcc = consultaDB.getPartitaCalcioCat();
+		categorie.put(pcc.getNome(), pcc);
 
 	}
 
@@ -55,8 +57,7 @@ public class SocialNetwork {
 	 * @param hash
 	 * @param conferma
 	 * @return esito della registrazione
-	 */
-	//FINISHIM	
+	 */	
 	public String registrazione(String username, byte[] hash, byte[] conferma)
 	{
 		if(!consultaDB.controllaID(username))//controllo se ce gia id nel database 
