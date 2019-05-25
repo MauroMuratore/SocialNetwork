@@ -9,7 +9,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 
-epublic class SezioneCategorie {
+public class SezioneCategorie {
 
 	private JFrame frame;
 
