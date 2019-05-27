@@ -64,37 +64,37 @@ public class FinestraMenu {
 		panel.setBounds(0, 0, 673, 23);
 		frame.getContentPane().add(panel, BorderLayout.NORTH);
 		panel.setLayout(null);
-		
-		JButton btnAreapersonale = new JButton("AreaPersonale");
-		btnAreapersonale.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				btnAreapersonale.setBackground(Color.blue);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				btnAreapersonale.setBackground(SystemColor.textHighlight);
-			}
-			public void mouseClicked(MouseEvent e){
-				if (panelInfo != null)
-				frame.getContentPane().remove(panelInfo);
-				if (bachecaPDC != null)
-				frame.getContentPane().remove(bachecaPDC);
-				if (panelCategorie != null)
-				frame.getContentPane().remove(panelCategorie);
-				frame.revalidate();
-				frame.repaint();
-				panelAP = new JPanel();
-				panelAP.setBackground(new Color(224, 255, 255));
-				panelAP.setBounds(0, 23, 673, 385);
-				frame.getContentPane().add(panelAP);
-				panelAP.setLayout(null);	
-			}
-		});
-		btnAreapersonale.setBackground(SystemColor.textHighlight);
-		btnAreapersonale.setForeground(SystemColor.text);
-		btnAreapersonale.setBounds(0, 0, 125, 23);
-		panel.add(btnAreapersonale);
+		//nella relaise 2
+//		JButton btnAreapersonale = new JButton("AreaPersonale");
+//		btnAreapersonale.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseEntered(MouseEvent e) {
+//				btnAreapersonale.setBackground(Color.blue);
+//			}
+//			@Override
+//			public void mouseExited(MouseEvent e) {
+//				btnAreapersonale.setBackground(SystemColor.textHighlight);
+//			}
+//			public void mouseClicked(MouseEvent e){
+//				if (panelInfo != null)
+//				frame.getContentPane().remove(panelInfo);
+//				if (bachecaPDC != null)
+//				frame.getContentPane().remove(bachecaPDC);
+//				if (panelCategorie != null)
+//				frame.getContentPane().remove(panelCategorie);
+//				frame.revalidate();
+//				frame.repaint();
+//				panelAP = new JPanel();
+//				panelAP.setBackground(new Color(224, 255, 255));
+//				panelAP.setBounds(0, 23, 673, 385);
+//				frame.getContentPane().add(panelAP);
+//				panelAP.setLayout(null);	
+//			}
+//		});
+//		btnAreapersonale.setBackground(SystemColor.textHighlight);
+//		btnAreapersonale.setForeground(SystemColor.text);
+//		btnAreapersonale.setBounds(0, 0, 125, 23);
+//		panel.add(btnAreapersonale);
 		
 		JButton btnVistacategorie = new JButton("VistaCategorie");
 		btnVistacategorie.addActionListener(new ActionListener() {
@@ -237,7 +237,7 @@ public class FinestraMenu {
 		pdc = SN.getPdc();
 		int size = pdc.getBacheca().size();
 		
-		for(;k<size;k++)
+		for(k=0;k<size;k++)
 		{ 
 			String titolo= ((Evento) pdc.getBacheca().get(k)).getTitolo().getValoreString();
 			JButton btnNewButton = new JButton(titolo);
@@ -322,9 +322,7 @@ public class FinestraMenu {
 		txtpnNote.setText("Note: "+ev.getNote().getValoreString());
 		txtpnNote.setBounds(10, 230, 641, 20);
 		finestraEV.add(txtpnNote);
-		
-		
-		
+				
 //		frame.setResizable(false);
 //		frame.setBounds(600, 300, 667, 430);
 		frame.revalidate();
