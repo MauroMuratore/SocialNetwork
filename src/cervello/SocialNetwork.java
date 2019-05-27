@@ -16,6 +16,7 @@ public class SocialNetwork {
 	public static final String BENVENUTO = "BENVENUTO";
 	public static final String ID_INESISTENTE= "ATTENZIONE! : username inesistente";
 	public static final String PW_SBAGLIATA = "ATTENZIONE! : password sbalgiata";
+	public static final String PW_CORTA ="ATTENZIONE! : passoword troppo corta";
 	public static final String ID_IN_USO = "ATTENZIONE! : username in uso";
 	public static final String PW_DIVERSE = "ATTENZIONE! : password diverse";
 
@@ -64,10 +65,15 @@ public class SocialNetwork {
 	{
 		if(!consultaDB.controllaID(username))//controllo se ce gia id nel database 
 		{
+			String hashString = new String(hash);
+			if(hashString.lenght()<7){
+				return PW_CORTA;
+			}
 			for(int i=0; i<hash.length; i++) {
 				if(hash[i]!=conferma[i]) //controllo byte per byte se hash e conferma sono uguali
 					return PW_DIVERSE;
 			}
+			
 			consultaDB.aggiungiUtente(username, hash);
 			setUtente(username);
 			return BENVENUTO;
