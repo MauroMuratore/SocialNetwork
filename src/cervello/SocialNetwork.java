@@ -15,6 +15,7 @@ public class SocialNetwork {
 
 	public static final String BENVENUTO = "BENVENUTO";
 	public static final String ID_INESISTENTE= "ATTENZIONE! : username inesistente";
+	public static final String ID_CORTO = "ATTENZIONE! : id troppo corto";
 	public static final String PW_SBAGLIATA = "ATTENZIONE! : password sbalgiata";
 	public static final String PW_CORTA ="ATTENZIONE! : passoword troppo corta";
 	public static final String ID_IN_USO = "ATTENZIONE! : username in uso";
@@ -25,7 +26,6 @@ public class SocialNetwork {
 		categorie = new Hashtable<String, Categoria>();
 		pdc = consultaDB.getPartitaCalcioCat();
 		categorie.put(pdc.getNome(), pdc);
-//		if(consultaDB.getPartitaCalcioCat() == null) System.out.println("dio cristo"); else System.out.println("ma che cazzz?");
 
 	}
 
@@ -65,6 +65,8 @@ public class SocialNetwork {
 	{
 		if(!consultaDB.controllaID(username))//controllo se ce gia id nel database 
 		{
+			if(username.lenght()<7)
+				return ID_CORTO;
 			String hashString = new String(hash);
 			if(hashString.lenght()<7){
 				return PW_CORTA;
@@ -109,10 +111,10 @@ public class SocialNetwork {
 
 	/**
 	 * @param categoria
-	 * @return la bacheca della categoria
+	 * @return la categoria
 	 */
-	public List<Evento> mostraBacheca(String categoria){
-		return categorie.get(categoria).getBacheca();
+	public Categoria mostraCategoria(String categoria){
+		return categorie.get(categoria);
 	}
 
 	public ConsultaDB getConsultaDB() {
