@@ -13,7 +13,7 @@ public class Main {
 	{
 		
 		try {
-			UI = new UserInterface();
+			UI = new UserInterface(SN);
 			UI.getFrame().setVisible(true);
 		} catch (Exception e) {
 			System.out.println("User interface non disponibile!!");

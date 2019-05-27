@@ -10,6 +10,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 
+import cervello.SocialNetwork;
+import database.ConsultaDB;
 
 import java.awt.SystemColor;
 import java.awt.FlowLayout;
@@ -41,12 +43,14 @@ public class UserInterface {
 	private JPasswordField passwordField;
 	private JTextPane textPane;
 	private FinestraMenu finestraMenu;
+	private SocialNetwork SN;
 
 	public void sezioneMenu(){
 		
 		frame.setVisible(false);
-		finestraMenu= new FinestraMenu();
+		finestraMenu= new FinestraMenu(SN);
 		finestraMenu.getFrame().setVisible(true);
+		
 		
 	}
 	public void setFalse(){
@@ -68,7 +72,8 @@ public class UserInterface {
 			return finestraReg.isReg();
 		else return false;
 	}
-	public UserInterface() {
+	public UserInterface(SocialNetwork sn) {
+		SN=sn;
 		initialize();
 	}
 	public boolean isLog()
@@ -124,9 +129,10 @@ public class UserInterface {
 				rispostaUI=false;
 				return rispostaUI;	
 			}	
-		}				
-	private void initialize(){
+		}	
 
+	private void initialize(){
+			
 			frame = new JFrame("SocialNetwork M&M (login) ");
 			frame.setMinimumSize(new Dimension(450, 285));
 			frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 12));
