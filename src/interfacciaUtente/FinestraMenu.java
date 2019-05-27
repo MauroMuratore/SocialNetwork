@@ -31,7 +31,7 @@ public class FinestraMenu {
 	private JPanel panelInfo;
 	private JPanel panelCategorie;
 	private JButton btnPartitedicalcio;
-	private JTextPane txtpnSelezionaLaCategoria;
+	private JLabel txtpnSelezionaLaCategoria;
 	private JPanel bachecaPDC ;
 	private JPanel panelAP;
 	private SocialNetwork SN;
@@ -150,7 +150,7 @@ public class FinestraMenu {
 				btnPartitedicalcio.setBounds(10, 59, 290, 23);
 				panelCategorie.add(btnPartitedicalcio);
 				
-				txtpnSelezionaLaCategoria = new JTextPane();
+				txtpnSelezionaLaCategoria = new JLabel();
 				txtpnSelezionaLaCategoria.setText("Seleziona la categoria di ciu voi visualizzare gli eventi");
 				txtpnSelezionaLaCategoria.setForeground(SystemColor.textText);
 				txtpnSelezionaLaCategoria.setBackground(SystemColor.info);
@@ -182,19 +182,19 @@ public class FinestraMenu {
 		frame.getContentPane().add(panelInfo);
 		panelInfo.setLayout(null);
 		
-		JTextPane txtpnBenvenutoNelSocial = new JTextPane();
+		JLabel txtpnBenvenutoNelSocial = new JLabel();
 		txtpnBenvenutoNelSocial.setOpaque(false);
 		txtpnBenvenutoNelSocial.setText("Benvenuto nel Social network M&M. Scegli una delle voci nella barra navigatrice  ");
 		txtpnBenvenutoNelSocial.setBounds(10, 11, 414, 20);
 		panelInfo.add(txtpnBenvenutoNelSocial);
 		
-		JTextPane txtpnAreapersonale = new JTextPane();
+		JLabel txtpnAreapersonale = new JLabel();
 		txtpnAreapersonale.setBackground(SystemColor.info);
 		txtpnAreapersonale.setText("qui potrai consultare le tue notifiche e visualizzare i tuoi dai personali");
 		txtpnAreapersonale.setBounds(128, 42, 390, 20);
 		panelInfo.add(txtpnAreapersonale);
 		
-		JTextPane txtpnVistacategorieQuiPotrai = new JTextPane();
+		JLabel txtpnVistacategorieQuiPotrai = new JLabel();
 		txtpnVistacategorieQuiPotrai.setBackground(SystemColor.info);
 		txtpnVistacategorieQuiPotrai.setText("qui potrai visualizzare l'elenco delle categorie e sceglire quale tra queste visualizzarne gli eventi");
 		txtpnVistacategorieQuiPotrai.setBounds(128, 73, 535, 20);
@@ -222,7 +222,7 @@ public class FinestraMenu {
 		bachecaPDC.add(pannelloSpiegazione);
 		pannelloSpiegazione.setLayout(null);
 		
-		JTextPane txtpnQuestiSonoI = new JTextPane();
+		JLabel txtpnQuestiSonoI = new JLabel();
 		txtpnQuestiSonoI.setForeground(SystemColor.textHighlight);
 		txtpnQuestiSonoI.setText("Questi sono i titoli degli eventi disponibili( per maggiori informazioni su un evento fai click su uno di esso)");
 		txtpnQuestiSonoI.setBackground(SystemColor.info);
@@ -232,7 +232,7 @@ public class FinestraMenu {
 		Panel pannelloTitoliE = new Panel();
 		pannelloTitoliE.setBounds(0, 39, 663, 336);
 		bachecaPDC.add(pannelloTitoliE);
-		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		
 		pdc = SN.getPdc();
 		int size = pdc.getBacheca().size();
