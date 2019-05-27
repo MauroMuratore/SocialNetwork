@@ -79,7 +79,7 @@ public class SocialNetwork {
 	 * private perchè non puoi entrare senza autentificarti
 	 * 
 	 */
-	public PartitaCalcioCat getPcc() {
+	public PartitaCalcioCat getPdc() {
 		return pdc;
 	}
 	private void setUtente(String id) 

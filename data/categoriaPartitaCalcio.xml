@@ -5,9 +5,98 @@
 <elenco>
 <evento id="123123123">
 <campo>
-<nome>partitaconMonte</nome>
+<nome>titolo</nome>
 <descrizione/>
 <valore>partitella</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>partecipanti massimi</nome>
+<descrizione/>
+<valore>10</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>termine ultimo</nome>
+<descrizione/>
+<valore>
+<anno>1990</anno>
+<mese>2</mese>
+<giorno>3</giorno>
+<ora>4</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>luogo</nome>
+<descrizione/>
+<valore>oratorio</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>data inizio</nome>
+<descrizione/>
+<valore>
+<anno>1992</anno>
+<mese>3</mese>
+<giorno>4</giorno>
+<ora>5</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>durata</nome>
+<descrizione/>
+<valore>1</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>data fine</nome>
+<descrizione/>
+<valore>
+<anno>1993</anno>
+<mese>4</mese>
+<giorno>5</giorno>
+<ora>6</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>quota individuale</nome>
+<descrizione/>
+<valore>2</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>compreso quota</nome>
+<descrizione/>
+<valore>niente</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>note</nome>
+<descrizione/>
+<valore>niete da dichiarare</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>sesso</nome>
+<descrizione/>
+<valore>maschio</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>eta</nome>
+<descrizione/>
+<valore>12</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+</evento>
+<evento id="123123124">
+<campo>
+<nome>titolo</nome>
+<descrizione/>
+<valore>partitellaconMonte</valore>
 <obbligatorio>true</obbligatorio>
 </campo>
 <campo>

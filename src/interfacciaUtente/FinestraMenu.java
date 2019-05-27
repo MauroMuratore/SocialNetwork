@@ -13,6 +13,8 @@ import database.ConsultaDB;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Panel;
+
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
@@ -33,20 +35,9 @@ public class FinestraMenu {
 	private JPanel bachecaPDC ;
 	private JPanel panelAP;
 	private SocialNetwork SN;
-	PartitaCalcioCat<PartitaCalcioEvento> pdc;
-
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					FinestraMenu window = new FinestraMenu();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	private PartitaCalcioCat<PartitaCalcioEvento> pdc;
+	private JPanel finestraEV;
+	private int k=0;//serve per un for(dichiarata qua per questioni di visibilita)
 
 	public FinestraMenu(SocialNetwork sn) {
 		SN=sn;
@@ -112,6 +103,10 @@ public class FinestraMenu {
 				frame.getContentPane().remove(panelAP);
 				if(panelInfo != null)
 				frame.getContentPane().remove(panelInfo);
+				if(bachecaPDC != null)
+					frame.getContentPane().remove(bachecaPDC);
+				if(finestraEV != null)
+					frame.getContentPane().remove(finestraEV);
 				frame.revalidate();
 				frame.repaint();
 				panelCategorie = new JPanel();
@@ -134,15 +129,20 @@ public class FinestraMenu {
 					
 					public void mouseClicked(MouseEvent e) {
 						
-						frame.getContentPane().remove(panelCategorie);
+						if(panelAP != null)
+							frame.getContentPane().remove(panelAP);
+						if(panelInfo != null)
+							frame.getContentPane().remove(panelInfo);
+						if(bachecaPDC != null)
+							frame.getContentPane().remove(bachecaPDC);
+						if(finestraEV != null)
+							frame.getContentPane().remove(finestraEV);
+						if(panelCategorie!= null)
+							frame.getContentPane().remove(panelCategorie);
 						frame.revalidate();
 						frame.repaint();
-						bachecaPDC = new JPanel();
-						bachecaPDC.setBackground(new Color(224, 255, 255));
-						bachecaPDC.setBounds(0, 23, 673, 385);
-						frame.getContentPane().add(bachecaPDC);
 						costruisciBachecaPDC();
-						
+
 					}
 				});
 				
@@ -210,22 +210,125 @@ public class FinestraMenu {
 		lblVistacategorie.setBounds(10, 73, 108, 20);
 		panelInfo.add(lblVistacategorie);
 	}
+	
 	public void costruisciBachecaPDC(){
-		bachecaPDC.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		bachecaPDC = new JPanel();
+		bachecaPDC.setBackground(new Color(224, 255, 255));
+		bachecaPDC.setBounds(0, 23, 673, 385);
+		bachecaPDC.setLayout(null);
 		
-		pdc = SN.getPcc();
+		Panel pannelloSpiegazione = new Panel();
+		pannelloSpiegazione.setBounds(0, 0, 663, 40);
+		bachecaPDC.add(pannelloSpiegazione);
+		pannelloSpiegazione.setLayout(null);
+		
+		JTextPane txtpnQuestiSonoI = new JTextPane();
+		txtpnQuestiSonoI.setForeground(SystemColor.textHighlight);
+		txtpnQuestiSonoI.setText("Questi sono i titoli degli eventi disponibili( per maggiori informazioni su un evento fai click su uno di esso)");
+		txtpnQuestiSonoI.setBackground(SystemColor.info);
+		txtpnQuestiSonoI.setBounds(10, 5, 643, 20);
+		pannelloSpiegazione.add(txtpnQuestiSonoI);
+		
+		Panel pannelloTitoliE = new Panel();
+		pannelloTitoliE.setBounds(0, 39, 663, 336);
+		bachecaPDC.add(pannelloTitoliE);
+		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+		
+		pdc = SN.getPdc();
 		int size = pdc.getBacheca().size();
-		System.out.println(((Evento) pdc.getBacheca().get(0)).getTitolo().getNome());
-		for(int k=0;k==size;k++)
-		{
-			String titolo= ((Evento) pdc.getBacheca().get(k)).getTitolo().getNome();
+		
+		for(;k<size;k++)
+		{ 
+			String titolo= ((Evento) pdc.getBacheca().get(k)).getTitolo().getValoreString();
 			JButton btnNewButton = new JButton(titolo);
-			bachecaPDC.add(btnNewButton);
+			btnNewButton.setBackground(SystemColor.desktop);
+			btnNewButton.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					btnNewButton.setBackground(Color.green);
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					btnNewButton.setBackground(SystemColor.desktop);
+				}
+			});
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					costruisciFinestraEvento((Evento) pdc.getBacheca().get(k-1));
+				}
+			});
+			pannelloTitoliE.add(btnNewButton);
 			
 		}
+		frame.getContentPane().add(bachecaPDC);
+		frame.setResizable(false);
+		frame.setBounds(600, 300, 667, 430);
 		frame.revalidate();
 		frame.repaint();
+	}
+	public void costruisciFinestraEvento(Evento ev){
 		
+		finestraEV = new JPanel();
+		finestraEV.setBackground(new Color(224, 255, 255));
+		finestraEV.setBounds(0, 23, 673, 385);
+		finestraEV.setLayout(null);
+		frame.getContentPane().add(finestraEV);
+		frame.getContentPane().remove(bachecaPDC);
+		
+		JLabel txtpnNome = new JLabel();
+		txtpnNome.setBackground(SystemColor.info);
+		txtpnNome.setText("Titolo: "+ ev.getTitolo().getValore());
+		txtpnNome.setBounds(10, 11, 641, 22);
+		finestraEV.add(txtpnNome);
+		
+		JLabel txtpnTermineUltimo = new JLabel();
+		txtpnTermineUltimo.setBackground(SystemColor.info);
+		txtpnTermineUltimo.setText("Termine Ultimo: "+ ev.getTermineUltimo().getValoreString());
+		txtpnTermineUltimo.setBounds(10, 44, 641, 20);
+		finestraEV.add(txtpnTermineUltimo);
+		
+		JLabel txtpnLuogo = new JLabel();
+		txtpnLuogo.setBackground(SystemColor.info);
+		txtpnLuogo.setText("Luogo: "+ev.getLuogo().getValoreString());
+		txtpnLuogo.setBounds(10, 75, 641, 20);
+		finestraEV.add(txtpnLuogo);
+		
+		JLabel txtpnDatainizio = new JLabel();
+		txtpnDatainizio.setBackground(SystemColor.info);
+		txtpnDatainizio.setText("DataInizio: "+ev.getDataInizio().getValoreString());
+		txtpnDatainizio.setBounds(10, 106, 641, 20);
+		finestraEV.add(txtpnDatainizio);
+		
+		JLabel txtpnDatafine = new JLabel();
+		txtpnDatafine.setBackground(SystemColor.info);
+		txtpnDatafine.setText("DataFine: "+ev.getDataFine().getValoreString());
+		txtpnDatafine.setBounds(10, 137, 641, 20);
+		finestraEV.add(txtpnDatafine);
+		
+		JLabel txtpnDurata = new JLabel();
+		txtpnDurata.setBackground(SystemColor.info);
+		txtpnDurata.setText("Durata: "+ev.getDurata().getValoreString());
+		txtpnDurata.setBounds(10, 168, 641, 20);
+		finestraEV.add(txtpnDurata);
+		
+		JLabel txtpnCompresonellaquota = new JLabel();
+		txtpnCompresonellaquota.setBackground(SystemColor.info);
+		txtpnCompresonellaquota.setText("CompresoNellaQuota: "+ev.getCompresoQuota().getValoreString());
+		txtpnCompresonellaquota.setBounds(10, 199, 641, 20);
+		finestraEV.add(txtpnCompresonellaquota);
+		
+		JLabel txtpnNote = new JLabel();
+		txtpnNote.setBackground(SystemColor.info);
+		txtpnNote.setText("Note: "+ev.getNote().getValoreString());
+		txtpnNote.setBounds(10, 230, 641, 20);
+		finestraEV.add(txtpnNote);
+		
+		
+		
+//		frame.setResizable(false);
+//		frame.setBounds(600, 300, 667, 430);
+		frame.revalidate();
+		frame.repaint();
 		
 	}
 }
