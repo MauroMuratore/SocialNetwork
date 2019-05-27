@@ -10,7 +10,7 @@ public abstract class Evento {
 	private int idEvento;
 	private Campo<String> titolo;
 	private Campo<Integer> partecipantiMax;
-	//da aggiungere lista partecipanti
+	private Campo<Integer> partecipanti;
 	private Campo<GregorianCalendar> termineUltimo;
 	private Campo<String> luogo;
 	private Campo<GregorianCalendar> dataInizio;
@@ -22,7 +22,7 @@ public abstract class Evento {
 	
 	
 	
-	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax,
+	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, Campo<Integer> partecipanti,
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
 			Campo<GregorianCalendar> dataFine, Campo<String> note) {
@@ -47,7 +47,7 @@ public abstract class Evento {
 	public Campo<String> getTitolo() {
 		return titolo;
 	}
-	public Campo<Integer> getPartecipanti() {
+	public Campo<Integer> getPartecipantiMax() {
 		return partecipantiMax;
 	}
 	public Campo<GregorianCalendar> getTermineUltimo() {
@@ -62,6 +62,9 @@ public abstract class Evento {
 	
 	public Campo<Integer> getDurata() {
 		return durata;
+	}
+	public Campo<Integer> getPartecipanti(){
+		return partecipanti;
 	}
 	public Campo<Integer> getQuotaIndividuale() {
 		return quotaIndividuale;
