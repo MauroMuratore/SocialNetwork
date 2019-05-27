@@ -4,6 +4,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
+
+import cervello.Evento;
+import cervello.PartitaCalcioCat;
+import cervello.PartitaCalcioEvento;
+import cervello.SocialNetwork;
+import database.ConsultaDB;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
@@ -24,6 +31,9 @@ public class FinestraMenu {
 	private JButton btnPartitedicalcio;
 	private JTextPane txtpnSelezionaLaCategoria;
 	private JPanel bachecaPDC ;
+	private JPanel panelAP;
+	private SocialNetwork SN;
+	PartitaCalcioCat<PartitaCalcioEvento> pdc;
 
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
@@ -38,9 +48,12 @@ public class FinestraMenu {
 //		});
 //	}
 
-	public FinestraMenu() {
+	public FinestraMenu(SocialNetwork sn) {
+		SN=sn;
 		initialize();
 	}
+	
+	
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -71,6 +84,21 @@ public class FinestraMenu {
 			public void mouseExited(MouseEvent e) {
 				btnAreapersonale.setBackground(SystemColor.textHighlight);
 			}
+			public void mouseClicked(MouseEvent e){
+				if (panelInfo != null)
+				frame.getContentPane().remove(panelInfo);
+				if (bachecaPDC != null)
+				frame.getContentPane().remove(bachecaPDC);
+				if (panelCategorie != null)
+				frame.getContentPane().remove(panelCategorie);
+				frame.revalidate();
+				frame.repaint();
+				panelAP = new JPanel();
+				panelAP.setBackground(new Color(224, 255, 255));
+				panelAP.setBounds(0, 23, 673, 385);
+				frame.getContentPane().add(panelAP);
+				panelAP.setLayout(null);	
+			}
 		});
 		btnAreapersonale.setBackground(SystemColor.textHighlight);
 		btnAreapersonale.setForeground(SystemColor.text);
@@ -80,7 +108,9 @@ public class FinestraMenu {
 		JButton btnVistacategorie = new JButton("VistaCategorie");
 		btnVistacategorie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				if(panelAP != null)
+				frame.getContentPane().remove(panelAP);
+				if(panelInfo != null)
 				frame.getContentPane().remove(panelInfo);
 				frame.revalidate();
 				frame.repaint();
@@ -111,7 +141,7 @@ public class FinestraMenu {
 						bachecaPDC.setBackground(new Color(224, 255, 255));
 						bachecaPDC.setBounds(0, 23, 673, 385);
 						frame.getContentPane().add(bachecaPDC);
-						bachecaPDC.setLayout(null);
+						costruisciBachecaPDC();
 						
 					}
 				});
@@ -179,5 +209,23 @@ public class FinestraMenu {
 		lblVistacategorie.setForeground(Color.BLUE);
 		lblVistacategorie.setBounds(10, 73, 108, 20);
 		panelInfo.add(lblVistacategorie);
+	}
+	public void costruisciBachecaPDC(){
+		bachecaPDC.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		pdc = SN.getPcc();
+		int size = pdc.getBacheca().size();
+		System.out.println(((Evento) pdc.getBacheca().get(0)).getTitolo().getNome());
+		for(int k=0;k==size;k++)
+		{
+			String titolo= ((Evento) pdc.getBacheca().get(k)).getTitolo().getNome();
+			JButton btnNewButton = new JButton(titolo);
+			bachecaPDC.add(btnNewButton);
+			
+		}
+		frame.revalidate();
+		frame.repaint();
+		
+		
 	}
 }

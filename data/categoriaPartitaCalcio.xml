@@ -5,7 +5,7 @@
 <elenco>
 <evento id="123123123">
 <campo>
-<nome>titolo</nome>
+<nome>partitaconMonte</nome>
 <descrizione/>
 <valore>partitella</valore>
 <obbligatorio>true</obbligatorio>

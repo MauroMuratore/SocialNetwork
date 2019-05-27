@@ -9,6 +9,9 @@ public class SocialNetwork {
 	private Hashtable<String,Categoria> categorie;
 	private Utente utente;
 	private ConsultaDB consultaDB= new ConsultaDB();
+	private PartitaCalcioCat<PartitaCalcioEvento> pdc;
+
+
 
 	public static final String BENVENUTO = "BENVENUTO";
 	public static final String ID_INESISTENTE= "ATTENZIONE! : username inesistente";
@@ -19,8 +22,9 @@ public class SocialNetwork {
 	
 	public SocialNetwork() {
 		categorie = new Hashtable<String, Categoria>();
-		PartitaCalcioCat pcc = consultaDB.getPartitaCalcioCat();
-		categorie.put(pcc.getNome(), pcc);
+		pdc = consultaDB.getPartitaCalcioCat();
+		categorie.put(pdc.getNome(), pdc);
+//		if(consultaDB.getPartitaCalcioCat() == null) System.out.println("dio cristo"); else System.out.println("ma che cazzz?");
 
 	}
 
@@ -46,8 +50,6 @@ public class SocialNetwork {
 		}
 		else 
 			return  ID_INESISTENTE;
-
-
 	}
 
 	/**
@@ -77,6 +79,9 @@ public class SocialNetwork {
 	 * private perchè non puoi entrare senza autentificarti
 	 * 
 	 */
+	public PartitaCalcioCat getPcc() {
+		return pdc;
+	}
 	private void setUtente(String id) 
 	{
 		utente=consultaDB.caricaUtente(id);
@@ -102,6 +107,11 @@ public class SocialNetwork {
 	 */
 	public List<Evento> mostraBacheca(String categoria){
 		return categorie.get(categoria).getBacheca();
+	}
+
+	public ConsultaDB getConsultaDB() {
+		// TODO Auto-generated method stub
+		return consultaDB;
 	}
 
 
