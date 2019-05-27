@@ -9,7 +9,6 @@ public class SocialNetwork {
 	private Hashtable<String,Categoria> categorie;
 	private Utente utente;
 	private ConsultaDB consultaDB= new ConsultaDB();
-	private PartitaCalcioCat<PartitaCalcioEvento> pdc;
 
 
 
@@ -87,9 +86,6 @@ public class SocialNetwork {
 	 * private perchè non puoi entrare senza autentificarti
 	 * 
 	 */
-	public PartitaCalcioCat getPdc() {
-		return pdc;
-	}
 	private void setUtente(String id) 
 	{
 		utente=consultaDB.caricaUtente(id);
@@ -117,10 +113,6 @@ public class SocialNetwork {
 		return categorie.get(categoria);
 	}
 
-	public ConsultaDB getConsultaDB() {
-		// TODO Auto-generated method stub
-		return consultaDB;
-	}
 
 
 
