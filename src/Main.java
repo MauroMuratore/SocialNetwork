@@ -5,9 +5,9 @@ import interfacciaUtente.UserInterface;
 
 public class Main {
 	
-	public static SocialNetwork SN= new SocialNetwork();
+	public static SocialNetwork SN= new SocialNetwork(); //non dovrebbe essere static	
 	static boolean rispostaUI=false;
-	public static  UserInterface UI =null;
+	public static  UserInterface UI =null; //non dovrebbe essere static
 
 	public static void main(String[] args)
 	{
@@ -30,8 +30,8 @@ public class Main {
 				byte[] pw=UI.getPASS();
 				risposta=SN.login(id,pw);
 				System.out.println(risposta);
-				rispostaUI=UI.riceviStringa(risposta) ;//facciamo che il metodo ricevi sringa di UI ritorna un bool: vero se risposta � benvenuto oppure registrazione effettuata, falso se risposta � un messaggio di errore
-				UI.setFalse();//� un metodo che mette a false isLog e isReg  (sen� continua a prendere le credenziali in loop)
+				rispostaUI=UI.riceviStringa(risposta) ;//facciamo che il metodo ricevi sringa di UI ritorna un bool: vero se risposta ï¿½ benvenuto oppure registrazione effettuata, falso se risposta ï¿½ un messaggio di errore
+				UI.setFalse();//ï¿½ un metodo che mette a false isLog e isReg  (senï¿½ continua a prendere le credenziali in loop)
 				
 			}
 			
@@ -66,7 +66,7 @@ public class Main {
 	public static void sezioneMenu()
 	{
 		UI.sezioneMenu();
-//		UI.riceviCategorie(SN.titoliCategorie());//facciamo che UI abbia un metodo riceviCategorie che riceve un array list di stringhe e si occuper� della sua visualizzazone sull interfaccia
+//		UI.riceviCategorie(SN.titoliCategorie());//facciamo che UI abbia un metodo riceviCategorie che riceve un array list di stringhe e si occuperà della sua visualizzazone sull interfaccia
 //		Categoria categoriaScelta = UI.selezioneCategoria(); //facciao che UI abbia un metoto seleziona categoria che ritorna la categoria scelta dall utente
 //		IU.mostraEventi(SN.mostraBacheca(categoriaScelta));//facciamo che UI abbia un metodo mostra eventi ce riceve una lista di eventi e che li mostri sulla view
 	}
