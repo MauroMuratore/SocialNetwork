@@ -66,7 +66,7 @@ public class SocialNetwork {
 		if(!consultaDB.controllaID(username))//controllo se ce gia id nel database 
 		{
 			String hashString = new String(hash);
-			if(hashString.lenght()<7){
+			if(hashString.length()<7){
 				return PW_CORTA;
 			}
 			for(int i=0; i<hash.length; i++) {

@@ -44,7 +44,6 @@ public class FinestraMenu {
 		initialize();
 	}
 	
-	
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -234,7 +233,7 @@ public class FinestraMenu {
 		bachecaPDC.add(pannelloTitoliE);
 		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		
-		pdc = SN.getPdc();
+		pdc = SN.mostraCategoria("PartitaDiCalcio");
 		int size = pdc.getBacheca().size();
 		
 		for(k=0;k<size;k++)
