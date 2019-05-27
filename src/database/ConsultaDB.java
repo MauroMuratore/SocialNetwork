@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import cervello.PartitaCalcioCat;
 import cervello.Utente;
 
 public class ConsultaDB {
@@ -55,6 +56,10 @@ public class ConsultaDB {
 
 	public Utente caricaUtente(String id) {
 		return null;
+	}
+
+	public PartitaCalcioCat getPartitaCalcioCat() {
+		return lettura.leggiPartitaCalcioCat();
 	}
 
 }
