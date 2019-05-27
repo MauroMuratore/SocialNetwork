@@ -32,6 +32,7 @@ public abstract class Evento {
 		this.partecipantiMax = partecipantiMax;
 		this.termineUltimo = termineUltimo;
 		this.luogo = luogo;
+		this.partecipanti=partecipanti;
 		this.dataInizio = dataInizio;
 		this.durata = durata;
 		this.quotaIndividuale = quotaIndividuale;
