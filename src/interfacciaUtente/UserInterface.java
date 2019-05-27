@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.UIManager;
-
 import cervello.SocialNetwork;
 import database.ConsultaDB;
 
@@ -46,11 +45,28 @@ public class UserInterface {
 	private JTextPane textPane;
 	private FinestraMenu finestraMenu;
 	private SocialNetwork SN;
+	private boolean isLogOut=false;
+	
+	public void logOut(){
+		setFalse();
+		SN.logout();
+		rispostaUI=false;
+		isLogOut=true;
+	}
+
+	public boolean isLogOut() {
+		return isLogOut;
+	}
+
+	public void setLogOut(boolean isLogOut) {
+		this.isLogOut = isLogOut;
+	}
 
 	public void sezioneMenu(){
-		
+				
 		frame.setVisible(false);
-		finestraMenu= new FinestraMenu(SN);
+		if(finestraReg!=null)finestraReg.getFrame().dispose();
+		finestraMenu= new FinestraMenu(SN,this);
 		finestraMenu.getFrame().setVisible(true);
 		
 		
@@ -108,8 +124,7 @@ public class UserInterface {
 			{
 			case BENVENUTO : 
 				rispostaUI=true;
-				textPane.setForeground(Color.GREEN);
-				textPane.setText(BENVENUTO+" "+username);
+				textPane.setText("");
 				return rispostaUI;
 			case ID_INESISTENTE :
 				rispostaUI=false;
@@ -216,6 +231,7 @@ public class UserInterface {
 			});
 			btnRegistrazione.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					
 					frame.setVisible(false);
 					finestraReg = new SezioneRegistrazione();
 					finestraReg.getFrame().setVisible(true);
@@ -234,7 +250,7 @@ public class UserInterface {
 			textPane.setBackground(new Color(224, 255, 255));
 			frame.getContentPane().add(textPane);	
 
-			JTextPane txtpnprogettoIngegneriaDel = new JTextPane();
+			JLabel txtpnprogettoIngegneriaDel = new JLabel();
 			txtpnprogettoIngegneriaDel.setBounds(0, 228, 424, 20);
 			txtpnprogettoIngegneriaDel.setFont(new Font("Sitka Subheading", Font.PLAIN, 10));
 			txtpnprogettoIngegneriaDel.setText("#Progetto Ingegneria del software (parte 1) 2018-2019");
