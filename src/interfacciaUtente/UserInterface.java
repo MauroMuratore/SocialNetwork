@@ -40,7 +40,15 @@ public class UserInterface {
 	private SezioneRegistrazione finestraReg;
 	private JPasswordField passwordField;
 	private JTextPane textPane;
+	private FinestraMenu finestraMenu;
 
+	public void sezioneMenu(){
+		
+		frame.setVisible(false);
+		finestraMenu= new FinestraMenu();
+		finestraMenu.getFrame().setVisible(true);
+		
+	}
 	public void setFalse(){
 		isLog=false;
 		if(finestraReg!= null)
@@ -94,7 +102,7 @@ public class UserInterface {
 			case BENVENUTO : 
 				rispostaUI=true;
 				textPane.setForeground(Color.GREEN);
-				textPane.setText(BENVENUTO+username);
+				textPane.setText(BENVENUTO+" "+username);
 				return rispostaUI;
 			case ID_INESISTENTE :
 				rispostaUI=false;
@@ -134,11 +142,6 @@ public class UserInterface {
 			lblLogin.setBackground(new Color(0, 255, 255));
 			lblLogin.setForeground(SystemColor.textHighlight);
 			frame.getContentPane().add(lblLogin);
-
-			JLabel lblUsername = new JLabel("username");
-			lblUsername.setBounds(10, 45, 95, 14);
-			lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 11));
-			frame.getContentPane().add(lblUsername);
 
 			txtuser = new JTextField();
 			txtuser.setBounds(10, 70, 95, 20);
@@ -221,6 +224,10 @@ public class UserInterface {
 			txtpnprogettoIngegneriaDel.setText("#Progetto Ingegneria del software (parte 1) 2018-2019");
 			txtpnprogettoIngegneriaDel.setBackground(new Color(224, 255, 255));
 			frame.getContentPane().add(txtpnprogettoIngegneriaDel);
+			
+			JLabel lblUsername = new JLabel("username");
+			lblUsername.setBounds(10, 45, 80, 14);
+			frame.getContentPane().add(lblUsername);
 		}
 	}
 

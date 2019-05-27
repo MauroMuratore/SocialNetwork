@@ -4,12 +4,13 @@ import cervello.SocialNetwork;
 import interfacciaUtente.UserInterface;
 
 public class Main {
+	
+	public static SocialNetwork SN= new SocialNetwork();
+	static boolean rispostaUI=false;
+	public static  UserInterface UI =null;
 
 	public static void main(String[] args)
 	{
-		SocialNetwork SN= new SocialNetwork();
-		boolean rispostaUI=false;
-		UserInterface UI =null;
 		
 		try {
 			UI = new UserInterface();
@@ -30,8 +31,8 @@ public class Main {
 				risposta=SN.login(id,pw);
 				System.out.println(risposta);
 				rispostaUI=UI.riceviStringa(risposta) ;//facciamo che il metodo ricevi sringa di UI ritorna un bool: vero se risposta ï¿½ benvenuto oppure registrazione effettuata, falso se risposta ï¿½ un messaggio di errore
-				//sezioneCategorie();
 				UI.setFalse();//ï¿½ un metodo che mette a false isLog e isReg  (senï¿½ continua a prendere le credenziali in loop)
+				
 			}
 			
 			else if(UI.isRegistrazione())
@@ -47,7 +48,7 @@ public class Main {
 				//sezioneCategorie();//facciamo che dopo la registrazione il sistema presenta direttamente le categorie, senza passare per il login(login implicito)
 			}
 		}while(!rispostaUI);//il while cicla fino a che la risposta ui diventa vera
-
+		sezioneMenu();
 		//il sezione categorie dovremmo metterlo dopo
 	}
 	static void pausa(int secondi)
@@ -61,14 +62,15 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
-	/*
-	public static void sezioneCategorie()
+
+	public static void sezioneMenu()
 	{
-		UI.riceviCategorie(SN.titoliCategorie());//facciamo che UI abbia un metodo riceviCategorie che riceve un array list di stringhe e si occuperà della sua visualizzazone sull interfaccia
-		Categoria categoriaScelta = UI.selezioneCategoria(); //facciao che UI abbia un metoto seleziona categoria che ritorna la categoria scelta dall utente
-		IU.mostraEventi(SN.mostraBacheca(categoriaScelta));//facciamo che UI abbia un metodo mostra eventi ce riceve una lista di eventi e che li mostri sulla view
+		UI.sezioneMenu();
+//		UI.riceviCategorie(SN.titoliCategorie());//facciamo che UI abbia un metodo riceviCategorie che riceve un array list di stringhe e si occuperà della sua visualizzazone sull interfaccia
+//		Categoria categoriaScelta = UI.selezioneCategoria(); //facciao che UI abbia un metoto seleziona categoria che ritorna la categoria scelta dall utente
+//		IU.mostraEventi(SN.mostraBacheca(categoriaScelta));//facciamo che UI abbia un metodo mostra eventi ce riceve una lista di eventi e che li mostri sulla view
 	}
-	 */
+
 	
 
 
