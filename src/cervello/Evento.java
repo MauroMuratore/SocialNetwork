@@ -11,7 +11,6 @@ public abstract class Evento {
 	private int idEvento;
 	private Campo<String> titolo;
 	private Campo<Integer> partecipantiMax;
-	private Campo<LinkedList<Utente>> partecipanti;
 	private Campo<GregorianCalendar> termineUltimo;
 	private Campo<String> luogo;
 	private Campo<GregorianCalendar> dataInizio;
@@ -23,7 +22,7 @@ public abstract class Evento {
 	
 	
 	
-	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, Campo<LinkedList<Utente>> partecipanti,
+	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, 
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
 			Campo<GregorianCalendar> dataFine, Campo<String> note) {
@@ -33,7 +32,6 @@ public abstract class Evento {
 		this.partecipantiMax = partecipantiMax;
 		this.termineUltimo = termineUltimo;
 		this.luogo = luogo;
-		this.partecipanti=partecipanti;
 		this.dataInizio = dataInizio;
 		this.durata = durata;
 		this.quotaIndividuale = quotaIndividuale;
@@ -64,9 +62,6 @@ public abstract class Evento {
 	
 	public Campo<Integer> getDurata() {
 		return durata;
-	}
-	public Campo<LinkedList<Utente>> getPartecipanti(){
-		return partecipanti;
 	}
 	public Campo<Integer> getQuotaIndividuale() {
 		return quotaIndividuale;
