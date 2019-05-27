@@ -3,6 +3,7 @@ package cervello;
 import java.sql.Time;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
 //FINISHIM
 public abstract class Evento {
@@ -10,7 +11,7 @@ public abstract class Evento {
 	private int idEvento;
 	private Campo<String> titolo;
 	private Campo<Integer> partecipantiMax;
-	private Campo<Integer> partecipanti;
+	private Campo<LinkedList<Utente>> partecipanti;
 	private Campo<GregorianCalendar> termineUltimo;
 	private Campo<String> luogo;
 	private Campo<GregorianCalendar> dataInizio;
@@ -22,7 +23,7 @@ public abstract class Evento {
 	
 	
 	
-	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, Campo<Integer> partecipanti,
+	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, Campo<LinkedList<Utente>> partecipanti,
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
 			Campo<GregorianCalendar> dataFine, Campo<String> note) {
@@ -64,7 +65,7 @@ public abstract class Evento {
 	public Campo<Integer> getDurata() {
 		return durata;
 	}
-	public Campo<Integer> getPartecipanti(){
+	public Campo<LinkedList<Utente>> getPartecipanti(){
 		return partecipanti;
 	}
 	public Campo<Integer> getQuotaIndividuale() {
