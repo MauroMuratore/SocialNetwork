@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
 
+import cervello.Categoria;
 import cervello.Evento;
 import cervello.PartitaCalcioCat;
 import cervello.PartitaCalcioEvento;
@@ -24,6 +25,7 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class FinestraMenu {
 
@@ -35,7 +37,7 @@ public class FinestraMenu {
 	private JPanel bachecaPDC ;
 	private JPanel panelAP;
 	private SocialNetwork SN;
-	private PartitaCalcioCat<PartitaCalcioEvento> pdc;
+	private Categoria pdc;
 	private JPanel finestraEV;
 	private int k=0;//serve per un for(dichiarata qua per questioni di visibilita)
 
@@ -98,6 +100,8 @@ public class FinestraMenu {
 		JButton btnVistacategorie = new JButton("VistaCategorie");
 		btnVistacategorie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(panelCategorie != null)
+					frame.getContentPane().remove(panelCategorie);
 				if(panelAP != null)
 				frame.getContentPane().remove(panelAP);
 				if(panelInfo != null)
@@ -233,8 +237,10 @@ public class FinestraMenu {
 		bachecaPDC.add(pannelloTitoliE);
 		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		
-		pdc = SN.mostraCategoria("PartitaDiCalcio");
-		int size = pdc.getBacheca().size();
+		pdc = SN.mostraCategoria("Partita calcio");
+		System.out.println(pdc.getNome());
+		ArrayList<Evento> bacheca = pdc.getBacheca();
+		int size = bacheca.size();
 		
 		for(k=0;k<size;k++)
 		{ 

@@ -35,6 +35,7 @@ public class UserInterface {
 	public static final String ID_IN_USO = "ATTENZIONE! : username in uso";
 	public static final String PW_DIVERSE = "ATTENZIONE! : password diverse";
 	public static final String PW_CORTA ="ATTENZIONE! : passoword troppo corta";
+	public static final String ID_CORTO = "ATTENZIONE! : id troppo corto";
 	private JTextField txtuser;
 	private boolean isLog =false;
 	private String username;
@@ -129,6 +130,10 @@ public class UserInterface {
 			case PW_CORTA: 
 				rispostaUI=false;
 				finestraReg.getTextPane_1().setText(PW_CORTA);
+				return rispostaUI;
+			case ID_CORTO: 
+				rispostaUI=false;
+				finestraReg.getTextPane_1().setText(ID_CORTO);
 				return rispostaUI;
 			default : 
 				rispostaUI=false;

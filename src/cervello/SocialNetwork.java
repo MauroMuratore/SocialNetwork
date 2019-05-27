@@ -23,7 +23,7 @@ public class SocialNetwork {
 	
 	public SocialNetwork() {
 		categorie = new Hashtable<String, Categoria>();
-		pdc = consultaDB.getPartitaCalcioCat();
+		PartitaCalcioCat pdc = consultaDB.getPartitaCalcioCat();
 		categorie.put(pdc.getNome(), pdc);
 
 	}
@@ -64,17 +64,21 @@ public class SocialNetwork {
 	{
 		if(!consultaDB.controllaID(username))//controllo se ce gia id nel database 
 		{
-			if(username.lenght()<7)
+			if(username.length()<7)
 				return ID_CORTO;
 			String hashString = new String(hash);
 			if(hashString.length()<7){
 				return PW_CORTA;
 			}
-			for(int i=0; i<hash.length; i++) {
-				if(hash[i]!=conferma[i]) //controllo byte per byte se hash e conferma sono uguali
-					return PW_DIVERSE;
+			boolean uguali=true;
+			if(hash.length!=conferma.length) return PW_DIVERSE;
+			else {
+				for(int i=0; i<hash.length; i++) {
+					if(hash[i]!=conferma[i]) //controllo byte per byte se hash e conferma sono uguali
+						uguali=false;	
+				}if(uguali=false)return PW_DIVERSE;
 			}
-			
+
 			consultaDB.aggiungiUtente(username, hash);
 			setUtente(username);
 			return BENVENUTO;

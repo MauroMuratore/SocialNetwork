@@ -40,6 +40,7 @@ public class ConsultaDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(hash.length!=confByte.length) return false;
 		for(int i=0; i<hash.length; i++) {
 			if(hash[i]!=
 					confByte[i])
