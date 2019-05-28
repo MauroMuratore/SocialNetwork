@@ -26,7 +26,7 @@ public class Main {
 
 		do{
 			pausa(1);
-			System.out.println("sto cercando il logout");
+			//System.out.println("sto cercando il logout");
 			if (UI.isLogOut())
 			{
 				System.out.println("ho trovato il logout");
@@ -58,7 +58,7 @@ public class Main {
 		do{		 
 			String risposta;
 			pausa(1);
-			System.out.println("sto ciclando");
+			//System.out.println("sto ciclando");
 			if(UI.isLog())
 			{
 
@@ -76,13 +76,12 @@ public class Main {
 			{
 				System.out.println("prendo credenziali registrazione");
 				String id = UI.getIDREG();
-				byte[] pw = UI.getPWREG(); //sono due getPW diversi rispetto a quello del login?
+				byte[] pw = UI.getPWREG(); 
 				byte[] confermaPW = UI.getConfermaPWREG();
 				risposta=SN.registrazione(id, pw, confermaPW);
 				System.out.println(risposta);
 				rispostaUI=UI.riceviStringa(risposta);
 				UI.setFalse();
-				//sezioneCategorie();//facciamo che dopo la registrazione il sistema presenta direttamente le categorie, senza passare per il login(login implicito)
 			}
 		}while(!rispostaUI);//il while cicla fino a che la risposta ui diventa vera
 		rispostaUI=false;

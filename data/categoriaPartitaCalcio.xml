@@ -181,5 +181,94 @@
 <obbligatorio>true</obbligatorio>
 </campo>
 </evento>
+<evento id="123123125">
+<campo>
+<nome>titolo</nome>
+<descrizione/>
+<valore>FinaleConMauro</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>partecipanti massimi</nome>
+<descrizione/>
+<valore>12</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>termine ultimo</nome>
+<descrizione/>
+<valore>
+<anno>2019</anno>
+<mese>6</mese>
+<giorno>13</giorno>
+<ora>3</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>luogo</nome>
+<descrizione/>
+<valore>palestra millenium</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>data inizio</nome>
+<descrizione/>
+<valore>
+<anno>2019</anno>
+<mese>6</mese>
+<giorno>14</giorno>
+<ora>3</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>durata</nome>
+<descrizione/>
+<valore>1</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>data fine</nome>
+<descrizione/>
+<valore>
+<anno>2019</anno>
+<mese>6</mese>
+<giorno>15</giorno>
+<ora>3</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>quota individuale</nome>
+<descrizione/>
+<valore>5</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>compreso quota</nome>
+<descrizione/>
+<valore>giornata nella palestra</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>note</nome>
+<descrizione/>
+<valore>ricordarsi di portare due magliette di colore differente</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>sesso</nome>
+<descrizione/>
+<valore>maschio</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>eta</nome>
+<descrizione/>
+<valore>12</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+</evento>
 </elenco>
 </categoria>
