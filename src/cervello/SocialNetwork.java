@@ -12,6 +12,7 @@ public class SocialNetwork {
 
 
 
+
 	public static final String BENVENUTO = "BENVENUTO";
 	public static final String ID_INESISTENTE= "ATTENZIONE! : username inesistente";
 	public static final String ID_CORTO = "ATTENZIONE! : id troppo corto";
@@ -25,7 +26,7 @@ public class SocialNetwork {
 		categorie = new Hashtable<String, Categoria>();
 		PartitaCalcioCat pdc = consultaDB.getPartitaCalcioCat();
 		categorie.put(pdc.getNome(), pdc);
-
+		//quando vengono caricate gli eventi bisogna fare un controllo sulle notifiche
 	}
 
 	/**
@@ -116,7 +117,15 @@ public class SocialNetwork {
 	public Categoria mostraCategoria(String categoria){
 		return categorie.get(categoria);
 	}
+	
+	//monte come mi fai arrivare l'iscrizione a un evento? mi mandi una stringa, l'id dell'evento o altro?
+	public String iscrizione(Evento evento) {
+		
+		return null;
+	}
 
+	public void addevento;
+	
 
 
 
