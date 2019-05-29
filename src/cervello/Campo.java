@@ -16,6 +16,16 @@ public class Campo<T> {
 		obbligatorio=_obbl;
 	}
 	
+	public Campo(String _nome, String _descrizione, boolean _obbl) {
+		nome=_nome;
+		descrizione=_descrizione;
+		obbligatorio=_obbl;
+	}
+	
+	public void setValore(T _valore) {
+		valore=_valore;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
