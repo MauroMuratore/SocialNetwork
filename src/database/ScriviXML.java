@@ -3,6 +3,7 @@ package database;
 import java.io.File;
 import java.io.IOException;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
 import javax.xml.parsers.*;
 import javax.xml.transform.OutputKeys;
@@ -71,7 +72,7 @@ public class ScriviXML {
 	}
 
 	/**
-	 * scrittura partita da calcio
+	 * scrittura partita da calcio, se è nuova viene creato un nuovo oggetto, altrimenti viene sovrascritto
 	 * @param evento
 	 */
 	public void scriviPartitaCalcioEvento(PartitaCalcioEvento evento) {
@@ -89,9 +90,29 @@ public class ScriviXML {
 		} catch (IOException io) {
 			io.printStackTrace();
 		}
-
-
 		Element elenco = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		
+		for(int i=0; i< elenco.getElementsByTagName(NomiDB.TAG_EVENTO.getNome()).getLength(); i++) {
+			Element nodo = (Element) elenco.getElementsByTagName(NomiDB.TAG_EVENTO.getNome()).item(i);
+			int idNodo = Integer.parseInt(nodo.getAttribute("id"));
+			if(evento.getIdEvento()==idNodo) {
+				scriviCampo(evento.getTitolo(), nodo, doc);
+				scriviCampo(evento.getPartecipantiMax(), nodo, doc);
+				scriviCampo(evento.getTermineUltimo(), nodo, doc);
+				scriviCampo(evento.getLuogo(), nodo, doc);
+				scriviCampo(evento.getDataInizio(), nodo, doc);
+				//scriviCampo(evento.getOrarioInizio(), newEvento, doc);
+				scriviCampo(evento.getDurata(), nodo, doc);
+				scriviCampo(evento.getDataFine(), nodo, doc);
+				scriviCampo(evento.getQuotaIndividuale(), nodo, doc);
+				scriviCampo(evento.getCompresoQuota(), nodo, doc);
+				scriviCampo(evento.getNote(), nodo, doc);
+				scriviCampo(evento.getSesso(), nodo, doc);
+				scriviCampo(evento.getEta(), nodo, doc);
+				scriviPartecipanti(evento.getPartecipanti(), nodo, doc);
+				return;
+			}
+		}
 
 		Element newEvento = doc.createElement(NomiDB.TAG_EVENTO.getNome());
 		newEvento.setAttribute("id", String.valueOf(evento.getIdEvento())); 
@@ -108,6 +129,7 @@ public class ScriviXML {
 		scriviCampo(evento.getNote(), newEvento, doc);
 		scriviCampo(evento.getSesso(), newEvento, doc);
 		scriviCampo(evento.getEta(), newEvento, doc);
+		scriviPartecipanti(evento.getPartecipanti(), newEvento, doc);
 
 		elenco.appendChild(newEvento);
 
@@ -115,6 +137,7 @@ public class ScriviXML {
 
 	}
 
+	
 	/**
 	 * scrittura di un campo di un determinato evento
 	 * @param campo
@@ -130,31 +153,31 @@ public class ScriviXML {
 		descrizione.setTextContent(campo.getDescrizione());
 		newEl.appendChild(descrizione);
 		Element valore = doc.createElement(NomiDB.TAG_VALORE.getNome());
-		
+
 		if(campo.getClasseValore().equals(GregorianCalendar.class)) { //scrittura della data
 			GregorianCalendar data =((GregorianCalendar)campo.getValore());
-			
+
 			Element annoNodo = doc.createElement(NomiDB.TAG_ANNO.getNome());
 			int annoInt =data.get(GregorianCalendar.YEAR);
 			annoNodo.setTextContent( String.valueOf(annoInt) );
-			
+
 			Element meseNodo = doc.createElement(NomiDB.TAG_MESE.getNome());
 			int meseInt = data.get(GregorianCalendar.MONTH);
 			meseNodo.setTextContent(String.valueOf(meseInt));
-			
+
 			Element giornoNodo = doc.createElement(NomiDB.TAG_GIORNO.getNome());
 			int giornoInt = data.get(GregorianCalendar.DAY_OF_MONTH);
 			giornoNodo.setTextContent(String.valueOf(giornoInt));
-			
+
 			Element oraNodo = doc.createElement(NomiDB.TAG_ORA.getNome());
 			int oraInt = data.get(GregorianCalendar.HOUR_OF_DAY);
 			oraNodo.setTextContent(String.valueOf(oraInt));
-			
+
 			valore.appendChild(annoNodo);
 			valore.appendChild(meseNodo);
 			valore.appendChild(giornoNodo);
 			valore.appendChild(oraNodo);
-			
+
 
 		}
 		else //scrittura di qualsiasi altro campo
@@ -166,6 +189,17 @@ public class ScriviXML {
 		evento.appendChild(newEl);
 
 	}
+
+	public void scriviPartecipanti(LinkedList<String> lista, Element evento, Document doc) {
+		Element nodoLista = doc.createElement(NomiDB.CAMPO_PARTECIPANTI.getNome());
+		for(int i=0; i<lista.size(); i++) {
+			Element nodoNome = doc.createElement(NomiDB.TAG_NOME.getNome());
+			nodoNome.setTextContent(lista.get(i));
+		}
+		evento.appendChild(nodoLista);
+
+	}
+
 
 	/**
 	 * scrittura effettiva su file

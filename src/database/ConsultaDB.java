@@ -6,6 +6,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import cervello.PartitaCalcioCat;
+import cervello.PartitaCalcioEvento;
 import cervello.Utente;
 
 public class ConsultaDB {
@@ -55,6 +56,11 @@ public class ConsultaDB {
 		scrittura.scriviUtente(id, pw);
 	}
 
+	/**
+	 * caricare i dati di un utente
+	 * @param id
+	 * @return
+	 */
 	public Utente caricaUtente(String id) {
 		return null;
 	}
@@ -62,5 +68,11 @@ public class ConsultaDB {
 	public PartitaCalcioCat getPartitaCalcioCat() {
 		return lettura.leggiPartitaCalcioCat();
 	}
+	
+	public void scriviEvento(PartitaCalcioEvento pce) {
+		scrittura.scriviPartitaCalcioEvento(pce);
+	}
+	
+	
 
 }

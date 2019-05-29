@@ -9,6 +9,7 @@ public enum NomiDB {
 	CAMPO_DURATA("durata"),
 	CAMPO_LUOGO("luogo"),
 	CAMPO_NOTE("note"),
+	CAMPO_PARTECIPANTI("partecipant"),
 	CAMPO_PARTECIPANTI_MAX("partecipanti massimi"),
 	CAMPO_QUOTA_IND("quota individuale"),
 	CAMPO_TERMINE_ULTIMO("termine ultimo"),

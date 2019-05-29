@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -114,8 +115,10 @@ public class LeggiXML {
 		Campo<String> nota = leggiCampo(evento, String.class, NomiDB.CAMPO_NOTE);
 		Campo<String> sesso = leggiCampo(evento, String.class, NomiDB.CAMPO_SESSO);
 		Campo<Integer> eta = leggiCampo(evento, Integer.class, NomiDB.CAMPO_ETA);
+		LinkedList<String> partecipanti = leggiPartecipanti(evento);
 		
-		PartitaCalcioEvento ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, termineUltimo, luogo, dataInizio,
+		
+		PartitaCalcioEvento ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, partecipanti, termineUltimo, luogo, dataInizio,
 				durata, quotaIndividuale, compresoQuota, dataFine, nota, sesso, eta);
 		return ritorno;
 	}
@@ -127,7 +130,7 @@ public class LeggiXML {
 		String nome = campo.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
 		String descrizione = campo.getElementsByTagName(NomiDB.TAG_DESCRIZIONE.getNome()).item(0).getTextContent();
 		String valoreToString = campo.getElementsByTagName(NomiDB.TAG_VALORE.getNome()).item(0).getTextContent();
-//		Boolean obbl = Boolean.valueOf(campo.getElementsByTagName(NomiDB.TAG_OBBL.getNome()).item(0).getTextContent());
+		Boolean obbl = Boolean.valueOf(campo.getElementsByTagName(NomiDB.TAG_OBBL.getNome()).item(0).getTextContent());
 		
 		Campo ritorno = null;
 		if(classeValore.equals(String.class)) {
@@ -151,6 +154,19 @@ public class LeggiXML {
 		
 		
 		return ritorno;
+	}
+	
+	public LinkedList<String> leggiPartecipanti(Element evento){
+		LinkedList<String> lista = new LinkedList<String>();
+		Element nodoLista = (Element) evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome());
+		
+		for(int i=0; i<nodoLista.getElementsByTagName(NomiDB.TAG_NOME.getNome()).getLength(); i++) {
+			String username = nodoLista.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(i).getTextContent();
+			lista.add(username);
+		}
+		
+		return lista;
+		
 	}
 	
 	public Campo leggiCampo(Element evento, Class classeValore, NomiDB nomeCampo) {
