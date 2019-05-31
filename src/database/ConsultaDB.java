@@ -53,7 +53,7 @@ public class ConsultaDB {
 
 	public void aggiungiUtente(String id, byte[] pw)//questo metondo crea e aggiunge un utente al database e ritorna l'oggetto utente creato
 	{
-		scrittura.scriviUtente(id, pw);
+		scrittura.aggiungiUtente(id, pw);
 	}
 
 	/**
@@ -73,6 +73,9 @@ public class ConsultaDB {
 		scrittura.scriviPartitaCalcioEvento(pce);
 	}
 	
+	public void salvaUtente(Utente utente) {
+		scrittura.salvaUtente(utente);
+	}
 	
 
 }

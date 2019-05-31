@@ -18,8 +18,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import cervello.Campo;
+import cervello.Categoria;
+import cervello.Evento;
+import cervello.Notifica;
 import cervello.PartitaCalcioCat;
 import cervello.PartitaCalcioEvento;
+import cervello.Utente;
 
 public class LeggiXML {
 
@@ -34,7 +38,7 @@ public class LeggiXML {
 		Document doc=null;
 		try {
 			builder=factory.newDocumentBuilder();
-			doc = builder.parse(new File(NomiDB.FILE_LOGIN.getNome()));
+			doc = builder.parse(new File(NomiDB.FILE_UTENTI.getNome()));
 
 
 		} catch (SAXException sax) {
@@ -59,8 +63,7 @@ public class LeggiXML {
 		return null;
 	}
 
-	
-	//FINISHIM
+
 	public PartitaCalcioCat leggiPartitaCalcioCat() {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
@@ -88,7 +91,7 @@ public class LeggiXML {
 		ritorno = new PartitaCalcioCat<>(nome, descrizione, bacheca);
 		return ritorno;
 	}
-	//FINISHIM
+
 	public ArrayList<PartitaCalcioEvento> leggiListaPartiteCalcio(Document doc) {
 		Element lista = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
 		ArrayList<PartitaCalcioEvento> ritorno = new ArrayList<PartitaCalcioEvento>();
@@ -100,7 +103,7 @@ public class LeggiXML {
 
 		return ritorno;
 	}
-	
+
 	public PartitaCalcioEvento leggiPartitaCalcioEvento(Element evento) {
 		int id = Integer.parseInt(evento.getAttribute("id"));
 		Campo<String> titolo = leggiCampo(evento, String.class, NomiDB.CAMPO_TITOLO);
@@ -116,22 +119,18 @@ public class LeggiXML {
 		Campo<String> sesso = leggiCampo(evento, String.class, NomiDB.CAMPO_SESSO);
 		Campo<Integer> eta = leggiCampo(evento, Integer.class, NomiDB.CAMPO_ETA);
 		LinkedList<String> partecipanti = leggiPartecipanti(evento);
-		
-		
+
+
 		PartitaCalcioEvento ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, partecipanti, termineUltimo, luogo, dataInizio,
 				durata, quotaIndividuale, compresoQuota, dataFine, nota, sesso, eta);
 		return ritorno;
 	}
-	
-	/*
-	 * dovrei passare l'evento da li fare ricerca e aggiunger come parametro il nome dle campo
-	 */
+
 	public Campo leggiCampoDaNodo(Element campo, Class classeValore) {
 		String nome = campo.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
 		String descrizione = campo.getElementsByTagName(NomiDB.TAG_DESCRIZIONE.getNome()).item(0).getTextContent();
 		String valoreToString = campo.getElementsByTagName(NomiDB.TAG_VALORE.getNome()).item(0).getTextContent();
-		Boolean obbl = Boolean.valueOf(campo.getElementsByTagName(NomiDB.TAG_OBBL.getNome()).item(0).getTextContent());
-		
+
 		Campo ritorno = null;
 		if(classeValore.equals(String.class)) {
 			ritorno = new Campo<String>(nome, descrizione, valoreToString, true);
@@ -146,29 +145,28 @@ public class LeggiXML {
 			int mese = Integer.parseInt(valore.getElementsByTagName(NomiDB.TAG_MESE.getNome()).item(0).getTextContent());
 			int giorno = Integer.parseInt(valore.getElementsByTagName(NomiDB.TAG_GIORNO.getNome()).item(0).getTextContent());
 			int ora = Integer.parseInt(valore.getElementsByTagName(NomiDB.TAG_ORA.getNome()).item(0).getTextContent());
-			
+
 			data.set(anno, mese, giorno, ora, 0);
-			
+
 			ritorno = new Campo<GregorianCalendar>(nome, descrizione, data, true); 
 		}
-		
-		
+
+
 		return ritorno;
 	}
-	
+
 	public LinkedList<String> leggiPartecipanti(Element evento){
 		LinkedList<String> lista = new LinkedList<String>();
-		Element nodoLista = (Element) evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome());
-		
+		Element nodoLista = (Element) evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome()).item(0);
 		for(int i=0; i<nodoLista.getElementsByTagName(NomiDB.TAG_NOME.getNome()).getLength(); i++) {
 			String username = nodoLista.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(i).getTextContent();
 			lista.add(username);
 		}
-		
+
 		return lista;
-		
+
 	}
-	
+
 	public Campo leggiCampo(Element evento, Class classeValore, NomiDB nomeCampo) {
 		NodeList campiLista = evento.getElementsByTagName(NomiDB.TAG_CAMPO.getNome());
 		Campo ritorno=null;
@@ -179,12 +177,79 @@ public class LeggiXML {
 				ritorno = leggiCampoDaNodo(campo, classeValore);
 				break;
 			}
-					
+
+		}
+
+		return ritorno;
+
+	}
+
+	/**
+	 * legge la partita 
+	 * @param id unico
+	 * @return
+	 */
+	public PartitaCalcioEvento leggiPartitaCalcioEvento(int id) {
+		PartitaCalcioCat<PartitaCalcioEvento> cat = leggiPartitaCalcioCat();
+		ArrayList<PartitaCalcioEvento> list = new ArrayList<PartitaCalcioEvento>(cat.getBacheca());
+		
+		for(PartitaCalcioEvento pce : list) {
+			if (pce.getIdEvento()==id)
+				return pce;
+		}
+		return null;
+	}
+	
+	public LinkedList<Notifica> leggiNotifiche(Element listaNotifiche){
+		LinkedList<Notifica> ritorno = new LinkedList<Notifica>();
+		NodeList lista = listaNotifiche.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome());
+		for(int i=0; i<lista.getLength(); i++) {
+			Element nodoNotifica = (Element) lista.item(i);
+			Element nodoMessaggio = (Element) nodoNotifica.getElementsByTagName(NomiDB.TAG_DESCRIZIONE.getNome()).item(0);
+			Element nodoID = (Element) nodoNotifica.getElementsByTagName(NomiDB.TAG_ID.getNome()).item(0);
+			Element nodoLetto = (Element) nodoNotifica.getElementsByTagName(NomiDB.TAG_LETTO.getNome()).item(0);
+			
+			String messaggio = nodoMessaggio.getTextContent();
+			Evento evento = leggiPartitaCalcioEvento(Integer.parseInt(nodoID.getTextContent()));
+			boolean letto = Boolean.valueOf(nodoLetto.getTextContent());
+			ritorno.add(new Notifica(evento, messaggio, letto));
+			
 		}
 		
 		return ritorno;
-		
 	}
+
+	public Utente caricaUtente(String id) {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder;
+		Document doc = null;
+
+		try {
+			builder = factory.newDocumentBuilder();
+			doc = builder.parse(new File(NomiDB.FILE_UTENTI.getNome()));
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Element elenco = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		NodeList lista = elenco.getElementsByTagName(NomiDB.TAG_UTENTE.getNome());
+		Element utente=null;
+		for(int i=0; i<lista.getLength(); i++) {
+			if(id.equals(((Element) lista.item(i)).getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent()))
+				utente = (Element) lista.item(i);
+		}
+		
+		String nome = utente.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
+		byte[] hash = utente.getElementsByTagName(NomiDB.TAG_HASH.getNome()).item(0).getTextContent().getBytes();
+		Element notifiche = (Element) utente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		Utente ritorno = new Utente(nome, hash, leggiNotifiche(notifiche));
+		return ritorno;
+	}
+
+
+
+
 }
 
 

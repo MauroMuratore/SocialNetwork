@@ -19,21 +19,19 @@ import org.xml.sax.SAXException;
 
 import cervello.Campo;
 import cervello.Evento;
+import cervello.Notifica;
 import cervello.PartitaCalcioEvento;
 import cervello.Utente;
 
 public class ScriviXML {
 
-	public static final String UTENTE = "utente";
-	public static final String USERNAME = "username";
-	public static final String HASH = "hash";
 
 	/**
-	 * scrive alla fine del file l'utente
+	 * scrive alla fine del file le credenziali dell'utente
 	 * @param username
 	 * @param hash
 	 */
-	public void scriviUtente(String username, byte[] hash) {
+	public void aggiungiUtente(String username, byte[] hash) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
 		Document doc=null;
@@ -41,7 +39,7 @@ public class ScriviXML {
 		try {
 			builder = factory.newDocumentBuilder();
 
-			doc = builder.parse(new File(NomiDB.FILE_LOGIN.getNome()));
+			doc = builder.parse(new File(NomiDB.FILE_UTENTI.getNome()));
 			hashChar = new String(hash, "UTF-8");
 		}catch (SAXException sax) {
 			sax.printStackTrace();
@@ -65,11 +63,56 @@ public class ScriviXML {
 		root.appendChild(newChild);
 
 		//effetivament per scrivere
-		scriviSuFile(doc, NomiDB.FILE_LOGIN);
+		scriviSuFile(doc, NomiDB.FILE_UTENTI);
 
 
 		System.out.println("Scrittura completata");
 	}
+	
+	public void salvaUtente(Utente utente) {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder;
+		Document doc=null;
+		try {
+			builder = factory.newDocumentBuilder();
+			doc = builder.parse(new File(NomiDB.FILE_UTENTI.getNome()));
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Element elenco = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		NodeList lista = elenco.getElementsByTagName(NomiDB.TAG_UTENTE.getNome());
+		Element nodoUtente = null;
+		for(int i=0; i<lista.getLength(); i++) {
+			String nome =((Element)lista.item(i)).getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
+			if(nome.equals(utente.getUsername())) {
+				nodoUtente = (Element)lista.item(0);
+			}
+		}
+		Element notifiche = (Element) nodoUtente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		for(Notifica n: utente.getNotifiche()) {
+			Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
+			Element nodoMessaggio = doc.createElement(NomiDB.TAG_DESCRIZIONE.getNome());
+			Element nodoEvento = doc.createElement(NomiDB.TAG_ID.getNome());
+			Element nodoLetto = doc.createElement(NomiDB.TAG_LETTO.getNome());
+			
+			nodoMessaggio.setTextContent(n.getMessaggio());
+			nodoEvento.setTextContent(String.valueOf(n.getEvento().getIdEvento()));
+			nodoLetto.setTextContent(String.valueOf(n.getLetta()));
+			
+			nodoNotifica.appendChild(nodoMessaggio);
+			nodoNotifica.appendChild(nodoEvento);
+			nodoNotifica.appendChild(nodoLetto);
+			notifiche.appendChild(nodoNotifica);
+		}
+		nodoUtente.appendChild(notifiche);
+		
+		scriviSuFile(doc, NomiDB.FILE_UTENTI);
+		
+		
+	}
+	
 
 	/**
 	 * scrittura partita da calcio, se è nuova viene creato un nuovo oggetto, altrimenti viene sovrascritto
@@ -97,7 +140,7 @@ public class ScriviXML {
 			int idNodo = Integer.parseInt(nodo.getAttribute("id"));
 			if(evento.getIdEvento()==idNodo) {
 				scriviCampo(evento.getTitolo(), nodo, doc);
-				scriviCampo(evento.getPartecipantiMax(), nodo, doc);
+				scriviCampo(evento.getPartecipantiNecessari(), nodo, doc);
 				scriviCampo(evento.getTermineUltimo(), nodo, doc);
 				scriviCampo(evento.getLuogo(), nodo, doc);
 				scriviCampo(evento.getDataInizio(), nodo, doc);
@@ -117,7 +160,7 @@ public class ScriviXML {
 		Element newEvento = doc.createElement(NomiDB.TAG_EVENTO.getNome());
 		newEvento.setAttribute("id", String.valueOf(evento.getIdEvento())); 
 		scriviCampo(evento.getTitolo(), newEvento, doc);
-		scriviCampo(evento.getPartecipantiMax(), newEvento, doc);
+		scriviCampo(evento.getPartecipantiNecessari(), newEvento, doc);
 		scriviCampo(evento.getTermineUltimo(), newEvento, doc);
 		scriviCampo(evento.getLuogo(), newEvento, doc);
 		scriviCampo(evento.getDataInizio(), newEvento, doc);
