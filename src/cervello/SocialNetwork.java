@@ -29,7 +29,7 @@ public class SocialNetwork {
 		categorie = new Hashtable<String, Categoria>();
 		PartitaCalcioCat pdc = consultaDB.getPartitaCalcioCat();
 		categorie.put(pdc.getNome(), pdc);
-		aggiornamentoEvento(); //aggiorna tutti gli eventi
+		aggiornamentoEventi(); //aggiorna tutti gli eventi
 		//quando vengono caricate gli eventi bisogna fare un controllo sulle notifiche
 	}
 
@@ -39,7 +39,6 @@ public class SocialNetwork {
 	 * @param hash
 	 * @return torna l'esito del login
 	 */
-	//il login ritorna una stringa, se id e pw sono corretti risponde benvenuto e setta l'utente, se invece sono errati invia un messaggio di errore
 	public String login(String id, byte[] hash) 
 	{
 
@@ -91,6 +90,7 @@ public class SocialNetwork {
 		else
 			return ID_IN_USO;
 	}
+	
 	/*
 	 * private perchè non puoi entrare senza autentificarti
 	 * 
@@ -194,7 +194,7 @@ public class SocialNetwork {
 	/**
 	 * aggiorna tutti gli stati di tutti gli eventi inviando le varie notifiche
 	 */
-	public void aggiornamentoEvento() {
+	public void aggiornamentoEventi() {
 		for(String key: categorie.keySet()) {
 			List<Evento> bacheca= categorie.get(key).getBacheca();
 			for(int i=0; i<bacheca.size(); i++) {
