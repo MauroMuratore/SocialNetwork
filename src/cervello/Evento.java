@@ -15,7 +15,7 @@ public abstract class Evento {
 	private StatoEvento stato;
 	protected LinkedList<String> partecipanti;
 	protected Campo<String> titolo;
-	protected Campo<Integer> partecipantiMax;
+	protected Campo<Integer> partecipantiNecessari;
 	protected Campo<GregorianCalendar> termineUltimo;
 	protected Campo<String> luogo;
 	protected Campo<GregorianCalendar> dataInizio;
@@ -30,14 +30,14 @@ public abstract class Evento {
 	 * Da usare per la lettura da disco
 	 * 
 	 */
-	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, LinkedList<String> partecipanti,
+	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiNecessari, LinkedList<String> partecipanti,
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
 			Campo<GregorianCalendar> dataFine, Campo<String> note) {
 		super();
 		this.idEvento = idEvento;
 		this.titolo = titolo;
-		this.partecipantiMax = partecipantiMax;
+		this.partecipantiNecessari = partecipantiNecessari;
 		this.partecipanti=(LinkedList<String>) partecipanti.clone();
 		this.termineUltimo = termineUltimo;
 		this.luogo = luogo;
@@ -68,7 +68,7 @@ public abstract class Evento {
 			Campo<GregorianCalendar> dataFine, Campo<String> note) {
 		super();
 		this.titolo = titolo;
-		this.partecipantiMax = partecipantiMax;
+		this.partecipantiNecessari = partecipantiMax;
 		this.termineUltimo = termineUltimo;
 		this.luogo = luogo;
 		this.dataInizio = dataInizio;
@@ -79,6 +79,7 @@ public abstract class Evento {
 		this.note = note;
 		this.idEvento = (int) System.currentTimeMillis();
 		this.partecipanti = new LinkedList<String>();
+		this.stato=StatoEvento.APERTO;
 	}
 	
 	public Evento() {
@@ -93,8 +94,8 @@ public abstract class Evento {
 	public Campo<String> getTitolo() {
 		return titolo;
 	}
-	public Campo<Integer> getPartecipantiMax() {
-		return partecipantiMax;
+	public Campo<Integer> getPartecipantiNecessari() {
+		return partecipantiNecessari;
 	}
 	public Campo<GregorianCalendar> getTermineUltimo() {
 		return termineUltimo;
@@ -124,14 +125,18 @@ public abstract class Evento {
 	public Campo<String> getNote() {
 		return note;
 	}
+	
+	public StatoEvento getStato() {
+		return stato;
+	}
 
 
 	public void setTitolo(String _titolo) {
 		titolo.setValore(_titolo);;
 	}
 
-	public void setPartecipantiMax(int _partecipantiMax) {
-		partecipantiMax.setValore(_partecipantiMax);;
+	public void setPartecipantiNecessari(int _partecipantiNecessari) {
+		partecipantiNecessari.setValore(_partecipantiNecessari);;
 	}
 
 	public void setTermineUltimo(GregorianCalendar _termineUltimo) {
@@ -172,10 +177,9 @@ public abstract class Evento {
 	 */
 	public abstract boolean valido(); 
 		
-	
 
 	public String toString() {
-		return titolo.toString() + partecipantiMax.toString() + termineUltimo.toString() + luogo.toString() + dataInizio.toString() +durata.toString() + quotaIndividuale.toString() +
+		return titolo.toString() + partecipantiNecessari.toString() + termineUltimo.toString() + luogo.toString() + dataInizio.toString() +durata.toString() + quotaIndividuale.toString() +
 				compresoQuota.toString() + dataFine.toString() + note.toString();
 	}
 	
@@ -191,7 +195,7 @@ public abstract class Evento {
 		if(stato==StatoEvento.APERTO) {
 			//chiuso
 			if(termineUltimo.getValore().after(oggi) || termineUltimo.getValore().equals(oggi)) {
-				if(partecipantiMax.getValore().intValue() == partecipanti.size()) {
+				if(partecipantiNecessari.getValore().intValue() == partecipanti.size()) {
 					stato=StatoEvento.CHIUSO;
 					return new Notifica(this, Notifica.CHIUSO);
 				}					
@@ -214,6 +218,7 @@ public abstract class Evento {
 	
 	/**
 	 * iscrive un nuovo utente all'evento
+	 * dopo richiamare subito cambiaStato
 	 * @param nome
 	 * @return
 	 */
