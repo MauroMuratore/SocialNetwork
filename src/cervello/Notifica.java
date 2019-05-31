@@ -4,6 +4,7 @@ public class Notifica {
 	
 	private Evento evento;
 	private String messaggio;
+	private boolean letta;
 	
 	public static final String ISCRIZIONE = "Ti sei iscritto all'evento";
 	public static final String CHIUSO = "L'evento ha chiuso le iscrizioni";
@@ -13,6 +14,13 @@ public class Notifica {
 	public Notifica(Evento _evento, String mes) {
 		evento=_evento;
 		messaggio=mes;
+		letta=false;
+	}
+	
+	public Notifica(Evento _evento, String mes, boolean letto) {
+		evento =_evento;
+		messaggio=mes;
+		letta = letto;
 	}
 	
 	public Evento getEvento() {
@@ -21,6 +29,14 @@ public class Notifica {
 	
 	public String getMessaggio() {
 		return messaggio;
+	}
+	
+	public void letta() {
+		letta=true;
+	}
+	
+	public boolean getLetta() {
+		return letta;
 	}
 
 }
