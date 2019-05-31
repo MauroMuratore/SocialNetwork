@@ -11,7 +11,7 @@ import cervello.PartitaCalcioCat;
 import cervello.PartitaCalcioEvento;
 import cervello.SocialNetwork;
 import database.ConsultaDB;
-import javafx.stage.WindowEvent;
+//import javafx.stage.WindowEvent;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
