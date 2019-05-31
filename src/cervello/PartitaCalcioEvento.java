@@ -34,7 +34,7 @@ public class PartitaCalcioEvento extends Evento {
 	public PartitaCalcioEvento() {
 		super();
 		titolo = new Campo<String>(NomiDB.CAMPO_TITOLO.getNome(), "", false);
-		partecipantiMax = new Campo<Integer>(NomiDB.CAMPO_PARTECIPANTI_MAX.getNome(), "", true);
+		partecipantiNecessari = new Campo<Integer>(NomiDB.CAMPO_PARTECIPANTI_MAX.getNome(), "", true);
 		termineUltimo = new Campo<GregorianCalendar>(NomiDB.CAMPO_TERMINE_ULTIMO.getNome(), "", true);
 		luogo = new Campo<String>(NomiDB.CAMPO_LUOGO.getNome(), "", true);
 		dataInizio = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_FINE.getNome(), "", true);
@@ -47,7 +47,7 @@ public class PartitaCalcioEvento extends Evento {
 	}
 	
 	public boolean valido() {
-		if(partecipantiMax.getValore()==null) {
+		if(partecipantiNecessari.getValore()==null) {
 			return false;
 		}
 		else if(termineUltimo.getValore()==null) {
