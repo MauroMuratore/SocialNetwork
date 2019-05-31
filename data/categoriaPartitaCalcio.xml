@@ -91,6 +91,9 @@
 <valore>12</valore>
 <obbligatorio>true</obbligatorio>
 </campo>
+<partecipanti>
+<nome>alessandro</nome>
+</partecipanti>
 </evento>
 <evento id="123123124">
 <campo>
@@ -180,6 +183,9 @@
 <valore>12</valore>
 <obbligatorio>true</obbligatorio>
 </campo>
+<partecipanti>
+<nome>alessandro</nome>
+</partecipanti>
 </evento>
 </elenco>
 </categoria>
