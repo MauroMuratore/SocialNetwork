@@ -30,6 +30,22 @@ public class Utente {
 		return username;
 	}
 	
+	public LinkedList<Notifica> getNotifiche(){
+		return notifiche;
+	}
+	
+	public boolean riceviNotifica(Notifica not) {
+		
+		return notifiche.add(not);
+	}
+
+	public void cancellaNotifica(Notifica notifica) {
+		notifiche.remove(notifica);
+		
+	}
+	
+	
+	
 	
 
 }
