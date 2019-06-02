@@ -220,8 +220,9 @@ public class SocialNetwork {
 
 		return NOTIFICA_CANCELLATA;
 	}
-
-
+	public Utente getUtente(){
+		return utente;
+	}
 
 
 
