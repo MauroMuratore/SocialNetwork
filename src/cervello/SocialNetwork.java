@@ -90,7 +90,7 @@ public class SocialNetwork {
 		else
 			return ID_IN_USO;
 	}
-	
+
 	/*
 	 * private perchè non puoi entrare senza autentificarti
 	 * 
@@ -176,7 +176,7 @@ public class SocialNetwork {
 
 		}
 	}
-	
+
 	/**
 	 * manda tutte le notifiche presenti in notificheDaInoltrare all'utente
 	 */
@@ -190,7 +190,7 @@ public class SocialNetwork {
 		}
 		notificheDaInoltrare.remove(utente.getUsername()); //dopo che l'utente ha ricevuto tutte le notifiche lo tolgo
 	}
-	
+
 	/**
 	 * aggiorna tutti gli stati di tutti gli eventi inviando le varie notifiche
 	 */
@@ -198,23 +198,24 @@ public class SocialNetwork {
 		for(String key: categorie.keySet()) {
 			List<Evento> bacheca= categorie.get(key).getBacheca();
 			for(int i=0; i<bacheca.size(); i++) {
-				aggiornamentoNotifiche(bacheca.get(i).cambioStato());
+				if(bacheca.get(i).cambioStato()!=null)
+					aggiornamentoNotifiche(bacheca.get(i).cambioStato());
 			}
 		}
 	}
-	
+
 	/**
 	 * cancella la notifica
 	 * @param notifica
 	 * @return
 	 */
 	public String cancellaNotifica(Notifica notifica) {
-		
+
 		utente.cancellaNotifica(notifica);
-		
+
 		return NOTIFICA_CANCELLATA;
 	}
-	
+
 
 
 
