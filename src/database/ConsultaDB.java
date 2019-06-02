@@ -77,5 +77,11 @@ public class ConsultaDB {
 		scrittura.salvaUtente(utente);
 	}
 	
+	public boolean controllaEvento(int id) {
+		if(lettura.leggiPartitaCalcioEvento(id)!=null) {
+			return true;
+		}
+		return false;
+	}
 
 }

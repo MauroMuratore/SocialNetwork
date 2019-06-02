@@ -3,6 +3,7 @@ package cervello;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
+import database.ConsultaDB;
 import database.NomiDB;
 
 public class PartitaCalcioEvento extends Evento {
@@ -47,6 +48,7 @@ public class PartitaCalcioEvento extends Evento {
 	}
 	
 	public boolean valido() {
+		ConsultaDB cdb = new ConsultaDB();
 		if(partecipantiNecessari.getValore()==null) {
 			return false;
 		}
@@ -62,6 +64,8 @@ public class PartitaCalcioEvento extends Evento {
 		else if(quotaIndividuale.getValore()==null) {
 			return false;
 		}
+		else if(cdb.controllaEvento(getIdEvento()))
+			return false;
 		return true;
 	}
 	

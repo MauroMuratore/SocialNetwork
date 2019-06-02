@@ -6,11 +6,12 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
+import database.ConsultaDB;
 import database.NomiDB;
 
 //FINISHIM
 public abstract class Evento {
-	
+
 	private int idEvento;
 	private StatoEvento stato;
 	protected LinkedList<String> partecipanti;
@@ -24,8 +25,15 @@ public abstract class Evento {
 	protected Campo<String> compresoQuota;
 	protected Campo<GregorianCalendar> dataFine;
 	protected Campo<String> note;
-	
-	
+
+
+	private static final String EVENTO_VALIDO = "Evento valido";
+	private static final String EVENTO_ESISTENTE = null;
+	private static final String VUOTO = null;
+	private static final String OK = null;
+	private static final String FORMATO_SBAGLIATO = null;
+	private static final String PARTECIPANTI_NECESSARI_MIN = null;
+
 	/**
 	 * Da usare per la lettura da disco
 	 * 
@@ -48,7 +56,7 @@ public abstract class Evento {
 		this.dataFine = dataFine;
 		this.note = note;
 	}
-	
+
 	/**
 	 * per creare un nuovo evento
 	 * @param titolo
@@ -81,16 +89,16 @@ public abstract class Evento {
 		this.partecipanti = new LinkedList<String>();
 		this.stato=StatoEvento.APERTO;
 	}
-	
+
 	public Evento() {
 		this.idEvento = (int) System.currentTimeMillis();
 	}
-	
+
 
 	public int getIdEvento() {
 		return idEvento;
 	}
-	
+
 	public Campo<String> getTitolo() {
 		return titolo;
 	}
@@ -109,7 +117,7 @@ public abstract class Evento {
 	public Campo<GregorianCalendar> getDataInizio() {
 		return dataInizio;
 	}
-	
+
 	public Campo<Integer> getDurata() {
 		return durata;
 	}
@@ -125,64 +133,105 @@ public abstract class Evento {
 	public Campo<String> getNote() {
 		return note;
 	}
-	
+
 	public StatoEvento getStato() {
 		return stato;
 	}
 
 
-	public void setTitolo(String _titolo) {
-		titolo.setValore(_titolo);;
+	public String setTitolo(String _titolo) {
+		if(titolo.equals("")) {
+			return titolo.getNome() + VUOTO;
+		}
+		titolo.setValore(_titolo);
+		return OK;
 	}
 
-	public void setPartecipantiNecessari(int _partecipantiNecessari) {
-		partecipantiNecessari.setValore(_partecipantiNecessari);;
+	public String setPartecipantiNecessari(String _partecipantiNecessari) {
+		_partecipantiNecessari.trim();
+		if(Campo.controlloIntero(_partecipantiNecessari).equals(Campo.FORMATO_SBAGLIATO)) {
+			return Campo.FORMATO_SBAGLIATO;
+		}
+		int partNec = Integer.parseInt(_partecipantiNecessari);
+		if(partNec<=0) {
+			return PARTECIPANTI_NECESSARI_MIN;
+		}
+		partecipantiNecessari.setValore(Integer.parseInt(_partecipantiNecessari));
+		return OK;
+	}
+		
+
+	public String setTermineUltimo(String data) {
+		if(!Campo.controlloData(data).equals(Campo.OK))
+			return Campo.controlloData(data);
+		termineUltimo.setValore(Campo.assumiData(data));
+		return OK;
 	}
 
-	public void setTermineUltimo(GregorianCalendar _termineUltimo) {
-		termineUltimo.setValore(_termineUltimo);;
+	public String setLuogo(String _luogo) {
+		if(luogo.equals("")) {
+			return luogo.getNome() + VUOTO;
+		}
+		luogo.setValore(_luogo);
+		return OK;
 	}
 
-	public void setLuogo(String _luogo) {
-		luogo.setValore(_luogo);;
+	public String setDataInizio(String data, String ora) {
+		if(!Campo.controlloData(data, ora).equals(Campo.OK))
+			return Campo.controlloData(data, ora);
+		dataInizio.setValore(Campo.assumiData(data, ora));
+		return OK;
 	}
 
-	public void setDataInizio(GregorianCalendar _dataInizio) {
-		dataInizio.setValore(_dataInizio);;
+	public String setDurata(String _durata) {
+		if(Campo.controlloIntero(_durata).equals(Campo.FORMATO_SBAGLIATO))
+			return Campo.FORMATO_SBAGLIATO;
+		durata.setValore(Integer.parseInt(_durata));
+		return OK;
 	}
 
-	public void setDurata(int _durata) {
-		durata.setValore(_durata);;
+	public String setQuotaIndividuale(String _quotaIndividuale) {
+		if(Campo.controlloIntero(_quotaIndividuale).equals(Campo.FORMATO_SBAGLIATO))
+			return Campo.FORMATO_SBAGLIATO;
+		quotaIndividuale.setValore(Integer.parseInt(_quotaIndividuale));
+		return OK;
 	}
 
-	public void setQuotaIndividuale(int _quotaIndividuale) {
-		quotaIndividuale.setValore(_quotaIndividuale);;
+	public String setCompresoQuota(String _compresoQuota) {
+		if(compresoQuota.equals("")) {
+			return compresoQuota.getNome() + VUOTO;
+		}
+		luogo.setValore(_compresoQuota);
+		return OK;
 	}
 
-	public void setCompresoQuota(String _compresoQuota) {
-		compresoQuota.setValore(_compresoQuota);;
+	public String setDataFine(String data, String ora) {
+		if(!Campo.controlloData(data, ora).equals(Campo.OK))
+			return Campo.controlloData(data, ora);
+		dataFine.setValore(Campo.assumiData(data, ora));
+		return OK;
 	}
 
-	public void setDataFine(GregorianCalendar _dataFine) {
-		dataFine.setValore(_dataFine);;
-	}
-
-	public void setNote(String _note) {
+	public String setNote(String _note) {
+		if(_note.equals("")) {
+			return note.getNome() + VUOTO;
+		}
 		note.setValore(_note);
+		return OK;
 	}
-	
+
 	/**
 	 * torna vero se tutti i campi obbligatori sono stati compilati
 	 * @return
 	 */
 	public abstract boolean valido(); 
-		
+
 
 	public String toString() {
 		return titolo.toString() + partecipantiNecessari.toString() + termineUltimo.toString() + luogo.toString() + dataInizio.toString() +durata.toString() + quotaIndividuale.toString() +
 				compresoQuota.toString() + dataFine.toString() + note.toString();
 	}
-	
+
 	/**
 	 * cambia lo stato dell'evento e torna una notifica 
 	 * @return null se lo stato non è cambiato
@@ -212,10 +261,10 @@ public abstract class Evento {
 				return new Notifica(this, Notifica.CONCLUSO);
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	 * iscrive un nuovo utente all'evento
 	 * dopo richiamare subito cambiaStato
@@ -229,5 +278,9 @@ public abstract class Evento {
 		}
 		return null;
 	}
+
+
+
+
 
 }

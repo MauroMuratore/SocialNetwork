@@ -126,6 +126,22 @@ public class LeggiXML {
 		return ritorno;
 	}
 
+	/**
+	 * legge la partita 
+	 * @param id unico
+	 * @return
+	 */
+	public PartitaCalcioEvento leggiPartitaCalcioEvento(int id) {
+		PartitaCalcioCat<PartitaCalcioEvento> cat = leggiPartitaCalcioCat();
+		ArrayList<PartitaCalcioEvento> list = new ArrayList<PartitaCalcioEvento>(cat.getBacheca());
+		
+		for(PartitaCalcioEvento pce : list) {
+			if (pce.getIdEvento()==id)
+				return pce;
+		}
+		return null;
+	}
+	
 	public Campo leggiCampoDaNodo(Element campo, Class classeValore) {
 		String nome = campo.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
 		String descrizione = campo.getElementsByTagName(NomiDB.TAG_DESCRIZIONE.getNome()).item(0).getTextContent();
@@ -184,21 +200,7 @@ public class LeggiXML {
 
 	}
 
-	/**
-	 * legge la partita 
-	 * @param id unico
-	 * @return
-	 */
-	public PartitaCalcioEvento leggiPartitaCalcioEvento(int id) {
-		PartitaCalcioCat<PartitaCalcioEvento> cat = leggiPartitaCalcioCat();
-		ArrayList<PartitaCalcioEvento> list = new ArrayList<PartitaCalcioEvento>(cat.getBacheca());
-		
-		for(PartitaCalcioEvento pce : list) {
-			if (pce.getIdEvento()==id)
-				return pce;
-		}
-		return null;
-	}
+	
 	
 	public LinkedList<Notifica> leggiNotifiche(Element listaNotifiche){
 		LinkedList<Notifica> ritorno = new LinkedList<Notifica>();
