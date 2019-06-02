@@ -29,6 +29,7 @@ public class SocialNetwork {
 		categorie = new Hashtable<String, Categoria>();
 		PartitaCalcioCat pdc = consultaDB.getPartitaCalcioCat();
 		categorie.put(pdc.getNome(), pdc);
+		notificheDaInoltrare = new Hashtable<String, LinkedList<Notifica>>();
 		aggiornamentoEventi(); //aggiorna tutti gli eventi
 		//quando vengono caricate gli eventi bisogna fare un controllo sulle notifiche
 	}
@@ -181,7 +182,11 @@ public class SocialNetwork {
 	 * manda tutte le notifiche presenti in notificheDaInoltrare all'utente
 	 */
 	public void aggiornamentoUtente() {
-		if(!notificheDaInoltrare.containsKey(utente.getUsername())) {
+		if(notificheDaInoltrare == null) {
+			return;
+		}
+		else if(!notificheDaInoltrare.containsKey
+				(utente.getUsername())) {
 			return;
 		} //se non contiene l'username dell'utente allora non ci sono notifiche per lui
 		LinkedList<Notifica> lista = notificheDaInoltrare.get(utente.getUsername());

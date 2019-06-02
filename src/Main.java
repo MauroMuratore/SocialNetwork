@@ -58,7 +58,7 @@ public class Main {
 		do{		 
 			String risposta;
 			pausa(1);
-			System.out.println("sto ciclando");
+			//System.out.println("sto ciclando");
 			if(UI.isLog())
 			{
 

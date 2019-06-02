@@ -3,6 +3,7 @@
 <utente>
 <nome>mauro</nome>
 <hash>1231231</hash>
+
 <elenco>
 <notifica>
 <descrizione>Ti sei iscritto all'evento</descrizione>
@@ -16,8 +17,13 @@
 </notifica>
 <notifica>
 <descrizione>Ti sei iscritto all'evento</descrizione>
-<id>221160628</id>
-<letto>false</letto>
+<id/>
+<letto>true</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id/>
+<letto>true</letto>
 </notifica>
 </elenco>
 </utente>

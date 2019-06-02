@@ -92,19 +92,7 @@ public class ScriviXML {
 		}
 		Element notifiche = (Element) nodoUtente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
 		for(Notifica n: utente.getNotifiche()) {
-			Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
-			Element nodoMessaggio = doc.createElement(NomiDB.TAG_DESCRIZIONE.getNome());
-			Element nodoEvento = doc.createElement(NomiDB.TAG_ID.getNome());
-			Element nodoLetto = doc.createElement(NomiDB.TAG_LETTO.getNome());
-			
-			nodoMessaggio.setTextContent(n.getMessaggio());
-			nodoEvento.setTextContent(String.valueOf(n.getEvento().getIdEvento()));
-			nodoLetto.setTextContent(String.valueOf(n.getLetta()));
-			
-			nodoNotifica.appendChild(nodoMessaggio);
-			nodoNotifica.appendChild(nodoEvento);
-			nodoNotifica.appendChild(nodoLetto);
-			notifiche.appendChild(nodoNotifica);
+			scriviNotifica(doc, n, notifiche);
 		}
 		nodoUtente.appendChild(notifiche);
 		
@@ -269,6 +257,23 @@ public class ScriviXML {
 		}
 
 		System.out.println("Scrittura su file " + file.getNome());
+	}
+
+	public void scriviNotifica(Document doc, Notifica n, Element notifiche) {
+		Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
+		Element nodoMessaggio = doc.createElement(NomiDB.TAG_DESCRIZIONE.getNome());
+		Element nodoEvento = doc.createElement(NomiDB.TAG_ID.getNome());
+		Element nodoLetto = doc.createElement(NomiDB.TAG_LETTO.getNome());
+		
+		nodoMessaggio.setTextContent(n.getMessaggio());
+		System.out.println(n.getEvento().getIdEvento());
+		//nodoEvento.setTextContent(String.valueOf(n.getEvento().getIdEvento()));
+		nodoLetto.setTextContent(String.valueOf(n.getLetta()));
+		
+		nodoNotifica.appendChild(nodoMessaggio);
+		nodoNotifica.appendChild(nodoEvento);
+		nodoNotifica.appendChild(nodoLetto);
+		notifiche.appendChild(nodoNotifica);
 	}
 }
 

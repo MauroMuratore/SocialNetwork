@@ -106,6 +106,7 @@ public class LeggiXML {
 
 	public PartitaCalcioEvento leggiPartitaCalcioEvento(Element evento) {
 		int id = Integer.parseInt(evento.getAttribute("id"));
+		System.out.println("test id " + id);
 		Campo<String> titolo = leggiCampo(evento, String.class, NomiDB.CAMPO_TITOLO);
 		Campo<Integer> nPartecipanti = leggiCampo(evento, Integer.class, NomiDB.CAMPO_PARTECIPANTI_MAX);
 		Campo<GregorianCalendar> termineUltimo = leggiCampo(evento, GregorianCalendar.class, NomiDB.CAMPO_TERMINE_ULTIMO);
@@ -219,6 +220,11 @@ public class LeggiXML {
 		return ritorno;
 	}
 
+	/**
+	 * torna l'oggetto utente
+	 * @param id
+	 * @return
+	 */
 	public Utente caricaUtente(String id) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;

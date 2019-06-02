@@ -62,7 +62,7 @@ public class ConsultaDB {
 	 * @return
 	 */
 	public Utente caricaUtente(String id) {
-		return null;
+		return lettura.caricaUtente(id);
 	}
 
 	public PartitaCalcioCat getPartitaCalcioCat() {
