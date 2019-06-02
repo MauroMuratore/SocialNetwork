@@ -275,6 +275,9 @@
 <valore>12</valore>
 <obbligatorio>true</obbligatorio>
 </campo>
+<partecipanti>
+<nome>alessandro</nome>
+</partecipanti>
 </evento>
 </elenco>
 </categoria>
