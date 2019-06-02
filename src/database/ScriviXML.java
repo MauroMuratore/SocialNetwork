@@ -266,8 +266,7 @@ public class ScriviXML {
 		Element nodoLetto = doc.createElement(NomiDB.TAG_LETTO.getNome());
 		
 		nodoMessaggio.setTextContent(n.getMessaggio());
-		System.out.println(n.getEvento().getIdEvento());
-		//nodoEvento.setTextContent(String.valueOf(n.getEvento().getIdEvento()));
+		nodoEvento.setTextContent(String.valueOf(n.getEvento().getIdEvento()));
 		nodoLetto.setTextContent(String.valueOf(n.getLetta()));
 		
 		nodoNotifica.appendChild(nodoMessaggio);

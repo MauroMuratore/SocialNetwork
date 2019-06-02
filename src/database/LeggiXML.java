@@ -106,7 +106,6 @@ public class LeggiXML {
 
 	public PartitaCalcioEvento leggiPartitaCalcioEvento(Element evento) {
 		int id = Integer.parseInt(evento.getAttribute("id"));
-		System.out.println("test id " + id);
 		Campo<String> titolo = leggiCampo(evento, String.class, NomiDB.CAMPO_TITOLO);
 		Campo<Integer> nPartecipanti = leggiCampo(evento, Integer.class, NomiDB.CAMPO_PARTECIPANTI_MAX);
 		Campo<GregorianCalendar> termineUltimo = leggiCampo(evento, GregorianCalendar.class, NomiDB.CAMPO_TERMINE_ULTIMO);

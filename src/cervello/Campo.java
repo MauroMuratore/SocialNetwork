@@ -39,7 +39,9 @@ public class Campo<T> {
 		if(valore.getClass().equals(GregorianCalendar.class)) {
 			return ((GregorianCalendar)valore).get(GregorianCalendar.DAY_OF_MONTH) + "/" +
 					((GregorianCalendar)valore).get(GregorianCalendar.MONTH) + "/"+ ((GregorianCalendar)valore).get(GregorianCalendar.YEAR) +"\n";
+			
 		}
+		
 		return valore.toString();
 	}
 	
