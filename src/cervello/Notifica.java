@@ -9,7 +9,7 @@ public class Notifica {
 	public static final String ISCRIZIONE = "Ti sei iscritto all'evento";
 	public static final String CHIUSO = "L'evento ha chiuso le iscrizioni";
 	public static final String FALLITO = "L'evento non ha raggiunto gli iscritti";
-	public static final String CONCLUSO = "L'evento Ã¨ concluso";
+	public static final String CONCLUSO = "L'evento è concluso";
 	
 	public Notifica(Evento _evento, String mes) {
 		evento=_evento;

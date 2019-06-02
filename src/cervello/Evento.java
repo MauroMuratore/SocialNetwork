@@ -28,10 +28,10 @@ public abstract class Evento {
 
 
 	private static final String EVENTO_VALIDO = "Evento valido";
-	private static final String EVENTO_ESISTENTE = null;
-	private static final String VUOTO = null;
-	private static final String OK = null;
-	private static final String FORMATO_SBAGLIATO = null;
+	private static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento è gia esistente";
+	private static final String VUOTO = "ATTENZIONE: il campo è vuoto";
+	private static final String OK = "it's ok";
+	private static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato è errato";
 	private static final String PARTECIPANTI_NECESSARI_MIN = null;
 
 	/**
