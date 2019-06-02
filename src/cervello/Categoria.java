@@ -29,6 +29,10 @@ public abstract class Categoria<E extends Evento> {
 	}
 	
 	public void aggiungiEvento(E evento) {
+		for(E e : bacheca) {
+			if(e.getIdEvento()==evento.getIdEvento())
+				return;
+		}
 		bacheca.add(evento);
 	}
 	

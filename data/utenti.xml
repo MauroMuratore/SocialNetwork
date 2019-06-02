@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<elenco>
+<utente>
+<nome>mauro</nome>
+<hash>1231231</hash>
+<elenco>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>123123123</id>
+<letto>true</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>123123123</id>
+<letto>true</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>221160628</id>
+<letto>false</letto>
+</notifica>
+</elenco>
+</utente>
+<utente>
+<nome>alessandro</nome>
+<hash>monteverde</hash>
+<elenco>
+</elenco>
+</utente>
+</elenco>
