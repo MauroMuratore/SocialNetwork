@@ -31,6 +31,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
+
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -55,6 +57,7 @@ public class FinestraMenu {
 	private Evento eventoCreato ;
 	private TextArea textArea;
 	private Label messaggioErr;
+	private Label confermaIsc;
 	private static final String EVENTO_VALIDO = "Evento valido";
 	private static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento è gia esistente";
 	private static final String VUOTO = "ATTENZIONE: il campo è vuoto";
@@ -392,7 +395,7 @@ public class FinestraMenu {
 		label_1.setBounds(10, 38, 62, 22);
 		finestraCEV.add(label_1);
 
-		Label label_2 = new Label("PartecipantiMax:");
+		Label label_2 = new Label("PartecipantiNecessari:");
 		label_2.setBounds(10, 66, 87, 22);
 		finestraCEV.add(label_2);
 
@@ -484,6 +487,7 @@ public class FinestraMenu {
 		finestraCEV.add(textField_8);
 		
 		messaggioErr= new Label();
+		messaggioErr.setForeground(Color.red);
 		messaggioErr.setBounds(307, 336, 356, 22);
 		finestraCEV.add(messaggioErr);
 		
@@ -544,13 +548,15 @@ public class FinestraMenu {
 				String oraMinInizio=txtOraminuti.getText();
 				String oraMinFine=textOraminutiFine.getText();
 				eventoCreato = new PartitaCalcioEvento();
-				//ricorda!! devi ciclare
 				messaggioErr.setText(settaCampi(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine));
 				if(messaggioErr.getText().equals(OK))
 				{
-				System.out.println(messaggioErr.getText());
-				SN.addEvento(eventoCreato);
-				costruisciBachecaPDC();
+				    System.out.println(messaggioErr.getText());
+					if(eventoCreato.valido())
+					{
+					SN.addEvento(eventoCreato);
+					costruisciBachecaPDC();
+					}
 				}
 				else
 				{
@@ -675,7 +681,35 @@ public class FinestraMenu {
 		txtSesso1.setText("Sesso: "+((PartitaCalcioEvento)ev).getSesso().getValoreString());
 		txtSesso1.setBounds(10,261, 641, 20);
 		finestraEV.add(txtSesso1);
+		
+		Button button = new Button("Iscrizione");
+		button.setBounds(10, 353, 76, 22);
+		finestraEV.add(button);
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				button.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				button.setBackground(SystemColor.desktop);
+			}
+		});
+		button.setBackground(SystemColor.desktop);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				ev.iscrizione(SN.getUtente().getUsername());
+				confermaIsc.setText("Ti sei iscritto all'evento");
+			}
+		});
 
+		
+		confermaIsc = new Label("\r\n");
+		confermaIsc.setText("");
+		confermaIsc.setBounds(92, 353, 559, 22);
+		confermaIsc.setForeground(Color.green);
+		finestraEV.add(confermaIsc);
 
 		//		frame.setResizable(false);
 		//		frame.setBounds(600, 300, 667, 430);

@@ -4,17 +4,12 @@
 <nome>mauro</nome>
 <hash>1231231</hash>
 
+
+
+
+
+
 <elenco>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>123123123</id>
-<letto>true</letto>
-</notifica>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>123123123</id>
-<letto>true</letto>
-</notifica>
 <notifica>
 <descrizione>Ti sei iscritto all'evento</descrizione>
 <id>123123123</id>
