@@ -99,6 +99,7 @@ public class SocialNetwork {
 	private void setUtente(String id) 
 	{
 		utente=consultaDB.caricaUtente(id);
+		System.out.println(utente.getUsername());
 		aggiornamentoUtente();
 	}
 
@@ -107,7 +108,7 @@ public class SocialNetwork {
 		consultaDB.salvaUtente(utente);
 		utente = null;
 	} 
-	
+
 	public void salvaTutto() {
 		consultaDB.salvaUtente(utente);
 		consultaDB.salvaNotifichePendenti(notificheDaInoltrare);
@@ -132,26 +133,26 @@ public class SocialNetwork {
 
 	//monte come mi fai arrivare l'iscrizione a un evento? mi mandi una stringa, l'id dell'evento o altro?
 	public String iscrizione(Evento evento) {
-		if(evento.getClass()==PartitaCalcioEvento.class) {
-			int indice = categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().indexOf(evento);
-			Notifica notificaIscrizione = ((PartitaCalcioEvento) categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().get(indice)).iscrizione(utente.getUsername());
-			if(notificaIscrizione!=null)
-				utente.riceviNotifica(notificaIscrizione);
-			Notifica notifica = ((PartitaCalcioEvento) categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().get(indice)).cambioStato();
-			if(notifica.getMessaggio()!=null) {
-				aggiornamentoNotifiche(notifica);
-			}
+		int indice = categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().indexOf(evento);
+		Notifica notificaIscrizione = ((PartitaCalcioEvento) categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().get(indice)).iscrizione(utente.getUsername());
+		System.out.println(notificaIscrizione.getMessaggio());
+		consultaDB.scriviEvento((PartitaCalcioEvento) categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().get(indice));
+		System.out.println(utente.riceviNotifica(notificaIscrizione));
+		Notifica notifica = ((PartitaCalcioEvento) categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().get(indice)).cambioStato();
+		aggiornamentoNotifiche(notifica);
 
-		}
-
-		return null;
+		consultaDB.salvaUtente(utente);
+		return notificaIscrizione.getMessaggio();
 	}
 
+
 	public void addEvento(Evento evento) {
-		utente.riceviNotifica(evento.iscrizione(utente.getUsername()));
-		Notifica notifica = evento.cambioStato();
-		if(notifica!=null)
-			utente.riceviNotifica(notifica);
+		String nome =utente.getUsername();
+		Notifica notificaIscrizione = evento.iscrizione(nome);
+		utente.riceviNotifica(notificaIscrizione);
+		Notifica notificaStato = evento.cambioStato();
+		if(notificaStato!=null)
+			utente.riceviNotifica(notificaStato);
 		consultaDB.scriviEvento((PartitaCalcioEvento)evento);
 		if(evento.getClass()==PartitaCalcioEvento.class)
 			categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).aggiungiEvento((PartitaCalcioEvento)evento);
@@ -164,7 +165,9 @@ public class SocialNetwork {
 	 */
 	public void aggiornamentoNotifiche(Notifica notifica) {
 		for(String nome : notifica.getEvento().getPartecipanti()) {
-			if(nome.equals(utente.getUsername())) { //se l'utente è quello loggato gli invio la notifica
+			if(utente==null)
+				return;
+			else if(nome.equals(utente.getUsername())) { //se l'utente è quello loggato gli invio la notifica
 				utente.riceviNotifica(notifica);
 			}
 			else {					//altrimenti la salvo il notifiche da inoltrare
@@ -190,8 +193,7 @@ public class SocialNetwork {
 		if(notificheDaInoltrare == null) {
 			return;
 		}
-		else if(!notificheDaInoltrare.containsKey
-				(utente.getUsername())) {
+		else if(!notificheDaInoltrare.containsKey(utente.getUsername())) {
 			return;
 		} //se non contiene l'username dell'utente allora non ci sono notifiche per lui
 		LinkedList<Notifica> lista = notificheDaInoltrare.get(utente.getUsername());
@@ -208,8 +210,9 @@ public class SocialNetwork {
 		for(String key: categorie.keySet()) {
 			List<Evento> bacheca= categorie.get(key).getBacheca();
 			for(int i=0; i<bacheca.size(); i++) {
-				if(bacheca.get(i).cambioStato()!=null)
-					aggiornamentoNotifiche(bacheca.get(i).cambioStato());
+				Notifica not = bacheca.get(i).cambioStato();
+				if(not!=null)
+					aggiornamentoNotifiche(not);
 			}
 		}
 	}
@@ -220,7 +223,7 @@ public class SocialNetwork {
 	 * @return
 	 */
 	public String cancellaNotifica(Notifica notifica) {
-
+		consultaDB.cancellaNotifica(notifica, utente);
 		utente.cancellaNotifica(notifica);
 
 		return NOTIFICA_CANCELLATA;

@@ -22,6 +22,7 @@ import cervello.Campo;
 import cervello.Evento;
 import cervello.Notifica;
 import cervello.PartitaCalcioEvento;
+import cervello.StatoEvento;
 import cervello.Utente;
 
 public class ScriviXML {
@@ -88,11 +89,13 @@ public class ScriviXML {
 		for(int i=0; i<lista.getLength(); i++) {
 			String nome =((Element)lista.item(i)).getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
 			if(nome.equals(utente.getUsername())) {
-				nodoUtente = (Element)lista.item(0);
+				nodoUtente = (Element)lista.item(i);
 			}
 		}
 		Element notifiche = (Element) nodoUtente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		
 		for(Notifica n: utente.getNotifiche()) {
+			
 			scriviNotifica(doc, n, notifiche);
 		}
 		nodoUtente.appendChild(notifiche);
@@ -162,6 +165,16 @@ public class ScriviXML {
 		scriviCampo(evento.getSesso(), newEvento, doc);
 		scriviCampo(evento.getEta(), newEvento, doc);
 		scriviPartecipanti(evento.getPartecipanti(), newEvento, doc);
+		
+		Element statoEvento = doc.createElement(NomiDB.CAMPO_STATO_EVENTO.getNome());
+		if(evento.getStato().equals(StatoEvento.CHIUSO))
+			statoEvento.setTextContent(NomiDB.STATO_EVENTO_CHIUSO.getNome());
+		else if(evento.getStato().equals(StatoEvento.CONCLUSO))
+			statoEvento.setTextContent(NomiDB.STATO_EVENTO_CONCLUSO.getNome());
+		else if(evento.getStato().equals(StatoEvento.APERTO))
+			statoEvento.setTextContent(NomiDB.STATO_EVENTO_APERTO.getNome());
+		else if(evento.getStato().equals(StatoEvento.FALLITO))
+			statoEvento.setTextContent(NomiDB.STATO_EVENTO_FALLITO.getNome());
 
 		elenco.appendChild(newEvento);
 
@@ -185,8 +198,10 @@ public class ScriviXML {
 		descrizione.setTextContent(campo.getDescrizione());
 		newEl.appendChild(descrizione);
 		Element valore = doc.createElement(NomiDB.TAG_VALORE.getNome());
-
-		if(campo.getClasseValore().equals(GregorianCalendar.class)) { //scrittura della data
+		if(campo.getValore()==null) {
+			//non fare niente
+		}
+		else if(campo.getClasseValore().equals(GregorianCalendar.class)) { //scrittura della data
 			GregorianCalendar data =((GregorianCalendar)campo.getValore());
 
 			Element annoNodo = doc.createElement(NomiDB.TAG_ANNO.getNome());
@@ -273,6 +288,13 @@ public class ScriviXML {
 		nodoNotifica.appendChild(nodoMessaggio);
 		nodoNotifica.appendChild(nodoEvento);
 		nodoNotifica.appendChild(nodoLetto);
+		
+		for(int i=0 ;i<elenco.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).getLength(); i++) {
+			if(nodoNotifica.hashCode()== elenco.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).item(i).hashCode()) {
+				return;
+			}
+				
+		}
 		elenco.appendChild(nodoNotifica);
 	}
 	
@@ -302,6 +324,41 @@ public class ScriviXML {
 		
 		scriviSuFile(doc, NomiDB.FILE_NOTIFICHE_PENDENTI);
 		
+	}
+
+	public void cancellaNotifica(Notifica notifica, Utente utente) {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder;
+		Document doc=null;
+		try {
+			builder = factory.newDocumentBuilder();
+			doc = builder.parse(new File(NomiDB.FILE_UTENTI.getNome()));
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Element elenco = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		NodeList lista = elenco.getElementsByTagName(NomiDB.TAG_UTENTE.getNome());
+		Element nodoUtente = null;
+		for(int i=0; i<lista.getLength(); i++) {
+			String nome =((Element)lista.item(i)).getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
+			if(nome.equals(utente.getUsername())) {
+				nodoUtente = (Element)lista.item(i);
+			}
+		}
+		Element listaNotifiche =(Element) nodoUtente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		for(int i=0; i<listaNotifiche.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).getLength(); i++) {
+			Element nodoNotifica = (Element) listaNotifiche.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).item(i);
+			String descrizione = nodoNotifica.getElementsByTagName(NomiDB.TAG_DESCRIZIONE.getNome()).item(0).getTextContent();
+			String id = nodoNotifica.getElementsByTagName(NomiDB.TAG_ID.getNome()).item(0).getTextContent();
+			int intId = Integer.parseInt(id);
+			if(descrizione.equals(notifica.getMessaggio()) || intId == notifica.getEvento().getIdEvento()) {
+				listaNotifiche.removeChild(nodoNotifica);
+			}
+		}
+		
+		scriviSuFile(doc, NomiDB.FILE_UTENTI);
 	}
 }
 

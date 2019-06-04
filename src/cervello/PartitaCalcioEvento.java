@@ -14,11 +14,11 @@ public class PartitaCalcioEvento extends Evento {
 	public PartitaCalcioEvento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, LinkedList<String> partecipanti,
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
-			Campo<GregorianCalendar> dataFine, Campo<String> note, Campo<String> sesso, Campo<Integer> eta) {
+			Campo<GregorianCalendar> dataFine, Campo<String> note, Campo<String> sesso, Campo<Integer> eta, StatoEvento stato) {
 
 
 		super(idEvento, titolo, partecipantiMax, partecipanti, termineUltimo, luogo, dataInizio, durata, quotaIndividuale, compresoQuota,
-				dataFine, note);
+				dataFine, note, stato);
 		this.sesso=sesso;
 		this.eta=eta;
 	}
@@ -38,7 +38,7 @@ public class PartitaCalcioEvento extends Evento {
 		partecipantiNecessari = new Campo<Integer>(NomiDB.CAMPO_PARTECIPANTI_MAX.getNome(), "", true);
 		termineUltimo = new Campo<GregorianCalendar>(NomiDB.CAMPO_TERMINE_ULTIMO.getNome(), "", true);
 		luogo = new Campo<String>(NomiDB.CAMPO_LUOGO.getNome(), "", true);
-		dataInizio = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_FINE.getNome(), "", true);
+		dataInizio = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_INIZIO.getNome(), "", true);
 		durata = new Campo<Integer>(NomiDB.CAMPO_DURATA.getNome(), "", false);
 		quotaIndividuale = new Campo<Integer>(NomiDB.CAMPO_QUOTA_IND.getNome(), "", true);
 		compresoQuota = new Campo<String>(NomiDB.CAMPO_COMPRESO_QUOTA.getNome(), "", false);

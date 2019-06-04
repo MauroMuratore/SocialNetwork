@@ -35,7 +35,7 @@ public class Utente {
 	}
 	
 	public boolean riceviNotifica(Notifica not) {
-		
+		System.out.println("utente riceve la notifica " + not.getMessaggio());
 		return notifiche.add(not);
 	}
 

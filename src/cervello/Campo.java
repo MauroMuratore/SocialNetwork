@@ -16,6 +16,7 @@ public class Campo<T> {
 	public static final String FORMATO_ORA_SBAGLIATO = "Le ore vanno da 0 a 23";
 	public static final String FORMATO_DATA_SBAGLIATO = "Formato della data sbagliato";
 	public static final String FORMATO_INTERO_SBAGLIATO = "Formato intero sbagliato";
+	private static final String DATA_PASSATA = "data passata";
 	
 	public Campo(String _nome, String _descrizione, T _valore, boolean _obbl) {
 		nome=_nome;
@@ -44,6 +45,9 @@ public class Campo<T> {
 		return valore;
 	}
 	public String getValoreString() {
+		if(valore==null) {
+			return null;
+		}
 		if(valore.getClass().equals(GregorianCalendar.class)) {
 			return ((GregorianCalendar)valore).get(GregorianCalendar.DAY_OF_MONTH) + "/" +
 					((GregorianCalendar)valore).get(GregorianCalendar.MONTH) + "/"+ ((GregorianCalendar)valore).get(GregorianCalendar.YEAR) +"\n";
@@ -79,7 +83,10 @@ public class Campo<T> {
 			return FORMATO_SBAGLIATO;			
 		int giorno = Integer.parseInt(campiData[0]);
 		int mese = Integer.parseInt(campiData[1]);
-		int anno = Integer.parseInt(campiData[2]);			
+		int anno = Integer.parseInt(campiData[2]);
+		if(giorno<1 || mese<1) {
+			return FORMATO_DATA_SBAGLIATO;
+		}
 		if(anno%4==0) {
 			if(mese==1 ||mese==3 ||mese==5 ||mese==7 ||mese==8 ||mese==10 ||mese==12 ) {
 				if(giorno<1 || giorno > 31)
@@ -97,7 +104,7 @@ public class Campo<T> {
 			}
 		}
 		else {
-			if(mese==1 ||mese==3 ||mese==5 ||mese==7 ||mese==8 ||mese==10 ||mese==12 ) {
+			if(mese==1 ||mese==3 ||mese==5 ||mese==7 ||mese==9 ||mese==11 ||mese==12 ) {
 				if(giorno<1 || giorno > 31)
 					return FORMATO_DATA_SBAGLIATO;
 			}
@@ -112,6 +119,9 @@ public class Campo<T> {
 				}
 			}
 		}
+		GregorianCalendar gc = assumiData(data);
+		if(gc.before(System.currentTimeMillis()))
+			return DATA_PASSATA;//data postuma
 		return OK;
 	}
 	
@@ -121,7 +131,10 @@ public class Campo<T> {
 		int mese = Integer.parseInt(campiData[1]);
 		int anno = Integer.parseInt(campiData[2]);			
 		GregorianCalendar gc = new GregorianCalendar();
-		gc.set(anno, mese, giorno);
+		gc.clear();
+		gc.set(GregorianCalendar.YEAR, anno);
+		gc.set(GregorianCalendar.MONTH, mese);
+		gc.set(GregorianCalendar.DAY_OF_MONTH, giorno);
 		return gc;
 	}
 	
