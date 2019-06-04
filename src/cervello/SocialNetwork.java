@@ -130,25 +130,20 @@ public class SocialNetwork {
 	public Categoria mostraCategoria(String categoria){
 		return categorie.get(categoria);
 	}
-
-	//monte come mi fai arrivare l'iscrizione a un evento? mi mandi una stringa, l'id dell'evento o altro?
-	public String iscrizione(Evento evento) {
-		int indice = categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().indexOf(evento);
-		Notifica notificaIscrizione = ((PartitaCalcioEvento) categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().get(indice)).iscrizione(utente.getUsername());
-		System.out.println(notificaIscrizione.getMessaggio());
-		consultaDB.scriviEvento((PartitaCalcioEvento) categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().get(indice));
-		System.out.println(utente.riceviNotifica(notificaIscrizione));
-		Notifica notifica = ((PartitaCalcioEvento) categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).getBacheca().get(indice)).cambioStato();
-		aggiornamentoNotifiche(notifica);
-
+	
+	public String iscrizione(Evento evento) {	
+		String messaggio = evento.iscrizione(utente.getUsername());
+		utente.riceviNotifica(new Notifica(evento, messaggio));
+		//aggiornamentoNotifiche(evento.cambioStato());
+		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
 		consultaDB.salvaUtente(utente);
-		return notificaIscrizione.getMessaggio();
+		return messaggio ;
 	}
 
 
 	public void addEvento(Evento evento) {
 		String nome =utente.getUsername();
-		Notifica notificaIscrizione = evento.iscrizione(nome);
+		Notifica notificaIscrizione = new Notifica (evento,evento.iscrizione(nome));
 		utente.riceviNotifica(notificaIscrizione);
 		Notifica notificaStato = evento.cambioStato();
 		if(notificaStato!=null)
@@ -158,6 +153,9 @@ public class SocialNetwork {
 			categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).aggiungiEvento((PartitaCalcioEvento)evento);
 
 	}
+
+
+
 
 	/**
 	 * invia una notifica all'utente se iscritto e salva le notifiche degli altri utenti nella struttura notificheDaInoltrare

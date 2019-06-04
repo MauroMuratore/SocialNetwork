@@ -162,7 +162,7 @@ public abstract class Evento {
 		partecipantiNecessari.setValore(Integer.parseInt(_partecipantiNecessari));
 		return OK;
 	}
-		
+
 
 	public String setTermineUltimo(String data) {
 		if(!Campo.controlloData(data).equals(Campo.OK))
@@ -274,13 +274,16 @@ public abstract class Evento {
 	 * @param nome
 	 * @return
 	 */
-	public Notifica iscrizione(String nome) {
-		if(stato.equals(StatoEvento.APERTO)) {
+	public String iscrizione(String nome) {
+		String ritorno;
+		if(stato.equals(StatoEvento.APERTO) && !partecipanti.contains(nome)) {
 			partecipanti.add(nome);
-			Notifica not = new Notifica(this, Notifica.ISCRIZIONE);
-			return new Notifica(this, Notifica.ISCRIZIONE);
-		}
-		return new Notifica(this, Notifica.ERRORE_DI_ISCRIZIONE);
+			ritorno = Notifica.ISCRIZIONE;
+			
+		}else
+			ritorno = Notifica.ERRORE_DI_ISCRIZIONE;
+		return ritorno;
+		
 	}
 
 

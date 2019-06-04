@@ -16,7 +16,6 @@ public class Notifica {
 		evento=_evento;
 		messaggio=mes;
 		letta=false;
-		System.out.println("creazione notifica " + messaggio);
 	}
 	
 	public Notifica(Evento _evento, String mes, boolean letto) {
