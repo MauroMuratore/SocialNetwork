@@ -10,19 +10,19 @@ public class PartitaCalcioEvento extends Evento {
 
 	private Campo<String> sesso;
 	private Campo<Integer> eta;
-	
+
 	public PartitaCalcioEvento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, LinkedList<String> partecipanti,
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
 			Campo<GregorianCalendar> dataFine, Campo<String> note, Campo<String> sesso, Campo<Integer> eta) {
-		
-		
+
+
 		super(idEvento, titolo, partecipantiMax, partecipanti, termineUltimo, luogo, dataInizio, durata, quotaIndividuale, compresoQuota,
 				dataFine, note);
 		this.sesso=sesso;
 		this.eta=eta;
 	}
-	
+
 	public PartitaCalcioEvento(Campo<String> titolo, Campo<Integer> partecipantiMax,
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
@@ -31,7 +31,7 @@ public class PartitaCalcioEvento extends Evento {
 		this.sesso=sesso;
 		this.eta=eta;
 	}
-	
+
 	public PartitaCalcioEvento() {
 		super();
 		titolo = new Campo<String>(NomiDB.CAMPO_TITOLO.getNome(), "", false);
@@ -44,9 +44,10 @@ public class PartitaCalcioEvento extends Evento {
 		compresoQuota = new Campo<String>(NomiDB.CAMPO_COMPRESO_QUOTA.getNome(), "", false);
 		dataFine = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_FINE.getNome(), "", false);
 		note = new Campo<String>(NomiDB.CAMPO_NOTE.getNome(), "", false);
-		
+		sesso = new Campo<String>(NomiDB.CAMPO_SESSO.getNome(), "", true);
+		eta = new Campo<Integer>(NomiDB.CAMPO_ETA.getNome(), "",false);
 	}
-	
+
 	public boolean valido() {
 		ConsultaDB cdb = new ConsultaDB();
 		if(partecipantiNecessari.getValore()==null) {
@@ -68,26 +69,33 @@ public class PartitaCalcioEvento extends Evento {
 			return false;
 		return true;
 	}
-	
-	
-	
+
+
+
 	public Campo getSesso() {
 		// TODO Auto-generated method stub
 		return sesso;
 	}
-	
-	public void setSesso(String _sesso) {
+
+	public String setSesso(String _sesso) {
+		if(_sesso.equals("")) {
+			return sesso.getNome() + VUOTO;
+		}
 		sesso.setValore(_sesso);
+		return OK;
 	}
-	
+
 	public Campo getEta() {
 		return eta;
 	}
-	
-	public void setEta(int _eta) {
-		eta.setValore(_eta);
+
+	public String setEta(String _eta) {
+		if(Campo.controlloIntero(_eta).equals(Campo.FORMATO_INTERO_SBAGLIATO))
+			return Campo.FORMATO_INTERO_SBAGLIATO;
+		eta.setValore(Integer.parseInt(_eta));
+		return OK;
 	}
-	
+
 	public String toString() {
 		return super.toString() + sesso.toString() + eta.toString();
 	}

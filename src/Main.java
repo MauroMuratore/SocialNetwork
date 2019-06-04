@@ -5,7 +5,7 @@ import interfacciaUtente.UserInterface;
 
 public class Main {
 
-	public static SocialNetwork SN= new SocialNetwork(); //non dovrebbe essere static	
+	public static SocialNetwork SN= new SocialNetwork(); //non dovrebbe essere static	2
 	static boolean rispostaUI=false;
 	public static  UserInterface UI =null; //non dovrebbe essere static
 

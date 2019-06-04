@@ -13,8 +13,9 @@ public class Campo<T> {
 
 	public static final String FORMATO_SBAGLIATO = "Formato sbagliato";
 	public static final String OK = "OK";
-	private static final String FORMATO_ORA_SBAGLIATO = "Le ore vanno da 0 a 23";
-	private static final String FORMATO_DATA_SBAGLIATO = "Formato della data sbagliato";
+	public static final String FORMATO_ORA_SBAGLIATO = "Le ore vanno da 0 a 23";
+	public static final String FORMATO_DATA_SBAGLIATO = "Formato della data sbagliato";
+	public static final String FORMATO_INTERO_SBAGLIATO = "Formato intero sbagliato";
 	
 	public Campo(String _nome, String _descrizione, T _valore, boolean _obbl) {
 		nome=_nome;
@@ -69,7 +70,7 @@ public class Campo<T> {
 	public static String controlloData(String data) {
 		if(!data.contains("/")) 
 			return FORMATO_SBAGLIATO;
-		String[] campiData = data.split("/", 2);
+		String[] campiData = data.split("/", 3);
 		if(controlloIntero(campiData[0]).equals(FORMATO_SBAGLIATO))
 			return FORMATO_SBAGLIATO;	
 		else if(controlloIntero(campiData[1]).equals(FORMATO_SBAGLIATO))
@@ -115,7 +116,7 @@ public class Campo<T> {
 	}
 	
 	public static GregorianCalendar assumiData(String data) {
-		String[] campiData = data.split("/", 2);
+		String[] campiData = data.split("/", 3);
 		int giorno = Integer.parseInt(campiData[0]);
 		int mese = Integer.parseInt(campiData[1]);
 		int anno = Integer.parseInt(campiData[2]);			
@@ -129,17 +130,31 @@ public class Campo<T> {
 			return FORMATO_SBAGLIATO;
 		if(controlloIntero(ora).equals(FORMATO_SBAGLIATO))
 			return FORMATO_SBAGLIATO;
-		int intOra = Integer.parseInt(ora);
+		String[] campiOra = ora.split(":", 2);
+		if(!controlloIntero(campiOra[0]).equals(OK)) {
+			return controlloIntero(campiOra[0]);
+		
+		}
+		if(!controlloIntero(campiOra[1]).equals(OK)) {
+			return controlloIntero(campiOra[1]);
+		
+		}
+		int intOra = Integer.parseInt(campiOra[0]);
+		int intMinuti = Integer.parseInt(campiOra[1]);
 		if(intOra<0 || intOra>23)
 			return FORMATO_ORA_SBAGLIATO;
-		
+		if(intMinuti<0 || intOra>59)
+			return FORMATO_ORA_SBAGLIATO;
 		return OK;
 	}
 	
 	public static GregorianCalendar assumiData(String data, String ora) {
 		GregorianCalendar gc = assumiData(data);
-		int intOra = Integer.parseInt(ora);
+		String[] campiOra = ora.split(":", 2);
+		int intOra = Integer.parseInt(campiOra[0]);
+		int intMinuti = Integer.parseInt(campiOra[1]);
 		gc.set(GregorianCalendar.HOUR, intOra);
+		gc.set(GregorianCalendar.MINUTE, intMinuti);
 		return gc;
 	}
 	
@@ -147,7 +162,7 @@ public class Campo<T> {
 		for(int i=0; i<intero.length(); i++) {
 			char c = intero.charAt(i);
 			if(c<'0' || c>'9')
-				return FORMATO_SBAGLIATO;
+				return FORMATO_INTERO_SBAGLIATO;
 		}
 		return OK;
 	

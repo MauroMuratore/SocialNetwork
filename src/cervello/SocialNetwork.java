@@ -107,6 +107,11 @@ public class SocialNetwork {
 		consultaDB.salvaUtente(utente);
 		utente = null;
 	} 
+	
+	public void salvaTutto() {
+		consultaDB.salvaUtente(utente);
+		consultaDB.salvaNotifichePendenti(notificheDaInoltrare);
+	}
 
 	/**
 	 * @return i titoli delle categorie

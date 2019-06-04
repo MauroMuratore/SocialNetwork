@@ -27,12 +27,12 @@ public abstract class Evento {
 	protected Campo<String> note;
 
 
-	private static final String EVENTO_VALIDO = "Evento valido";
-	private static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento è gia esistente";
-	private static final String VUOTO = "ATTENZIONE: il campo è vuoto";
-	private static final String OK = "it's ok";
-	private static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato è errato";
-	private static final String PARTECIPANTI_NECESSARI_MIN = null;
+	public static final String EVENTO_VALIDO = "Evento valido";
+	public static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento ï¿½ gia esistente";
+	public static final String VUOTO = "ATTENZIONE: il campo ï¿½ vuoto";
+	public static final String OK = "it's ok";
+	public static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato ï¿½ errato";
+	public static final String PARTECIPANTI_NECESSARI_MIN = null;
 
 	/**
 	 * Da usare per la lettura da disco
@@ -140,7 +140,7 @@ public abstract class Evento {
 
 
 	public String setTitolo(String _titolo) {
-		if(titolo.equals("")) {
+		if(_titolo.equals("")) {
 			return titolo.getNome() + VUOTO;
 		}
 		titolo.setValore(_titolo);
@@ -149,8 +149,8 @@ public abstract class Evento {
 
 	public String setPartecipantiNecessari(String _partecipantiNecessari) {
 		_partecipantiNecessari.trim();
-		if(Campo.controlloIntero(_partecipantiNecessari).equals(Campo.FORMATO_SBAGLIATO)) {
-			return Campo.FORMATO_SBAGLIATO;
+		if(Campo.controlloIntero(_partecipantiNecessari).equals(Campo.FORMATO_INTERO_SBAGLIATO)) {
+			return Campo.FORMATO_INTERO_SBAGLIATO;
 		}
 		int partNec = Integer.parseInt(_partecipantiNecessari);
 		if(partNec<=0) {
@@ -169,7 +169,7 @@ public abstract class Evento {
 	}
 
 	public String setLuogo(String _luogo) {
-		if(luogo.equals("")) {
+		if(_luogo.equals("")) {
 			return luogo.getNome() + VUOTO;
 		}
 		luogo.setValore(_luogo);
@@ -184,21 +184,21 @@ public abstract class Evento {
 	}
 
 	public String setDurata(String _durata) {
-		if(Campo.controlloIntero(_durata).equals(Campo.FORMATO_SBAGLIATO))
-			return Campo.FORMATO_SBAGLIATO;
+		if(Campo.controlloIntero(_durata).equals(Campo.FORMATO_INTERO_SBAGLIATO))
+			return Campo.FORMATO_INTERO_SBAGLIATO;
 		durata.setValore(Integer.parseInt(_durata));
 		return OK;
 	}
 
 	public String setQuotaIndividuale(String _quotaIndividuale) {
-		if(Campo.controlloIntero(_quotaIndividuale).equals(Campo.FORMATO_SBAGLIATO))
-			return Campo.FORMATO_SBAGLIATO;
+		if(Campo.controlloIntero(_quotaIndividuale).equals(Campo.FORMATO_INTERO_SBAGLIATO))
+			return Campo.FORMATO_INTERO_SBAGLIATO;
 		quotaIndividuale.setValore(Integer.parseInt(_quotaIndividuale));
 		return OK;
 	}
 
 	public String setCompresoQuota(String _compresoQuota) {
-		if(compresoQuota.equals("")) {
+		if(_compresoQuota.equals("")) {
 			return compresoQuota.getNome() + VUOTO;
 		}
 		luogo.setValore(_compresoQuota);

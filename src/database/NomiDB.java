@@ -17,6 +17,7 @@ public enum NomiDB {
 	CAMPO_SESSO("sesso"),
 	FILE_UTENTI("data/utenti.xml"),
 	FILE_PARTITA_CALCIO("data/categoriaPartitaCalcio.xml"),
+	FILE_NOTIFICHE_PENDENTI("data/notifichePendenti,xml"),
 	TAG_UTENTE("utente"),
 	TAG_ELENCO("elenco"),
 	TAG_HASH("hash"),

@@ -1,10 +1,13 @@
 package database;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Hashtable;
+import java.util.LinkedList;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import cervello.Notifica;
 import cervello.PartitaCalcioCat;
 import cervello.PartitaCalcioEvento;
 import cervello.Utente;
@@ -84,4 +87,7 @@ public class ConsultaDB {
 		return false;
 	}
 
+	public void salvaNotifichePendenti(Hashtable<String, LinkedList<Notifica>> notifichePendenti) {
+		scrittura.scriviNotifichePendenti(notifichePendenti);
+	}
 }

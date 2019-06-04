@@ -3,6 +3,7 @@ package database;
 import java.io.File;
 import java.io.IOException;
 import java.util.GregorianCalendar;
+import java.util.Hashtable;
 import java.util.LinkedList;
 
 import javax.xml.parsers.*;
@@ -259,7 +260,7 @@ public class ScriviXML {
 		System.out.println("Scrittura su file " + file.getNome());
 	}
 
-	public void scriviNotifica(Document doc, Notifica n, Element notifiche) {
+	public void scriviNotifica(Document doc, Notifica n, Element elenco) {
 		Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
 		Element nodoMessaggio = doc.createElement(NomiDB.TAG_DESCRIZIONE.getNome());
 		Element nodoEvento = doc.createElement(NomiDB.TAG_ID.getNome());
@@ -272,7 +273,35 @@ public class ScriviXML {
 		nodoNotifica.appendChild(nodoMessaggio);
 		nodoNotifica.appendChild(nodoEvento);
 		nodoNotifica.appendChild(nodoLetto);
-		notifiche.appendChild(nodoNotifica);
+		elenco.appendChild(nodoNotifica);
+	}
+	
+	public void scriviNotifichePendenti(Hashtable<String, LinkedList<Notifica>> notifichePendenti) {
+		if(notifichePendenti==null)
+			return;
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder;
+		Document doc=null;
+		try {
+			builder = factory.newDocumentBuilder();
+			doc = builder.parse(new File(NomiDB.FILE_NOTIFICHE_PENDENTI.getNome())); 
+
+		}catch (SAXException sax) {
+			sax.printStackTrace();
+		}catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (IOException io) {
+			io.printStackTrace();
+		}
+		Element elenco = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		for(String key : notifichePendenti.keySet()) {
+			for(Notifica notifica : notifichePendenti.get(key)) {
+				scriviNotifica(doc, notifica, elenco);
+			}
+		}
+		
+		scriviSuFile(doc, NomiDB.FILE_NOTIFICHE_PENDENTI);
+		
 	}
 }
 
