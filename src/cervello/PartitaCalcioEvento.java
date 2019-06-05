@@ -5,8 +5,6 @@ import java.util.LinkedList;
 
 import database.ConsultaDB;
 import database.NomiDB;
-import javafx.beans.property.IntegerPropertyBase;
-
 public class PartitaCalcioEvento extends Evento {
 
 	private Campo<String> sesso;
@@ -100,10 +98,10 @@ public class PartitaCalcioEvento extends Evento {
 	public String toString() {
 		return super.toString() + sesso.toString() + eta.toString();
 	}
-//	public String setEta(String età) {
+//	public String setEta(String etï¿½) {
 //		if(!Campo.controlloEta(eta).equals(Campo.OK))
 //			return Campo.controlloEta(eta);
-//		eta= Integer.getInteger(età);
+//		eta= Integer.getInteger(etï¿½);
 //		return OK;
 //	}
 

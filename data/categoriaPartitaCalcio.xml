@@ -191,6 +191,9 @@
 <partecipanti>
 <nome>alessandro</nome>
 </partecipanti>
+<partecipanti>
+<nome>alessandro</nome>
+</partecipanti>
 </evento>
 <evento id="599138105">
 <campo>
@@ -387,6 +390,9 @@
 </campo>
 <partecipanti>
 </partecipanti>
+<partecipanti>
+<nome>mauro</nome>
+</partecipanti>
 </evento>
 <evento id="583674451">
 <campo>
@@ -476,6 +482,12 @@
 <valore/>
 <obbligatorio>false</obbligatorio>
 </campo>
+<partecipanti>
+<nome>mauro</nome>
+</partecipanti>
+<partecipanti>
+<nome>mauro</nome>
+</partecipanti>
 <partecipanti>
 <nome>mauro</nome>
 </partecipanti>

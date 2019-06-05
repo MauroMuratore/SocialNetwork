@@ -223,6 +223,7 @@ public class SocialNetwork {
 	public String cancellaNotifica(Notifica notifica) {
 		consultaDB.cancellaNotifica(notifica, utente);
 		utente.cancellaNotifica(notifica);
+		consultaDB.cancellaNotifica(notifica, utente);
 
 		return NOTIFICA_CANCELLATA;
 	}
