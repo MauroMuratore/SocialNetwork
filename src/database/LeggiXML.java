@@ -23,6 +23,7 @@ import cervello.Evento;
 import cervello.Notifica;
 import cervello.PartitaCalcioCat;
 import cervello.PartitaCalcioEvento;
+import cervello.StatoEvento;
 import cervello.Utente;
 
 public class LeggiXML {
@@ -119,10 +120,16 @@ public class LeggiXML {
 		Campo<String> sesso = leggiCampo(evento, String.class, NomiDB.CAMPO_SESSO);
 		Campo<Integer> eta = leggiCampo(evento, Integer.class, NomiDB.CAMPO_ETA);
 		LinkedList<String> partecipanti = leggiPartecipanti(evento);
-
-
+		String stato = evento.getElementsByTagName(NomiDB.CAMPO_STATO_EVENTO.getNome()).item(0).getTextContent();
+		StatoEvento statoEvento = StatoEvento.APERTO;
+		if(stato.equals(NomiDB.STATO_EVENTO_CHIUSO.getNome()))
+			statoEvento=StatoEvento.CHIUSO;
+		else if(stato.equals(NomiDB.STATO_EVENTO_CONCLUSO.getNome()))
+			statoEvento=StatoEvento.CONCLUSO;
+		else if(stato.equals(NomiDB.STATO_EVENTO_FALLITO.getNome()))
+			statoEvento=StatoEvento.FALLITO;
 		PartitaCalcioEvento ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, partecipanti, termineUltimo, luogo, dataInizio,
-				durata, quotaIndividuale, compresoQuota, dataFine, nota, sesso, eta);
+				durata, quotaIndividuale, compresoQuota, dataFine, nota, sesso, eta, statoEvento);
 		return ritorno;
 	}
 
@@ -152,7 +159,10 @@ public class LeggiXML {
 			ritorno = new Campo<String>(nome, descrizione, valoreToString, true);
 		}
 		else if(classeValore.equals(Integer.class)) {
-			ritorno = new Campo<Integer>(nome, descrizione, Integer.parseInt(valoreToString), true);
+			if(valoreToString.equals(""))
+				ritorno = new Campo<Integer>(nome, descrizione, null, true);
+			else 
+				ritorno = new Campo<Integer>(nome, descrizione, Integer.parseInt(valoreToString), true);
 		}
 		else if(classeValore.equals(GregorianCalendar.class)) {
 			GregorianCalendar data = new GregorianCalendar();

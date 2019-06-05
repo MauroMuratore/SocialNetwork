@@ -15,6 +15,7 @@ public enum NomiDB {
 	CAMPO_TERMINE_ULTIMO("termine ultimo"),
 	CAMPO_ETA("eta"),
 	CAMPO_SESSO("sesso"),
+	CAMPO_STATO_EVENTO("campo"),
 	FILE_UTENTI("data/utenti.xml"),
 	FILE_PARTITA_CALCIO("data/categoriaPartitaCalcio.xml"),
 	FILE_NOTIFICHE_PENDENTI("data/notifichePendenti,xml"),
@@ -34,7 +35,12 @@ public enum NomiDB {
 	TAG_GIORNO("giorno"),
 	TAG_ORA("ora"),
 	TAG_CATEGORIA("categoria"),
-	TAG_NOTIFICA("notifica");
+	TAG_NOTIFICA("notifica"), 
+	STATO_EVENTO_CHIUSO("chiuso"),
+	STATO_EVENTO_APERTO("aperto"),
+	STATO_EVENTO_CONCLUSO("concluso"),
+	STATO_EVENTO_FALLITO("fallito"),
+	;
 	
 	
 	private String nome;

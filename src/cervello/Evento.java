@@ -41,7 +41,7 @@ public abstract class Evento {
 	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiNecessari, LinkedList<String> partecipanti,
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
-			Campo<GregorianCalendar> dataFine, Campo<String> note) {
+			Campo<GregorianCalendar> dataFine, Campo<String> note, StatoEvento stato) {
 		super();
 		this.idEvento = idEvento;
 		this.titolo = titolo;
@@ -55,6 +55,7 @@ public abstract class Evento {
 		this.compresoQuota = compresoQuota;
 		this.dataFine = dataFine;
 		this.note = note;
+		this.stato=stato;
 	}
 
 	/**
@@ -92,6 +93,8 @@ public abstract class Evento {
 
 	public Evento() {
 		this.idEvento = (int) System.currentTimeMillis();
+		this.stato=StatoEvento.APERTO;
+		this.partecipanti= new LinkedList<String>();
 	}
 
 
@@ -159,7 +162,7 @@ public abstract class Evento {
 		partecipantiNecessari.setValore(Integer.parseInt(_partecipantiNecessari));
 		return OK;
 	}
-		
+
 
 	public String setTermineUltimo(String data) {
 		if(!Campo.controlloData(data).equals(Campo.OK))
@@ -201,7 +204,7 @@ public abstract class Evento {
 		if(_compresoQuota.equals("")) {
 			return compresoQuota.getNome() + VUOTO;
 		}
-		luogo.setValore(_compresoQuota);
+		compresoQuota.setValore(_compresoQuota);
 		return OK;
 	}
 
@@ -241,7 +244,7 @@ public abstract class Evento {
 		GregorianCalendar oggi = new GregorianCalendar();
 		oggi.setTime(date);
 		//passaggio da aperto a
-		if(stato==StatoEvento.APERTO) {
+		if(stato.equals(StatoEvento.APERTO)) {
 			//chiuso
 			if(termineUltimo.getValore().after(oggi) || termineUltimo.getValore().equals(oggi)) {
 				if(partecipantiNecessari.getValore().intValue() == partecipanti.size()) {
@@ -255,7 +258,7 @@ public abstract class Evento {
 				return new Notifica(this, Notifica.FALLITO);
 			}
 		}
-		else if(stato==StatoEvento.CONCLUSO) {
+		else if(stato.equals(StatoEvento.CONCLUSO)) {
 			if(dataFine.getValore().before(oggi)) {
 				stato=StatoEvento.CONCLUSO;
 				return new Notifica(this, Notifica.CONCLUSO);
@@ -271,12 +274,16 @@ public abstract class Evento {
 	 * @param nome
 	 * @return
 	 */
-	public Notifica iscrizione(String nome) {
-		if(stato==StatoEvento.APERTO) {
+	public String iscrizione(String nome) {
+		String ritorno;
+		if(stato.equals(StatoEvento.APERTO) && !partecipanti.contains(nome)) {
 			partecipanti.add(nome);
-			return new Notifica(this, Notifica.ISCRIZIONE);
-		}
-		return null;
+			ritorno = Notifica.ISCRIZIONE;
+			
+		}else
+			ritorno = Notifica.ERRORE_DI_ISCRIZIONE;
+		return ritorno;
+		
 	}
 
 

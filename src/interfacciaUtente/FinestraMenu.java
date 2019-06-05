@@ -32,6 +32,7 @@ import javax.swing.JTextField;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Choice;
 
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
@@ -58,6 +59,7 @@ public class FinestraMenu {
 	private TextArea textArea;
 	private Label messaggioErr;
 	private Label confermaIsc;
+	private List listaNot ;
 	private static final String EVENTO_VALIDO = "Evento valido";
 	private static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento è gia esistente";
 	private static final String VUOTO = "ATTENZIONE: il campo è vuoto";
@@ -70,15 +72,12 @@ public class FinestraMenu {
 		SN=sn;
 		initialize();
 	}
-
 	public JFrame getFrame() {
 		return frame;
 	}
-
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
 	private void initialize() {
 		frame = new JFrame("SocialNetwork M&M (menu)");
 		frame.setBounds(600, 300, 689, 447);
@@ -383,6 +382,7 @@ public class FinestraMenu {
 		JTextField txtGgmmaa;
 		JTextField textField_8;
 		JTextField txtOraminuti;
+		JTextField textfieldEta;
 		JTextField textOraminutiFine;
 
 
@@ -395,8 +395,8 @@ public class FinestraMenu {
 		label_1.setBounds(10, 38, 62, 22);
 		finestraCEV.add(label_1);
 
-		Label label_2 = new Label("PartecipantiNecessari:");
-		label_2.setBounds(10, 66, 87, 22);
+		Label label_2 = new Label("PartecipantiNec:");
+		label_2.setBounds(10, 66, 122, 22);
 		finestraCEV.add(label_2);
 
 		Label label_3 = new Label("Luogo:");
@@ -416,11 +416,11 @@ public class FinestraMenu {
 		finestraCEV.add(label_6);
 
 		Label label_7 = new Label("QuotaIndividuale:");
-		label_7.setBounds(10, 206, 87, 22);
+		label_7.setBounds(10, 206, 122, 22);
 		finestraCEV.add(label_7);
 
 		Label label_8 = new Label("CompresoNellaQuota:");
-		label_8.setBounds(10, 234, 118, 22);
+		label_8.setBounds(10, 234, 122, 22);
 		finestraCEV.add(label_8);
 
 		Label label_9 = new Label("DataFine:\r\n");
@@ -485,31 +485,53 @@ public class FinestraMenu {
 		textField_8.setColumns(10);
 		textField_8.setBounds(142, 290, 159, 20);
 		finestraCEV.add(textField_8);
-		
+
 		messaggioErr= new Label();
 		messaggioErr.setForeground(Color.red);
 		messaggioErr.setBounds(307, 336, 356, 22);
 		finestraCEV.add(messaggioErr);
-		
+
 		Label label_11 = new Label("OraInizio: ");
 		label_11.setBounds(307, 122, 62, 22);
 		finestraCEV.add(label_11);
-		
+
 		Label label_12 = new Label("OraFine: ");
 		label_12.setBounds(307, 150, 62, 22);
 		finestraCEV.add(label_12);
-		
+
 		txtOraminuti = new JTextField();
 		txtOraminuti.setText("ORA:MINUTI");
 		txtOraminuti.setColumns(10);
 		txtOraminuti.setBounds(375, 124, 159, 20);
 		finestraCEV.add(txtOraminuti);
-		
+
 		textOraminutiFine = new JTextField();
 		textOraminutiFine.setText("ORA:MINUTI");
 		textOraminutiFine.setColumns(10);
 		textOraminutiFine.setBounds(375, 152, 159, 20);
 		finestraCEV.add(textOraminutiFine);
+		
+		Label label_13 = new Label("Sesso:");
+		label_13.setBounds(307, 66, 62, 22);
+		finestraCEV.add(label_13);
+		
+		textfieldEta = new JTextField();
+		textfieldEta.setColumns(10);
+		textfieldEta.setBounds(375, 96, 159, 20);
+		finestraCEV.add(textfieldEta);
+		
+		Label label_14 = new Label("Et\u00E0:");
+		label_14.setBounds(307, 94, 62, 22);
+		finestraCEV.add(label_14);
+		
+		Choice choice = new Choice();
+		choice.add("M");
+		choice.add("F");
+		choice.setBounds(375, 68, 159, 20);
+		finestraCEV.add(choice);
+		
+		
+		
 		frame.revalidate();
 		frame.repaint();
 
@@ -525,14 +547,6 @@ public class FinestraMenu {
 			}
 		});
 
-
-		//		public Evento(Campo<String> titolo, Campo<Integer> partecipantiMax,
-		//				Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
-		//				Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
-		//				Campo<GregorianCalendar> dataFine, Campo<String> note)
-
-
-
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String titolo = textField.getText();
@@ -547,15 +561,17 @@ public class FinestraMenu {
 				String note = textField_8.getText();
 				String oraMinInizio=txtOraminuti.getText();
 				String oraMinFine=textOraminutiFine.getText();
+				String sesso= choice.getSelectedItem();
+				String eta= textfieldEta.getText();
 				eventoCreato = new PartitaCalcioEvento();
-				messaggioErr.setText(settaCampi(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine));
+				messaggioErr.setText(settaCampi(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine,sesso,eta));
 				if(messaggioErr.getText().equals(OK))
 				{
-				    System.out.println(messaggioErr.getText());
+					System.out.println(messaggioErr.getText());
 					if(eventoCreato.valido())
 					{
-					SN.addEvento(eventoCreato);
-					costruisciBachecaPDC();
+						SN.addEvento(eventoCreato);
+						costruisciBachecaPDC();
 					}
 				}
 				else
@@ -570,9 +586,9 @@ public class FinestraMenu {
 		btnNewButton.setBounds(142, 336, 159, 23);
 		finestraCEV.add(btnNewButton);
 
-		
+
 	}
-	public String settaCampi(String titolo,String partNec, String luogo, String dataInizio,String dataFine,String durata,String quota,String compresoQuota,String termineUltimo,String note,String oraIni,String oraFine){
+	public String settaCampi(String titolo,String partNec, String luogo, String dataInizio,String dataFine,String durata,String quota,String compresoQuota,String termineUltimo,String note,String oraIni,String oraFine,String sesso,String eta){
 		String messaggio;
 		messaggio=eventoCreato.setTitolo(titolo);
 		if(!messaggio.equals(OK))return messaggio+" titolo";
@@ -594,6 +610,8 @@ public class FinestraMenu {
 		if(!messaggio.equals(OK))return messaggio+" termine ultimo";
 		messaggio=eventoCreato.setNote(note);
 		if(!messaggio.equals(OK))return messaggio+" note";
+		messaggio=((PartitaCalcioEvento) eventoCreato).setSesso(sesso);
+		if(!messaggio.equals(OK))return messaggio+" sesso";
 		return OK;
 	}
 	public void costruisciFinestraEvento(Evento ev){
@@ -681,7 +699,7 @@ public class FinestraMenu {
 		txtSesso1.setText("Sesso: "+((PartitaCalcioEvento)ev).getSesso().getValoreString());
 		txtSesso1.setBounds(10,261, 641, 20);
 		finestraEV.add(txtSesso1);
-		
+
 		Button button = new Button("Iscrizione");
 		button.setBounds(10, 353, 76, 22);
 		finestraEV.add(button);
@@ -698,13 +716,12 @@ public class FinestraMenu {
 		button.setBackground(SystemColor.desktop);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				ev.iscrizione(SN.getUtente().getUsername());
+				SN.iscrizione(ev);
 				confermaIsc.setText("Ti sei iscritto all'evento");
 			}
 		});
 
-		
+
 		confermaIsc = new Label("\r\n");
 		confermaIsc.setText("");
 		confermaIsc.setBounds(92, 353, 559, 22);
@@ -738,58 +755,92 @@ public class FinestraMenu {
 	}
 	public void costruisciFinestraAP(){
 
+		if(panelAP!=null)frame.remove(panelAP);
+		frame.revalidate();
+		frame.repaint();
 		panelAP = new JPanel();
 		panelAP.setBackground(new Color(176, 224, 230));
 		panelAP.setBounds(0, 23, 673, 385);
 		frame.getContentPane().add(panelAP);
 		panelAP.setLayout(null);
 		frame.getContentPane().add(panelAP);
+		
 
-		List list = new List();
-		list.setForeground(new Color(0, 0, 0));
-		list.setBackground(new Color(0, 204, 204));
-		list.setMultipleMode(true);
-		list.setBounds(204, 38, 459, 60);
-		list.setMultipleMode(false);
+		Button btnCancNot = new Button("CancellaNotifica");
+		btnCancNot.setBounds(204, 101, 111, 22);
+		btnCancNot.setBackground(Color.gray);
+		panelAP.add(btnCancNot);
+		btnCancNot.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				btnCancNot.setBackground(Color.red);
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnCancNot.setBackground(Color.gray);
+			}
+		});
+		btnCancNot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				for(int count=0;count<SN.getUtente().getNotifiche().size();count++)
+				{	
+					String titolo=SN.getUtente().getNotifiche().get(count).getMessaggio()+" TITOLO: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValore();
+					if(titolo.equals(listaNot.getSelectedItem())){
+						SN.getUtente().cancellaNotifica(SN.getUtente().getNotifiche().get(count));
+						System.out.println(SN.getUtente().getNotifiche().size());
+						costruisciFinestraAP();
+					}
+				}
+
+			}
+		});
+
+		listaNot = new List();
+		listaNot.setForeground(new Color(0, 0, 0));
+		listaNot.setBackground(new Color(0, 204, 204));
+		listaNot.setMultipleMode(true);
+		listaNot.setBounds(204, 38, 459, 60);
+		listaNot.setMultipleMode(false);
 		for(int i =0; i<SN.getUtente().getNotifiche().size();i++)
 		{		
 			String notifica=SN.getUtente().getNotifiche().get(i).getMessaggio()+" TITOLO: "+SN.getUtente().getNotifiche().get(i).getEvento().getTitolo().getValore();
-			list.add(notifica);	
+			listaNot.add(notifica);	
 		}
 
-		list.addItemListener(new ItemListener() {
+		listaNot.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 
 				for(int count=0;count<SN.getUtente().getNotifiche().size();count++)
 				{
-					
-					String titolo=SN.getUtente().getNotifiche().get(count).getMessaggio()+" TITOLO: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValore();
-					
-					
-					
-					if(titolo.equals(list.getSelectedItem())){
-						
-					textArea.setText("Titilo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValoreString()+ "\r\n"+
-									"PartecipantiNecessari: "+SN.getUtente().getNotifiche().get(count).getEvento().getPartecipantiNecessari().getValoreString()+ "\r\n"+
-									"TetmineUltimo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTermineUltimo().getValoreString()+ "\r\n"+
-									"Luogo: "+SN.getUtente().getNotifiche().get(count).getEvento().getLuogo().getValoreString()+ "\r\n"+
-									"DataInizio: "+SN.getUtente().getNotifiche().get(count).getEvento().getDataInizio().getValoreString()+ "\r\n"+
-									"DataFine: "+SN.getUtente().getNotifiche().get(count).getEvento().getDataFine().getValoreString()+ "\r\n"+
-									"Durata: "+SN.getUtente().getNotifiche().get(count).getEvento().getDurata().getValoreString()+ "\r\n"+
-									"QuotaIndividuale: "+SN.getUtente().getNotifiche().get(count).getEvento().getQuotaIndividuale().getValoreString()+ "\r\n"+
-									"CompresoQuota: "+SN.getUtente().getNotifiche().get(count).getEvento().getCompresoQuota().getValoreString()+ "\r\n"+
-									"Note: "+SN.getUtente().getNotifiche().get(count).getEvento().getNote().getValoreString()+ "\r\n"		
-									);
-					frame.revalidate();
-					frame.repaint();
 
-					
+					String titolo=SN.getUtente().getNotifiche().get(count).getMessaggio()+" TITOLO: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValore();
+
+
+
+					if(titolo.equals(listaNot.getSelectedItem())){
+
+						textArea.setText("Titilo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValoreString()+ "\r\n"+
+								"PartecipantiNecessari: "+SN.getUtente().getNotifiche().get(count).getEvento().getPartecipantiNecessari().getValoreString()+ "\r\n"+
+								"TetmineUltimo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTermineUltimo().getValoreString()+ "\r\n"+
+								"Luogo: "+SN.getUtente().getNotifiche().get(count).getEvento().getLuogo().getValoreString()+ "\r\n"+
+								"DataInizio: "+SN.getUtente().getNotifiche().get(count).getEvento().getDataInizio().getValoreString()+ "\r\n"+
+								"DataFine: "+SN.getUtente().getNotifiche().get(count).getEvento().getDataFine().getValoreString()+ "\r\n"+
+								"Durata: "+SN.getUtente().getNotifiche().get(count).getEvento().getDurata().getValoreString()+ "\r\n"+
+								"QuotaIndividuale: "+SN.getUtente().getNotifiche().get(count).getEvento().getQuotaIndividuale().getValoreString()+ "\r\n"+
+								"CompresoQuota: "+SN.getUtente().getNotifiche().get(count).getEvento().getCompresoQuota().getValoreString()+ "\r\n"+
+								"Note: "+SN.getUtente().getNotifiche().get(count).getEvento().getNote().getValoreString()+ "\r\n"		
+								);
+						frame.revalidate();
+						frame.repaint();
+
+
 					}
 				}
 			}
 		});
 
-		panelAP.add(list);
+		panelAP.add(listaNot);
 
 		Panel panel = new Panel();
 		panel.setBackground(new Color(135, 206, 235));
@@ -819,7 +870,7 @@ public class FinestraMenu {
 		textArea = new TextArea();
 		textArea.setBackground(new Color(0, 204, 204));
 		textArea.setForeground(new Color(224, 255, 255));
-		textArea.setBounds(204, 104, 459, 271);
+		textArea.setBounds(204, 129, 459, 256);
 		panelAP.add(textArea);
 
 		frame.revalidate();

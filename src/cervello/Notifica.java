@@ -9,12 +9,14 @@ public class Notifica {
 	public static final String ISCRIZIONE = "Ti sei iscritto all'evento";
 	public static final String CHIUSO = "L'evento ha chiuso le iscrizioni";
 	public static final String FALLITO = "L'evento non ha raggiunto gli iscritti";
-	public static final String CONCLUSO = "L'evento è concluso";
+	public static final String CONCLUSO = "L'evento ï¿½ concluso";
+	public static final String ERRORE_DI_ISCRIZIONE = "errore di iscrizione";
 	
 	public Notifica(Evento _evento, String mes) {
 		evento=_evento;
 		messaggio=mes;
 		letta=false;
+		System.out.println("creazione notifica " + messaggio);
 	}
 	
 	public Notifica(Evento _evento, String mes, boolean letto) {

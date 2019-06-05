@@ -90,4 +90,8 @@ public class ConsultaDB {
 	public void salvaNotifichePendenti(Hashtable<String, LinkedList<Notifica>> notifichePendenti) {
 		scrittura.scriviNotifichePendenti(notifichePendenti);
 	}
+
+	public void cancellaNotifica(Notifica notifica, Utente utente) {
+		scrittura.cancellaNotifica(notifica, utente);
+	}
 }

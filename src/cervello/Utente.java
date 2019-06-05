@@ -35,7 +35,6 @@ public class Utente {
 	}
 	
 	public boolean riceviNotifica(Notifica not) {
-		
 		return notifiche.add(not);
 	}
 
