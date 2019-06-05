@@ -175,6 +175,16 @@ public class ScriviXML {
 		else if(evento.getStato().equals(StatoEvento.FALLITO))
 			statoEvento.setTextContent(NomiDB.STATO_EVENTO_FALLITO.getNome());
 
+		Element statoEvento = doc.createElement(NomiDB.CAMPO_STATO_EVENTO.getNome());
+		if(evento.getStato().equals(StatoEvento.CHIUSO))
+			statoEvento.setTextContent(NomiDB.STATO_EVENTO_CHIUSO.getNome());
+		else if(evento.getStato().equals(StatoEvento.CONCLUSO))
+			statoEvento.setTextContent(NomiDB.STATO_EVENTO_CONCLUSO.getNome());
+		else if(evento.getStato().equals(StatoEvento.APERTO))
+			statoEvento.setTextContent(NomiDB.STATO_EVENTO_APERTO.getNome());
+		else if(evento.getStato().equals(StatoEvento.FALLITO))
+			statoEvento.setTextContent(NomiDB.STATO_EVENTO_FALLITO.getNome());
+
 		elenco.appendChild(newEvento);
 
 		scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
@@ -365,6 +375,7 @@ public class ScriviXML {
 
 		scriviSuFile(doc, NomiDB.FILE_NOTIFICHE_PENDENTI);
 
+
 	}
 
 	public void cancellaNotifica(Notifica notifica, Utente utente) {
@@ -400,6 +411,7 @@ public class ScriviXML {
 		}
 
 		scriviSuFile(doc, NomiDB.FILE_UTENTI);
+
 	}
 
 }
