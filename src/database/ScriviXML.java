@@ -92,7 +92,7 @@ public class ScriviXML {
 				nodoUtente = (Element)lista.item(i);
 			}
 		}
-		Element notifiche = (Element) nodoUtente.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome()).item(0);
+		Element notifiche = (Element) nodoUtente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
 
 		scriviNotificheUtente(doc, utente.getNotifiche(), notifiche);
 
@@ -316,9 +316,11 @@ public class ScriviXML {
 	}
 
 	public void scriviNotificheUtente(Document doc, LinkedList<Notifica> listaNotifiche, Element elenco) {
-		for(int i=0; i<elenco.getChildNodes().getLength();i++) {
-			elenco.removeChild(elenco.getChildNodes().item(i));
-		}
+		if(elenco.getChildNodes()!=null)
+			for(int i=0; i<elenco.getChildNodes().getLength();i++) {
+
+				elenco.removeChild(elenco.getChildNodes().item(i));
+			}
 
 		for(Notifica n: listaNotifiche) {
 			Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
@@ -335,7 +337,7 @@ public class ScriviXML {
 			nodoNotifica.appendChild(nodoLetto);
 			elenco.appendChild(nodoNotifica);
 		}
-		
+
 	}
 
 	public void scriviNotifichePendenti(Hashtable<String, LinkedList<Notifica>> notifichePendenti) {
@@ -358,7 +360,7 @@ public class ScriviXML {
 		Element elenco = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
 		for(String key : notifichePendenti.keySet()) {
 			scriviNotificheUtente(doc, notifichePendenti.get(key), elenco);
-			
+
 		}
 
 		scriviSuFile(doc, NomiDB.FILE_NOTIFICHE_PENDENTI);
