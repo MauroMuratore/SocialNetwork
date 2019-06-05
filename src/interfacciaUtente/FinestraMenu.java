@@ -80,7 +80,7 @@ public class FinestraMenu {
 	}
 	private void initialize() {
 		frame = new JFrame("SocialNetwork M&M (menu)");
-		frame.setBounds(600, 300, 689, 447);
+		frame.setBounds(600, 300, 689, 477);//+30
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 

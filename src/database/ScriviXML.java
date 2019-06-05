@@ -165,15 +165,6 @@ public class ScriviXML {
 		scriviCampo(evento.getEta(), newEvento, doc);
 		scriviPartecipanti(evento.getPartecipanti(), newEvento, doc);
 		
-		Element statoEvento = doc.createElement(NomiDB.CAMPO_STATO_EVENTO.getNome());
-		if(evento.getStato().equals(StatoEvento.CHIUSO))
-			statoEvento.setTextContent(NomiDB.STATO_EVENTO_CHIUSO.getNome());
-		else if(evento.getStato().equals(StatoEvento.CONCLUSO))
-			statoEvento.setTextContent(NomiDB.STATO_EVENTO_CONCLUSO.getNome());
-		else if(evento.getStato().equals(StatoEvento.APERTO))
-			statoEvento.setTextContent(NomiDB.STATO_EVENTO_APERTO.getNome());
-		else if(evento.getStato().equals(StatoEvento.FALLITO))
-			statoEvento.setTextContent(NomiDB.STATO_EVENTO_FALLITO.getNome());
 
 		Element statoEvento = doc.createElement(NomiDB.CAMPO_STATO_EVENTO.getNome());
 		if(evento.getStato().equals(StatoEvento.CHIUSO))
