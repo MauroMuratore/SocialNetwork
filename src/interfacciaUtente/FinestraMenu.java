@@ -11,6 +11,7 @@ import cervello.Evento;
 import cervello.PartitaCalcioCat;
 import cervello.PartitaCalcioEvento;
 import cervello.SocialNetwork;
+import cervello.StatoEvento;
 import database.ConsultaDB;
 //import javafx.stage.WindowEvent;
 
@@ -80,7 +81,8 @@ public class FinestraMenu {
 	}
 	private void initialize() {
 		frame = new JFrame("SocialNetwork M&M (menu)");
-		frame.setBounds(600, 300, 689, 477);//+30
+		frame.setBounds(600, 300, 680, 477);//+30
+		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -269,6 +271,9 @@ public class FinestraMenu {
 		if(panelCategorie!= null)
 			frame.getContentPane().remove(panelCategorie);
 
+		frame.setBounds(600, 300, 680, 477);//+30
+		frame.setResizable(false);
+
 		bachecaPDC = new JPanel();
 		bachecaPDC.setBackground(new Color(224, 255, 255));
 		bachecaPDC.setBounds(0, 23, 673, 385);
@@ -298,13 +303,15 @@ public class FinestraMenu {
 		int size = bacheca.size();
 
 		for(k=0;k<size;k++)
-		{ 
-			String titolo= ((Evento) pdc.getBacheca().get(k)).getTitolo().getValoreString();
-			JButton btnNewButton = new JButton(titolo);
-			btnNewButton.setBackground(SystemColor.desktop);
-			costruisciActionListener(btnNewButton,k);
-			pannelloTitoliE.add(btnNewButton);
-
+		{  
+			if(((Evento) pdc.getBacheca().get(k)).getStato().equals(StatoEvento.APERTO)||((Evento) pdc.getBacheca().get(k)).getStato().equals(StatoEvento.CHIUSO))
+			{
+				String titolo= ((Evento) pdc.getBacheca().get(k)).getTitolo().getValoreString();
+				JButton btnNewButton = new JButton(titolo);
+				btnNewButton.setBackground(SystemColor.desktop);
+				costruisciActionListener(btnNewButton,k);
+				pannelloTitoliE.add(btnNewButton);
+			}
 		}
 		frame.getContentPane().add(bachecaPDC);
 
@@ -358,8 +365,6 @@ public class FinestraMenu {
 			}
 		});
 
-		frame.setResizable(false);
-		frame.setBounds(600, 300, 667, 430);
 		frame.revalidate();
 		frame.repaint();
 
@@ -510,28 +515,28 @@ public class FinestraMenu {
 		textOraminutiFine.setColumns(10);
 		textOraminutiFine.setBounds(375, 152, 159, 20);
 		finestraCEV.add(textOraminutiFine);
-		
+
 		Label label_13 = new Label("Sesso:");
 		label_13.setBounds(307, 66, 62, 22);
 		finestraCEV.add(label_13);
-		
+
 		textfieldEta = new JTextField();
 		textfieldEta.setColumns(10);
 		textfieldEta.setBounds(375, 96, 159, 20);
 		finestraCEV.add(textfieldEta);
-		
+
 		Label label_14 = new Label("Et\u00E0:");
 		label_14.setBounds(307, 94, 62, 22);
 		finestraCEV.add(label_14);
-		
+
 		Choice choice = new Choice();
 		choice.add("M");
 		choice.add("F");
 		choice.setBounds(375, 68, 159, 20);
 		finestraCEV.add(choice);
-		
-		
-		
+
+
+
 		frame.revalidate();
 		frame.repaint();
 
@@ -618,7 +623,7 @@ public class FinestraMenu {
 
 		finestraEV = new JPanel();
 		finestraEV.setBackground(new Color(224, 255, 255));
-		finestraEV.setBounds(0, 23, 673, 385);
+		finestraEV.setBounds(0, 23, 673, 415);
 		finestraEV.setLayout(null);
 		frame.getContentPane().add(finestraEV);
 		frame.getContentPane().remove(bachecaPDC);
@@ -701,7 +706,7 @@ public class FinestraMenu {
 		finestraEV.add(txtSesso1);
 
 		Button button = new Button("Iscrizione");
-		button.setBounds(10, 353, 76, 22);
+		button.setBounds(10, 380, 76, 22);
 		finestraEV.add(button);
 		button.addMouseListener(new MouseAdapter() {
 			@Override
@@ -721,12 +726,19 @@ public class FinestraMenu {
 			}
 		});
 
-
 		confermaIsc = new Label("\r\n");
 		confermaIsc.setText("");
-		confermaIsc.setBounds(92, 353, 559, 22);
+		confermaIsc.setBounds(92, 380, 559, 22);
 		confermaIsc.setForeground(Color.green);
 		finestraEV.add(confermaIsc);
+
+		JLabel txtPartecMax = new JLabel();
+		txtPartecMax.setText((String) null);
+		txtPartecMax.setOpaque(true);
+		//txtPartecMax.setText("PartecipantiMassimi: "+ev.getPartecipantiMax().getValoreString());
+		txtPartecMax.setBackground(SystemColor.info);
+		txtPartecMax.setBounds(10, 354, 641, 20);
+		finestraEV.add(txtPartecMax);
 
 		//		frame.setResizable(false);
 		//		frame.setBounds(600, 300, 667, 430);
@@ -764,7 +776,7 @@ public class FinestraMenu {
 		frame.getContentPane().add(panelAP);
 		panelAP.setLayout(null);
 		frame.getContentPane().add(panelAP);
-		
+
 
 		Button btnCancNot = new Button("CancellaNotifica");
 		btnCancNot.setBounds(204, 101, 111, 22);
@@ -822,12 +834,13 @@ public class FinestraMenu {
 
 						textArea.setText("Titilo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValoreString()+ "\r\n"+
 								"PartecipantiNecessari: "+SN.getUtente().getNotifiche().get(count).getEvento().getPartecipantiNecessari().getValoreString()+ "\r\n"+
+								//	"PartecipantiMax: "+SN.getUtente().getNotifiche().get(count).getEvento().getPartecipantiMax().getValoreString()+ "\r\n"+
 								"TetmineUltimo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTermineUltimo().getValoreString()+ "\r\n"+
 								"Luogo: "+SN.getUtente().getNotifiche().get(count).getEvento().getLuogo().getValoreString()+ "\r\n"+
 								"DataInizio: "+SN.getUtente().getNotifiche().get(count).getEvento().getDataInizio().getValoreString()+ "\r\n"+
 								"DataFine: "+SN.getUtente().getNotifiche().get(count).getEvento().getDataFine().getValoreString()+ "\r\n"+
 								"Durata: "+SN.getUtente().getNotifiche().get(count).getEvento().getDurata().getValoreString()+ "\r\n"+
-								"QuotaIndividuale: "+SN.getUtente().getNotifiche().get(count).getEvento().getQuotaIndividuale().getValoreString()+ "\r\n"+
+								"QuotaIndividuale: "+SN.getUtente().getNotifiche().get(count).getEvento().getQuotaIndividuale().getValoreString()+" € "+ "\r\n"+
 								"CompresoQuota: "+SN.getUtente().getNotifiche().get(count).getEvento().getCompresoQuota().getValoreString()+ "\r\n"+
 								"Note: "+SN.getUtente().getNotifiche().get(count).getEvento().getNote().getValoreString()+ "\r\n"		
 								);
