@@ -105,7 +105,7 @@ public class SocialNetwork {
 
 	//TUTTI I SALVATAGGI VANNO FATTI
 	public void logout() {
-		consultaDB.salvaUtente(utente);
+		//consultaDB.salvaUtente(utente);
 		utente = null;
 	} 
 
@@ -166,7 +166,7 @@ public class SocialNetwork {
 			if(utente==null)
 				return;
 			else if(nome.equals(utente.getUsername())) { //se l'utente è quello loggato gli invio la notifica
-				utente.riceviNotifica(notifica);
+				//utente.riceviNotifica(notifica);
 			}
 			else {					//altrimenti la salvo il notifiche da inoltrare
 				if(notificheDaInoltrare.containsKey(nome)) { 			//se l'utente ha già altre notifiche da inoltrare aggiungo la notifica

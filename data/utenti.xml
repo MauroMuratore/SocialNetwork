@@ -3,7 +3,15 @@
 <utente>
 <nome>mauro</nome>
 <hash>1231231</hash>
+
+
+
 <elenco>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>583674451</id>
+<letto>false</letto>
+</notifica>
 <notifica>
 <descrizione>errore di iscrizione</descrizione>
 <id>583674451</id>
