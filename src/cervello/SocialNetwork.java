@@ -23,6 +23,7 @@ public class SocialNetwork {
 	public static final String ID_IN_USO = "ATTENZIONE! : username in uso";
 	public static final String PW_DIVERSE = "ATTENZIONE! : password diverse";
 	public static final String NOTIFICA_CANCELLATA = "Notifica cancellata";
+	public static final String IMPOSSIBILE_CANCELLARE_EVENTO = "impossibile cancellare evento";
 
 
 	public SocialNetwork() {
@@ -134,7 +135,7 @@ public class SocialNetwork {
 	public String iscrizione(Evento evento) {	
 		String messaggio = evento.iscrizione(utente.getUsername());
 		utente.riceviNotifica(new Notifica(evento, messaggio));
-		//aggiornamentoNotifiche(evento.cambioStato());
+		aggiornamentoNotifiche(evento.cambioStato());
 		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
 		consultaDB.salvaUtente(utente);
 		return messaggio ;
@@ -144,6 +145,7 @@ public class SocialNetwork {
 	public void addEvento(Evento evento) {
 		String nome =utente.getUsername();
 		Notifica notificaIscrizione = new Notifica (evento,evento.iscrizione(nome));
+		evento.setProprietario(nome);
 		utente.riceviNotifica(notificaIscrizione);
 		Notifica notificaStato = evento.cambioStato();
 		if(notificaStato!=null)
@@ -158,7 +160,7 @@ public class SocialNetwork {
 
 
 	/**
-	 * invia una notifica all'utente se iscritto e salva le notifiche degli altri utenti nella struttura notificheDaInoltrare
+	 * invia una notifica agli utenti iscritti
 	 * @param notifica
 	 */
 	public void aggiornamentoNotifiche(Notifica notifica) {
@@ -166,7 +168,7 @@ public class SocialNetwork {
 			if(utente==null)
 				return;
 			else if(nome.equals(utente.getUsername())) { //se l'utente è quello loggato gli invio la notifica
-				//utente.riceviNotifica(notifica);
+				utente.riceviNotifica(notifica);
 			}
 			else {					//altrimenti la salvo il notifiche da inoltrare
 				if(notificheDaInoltrare.containsKey(nome)) { 			//se l'utente ha già altre notifiche da inoltrare aggiungo la notifica
@@ -221,7 +223,6 @@ public class SocialNetwork {
 	 * @return
 	 */
 	public String cancellaNotifica(Notifica notifica) {
-		consultaDB.cancellaNotifica(notifica, utente);
 		utente.cancellaNotifica(notifica);
 		consultaDB.cancellaNotifica(notifica, utente);
 
@@ -229,6 +230,21 @@ public class SocialNetwork {
 	}
 	public Utente getUtente(){
 		return utente;
+	}
+	
+	public String cancellaEvento(Evento evento) {
+		Notifica ritorno = evento.cancella(utente.getUsername());
+		utente.riceviNotifica(ritorno);
+		aggiornamentoNotifiche(ritorno);
+		salvaTutto();
+		return ritorno.getMessaggio();
+	}
+	
+	public String revocaIscrizione(Evento evento) {
+		Notifica ritorno = evento.revocaIscrizione(utente.getUsername());
+		utente.riceviNotifica(ritorno);
+		salvaTutto();
+		return ritorno.getMessaggio();
 	}
 
 

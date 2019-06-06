@@ -10,23 +10,23 @@ public class PartitaCalcioEvento extends Evento {
 	private Campo<String> sesso;
 	private Campo<Integer> eta;
 
-	public PartitaCalcioEvento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, LinkedList<String> partecipanti,
+	public PartitaCalcioEvento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, LinkedList<String> partecipanti, String proprietario,
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
-			Campo<GregorianCalendar> dataFine, Campo<String> note, Campo<String> sesso, Campo<Integer> eta, StatoEvento stato) {
+			Campo<GregorianCalendar> dataFine, Campo<String> note, Campo<Integer> tolleranzaPartecipanti, Campo<String> sesso, Campo<Integer> eta, StatoEvento stato) {
 
 
-		super(idEvento, titolo, partecipantiMax, partecipanti, termineUltimo, luogo, dataInizio, durata, quotaIndividuale, compresoQuota,
-				dataFine, note, stato);
+		super(idEvento, titolo, partecipantiMax, partecipanti, proprietario, termineUltimo, luogo, dataInizio, durata, quotaIndividuale, compresoQuota,
+				dataFine, note, tolleranzaPartecipanti, stato);
 		this.sesso=sesso;
 		this.eta=eta;
 	}
 
-	public PartitaCalcioEvento(Campo<String> titolo, Campo<Integer> partecipantiMax,
+	public PartitaCalcioEvento(Campo<String> titolo, Campo<Integer> partecipantiMax, String proprietario,
 			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
-			Campo<GregorianCalendar> dataFine, Campo<String> note, Campo<String> sesso, Campo<Integer> eta) {
-		super(titolo, partecipantiMax, termineUltimo, luogo, dataInizio, durata, quotaIndividuale, compresoQuota, dataFine, note);
+			Campo<GregorianCalendar> dataFine, Campo<String> note,Campo<Integer> tolleranzaPartecipanti, Campo<String> sesso, Campo<Integer> eta) {
+		super(titolo, partecipantiMax, proprietario, termineUltimo, luogo, dataInizio, durata, quotaIndividuale, compresoQuota, dataFine, note, tolleranzaPartecipanti);
 		this.sesso=sesso;
 		this.eta=eta;
 	}
@@ -43,6 +43,7 @@ public class PartitaCalcioEvento extends Evento {
 		compresoQuota = new Campo<String>(NomiDB.CAMPO_COMPRESO_QUOTA.getNome(), "", false);
 		dataFine = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_FINE.getNome(), "", false);
 		note = new Campo<String>(NomiDB.CAMPO_NOTE.getNome(), "", false);
+		tolleranzaPartecipanti = new Campo<Integer>(NomiDB.CAMPO_TOLLERANZA.getNome(), "", false);
 		sesso = new Campo<String>(NomiDB.CAMPO_SESSO.getNome(), "", true);
 		eta = new Campo<Integer>(NomiDB.CAMPO_ETA.getNome(), "",false);
 	}
@@ -98,12 +99,6 @@ public class PartitaCalcioEvento extends Evento {
 	public String toString() {
 		return super.toString() + sesso.toString() + eta.toString();
 	}
-//	public String setEta(String et�) {
-//		if(!Campo.controlloEta(eta).equals(Campo.OK))
-//			return Campo.controlloEta(eta);
-//		eta= Integer.getInteger(et�);
-//		return OK;
-//	}
 
 
 }

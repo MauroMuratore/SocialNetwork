@@ -144,7 +144,9 @@ public class ScriviXML {
 				sovrascriviCampo(evento.getNote(), nodo, doc);
 				sovrascriviCampo(evento.getSesso(), nodo, doc);
 				sovrascriviCampo(evento.getEta(), nodo, doc);
+				sovrascriviCampo(evento.getTolleranzaPartecipanti(), nodo, doc);
 				scriviPartecipanti(evento.getPartecipanti(), nodo, doc);
+				scriviStato(nodo, evento.getStato(), doc);
 				scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
 				return;
 			}
@@ -152,6 +154,8 @@ public class ScriviXML {
 
 		Element newEvento = doc.createElement(NomiDB.TAG_EVENTO.getNome());
 		newEvento.setAttribute("id", String.valueOf(evento.getIdEvento())); 
+		Element proprietario = doc.createElement(NomiDB.CAMPO_PROPRIETARIO.getNome());
+		newEvento.appendChild(proprietario);
 		scriviCampo(evento.getTitolo(), newEvento, doc);
 		scriviCampo(evento.getPartecipantiNecessari(), newEvento, doc);
 		scriviCampo(evento.getTermineUltimo(), newEvento, doc);
@@ -165,23 +169,70 @@ public class ScriviXML {
 		scriviCampo(evento.getNote(), newEvento, doc);
 		scriviCampo(evento.getSesso(), newEvento, doc);
 		scriviCampo(evento.getEta(), newEvento, doc);
+		scriviCampo(evento.getTolleranzaPartecipanti(), newEvento, doc);
 		scriviPartecipanti(evento.getPartecipanti(), newEvento, doc);
-		
+
 
 		Element statoEvento = doc.createElement(NomiDB.CAMPO_STATO_EVENTO.getNome());
+		Element stato = doc.createElement(NomiDB.STATO_EVENTO.getNome());
 		if(evento.getStato().equals(StatoEvento.CHIUSO))
-			statoEvento.setTextContent(NomiDB.STATO_EVENTO_CHIUSO.getNome());
+			stato.setTextContent(NomiDB.STATO_EVENTO_CHIUSO.getNome());
 		else if(evento.getStato().equals(StatoEvento.CONCLUSO))
-			statoEvento.setTextContent(NomiDB.STATO_EVENTO_CONCLUSO.getNome());
+			stato.setTextContent(NomiDB.STATO_EVENTO_CONCLUSO.getNome());
 		else if(evento.getStato().equals(StatoEvento.APERTO))
-			statoEvento.setTextContent(NomiDB.STATO_EVENTO_APERTO.getNome());
+			stato.setTextContent(NomiDB.STATO_EVENTO_APERTO.getNome());
 		else if(evento.getStato().equals(StatoEvento.FALLITO))
-			statoEvento.setTextContent(NomiDB.STATO_EVENTO_FALLITO.getNome());
-
+			stato.setTextContent(NomiDB.STATO_EVENTO_FALLITO.getNome());
+		statoEvento.appendChild(stato);
+		newEvento.appendChild(statoEvento);
 		elenco.appendChild(newEvento);
 
 		scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
 
+	}
+
+	public void scriviStato(Element nodoEvento, StatoEvento statoEvento, Document doc) {
+		Element nodoStatoEvento = (Element) nodoEvento.getElementsByTagName(NomiDB.CAMPO_STATO_EVENTO.getNome()).item(0);
+		Element lastChild = (Element) nodoStatoEvento.getLastChild();
+		String oldStatoString = lastChild.getTextContent();
+		StatoEvento oldStato=null;
+		if(oldStatoString.equals(NomiDB.STATO_EVENTO_CHIUSO.getNome())) {
+			oldStato=StatoEvento.CHIUSO;
+		}
+		else if(oldStatoString.equals(NomiDB.STATO_EVENTO_APERTO.getNome())) {
+			oldStato=StatoEvento.APERTO;
+		}
+		else if(oldStatoString.equals(NomiDB.STATO_EVENTO_FALLITO.getNome())) {
+			oldStato=StatoEvento.FALLITO;
+		}
+		else if(oldStatoString.equals(NomiDB.STATO_EVENTO_CONCLUSO.getNome())) {
+			oldStato=StatoEvento.CONCLUSO;
+		}
+
+		if(!oldStato.equals(statoEvento)) {
+			Element newStato = doc.createElement(NomiDB.STATO_EVENTO.getNome());
+			if(statoEvento.equals(StatoEvento.APERTO)) {
+				newStato.setTextContent(NomiDB.STATO_EVENTO_APERTO.getNome());
+			}
+
+			else if(statoEvento.equals(StatoEvento.CHIUSO)) {
+				newStato.setTextContent(NomiDB.STATO_EVENTO_CHIUSO.getNome());
+
+			}
+			else if(statoEvento.equals(StatoEvento.FALLITO)) {
+				newStato.setTextContent(NomiDB.STATO_EVENTO_FALLITO.getNome());
+
+			}
+			else if(statoEvento.equals(StatoEvento.CONCLUSO)) {
+				newStato.setTextContent(NomiDB.STATO_EVENTO_CONCLUSO.getNome());
+			}
+			else if(statoEvento.equals(StatoEvento.CANCELLATO)) {
+				newStato.setTextContent(NomiDB.STATO_EVENTO_CANCELLATO.getNome());
+			}
+		
+			
+			nodoStatoEvento.appendChild(newStato);
+		}
 	}
 
 
@@ -289,7 +340,6 @@ public class ScriviXML {
 		evento.appendChild(nodoLista);
 
 	}
-
 
 	/**
 	 * scrittura effettiva su file
@@ -406,6 +456,8 @@ public class ScriviXML {
 		scriviSuFile(doc, NomiDB.FILE_UTENTI);
 
 	}
+
+
 
 }
 

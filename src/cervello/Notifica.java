@@ -11,6 +11,11 @@ public class Notifica {
 	public static final String FALLITO = "L'evento non ha raggiunto gli iscritti";
 	public static final String CONCLUSO = "L'evento � concluso";
 	public static final String ERRORE_DI_ISCRIZIONE = "errore di iscrizione";
+	public static final String PROPRIETARIO_DIVERSO = "proprietario diverso";
+	public static final String EVENTO_CANCELLATO ="evento cancellato";
+	public static final String OLTRE_TUR = "impossibile, oltre termine ultimo di ritiro";
+	public static final String NON_ISCRITTO = "utente non iscritto";
+	public static final String REVOCA_ISCRIZIONE = "revocata iscrizione con successo";
 	
 	public Notifica(Evento _evento, String mes) {
 		evento=_evento;

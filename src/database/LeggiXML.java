@@ -107,6 +107,9 @@ public class LeggiXML {
 
 	public PartitaCalcioEvento leggiPartitaCalcioEvento(Element evento) {
 		int id = Integer.parseInt(evento.getAttribute("id"));
+		
+		String proprietario = evento.getElementsByTagName(NomiDB.CAMPO_PROPRIETARIO.getNome()).item(0).getTextContent();
+		
 		Campo<String> titolo = leggiCampo(evento, String.class, NomiDB.CAMPO_TITOLO);
 		Campo<Integer> nPartecipanti = leggiCampo(evento, Integer.class, NomiDB.CAMPO_PARTECIPANTI_MAX);
 		Campo<GregorianCalendar> termineUltimo = leggiCampo(evento, GregorianCalendar.class, NomiDB.CAMPO_TERMINE_ULTIMO);
@@ -119,17 +122,22 @@ public class LeggiXML {
 		Campo<String> nota = leggiCampo(evento, String.class, NomiDB.CAMPO_NOTE);
 		Campo<String> sesso = leggiCampo(evento, String.class, NomiDB.CAMPO_SESSO);
 		Campo<Integer> eta = leggiCampo(evento, Integer.class, NomiDB.CAMPO_ETA);
+		Campo<Integer> tolleranza = leggiCampo(evento, Integer.class, NomiDB.CAMPO_TOLLERANZA);
 		LinkedList<String> partecipanti = leggiPartecipanti(evento);
-		String stato = evento.getElementsByTagName(NomiDB.CAMPO_STATO_EVENTO.getNome()).item(0).getTextContent();
+		
+		String stato = evento.getElementsByTagName(NomiDB.CAMPO_STATO_EVENTO.getNome()).item(0).getLastChild().getTextContent();
 		StatoEvento statoEvento = StatoEvento.APERTO;
 		if(stato.equals(NomiDB.STATO_EVENTO_CHIUSO.getNome()))
 			statoEvento=StatoEvento.CHIUSO;
 		else if(stato.equals(NomiDB.STATO_EVENTO_CONCLUSO.getNome()))
 			statoEvento=StatoEvento.CONCLUSO;
 		else if(stato.equals(NomiDB.STATO_EVENTO_FALLITO.getNome()))
-			statoEvento=StatoEvento.FALLITO;
-		PartitaCalcioEvento ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, partecipanti, termineUltimo, luogo, dataInizio,
-				durata, quotaIndividuale, compresoQuota, dataFine, nota, sesso, eta, statoEvento);
+			statoEvento=StatoEvento.FALLITO;		
+		else if(stato.equals(NomiDB.STATO_EVENTO_CANCELLATO.getNome()))
+			statoEvento=StatoEvento.CANCELLATO;
+		
+		PartitaCalcioEvento ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, partecipanti,proprietario, termineUltimo, luogo, dataInizio,
+				durata, quotaIndividuale, compresoQuota, dataFine, nota, tolleranza, sesso, eta, statoEvento);
 		return ritorno;
 	}
 
