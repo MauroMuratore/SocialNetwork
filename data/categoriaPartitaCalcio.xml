@@ -28,6 +28,17 @@
 <obbligatorio>true</obbligatorio>
 </campo>
 <campo>
+<nome>termine ultimo ritiro</nome>
+<descrizione/>
+<valore>
+<anno>1990</anno>
+<mese>2</mese>
+<giorno>3</giorno>
+<ora>4</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
 <nome>luogo</nome>
 <descrizione/>
 <valore>oratorio</valore>
@@ -112,6 +123,17 @@
 </campo>
 <campo>
 <nome>termine ultimo</nome>
+<descrizione/>
+<valore>
+<anno>1990</anno>
+<mese>2</mese>
+<giorno>3</giorno>
+<ora>4</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>termine ultimo ritiro</nome>
 <descrizione/>
 <valore>
 <anno>1990</anno>
@@ -216,6 +238,17 @@
 <obbligatorio>true</obbligatorio>
 </campo>
 <campo>
+<nome>termine ultimo ritiro</nome>
+<descrizione/>
+<valore>
+<anno>1990</anno>
+<mese>2</mese>
+<giorno>3</giorno>
+<ora>4</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
 <nome>luogo</nome>
 <descrizione/>
 <valore>oratorio</valore>
@@ -306,6 +339,17 @@
 <mese>10</mese>
 <giorno>25</giorno>
 <ora>0</ora>
+</valore>
+<obbligatorio>true</obbligatorio>
+</campo>
+<campo>
+<nome>termine ultimo ritiro</nome>
+<descrizione/>
+<valore>
+<anno>1990</anno>
+<mese>2</mese>
+<giorno>3</giorno>
+<ora>4</ora>
 </valore>
 <obbligatorio>true</obbligatorio>
 </campo>

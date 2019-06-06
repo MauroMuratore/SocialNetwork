@@ -145,6 +145,7 @@ public class ScriviXML {
 				sovrascriviCampo(evento.getSesso(), nodo, doc);
 				sovrascriviCampo(evento.getEta(), nodo, doc);
 				sovrascriviCampo(evento.getTolleranzaPartecipanti(), nodo, doc);
+				sovrascriviCampo(evento.getTermineUltimoRitiro(), nodo, doc);
 				scriviPartecipanti(evento.getPartecipanti(), nodo, doc);
 				scriviStato(nodo, evento.getStato(), doc);
 				scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
@@ -170,6 +171,7 @@ public class ScriviXML {
 		scriviCampo(evento.getSesso(), newEvento, doc);
 		scriviCampo(evento.getEta(), newEvento, doc);
 		scriviCampo(evento.getTolleranzaPartecipanti(), newEvento, doc);
+		scriviCampo(evento.getTermineUltimoRitiro(), newEvento, doc);
 		scriviPartecipanti(evento.getPartecipanti(), newEvento, doc);
 
 

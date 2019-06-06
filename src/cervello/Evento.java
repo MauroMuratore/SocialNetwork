@@ -42,7 +42,7 @@ public abstract class Evento {
 	 * 
 	 */
 	public Evento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiNecessari, LinkedList<String> partecipanti, String proprietario,
-			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
+			Campo<GregorianCalendar> termineUltimo, Campo<GregorianCalendar> termineUltimoRitiro, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
 			Campo<GregorianCalendar> dataFine, Campo<String> note, Campo<Integer> _tolleranzaPartecipanti, StatoEvento stato) {
 		super();
@@ -51,6 +51,7 @@ public abstract class Evento {
 		this.partecipantiNecessari = partecipantiNecessari;
 		this.partecipanti=(LinkedList<String>) partecipanti.clone();
 		this.termineUltimo = termineUltimo;
+		this.termineUltimoRitiro = termineUltimoRitiro;
 		this.luogo = luogo;
 		this.dataInizio = dataInizio;
 		this.durata = durata;
@@ -76,13 +77,14 @@ public abstract class Evento {
 	 * @param note
 	 */
 	public Evento(Campo<String> titolo, Campo<Integer> partecipantiMax, String proprietario,
-			Campo<GregorianCalendar> termineUltimo, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
+			Campo<GregorianCalendar> termineUltimo, Campo<GregorianCalendar> termineUltimoRitiro,Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
 			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
 			Campo<GregorianCalendar> dataFine, Campo<String> note, Campo<Integer> _tolleranzaPartecipanti) {
 		super();
 		this.titolo = titolo;
 		this.partecipantiNecessari = partecipantiMax;
 		this.termineUltimo = termineUltimo;
+		this.termineUltimoRitiro=termineUltimoRitiro;
 		this.luogo = luogo;
 		this.dataInizio = dataInizio;
 		this.durata = durata;

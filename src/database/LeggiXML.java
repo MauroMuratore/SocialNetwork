@@ -122,6 +122,7 @@ public class LeggiXML {
 		Campo<String> nota = leggiCampo(evento, String.class, NomiDB.CAMPO_NOTE);
 		Campo<String> sesso = leggiCampo(evento, String.class, NomiDB.CAMPO_SESSO);
 		Campo<Integer> eta = leggiCampo(evento, Integer.class, NomiDB.CAMPO_ETA);
+		Campo<GregorianCalendar> termineUltimoRitiro = leggiCampo(evento, GregorianCalendar.class, NomiDB.CAMPO_TERMINE_ULTIMO_RITIRO);
 		Campo<Integer> tolleranza = leggiCampo(evento, Integer.class, NomiDB.CAMPO_TOLLERANZA);
 		LinkedList<String> partecipanti = leggiPartecipanti(evento);
 		
@@ -136,7 +137,7 @@ public class LeggiXML {
 		else if(stato.equals(NomiDB.STATO_EVENTO_CANCELLATO.getNome()))
 			statoEvento=StatoEvento.CANCELLATO;
 		
-		PartitaCalcioEvento ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, partecipanti,proprietario, termineUltimo, luogo, dataInizio,
+		PartitaCalcioEvento ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, partecipanti,proprietario, termineUltimo, termineUltimoRitiro, luogo, dataInizio,
 				durata, quotaIndividuale, compresoQuota, dataFine, nota, tolleranza, sesso, eta, statoEvento);
 		return ritorno;
 	}

@@ -18,6 +18,7 @@ public enum NomiDB {
 	CAMPO_STATO_EVENTO("stato_evento"),
 	CAMPO_TOLLERANZA("tolleranza"),
 	CAMPO_PROPRIETARIO("proprietario"),
+	CAMPO_TERMINE_ULTIMO_RITIRO("termine ultimo ritiro"),
 	FILE_UTENTI("data/utenti.xml"),
 	FILE_PARTITA_CALCIO("data/categoriaPartitaCalcio.xml"),
 	FILE_NOTIFICHE_PENDENTI("data/notifichePendenti,xml"),
