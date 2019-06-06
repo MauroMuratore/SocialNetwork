@@ -19,10 +19,11 @@
 <utente>
 <nome>alessandro</nome>
 <hash>monteverde</hash>
+
 <elenco>
 <notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>674764081</id>
+<descrizione>revocata iscrizione con successo</descrizione>
+<id>765448089</id>
 <letto>false</letto>
 </notifica>
 </elenco>

@@ -33,7 +33,7 @@ public abstract class Evento {
 	public static final String EVENTO_VALIDO = "Evento valido";
 	public static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento � gia esistente";
 	public static final String VUOTO = "ATTENZIONE: il campo � vuoto";
-	public static final String OK = "it's ok";
+	public static final String OK = "OK";
 	public static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato � errato";
 	public static final String PARTECIPANTI_NECESSARI_MIN = null;
 
@@ -359,7 +359,6 @@ public abstract class Evento {
 			partecipanti.remove(username);
 			ritorno = new Notifica(this, Notifica.REVOCA_ISCRIZIONE);
 		}
-		
 		return ritorno;
 	}
 

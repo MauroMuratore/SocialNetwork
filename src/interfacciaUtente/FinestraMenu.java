@@ -64,7 +64,7 @@ public class FinestraMenu {
 	private static final String EVENTO_VALIDO = "Evento valido";
 	private static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento è gia esistente";
 	private static final String VUOTO = "ATTENZIONE: il campo è vuoto";
-	private static final String OK = "it's ok";
+	private static final String OK = "OK";
 	private static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato è errato";
 	private static final String PARTECIPANTI_NECESSARI_MIN ="partecipanti necessari inconsistenti";
 
@@ -370,6 +370,7 @@ public class FinestraMenu {
 
 	}
 	public void costruisciFinestraCreazioneEV(){
+
 		finestraCEV = new JPanel();
 		finestraCEV.setBackground(new Color(224, 255, 255));
 		finestraCEV.setBounds(0, 23, 673, 385);
@@ -412,8 +413,8 @@ public class FinestraMenu {
 		label_4.setBounds(10, 122, 62, 22);
 		finestraCEV.add(label_4);
 
-		Label label_5 = new Label("TermineUltimo:\r\n");
-		label_5.setBounds(10, 262, 87, 22);
+		Label label_5 = new Label("TermineUltimoIsc:\r\n");
+		label_5.setBounds(10, 262, 95, 22);
 		finestraCEV.add(label_5);
 
 		Label label_6 = new Label("Durata:");
@@ -497,44 +498,62 @@ public class FinestraMenu {
 		finestraCEV.add(messaggioErr);
 
 		Label label_11 = new Label("OraInizio: ");
-		label_11.setBounds(307, 122, 62, 22);
+		label_11.setBounds(307, 150, 62, 22);
 		finestraCEV.add(label_11);
 
 		Label label_12 = new Label("OraFine: ");
-		label_12.setBounds(307, 150, 62, 22);
+		label_12.setBounds(307, 178, 62, 22);
 		finestraCEV.add(label_12);
 
 		txtOraminuti = new JTextField();
 		txtOraminuti.setText("ORA:MINUTI");
 		txtOraminuti.setColumns(10);
-		txtOraminuti.setBounds(375, 124, 159, 20);
+		txtOraminuti.setBounds(435, 152, 159, 20);
 		finestraCEV.add(txtOraminuti);
 
 		textOraminutiFine = new JTextField();
 		textOraminutiFine.setText("ORA:MINUTI");
 		textOraminutiFine.setColumns(10);
-		textOraminutiFine.setBounds(375, 152, 159, 20);
+		textOraminutiFine.setBounds(435, 178, 159, 20);
 		finestraCEV.add(textOraminutiFine);
 
 		Label label_13 = new Label("Sesso:");
-		label_13.setBounds(307, 66, 62, 22);
+		label_13.setBounds(307, 94, 62, 22);
 		finestraCEV.add(label_13);
 
 		textfieldEta = new JTextField();
 		textfieldEta.setColumns(10);
-		textfieldEta.setBounds(375, 96, 159, 20);
+		textfieldEta.setBounds(435, 122, 159, 20);
 		finestraCEV.add(textfieldEta);
 
 		Label label_14 = new Label("Et\u00E0:");
-		label_14.setBounds(307, 94, 62, 22);
+		label_14.setBounds(307, 122, 62, 22);
 		finestraCEV.add(label_14);
 
 		Choice choice = new Choice();
 		choice.add("M");
 		choice.add("F");
-		choice.setBounds(375, 68, 159, 20);
+		choice.setBounds(435, 94, 159, 20);
 		finestraCEV.add(choice);
+		
+		Label label_15 = new Label("ToleranzaPartecipanti: ");
+		label_15.setBounds(307, 66, 122, 22);
+		finestraCEV.add(label_15);
+		
+		JTextField textTolleranza = new JTextField();
+		textTolleranza.setColumns(10);
+		textTolleranza.setBounds(435, 66, 159, 20);
+		finestraCEV.add(textTolleranza);
 
+		Label label_16 = new Label("TermineUltimoRitiro:");
+		label_16.setBounds(307, 206, 122, 22);
+		finestraCEV.add(label_16);
+		
+		JTextField termineultRit = new JTextField();
+		termineultRit.setColumns(10);
+		termineultRit.setText("GG/MM/AA");
+		termineultRit.setBounds(435, 206, 159, 20);
+		finestraCEV.add(termineultRit);
 
 
 		frame.revalidate();
@@ -568,12 +587,15 @@ public class FinestraMenu {
 				String oraMinFine=textOraminutiFine.getText();
 				String sesso= choice.getSelectedItem();
 				String eta= textfieldEta.getText();
+				String tolleranza= textTolleranza.getText();
+				String termineUltRit= termineultRit.getText();
 				eventoCreato = new PartitaCalcioEvento();
-				messaggioErr.setText(settaCampi(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine,sesso,eta));
+				
+				messaggioErr.setText(settaCampi(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine,sesso,eta,tolleranza,termineUltRit));
 				if(messaggioErr.getText().equals(OK))
-				{
+				{  
 					System.out.println(messaggioErr.getText());
-					if(eventoCreato.valido())
+					//if(eventoCreato.valido())
 					{
 						SN.addEvento(eventoCreato);
 						costruisciBachecaPDC();
@@ -593,7 +615,8 @@ public class FinestraMenu {
 
 
 	}
-	public String settaCampi(String titolo,String partNec, String luogo, String dataInizio,String dataFine,String durata,String quota,String compresoQuota,String termineUltimo,String note,String oraIni,String oraFine,String sesso,String eta){
+	public String settaCampi(String titolo,String partNec, String luogo, String dataInizio,String dataFine,String durata,String quota,String compresoQuota,String termineUltimo,String note,String oraIni,String oraFine,String sesso,String eta,String tolleranza,String termineUltRit)
+	{
 		String messaggio;
 		messaggio=eventoCreato.setTitolo(titolo);
 		if(!messaggio.equals(OK))return messaggio+" titolo";
@@ -617,6 +640,12 @@ public class FinestraMenu {
 		if(!messaggio.equals(OK))return messaggio+" note";
 		messaggio=((PartitaCalcioEvento) eventoCreato).setSesso(sesso);
 		if(!messaggio.equals(OK))return messaggio+" sesso";
+		messaggio=((PartitaCalcioEvento) eventoCreato).setEta(eta);
+		if(!messaggio.equals(OK))return messaggio+" età";
+		messaggio=eventoCreato.setTolleranzaPartecipanti(tolleranza);
+		if(!messaggio.equals(OK))return messaggio+" tolleranza";
+		messaggio=eventoCreato.setTermineUltimoRitiro(termineUltRit);
+		if(!messaggio.equals(OK))return messaggio+"termine ultimo ritiro";
 		return OK;
 	}
 	public void costruisciFinestraEvento(Evento ev){
@@ -720,25 +749,47 @@ public class FinestraMenu {
 		});
 		button.setBackground(SystemColor.desktop);
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				SN.iscrizione(ev);
-				confermaIsc.setText("Ti sei iscritto all'evento");
+			public void actionPerformed(ActionEvent arg0) {		
+				confermaIsc.setText(SN.iscrizione(ev));
 			}
 		});
+		
+		
+
+		Button disiscrizione = new Button("disiscrzione");
+		disiscrizione.setBounds(92, 380, 76, 22);
+		finestraEV.add(disiscrizione);
+		disiscrizione.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				disiscrizione.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				disiscrizione.setBackground(SystemColor.desktop);
+			}
+		});
+		disiscrizione.setBackground(SystemColor.desktop);
+		disiscrizione.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {		
+				confermaIsc.setText(SN.revocaIscrizione(ev));
+			}
+		});
+		
 
 		confermaIsc = new Label("\r\n");
 		confermaIsc.setText("");
-		confermaIsc.setBounds(92, 380, 559, 22);
+		confermaIsc.setBounds(174, 380, 477, 22);
 		confermaIsc.setForeground(Color.green);
 		finestraEV.add(confermaIsc);
 
-		JLabel txtPartecMax = new JLabel();
-		txtPartecMax.setText((String) null);
-		txtPartecMax.setOpaque(true);
-		//txtPartecMax.setText("PartecipantiMassimi: "+ev.getPartecipantiMax().getValoreString());
-		txtPartecMax.setBackground(SystemColor.info);
-		txtPartecMax.setBounds(10, 354, 641, 20);
-		finestraEV.add(txtPartecMax);
+		JLabel txtPartecnec = new JLabel();
+		txtPartecnec.setText("ParetecipantiNecessari: "+ev.getPartecipantiNecessari().getValoreString());
+		txtPartecnec.setOpaque(true);
+ 
+		txtPartecnec.setBackground(SystemColor.info);
+		txtPartecnec.setBounds(10, 354, 641, 20);
+		finestraEV.add(txtPartecnec);
 
 		//		frame.setResizable(false);
 		//		frame.setBounds(600, 300, 667, 430);
@@ -747,7 +798,6 @@ public class FinestraMenu {
 	}
 	public void costruisciActionListener(JButton btn, int k){
 
-		System.out.println(k);
 		btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -760,7 +810,6 @@ public class FinestraMenu {
 		});
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//				System.out.println(((Evento) pdc.getBacheca().get(k-1)).getTitolo().getValore());
 				costruisciFinestraEvento((Evento) pdc.getBacheca().get(k));
 			}
 		});
@@ -814,6 +863,7 @@ public class FinestraMenu {
 		listaNot.setMultipleMode(true);
 		listaNot.setBounds(204, 38, 459, 60);
 		listaNot.setMultipleMode(false);
+		//System.out.println(SN.getUtente().getNotifiche().get(0).getEvento());
 		for(int i =0; i<SN.getUtente().getNotifiche().size();i++)
 		{		
 			String notifica=SN.getUtente().getNotifiche().get(i).getMessaggio()+" TITOLO: "+SN.getUtente().getNotifiche().get(i).getEvento().getTitolo().getValore();
@@ -834,7 +884,7 @@ public class FinestraMenu {
 
 						textArea.setText("Titilo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValoreString()+ "\r\n"+
 								"PartecipantiNecessari: "+SN.getUtente().getNotifiche().get(count).getEvento().getPartecipantiNecessari().getValoreString()+ "\r\n"+
-								//	"PartecipantiMax: "+SN.getUtente().getNotifiche().get(count).getEvento().getPartecipantiMax().getValoreString()+ "\r\n"+
+								"TolleranzaPartecipanti: "+SN.getUtente().getNotifiche().get(count).getEvento().getTolleranzaPartecipanti().getValoreString()+ "\r\n"+
 								"TetmineUltimo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTermineUltimo().getValoreString()+ "\r\n"+
 								"Luogo: "+SN.getUtente().getNotifiche().get(count).getEvento().getLuogo().getValoreString()+ "\r\n"+
 								"DataInizio: "+SN.getUtente().getNotifiche().get(count).getEvento().getDataInizio().getValoreString()+ "\r\n"+
