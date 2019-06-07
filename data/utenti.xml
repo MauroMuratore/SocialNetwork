@@ -3,15 +3,99 @@
 <utente>
 <nome>mauro</nome>
 <hash>1231231</hash>
+
+
+
+
 <elenco>
 <notifica>
-<descrizione>errore di iscrizione</descrizione>
-<id>583674451</id>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>583580172</id>
 <letto>false</letto>
 </notifica>
 <notifica>
 <descrizione>errore di iscrizione</descrizione>
-<id>583674451</id>
+<id>599138105</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>599138105</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>599138105</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>599138105</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>583580172</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>errore di iscrizione</descrizione>
+<id>583580172</id>
 <letto>false</letto>
 </notifica>
 </elenco>
@@ -20,11 +104,11 @@
 <nome>alessandro</nome>
 <hash>monteverde</hash>
 <elenco>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>674764081</id>
-<letto>false</letto>
-</notifica>
 </elenco>
+</utente>
+<utente>
+<nome>mauro77</nome>
+<hash>123123123</hash>
+<elenco/>
 </utente>
 </elenco>
