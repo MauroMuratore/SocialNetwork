@@ -39,7 +39,8 @@ public class Utente {
 	}
 
 	public void cancellaNotifica(Notifica notifica) {
-		notifiche.remove(notifica);
+		if(notifiche.remove(notifica))
+			System.out.println("rimossa notifica");;
 		
 	}
 	
