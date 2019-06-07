@@ -21,11 +21,12 @@
 <hash>monteverde</hash>
 
 <elenco>
-<notifica>
-<descrizione>revocata iscrizione con successo</descrizione>
-<id>765448089</id>
-<letto>false</letto>
-</notifica>
+
 </elenco>
+</utente>
+<utente>
+<nome>alessandro2</nome>
+<hash>monteverde</hash>
+<elenco/>
 </utente>
 </elenco>
