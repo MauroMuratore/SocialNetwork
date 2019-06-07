@@ -106,7 +106,6 @@ public class SocialNetwork {
 
 	//TUTTI I SALVATAGGI VANNO FATTI
 	public void logout() {
-		//consultaDB.salvaUtente(utente);
 		utente = null;
 	} 
 
@@ -131,12 +130,14 @@ public class SocialNetwork {
 	public Categoria mostraCategoria(String categoria){
 		return categorie.get(categoria);
 	}
-	
+
 	public String iscrizione(Evento evento) {	
 		String messaggio = evento.iscrizione(utente.getUsername());
 		utente.riceviNotifica(new Notifica(evento, messaggio));
-		aggiornamentoNotifiche(evento.cambioStato());
+		if(evento.cambioStato()!=null)
+			aggiornamentoNotifiche(evento.cambioStato());
 		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
+		System.out.print("scrittura iscrizione ");
 		consultaDB.salvaUtente(utente);
 		return messaggio ;
 	}
@@ -224,25 +225,28 @@ public class SocialNetwork {
 	 */
 	public String cancellaNotifica(Notifica notifica) {
 		utente.cancellaNotifica(notifica);
-		consultaDB.cancellaNotifica(notifica, utente);
+		System.out.print("cancello notifica ");
+		consultaDB.salvaUtente(utente);
 
 		return NOTIFICA_CANCELLATA;
 	}
 	public Utente getUtente(){
 		return utente;
 	}
-	
+
 	public String cancellaEvento(Evento evento) {
 		Notifica ritorno = evento.cancella(utente.getUsername());
 		utente.riceviNotifica(ritorno);
 		aggiornamentoNotifiche(ritorno);
+		System.out.print("cancella evento scrittura ");
 		salvaTutto();
 		return ritorno.getMessaggio();
 	}
-	
+
 	public String revocaIscrizione(Evento evento) {
 		Notifica ritorno = evento.revocaIscrizione(utente.getUsername());
 		utente.riceviNotifica(ritorno);
+		System.out.print("revoca iscrizione scrittura ");
 		salvaTutto();
 		return ritorno.getMessaggio();
 	}

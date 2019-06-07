@@ -195,7 +195,8 @@ public class ScriviXML {
 
 	public void scriviStato(Element nodoEvento, StatoEvento statoEvento, Document doc) {
 		Element nodoStatoEvento = (Element) nodoEvento.getElementsByTagName(NomiDB.CAMPO_STATO_EVENTO.getNome()).item(0);
-		Element lastChild = (Element) nodoStatoEvento.getLastChild();
+		int lastIndex = nodoStatoEvento.getElementsByTagName(NomiDB.STATO_EVENTO.getNome()).getLength()-1;
+		Element lastChild = (Element) nodoStatoEvento.getElementsByTagName(NomiDB.STATO_EVENTO.getNome()).item(lastIndex);
 		String oldStatoString = lastChild.getTextContent();
 		StatoEvento oldStato=null;
 		if(oldStatoString.equals(NomiDB.STATO_EVENTO_CHIUSO.getNome())) {
@@ -371,13 +372,8 @@ public class ScriviXML {
 	}
 
 	public void scriviNotificheUtente(Document doc, LinkedList<Notifica> listaNotifiche, Element elenco) {
-		if(elenco.getChildNodes()!=null)
-			for(int i=0; i<elenco.getChildNodes().getLength();i++) {
-
-				elenco.removeChild(elenco.getChildNodes().item(i));
-			}
-
-		for(Notifica n: listaNotifiche) {
+		for(int index=elenco.getChildNodes().getLength(); index<listaNotifiche.size(); index++) {
+			Notifica n = listaNotifiche.get(index);
 			Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
 			Element nodoMessaggio = doc.createElement(NomiDB.TAG_DESCRIZIONE.getNome());
 			Element nodoEvento = doc.createElement(NomiDB.TAG_ID.getNome());
@@ -444,6 +440,7 @@ public class ScriviXML {
 				nodoUtente = (Element)lista.item(i);
 			}
 		}
+		
 		Element listaNotifiche =(Element) nodoUtente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
 		for(int i=0; i<listaNotifiche.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).getLength(); i++) {
 			Element nodoNotifica = (Element) listaNotifiche.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).item(i);
