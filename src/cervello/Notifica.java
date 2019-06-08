@@ -16,6 +16,7 @@ public class Notifica {
 	public static final String OLTRE_TUR = "impossibile, oltre termine ultimo di ritiro";
 	public static final String NON_ISCRITTO = "utente non iscritto";
 	public static final String REVOCA_ISCRIZIONE = "revocata iscrizione con successo";
+	public static final String ISCRIZIONE_GIA_FATTA = "iscrizione gia fatta";
 	
 	public Notifica(Evento _evento, String mes) {
 		evento=_evento;

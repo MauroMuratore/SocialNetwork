@@ -321,7 +321,9 @@ public abstract class Evento {
 			partecipanti.add(nome);
 			ritorno = Notifica.ISCRIZIONE;
 			
-		}else
+		}else if(partecipanti.contains(nome))
+			ritorno = Notifica.ISCRIZIONE_GIA_FATTA;
+		else 
 			ritorno = Notifica.ERRORE_DI_ISCRIZIONE;
 		return ritorno;
 		
