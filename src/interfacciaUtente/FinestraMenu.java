@@ -1,48 +1,36 @@
 package interfacciaUtente;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JTextPane;
-
-import com.sun.glass.events.WindowEvent;
-
-import cervello.Campo;
-import cervello.Categoria;
-import cervello.Evento;
-import cervello.PartitaCalcioCat;
-import cervello.PartitaCalcioEvento;
-import cervello.SocialNetwork;
-import cervello.StatoEvento;
-import database.ConsultaDB;
-//import javafx.stage.WindowEvent;
-
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Choice;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
-
-import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.TextArea;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Choice;
-
-import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import cervello.Categoria;
+import cervello.Evento;
+import cervello.PartitaCalcioEvento;
+import cervello.SocialNetwork;
+import cervello.StatoEvento;
 
 public class FinestraMenu {
 
@@ -65,10 +53,10 @@ public class FinestraMenu {
 	private Label noteSistema;
 	private List listaNot ;
 	private static final String EVENTO_VALIDO = "Evento valido";
-	private static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento è gia esistente";
-	private static final String VUOTO = "ATTENZIONE: il campo è vuoto";
+	private static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento ï¿½ gia esistente";
+	private static final String VUOTO = "ATTENZIONE: il campo ï¿½ vuoto";
 	private static final String OK = "OK";
-	private static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato è errato";
+	private static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato ï¿½ errato";
 	private static final String PARTECIPANTI_NECESSARI_MIN ="partecipanti necessari inconsistenti";
 
 	public FinestraMenu(SocialNetwork _sn, UserInterface ui) {
@@ -653,7 +641,7 @@ public class FinestraMenu {
 		messaggio=((PartitaCalcioEvento) eventoCreato).setSesso(sesso);
 		if(!messaggio.equals(OK))return messaggio+" sesso";
 		messaggio=((PartitaCalcioEvento) eventoCreato).setEta(eta);
-		if(!messaggio.equals(OK))return messaggio+" età";
+		if(!messaggio.equals(OK))return messaggio+" etï¿½";
 		messaggio=eventoCreato.setTolleranzaPartecipanti(tolleranza);
 		if(!messaggio.equals(OK))return messaggio+" tolleranza";
 		messaggio=eventoCreato.setTermineUltimoRitiro(termineUltRit);
@@ -730,14 +718,14 @@ public class FinestraMenu {
 		JLabel txtQuota = new JLabel();
 		txtQuota.setOpaque(true);
 		txtQuota.setBackground(SystemColor.info);
-		txtQuota.setText("Quota: "+ev.getQuotaIndividuale().getValoreString()+" €");
+		txtQuota.setText("Quota: "+ev.getQuotaIndividuale().getValoreString()+" ï¿½");
 		txtQuota.setBounds(10, 230, 641, 20);
 		finestraEV.add(txtQuota);
 
 		JLabel txtEta = new JLabel();
 		txtEta.setOpaque(true);
 		txtEta.setBackground(SystemColor.info);
-		txtEta.setText("Età: "+((PartitaCalcioEvento)ev).getEta().getValoreString());
+		txtEta.setText("Etï¿½: "+((PartitaCalcioEvento)ev).getEta().getValoreString());
 		txtEta.setBounds(10, 292, 641, 20);
 		finestraEV.add(txtEta);
 
@@ -958,7 +946,7 @@ public class FinestraMenu {
 								"DataInizio: "+sn.getUtente().getNotifiche().get(count).getEvento().getDataInizio().getValoreString()+ "\r\n"+
 								"DataFine: "+sn.getUtente().getNotifiche().get(count).getEvento().getDataFine().getValoreString()+ "\r\n"+
 								"Durata: "+sn.getUtente().getNotifiche().get(count).getEvento().getDurata().getValoreString()+ "\r\n"+
-								"QuotaIndividuale: "+sn.getUtente().getNotifiche().get(count).getEvento().getQuotaIndividuale().getValoreString()+" € "+ "\r\n"+
+								"QuotaIndividuale: "+sn.getUtente().getNotifiche().get(count).getEvento().getQuotaIndividuale().getValoreString()+" ï¿½ "+ "\r\n"+
 								"CompresoQuota: "+sn.getUtente().getNotifiche().get(count).getEvento().getCompresoQuota().getValoreString()+ "\r\n"+
 								"Note: "+sn.getUtente().getNotifiche().get(count).getEvento().getNote().getValoreString()+ "\r\n"		
 								);

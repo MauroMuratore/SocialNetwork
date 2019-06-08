@@ -35,7 +35,7 @@ public abstract class Evento {
 	public static final String VUOTO = "ATTENZIONE: il campo � vuoto";
 	public static final String OK = "OK";
 	public static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato � errato";
-	public static final String PARTECIPANTI_NECESSARI_MIN = null;
+	public static final String PARTECIPANTI_NECESSARI_MIN = "Partecipanti minimi necessari";
 
 	/**
 	 * Da usare per la lettura da disco

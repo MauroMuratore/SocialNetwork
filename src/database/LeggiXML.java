@@ -126,8 +126,9 @@ public class LeggiXML {
 		Campo<Integer> tolleranza = leggiCampo(evento, Integer.class, NomiDB.CAMPO_TOLLERANZA);
 		LinkedList<String> partecipanti = leggiPartecipanti(evento);
 		
-		
-		String stato = evento.getElementsByTagName(NomiDB.CAMPO_STATO_EVENTO.getNome()).item(0).getLastChild().getTextContent();
+		Element nodoStato = (Element) evento.getElementsByTagName(NomiDB.CAMPO_STATO_EVENTO.getNome()).item(0);
+		int lastIndex = nodoStato.getElementsByTagName(NomiDB.STATO_EVENTO.getNome()).getLength()-1;
+		String stato = nodoStato.getElementsByTagName(NomiDB.STATO_EVENTO.getNome()).item(lastIndex).getTextContent();
 		StatoEvento statoEvento = StatoEvento.APERTO;
 		if(stato.equals(NomiDB.STATO_EVENTO_CHIUSO.getNome()))
 			statoEvento=StatoEvento.CHIUSO;

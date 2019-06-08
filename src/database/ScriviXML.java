@@ -195,6 +195,7 @@ public class ScriviXML {
 	}
 
 	public void scriviStato(Element nodoEvento, StatoEvento statoEvento, Document doc) {
+		System.out.println("scrivo stato evento");
 		Element nodoStatoEvento = (Element) nodoEvento.getElementsByTagName(NomiDB.CAMPO_STATO_EVENTO.getNome()).item(0);
 		int lastIndex = nodoStatoEvento.getElementsByTagName(NomiDB.STATO_EVENTO.getNome()).getLength()-1;
 		Element lastChild = (Element) nodoStatoEvento.getElementsByTagName(NomiDB.STATO_EVENTO.getNome()).item(lastIndex);
@@ -214,6 +215,7 @@ public class ScriviXML {
 		}
 
 		if(!oldStato.equals(statoEvento)) {
+			System.out.println("stato evento cambiato");
 			Element newStato = doc.createElement(NomiDB.STATO_EVENTO.getNome());
 			if(statoEvento.equals(StatoEvento.APERTO)) {
 				newStato.setTextContent(NomiDB.STATO_EVENTO_APERTO.getNome());
