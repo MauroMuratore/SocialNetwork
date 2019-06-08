@@ -42,6 +42,9 @@
 
 
 
+
+
+
 <elenco>
 
 
@@ -74,21 +77,25 @@
 
 
 
-<notifica>
-<descrizione>errore di iscrizione</descrizione>
-<id>599138105</id>
-<letto>false</letto>
-</notifica>
+
+
+
 
 
 <notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>912525696</id>
+<letto>false</letto>
+</notifica>
+
+<notifica>
 <descrizione>errore di iscrizione</descrizione>
-<id>583580172</id>
+<id>912525696</id>
 <letto>false</letto>
 </notifica>
 <notifica>
-<descrizione>errore di iscrizione</descrizione>
-<id>599138105</id>
+<descrizione>revocata iscrizione con successo</descrizione>
+<id>912525696</id>
 <letto>false</letto>
 </notifica>
 </elenco>

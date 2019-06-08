@@ -50,7 +50,9 @@ public class Campo<T> {
 		}
 		if(valore.getClass().equals(GregorianCalendar.class)) {
 			return ((GregorianCalendar)valore).get(GregorianCalendar.DAY_OF_MONTH) + "/" +
-					((GregorianCalendar)valore).get(GregorianCalendar.MONTH) + "/"+ ((GregorianCalendar)valore).get(GregorianCalendar.YEAR) +"\n";
+					((GregorianCalendar)valore).get(GregorianCalendar.MONTH) + "/"+ ((GregorianCalendar)valore).get(GregorianCalendar.YEAR) 
+					+ " " + ((GregorianCalendar)valore).get(GregorianCalendar.HOUR_OF_DAY) + ":"+((GregorianCalendar)valore).get(GregorianCalendar.MINUTE)
+					+"\n";
 			
 		}
 		
