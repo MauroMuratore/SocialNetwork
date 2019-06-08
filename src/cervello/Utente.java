@@ -40,7 +40,7 @@ public class Utente {
 
 	public void cancellaNotifica(Notifica notifica) {
 		if(notifiche.remove(notifica))
-			System.out.println("rimossa notifica");;
+			System.out.println("rimossa notifica " + notifica.getMessaggio());;
 		
 	}
 	

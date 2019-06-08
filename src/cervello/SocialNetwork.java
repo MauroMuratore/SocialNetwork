@@ -132,6 +132,7 @@ public class SocialNetwork {
 	}
 
 	public String iscrizione(Evento evento) {	
+		
 		String messaggio = evento.iscrizione(utente.getUsername());
 		utente.riceviNotifica(new Notifica(evento, messaggio));
 		if(evento.cambioStato()!=null)
@@ -226,7 +227,7 @@ public class SocialNetwork {
 	public String cancellaNotifica(Notifica notifica) {
 		utente.cancellaNotifica(notifica);
 		System.out.print("cancello notifica ");
-		consultaDB.salvaUtente(utente);
+		consultaDB.cancellaNotifica(notifica, utente);
 
 		return NOTIFICA_CANCELLATA;
 	}

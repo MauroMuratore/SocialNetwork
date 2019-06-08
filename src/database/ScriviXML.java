@@ -99,7 +99,7 @@ public class ScriviXML {
 		scriviNotificheUtente(doc, utente.getNotifiche(), notifiche);
 
 		nodoUtente.appendChild(notifiche);
-
+		System.out.println("salvo utente " + utente.getUsername());
 		scriviSuFile(doc, NomiDB.FILE_UTENTI);
 
 
@@ -325,7 +325,13 @@ public class ScriviXML {
 	}
 
 	public void scriviPartecipanti(LinkedList<String> lista, Element evento, Document doc) {
-		Element nodoLista = doc.createElement(NomiDB.CAMPO_PARTECIPANTI.getNome());
+		
+		Element nodoLista = null;
+		if(evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome()).item(0)==null)
+			nodoLista = doc.createElement(NomiDB.CAMPO_PARTECIPANTI.getNome());
+		else
+			nodoLista = (Element) evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome()).item(0);
+		
 		for(int i=0; i<lista.size(); i++) {
 			boolean isPresent=false;
 			for (int index=0; index<nodoLista.getElementsByTagName(NomiDB.TAG_NOME.getNome()).getLength(); index++) {
@@ -372,7 +378,9 @@ public class ScriviXML {
 	}
 
 	public void scriviNotificheUtente(Document doc, LinkedList<Notifica> listaNotifiche, Element elenco) {
-		for(int index=elenco.getChildNodes().getLength(); index<listaNotifiche.size(); index++) {
+		int lunghezzaListaElenco = elenco.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).getLength();
+		System.out.println("notifiche gia presenti " + lunghezzaListaElenco + " notifiche utente " + listaNotifiche.size());
+		for(int index=lunghezzaListaElenco; index<listaNotifiche.size(); index++) {
 			Notifica n = listaNotifiche.get(index);
 			Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
 			Element nodoMessaggio = doc.createElement(NomiDB.TAG_DESCRIZIONE.getNome());
@@ -447,8 +455,10 @@ public class ScriviXML {
 			String descrizione = nodoNotifica.getElementsByTagName(NomiDB.TAG_DESCRIZIONE.getNome()).item(0).getTextContent();
 			String id = nodoNotifica.getElementsByTagName(NomiDB.TAG_ID.getNome()).item(0).getTextContent();
 			int intId = Integer.parseInt(id);
-			if(descrizione.equals(notifica.getMessaggio()) || intId == notifica.getEvento().getIdEvento()) {
+			if(descrizione.equals(notifica.getMessaggio()) && intId == notifica.getEvento().getIdEvento()) {
+				System.out.println("cancellaNotifica if condition " + descrizione);
 				listaNotifiche.removeChild(nodoNotifica);
+				break;
 			}
 		}
 
