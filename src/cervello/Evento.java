@@ -333,6 +333,7 @@ public abstract class Evento {
 		oggi.setTime(date);
 		Notifica ritorno;
 		if(!proprietario.equals(_proprietario)) {
+			System.out.println("proprietario diverso " + proprietario );
 			ritorno = new Notifica (this, Notifica.PROPRIETARIO_DIVERSO);
 		}
 		else if(oggi.before(termineUltimoRitiro.getValore()) || oggi.equals(termineUltimoRitiro.getValore())) {
