@@ -59,7 +59,7 @@ public class FinestraMenu {
 	private Evento eventoCreato ;
 	private TextArea textArea;
 	private Label messaggioErr;
-	private Label confermaIsc;
+	private Label noteSistema;
 	private List listaNot ;
 	private static final String EVENTO_VALIDO = "Evento valido";
 	private static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento è gia esistente";
@@ -650,9 +650,11 @@ public class FinestraMenu {
 	}
 	public void costruisciFinestraEvento(Evento ev){
 
+		
+		frame.setBounds(600, 300, 680, 540);
 		finestraEV = new JPanel();
 		finestraEV.setBackground(new Color(224, 255, 255));
-		finestraEV.setBounds(0, 23, 673, 415);
+		finestraEV.setBounds(0, 23, 673, 478);
 		finestraEV.setLayout(null);
 		frame.getContentPane().add(finestraEV);
 		frame.getContentPane().remove(bachecaPDC);
@@ -735,7 +737,7 @@ public class FinestraMenu {
 		finestraEV.add(txtSesso1);
 
 		Button button = new Button("Iscrizione");
-		button.setBounds(10, 380, 76, 22);
+		button.setBounds(10, 446, 76, 22);
 		finestraEV.add(button);
 		button.addMouseListener(new MouseAdapter() {
 			@Override
@@ -750,14 +752,14 @@ public class FinestraMenu {
 		button.setBackground(SystemColor.desktop);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {		
-				confermaIsc.setText(SN.iscrizione(ev));
+				noteSistema.setText(SN.iscrizione(ev));
 			}
 		});
 		
 		
 
 		Button disiscrizione = new Button("disiscrzione");
-		disiscrizione.setBounds(92, 380, 76, 22);
+		disiscrizione.setBounds(91, 446, 76, 22);
 		finestraEV.add(disiscrizione);
 		disiscrizione.addMouseListener(new MouseAdapter() {
 			@Override
@@ -772,16 +774,16 @@ public class FinestraMenu {
 		disiscrizione.setBackground(SystemColor.desktop);
 		disiscrizione.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {		
-				confermaIsc.setText(SN.revocaIscrizione(ev));
+				noteSistema.setText(SN.revocaIscrizione(ev));
 			}
 		});
 		
 
-		confermaIsc = new Label("\r\n");
-		confermaIsc.setText("");
-		confermaIsc.setBounds(174, 380, 477, 22);
-		confermaIsc.setForeground(Color.green);
-		finestraEV.add(confermaIsc);
+		noteSistema = new Label("\r\n");
+		noteSistema.setText("");
+		noteSistema.setBounds(169, 446, 405, 22);
+		noteSistema.setForeground(Color.green);
+		finestraEV.add(noteSistema);
 
 		JLabel txtPartecnec = new JLabel();
 		txtPartecnec.setText("ParetecipantiNecessari: "+ev.getPartecipantiNecessari().getValoreString());
@@ -790,6 +792,52 @@ public class FinestraMenu {
 		txtPartecnec.setBackground(SystemColor.info);
 		txtPartecnec.setBounds(10, 354, 641, 20);
 		finestraEV.add(txtPartecnec);
+		
+		JLabel statoEvento = new JLabel();
+		statoEvento.setText("StatoEvento: "+ev.getStato());
+		statoEvento.setOpaque(true);
+		statoEvento.setBackground(SystemColor.info);
+		statoEvento.setBounds(10, 385, 641, 20);
+		finestraEV.add(statoEvento);
+		
+		JLabel proprietario = new JLabel();
+		proprietario.setText("ProprietarioEvento: "+ev.getProprietario());
+		proprietario.setOpaque(true);
+		proprietario.setBackground(SystemColor.info);
+		proprietario.setBounds(10, 416, 641, 20);
+		finestraEV.add(proprietario);
+		
+		Button cancellazioneEv = new Button("EliminaEvento");
+		cancellazioneEv.setBackground(SystemColor.desktop);
+		cancellazioneEv.setBounds(575, 446, 76, 22);
+		finestraEV.add(cancellazioneEv);
+		
+		cancellazioneEv.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				cancellazioneEv.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				cancellazioneEv.setBackground(SystemColor.desktop);
+			}
+		});
+		cancellazioneEv.setBackground(SystemColor.desktop);
+		cancellazioneEv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {		
+				if(ev.getProprietario().equals(SN.getUtente()))
+				{
+					SN.cancellaEvento(ev);
+				}
+				else
+					noteSistema.setText("Non puoi cancellare un eveto se non sei il proprietario");
+				
+			}
+		});
+		
+		
+		
+		
 
 		//		frame.setResizable(false);
 		//		frame.setBounds(600, 300, 667, 430);
@@ -813,7 +861,13 @@ public class FinestraMenu {
 				costruisciFinestraEvento((Evento) pdc.getBacheca().get(k));
 			}
 		});
+
+		//		frame.setResizable(false);
+		//		frame.setBounds(600, 300, 667, 430);
+		frame.revalidate();
+		frame.repaint();
 	}
+
 	public void costruisciFinestraAP(){
 
 		if(panelAP!=null)frame.remove(panelAP);
