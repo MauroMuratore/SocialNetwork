@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import cervello.Evento;
 import cervello.Notifica;
 import cervello.PartitaCalcioCat;
 import cervello.PartitaCalcioEvento;
@@ -94,4 +95,10 @@ public class ConsultaDB {
 	public void cancellaNotifica(Notifica notifica, Utente utente) {
 		scrittura.cancellaNotifica(notifica, utente);
 	}
+	
+	public void cancellaEvento(Evento evento) {
+		scrittura.cancellaEvento(evento);
+	}
+	
+	
 }

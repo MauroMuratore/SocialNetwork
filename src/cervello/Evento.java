@@ -61,6 +61,7 @@ public abstract class Evento {
 		this.note = note;
 		this.tolleranzaPartecipanti=_tolleranzaPartecipanti;
 		this.stato=stato;
+		this.proprietario= proprietario;
 	}
 
 	/**

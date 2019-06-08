@@ -240,7 +240,7 @@ public class SocialNetwork {
 		utente.riceviNotifica(ritorno);
 		aggiornamentoNotifiche(ritorno);
 		System.out.print("cancella evento scrittura ");
-		salvaTutto();
+		consultaDB.cancellaEvento(evento);
 		return ritorno.getMessaggio();
 	}
 
