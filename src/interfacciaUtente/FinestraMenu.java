@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
 
+import com.sun.glass.events.WindowEvent;
+
 import cervello.Campo;
 import cervello.Categoria;
 import cervello.Evento;
@@ -38,6 +40,7 @@ import java.awt.Choice;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
@@ -50,7 +53,7 @@ public class FinestraMenu {
 	private JLabel txtpnSelezionaLaCategoria;
 	private JPanel bachecaPDC ;
 	private JPanel panelAP;
-	private SocialNetwork SN;
+	private SocialNetwork sn;
 	private Categoria pdc;
 	private JPanel finestraEV;
 	private int k=0;//serve per un for(dichiarata qua per questioni di visibilita)
@@ -68,9 +71,9 @@ public class FinestraMenu {
 	private static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato è errato";
 	private static final String PARTECIPANTI_NECESSARI_MIN ="partecipanti necessari inconsistenti";
 
-	public FinestraMenu(SocialNetwork sn, UserInterface ui) {
+	public FinestraMenu(SocialNetwork _sn, UserInterface ui) {
 		UI = ui;
-		SN=sn;
+		sn=_sn;
 		initialize();
 	}
 	public JFrame getFrame() {
@@ -84,6 +87,15 @@ public class FinestraMenu {
 		frame.setBounds(600, 300, 680, 477);//+30
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.addWindowListener(new WindowAdapter()
+		{
+		    public void windowClosing(WindowEvent e)
+		    {
+		      System.out.println("salvo tutto");
+		      sn.salvaTutto();
+		    }
+		});
 		frame.getContentPane().setLayout(null);
 
 		JPanel panel = new JPanel();
@@ -297,7 +309,7 @@ public class FinestraMenu {
 		bachecaPDC.add(pannelloTitoliE);
 		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 
-		pdc = SN.mostraCategoria("Partita calcio");
+		pdc = sn.mostraCategoria("Partita calcio");
 		System.out.println(pdc.getNome());
 		ArrayList<Evento> bacheca = pdc.getBacheca();
 		int size = bacheca.size();
@@ -414,7 +426,7 @@ public class FinestraMenu {
 		finestraCEV.add(label_4);
 
 		Label label_5 = new Label("TermineUltimoIsc:\r\n");
-		label_5.setBounds(10, 262, 95, 22);
+		label_5.setBounds(10, 262, 105, 22);
 		finestraCEV.add(label_5);
 
 		Label label_6 = new Label("Durata:");
@@ -537,7 +549,7 @@ public class FinestraMenu {
 		finestraCEV.add(choice);
 		
 		Label label_15 = new Label("ToleranzaPartecipanti: ");
-		label_15.setBounds(307, 66, 122, 22);
+		label_15.setBounds(307, 66, 125, 22);
 		finestraCEV.add(label_15);
 		
 		JTextField textTolleranza = new JTextField();
@@ -597,7 +609,7 @@ public class FinestraMenu {
 					System.out.println(messaggioErr.getText());
 					//if(eventoCreato.valido())
 					{
-						SN.addEvento(eventoCreato);
+						sn.addEvento(eventoCreato);
 						costruisciBachecaPDC();
 					}
 				}
@@ -752,7 +764,7 @@ public class FinestraMenu {
 		button.setBackground(SystemColor.desktop);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {		
-				noteSistema.setText(SN.iscrizione(ev));
+				noteSistema.setText(sn.iscrizione(ev));
 			}
 		});
 		
@@ -774,7 +786,7 @@ public class FinestraMenu {
 		disiscrizione.setBackground(SystemColor.desktop);
 		disiscrizione.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {		
-				noteSistema.setText(SN.revocaIscrizione(ev));
+				noteSistema.setText(sn.revocaIscrizione(ev));
 			}
 		});
 		
@@ -825,9 +837,10 @@ public class FinestraMenu {
 		cancellazioneEv.setBackground(SystemColor.desktop);
 		cancellazioneEv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {		
-				if(ev.getProprietario().equals(SN.getUtente()))
+				if(ev.getProprietario().equals(sn.getUtente().getUsername()))
 				{
-					SN.cancellaEvento(ev);
+					sn.cancellaEvento(ev);
+					costruisciBachecaPDC();
 				}
 				else
 					noteSistema.setText("Non puoi cancellare un eveto se non sei il proprietario");
@@ -898,12 +911,12 @@ public class FinestraMenu {
 		btnCancNot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				for(int count=0;count<SN.getUtente().getNotifiche().size();count++)
+				for(int count=0;count<sn.getUtente().getNotifiche().size();count++)
 				{	
-					String titolo=SN.getUtente().getNotifiche().get(count).getMessaggio()+" TITOLO: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValore();
+					String titolo=sn.getUtente().getNotifiche().get(count).getMessaggio()+" TITOLO: "+sn.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValore();
 					if(titolo.equals(listaNot.getSelectedItem())){
-						SN.cancellaNotifica(SN.getUtente().getNotifiche().get(count));
-						System.out.println(SN.getUtente().getNotifiche().size());
+						sn.cancellaNotifica(sn.getUtente().getNotifiche().get(count));
+						System.out.println(sn.getUtente().getNotifiche().size());
 						costruisciFinestraAP();
 					}
 				}
@@ -917,36 +930,37 @@ public class FinestraMenu {
 		listaNot.setMultipleMode(true);
 		listaNot.setBounds(204, 38, 459, 60);
 		listaNot.setMultipleMode(false);
-		//System.out.println(SN.getUtente().getNotifiche().get(0).getEvento());
-		for(int i =0; i<SN.getUtente().getNotifiche().size();i++)
+		System.out.println(sn.getUtente().getNotifiche().get(0).getEvento().getTitolo());
+		for(int i =0; i<sn.getUtente().getNotifiche().size();i++)
 		{		
-			String notifica=SN.getUtente().getNotifiche().get(i).getMessaggio()+" TITOLO: "+SN.getUtente().getNotifiche().get(i).getEvento().getTitolo().getValore();
+			String notifica=sn.getUtente().getNotifiche().get(i).getMessaggio()+" TITOLO: "+sn.getUtente().getNotifiche().get(i).getEvento().getTitolo().getValoreString();
 			listaNot.add(notifica);	
 		}
 
 		listaNot.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 
-				for(int count=0;count<SN.getUtente().getNotifiche().size();count++)
+				for(int count=0;count<sn.getUtente().getNotifiche().size();count++)
 				{
 
-					String titolo=SN.getUtente().getNotifiche().get(count).getMessaggio()+" TITOLO: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValore();
+					String titolo=sn.getUtente().getNotifiche().get(count).getMessaggio()+" TITOLO: "+sn.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValore();
 
 
 
 					if(titolo.equals(listaNot.getSelectedItem())){
 
-						textArea.setText("Titilo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValoreString()+ "\r\n"+
-								"PartecipantiNecessari: "+SN.getUtente().getNotifiche().get(count).getEvento().getPartecipantiNecessari().getValoreString()+ "\r\n"+
-								"TolleranzaPartecipanti: "+SN.getUtente().getNotifiche().get(count).getEvento().getTolleranzaPartecipanti().getValoreString()+ "\r\n"+
-								"TetmineUltimo: "+SN.getUtente().getNotifiche().get(count).getEvento().getTermineUltimo().getValoreString()+ "\r\n"+
-								"Luogo: "+SN.getUtente().getNotifiche().get(count).getEvento().getLuogo().getValoreString()+ "\r\n"+
-								"DataInizio: "+SN.getUtente().getNotifiche().get(count).getEvento().getDataInizio().getValoreString()+ "\r\n"+
-								"DataFine: "+SN.getUtente().getNotifiche().get(count).getEvento().getDataFine().getValoreString()+ "\r\n"+
-								"Durata: "+SN.getUtente().getNotifiche().get(count).getEvento().getDurata().getValoreString()+ "\r\n"+
-								"QuotaIndividuale: "+SN.getUtente().getNotifiche().get(count).getEvento().getQuotaIndividuale().getValoreString()+" € "+ "\r\n"+
-								"CompresoQuota: "+SN.getUtente().getNotifiche().get(count).getEvento().getCompresoQuota().getValoreString()+ "\r\n"+
-								"Note: "+SN.getUtente().getNotifiche().get(count).getEvento().getNote().getValoreString()+ "\r\n"		
+						textArea.setText("Titilo: "+sn.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValoreString()+ "\r\n"+
+								"PartecipantiNecessari: "+sn.getUtente().getNotifiche().get(count).getEvento().getPartecipantiNecessari().getValoreString()+ "\r\n"+
+								"TolleranzaPartecipanti: "+sn.getUtente().getNotifiche().get(count).getEvento().getTolleranzaPartecipanti().getValoreString()+ "\r\n"+
+								"TetmineUltimoIscrizione: "+sn.getUtente().getNotifiche().get(count).getEvento().getTermineUltimo().getValoreString()+ "\r\n"+
+								"TetmineUltimoRitiro: "+sn.getUtente().getNotifiche().get(count).getEvento().getTermineUltimoRitiro().getValoreString()+ "\r\n"+
+								"Luogo: "+sn.getUtente().getNotifiche().get(count).getEvento().getLuogo().getValoreString()+ "\r\n"+
+								"DataInizio: "+sn.getUtente().getNotifiche().get(count).getEvento().getDataInizio().getValoreString()+ "\r\n"+
+								"DataFine: "+sn.getUtente().getNotifiche().get(count).getEvento().getDataFine().getValoreString()+ "\r\n"+
+								"Durata: "+sn.getUtente().getNotifiche().get(count).getEvento().getDurata().getValoreString()+ "\r\n"+
+								"QuotaIndividuale: "+sn.getUtente().getNotifiche().get(count).getEvento().getQuotaIndividuale().getValoreString()+" € "+ "\r\n"+
+								"CompresoQuota: "+sn.getUtente().getNotifiche().get(count).getEvento().getCompresoQuota().getValoreString()+ "\r\n"+
+								"Note: "+sn.getUtente().getNotifiche().get(count).getEvento().getNote().getValoreString()+ "\r\n"		
 								);
 						frame.revalidate();
 						frame.repaint();
