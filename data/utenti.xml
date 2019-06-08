@@ -3,15 +3,21 @@
 <utente>
 <nome>mauro</nome>
 <hash>1231231</hash>
+
+
+
 <elenco>
+
+
 <notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
+<descrizione>revocata iscrizione con successo</descrizione>
 <id>912525696</id>
 <letto>false</letto>
 </notifica>
+
 <notifica>
-<descrizione>errore di iscrizione</descrizione>
-<id>912525696</id>
+<descrizione>impossibile, oltre termine ultimo di ritiro</descrizione>
+<id>583580172</id>
 <letto>false</letto>
 </notifica>
 <notifica>

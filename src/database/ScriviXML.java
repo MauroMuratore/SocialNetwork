@@ -472,7 +472,7 @@ public class ScriviXML {
 		scriviSuFile(doc, NomiDB.FILE_UTENTI);
 
 	}
-	
+	/*
 	public void cancellaEvento(Evento evento) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
@@ -496,7 +496,7 @@ public class ScriviXML {
 		}
 		System.out.println("Cancello partita ");
 		scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
-	}
+	}*/
 
 
 
