@@ -156,6 +156,7 @@ public class ScriviXML {
 		Element newEvento = doc.createElement(NomiDB.TAG_EVENTO.getNome());
 		newEvento.setAttribute("id", String.valueOf(evento.getIdEvento())); 
 		Element proprietario = doc.createElement(NomiDB.CAMPO_PROPRIETARIO.getNome());
+		proprietario.setTextContent(evento.getProprietario());
 		newEvento.appendChild(proprietario);
 		scriviCampo(evento.getTitolo(), newEvento, doc);
 		scriviCampo(evento.getPartecipantiNecessari(), newEvento, doc);
