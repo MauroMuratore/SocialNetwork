@@ -196,6 +196,7 @@ public abstract class Evento {
 	public String setTermineUltimo(String data) {
 		if(!Campo.controlloData(data).equals(Campo.OK))
 			return Campo.controlloData(data);
+		termineUltimoRitiro.setValore(Campo.assumiData(data));
 		termineUltimo.setValore(Campo.assumiData(data));
 		return OK;
 	}
