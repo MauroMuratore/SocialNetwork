@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -917,7 +918,6 @@ public class FinestraMenu {
 		listaNot.setBackground(new Color(0, 204, 204));
 		listaNot.setBounds(204, 38, 459, 60);
 		listaNot.setMultipleMode(false);
-		System.out.println(sn.getUtente().getNotifiche().get(0).getEvento().getTitolo());
 		for(int i =0; i<sn.getUtente().getNotifiche().size();i++)
 		{		
 			String notifica=sn.getUtente().getNotifiche().get(i).getMessaggio()+" TITOLO: "+sn.getUtente().getNotifiche().get(i).getEvento().getTitolo().getValoreString();
@@ -979,6 +979,40 @@ public class FinestraMenu {
 		Label label_3 = new Label("password: " + new String(UI.getPASS()));
 		label_3.setBounds(0, 66, 198, 22);
 		panel.add(label_3);
+		
+		JButton btnModificadati = new JButton("ModificaDati");
+		btnModificadati.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				btnModificadati.setBackground(new Color(0, 206, 209));
+				
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnModificadati.setBackground(new Color(127, 255, 212));
+			}
+		});
+		btnModificadati.setBackground(new Color(127, 255, 212));
+		btnModificadati.setBounds(10, 351, 178, 23);
+		panel.add(btnModificadati);
+		
+		Label label_4 = new Label("FasciaDiEta: ");
+		label_4.setBounds(0, 94, 198, 22);
+		panel.add(label_4);
+		
+		Label label_5 = new Label("CategorieDiInteresse:");
+		label_5.setBounds(0, 122, 198, 22);
+		panel.add(label_5);
+		
+		List list_1 = new List();
+		list_1.setForeground(SystemColor.text);
+		list_1.setBackground(new Color(176, 224, 230));
+		list_1.setBounds(10, 150, 178, 22);
+//		for(int i=0;i<sn.getCategoriePreferite().size();i++)
+//			list_1.add(sn.getCategoriePreferite().get(i));
+		list_1.setMultipleSelections(false);
+		panel.add(list_1);
+	
 
 		Label label_2 = new Label("Seleziona una delle notifiche per visualizzarne il contenuto -->");
 		label_2.setBackground(new Color(0, 139, 139));
@@ -993,7 +1027,6 @@ public class FinestraMenu {
 
 		frame.revalidate();
 		frame.repaint();
-
 
 
 	}

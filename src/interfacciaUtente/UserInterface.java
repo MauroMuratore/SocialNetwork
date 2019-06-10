@@ -45,7 +45,6 @@ public class UserInterface {
 	private JTextPane textPane;
 	private FinestraMenu finestraMenu;
 	private SocialNetwork SN;
-	private FinestraCreazioneProfilo fcp;
 	private boolean isLogOut=false;
 	
 	public void logOut(){
@@ -67,7 +66,6 @@ public class UserInterface {
 				
 		frame.setVisible(false);
 		if(finestraReg!=null)finestraReg.getFrame().dispose();
-		if(fcp!=null)fcp.getFrame().dispose();
 		finestraMenu= new FinestraMenu(SN,this);
 		finestraMenu.getFrame().setVisible(true);
 		
