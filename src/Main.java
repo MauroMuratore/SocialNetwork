@@ -34,8 +34,6 @@ public class Main {
 			}
 		}while(true);
 
-
-
 	}
 	static void pausa(int secondi)
 	{
@@ -76,16 +74,21 @@ public class Main {
 			{
 				System.out.println("prendo credenziali registrazione");
 				String id = UI.getIDREG();
-				byte[] pw = UI.getPWREG(); 
+				byte[] pw = UI.getPWREG();  
 				byte[] confermaPW = UI.getConfermaPWREG();
-				risposta=SN.registrazione(id, pw, confermaPW);
+			    String min=UI.getMin();
+			    String max=UI.getMax();
+			    String[] categoriePreferite=UI.getCategoriePreferite();
+				risposta=SN.registrazione(id, pw, confermaPW,min,max,categoriePreferite);
 				System.out.println(risposta);
 				rispostaUI=UI.riceviStringa(risposta);
 				UI.setFalse();
 			}
 		}while(!rispostaUI);//il while cicla fino a che la risposta ui diventa vera
 		rispostaUI=false;
+		//relise4
 		sezioneMenu();
+	
 
 	}
 

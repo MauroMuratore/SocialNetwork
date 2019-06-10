@@ -60,7 +60,7 @@ public class SocialNetwork {
 	 * @param conferma
 	 * @return esito della registrazione
 	 */
-	public String registrazione(String username, byte[] hash, byte[] conferma) {
+	public String registrazione(String username, byte[] hash, byte[] conferma,String minEta,String maxEta,String[] categoriePref) {
 		if (!consultaDB.controllaID(username))// controllo se ce gia id nel database
 		{
 			if (username.length() < 7)
@@ -80,8 +80,16 @@ public class SocialNetwork {
 				if (uguali = false)
 					return PW_DIVERSE;
 			}
-
-			consultaDB.aggiungiUtente(username, hash);
+			//qua va aggiunto il controllo su minEta e maxEta
+			//
+			//
+			//
+			//
+			//
+			//
+			//
+			//
+			consultaDB.aggiungiUtente(username, hash);//da aggiungere minEta , maxEta, categoriePref !!!!
 			setUtente(username);
 			return BENVENUTO;
 		} else

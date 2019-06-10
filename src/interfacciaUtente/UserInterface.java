@@ -45,6 +45,7 @@ public class UserInterface {
 	private JTextPane textPane;
 	private FinestraMenu finestraMenu;
 	private SocialNetwork SN;
+	private FinestraCreazioneProfilo fcp;
 	private boolean isLogOut=false;
 	
 	public void logOut(){
@@ -66,6 +67,7 @@ public class UserInterface {
 				
 		frame.setVisible(false);
 		if(finestraReg!=null)finestraReg.getFrame().dispose();
+		if(fcp!=null)fcp.getFrame().dispose();
 		finestraMenu= new FinestraMenu(SN,this);
 		finestraMenu.getFrame().setVisible(true);
 		
@@ -261,5 +263,14 @@ public class UserInterface {
 			lblUsername.setBounds(10, 45, 80, 14);
 			frame.getContentPane().add(lblUsername);
 		}
+	public String getMin(){
+		return finestraReg.getMin();
+	}
+	public String getMax(){
+		return finestraReg.getMax();
+	}
+	public String[] getCategoriePreferite(){
+		return finestraReg.getCategoriePreferite();
+	}
 	}
 

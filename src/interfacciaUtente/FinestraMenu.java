@@ -915,7 +915,6 @@ public class FinestraMenu {
 		listaNot = new List();
 		listaNot.setForeground(new Color(0, 0, 0));
 		listaNot.setBackground(new Color(0, 204, 204));
-		listaNot.setMultipleMode(true);
 		listaNot.setBounds(204, 38, 459, 60);
 		listaNot.setMultipleMode(false);
 		System.out.println(sn.getUtente().getNotifiche().get(0).getEvento().getTitolo());
