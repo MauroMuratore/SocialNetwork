@@ -235,7 +235,7 @@ public class UserInterface {
 				public void actionPerformed(ActionEvent e) {
 					
 					frame.setVisible(false);
-					finestraReg = new SezioneRegistrazione();
+					finestraReg = new SezioneRegistrazione(SN);
 					finestraReg.getFrame().setVisible(true);
 				}
 			});

@@ -13,12 +13,16 @@ import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextPane;
+
+import cervello.SocialNetwork;
+
 import java.awt.Font;
 import java.awt.List;
 
 public class SezioneRegistrazione {
 
 	private JFrame frame;
+	private SocialNetwork sn;
 	private JLabel lblSezione;
 	private JLabel lblUsername;
 	private JButton btnNewButton;
@@ -94,7 +98,8 @@ public class SezioneRegistrazione {
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-	public SezioneRegistrazione() {
+	public SezioneRegistrazione(SocialNetwork sn) {
+		this.sn=sn;
 		initialize();
 	}
 	private void initialize() {
@@ -227,8 +232,10 @@ public class SezioneRegistrazione {
 		listaCat = new List();
 		listaCat.setForeground(new Color(0, 0, 0));
 		listaCat.setBackground(new Color(0, 204, 204));
-		listaCat.setBounds(363, 95, 156, 14);
+		listaCat.setBounds(363, 95, 156, 23);
 		listaCat.setMultipleMode(true);
+		for(int i =0;i<sn.titoliCategorie().size();i++)
+			listaCat.add(sn.titoliCategorie().get(i));
 		frame.getContentPane().add(listaCat);
 	}
 }
