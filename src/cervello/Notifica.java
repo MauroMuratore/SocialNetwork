@@ -6,6 +6,7 @@ public class Notifica {
 	private String messaggio;
 	private boolean letta;
 	
+	public static final String INVITO = "SEI STATO INVITATO";
 	public static final String ISCRIZIONE = "Ti sei iscritto all'evento";
 	public static final String CHIUSO = "L'evento ha chiuso le iscrizioni";
 	public static final String FALLITO = "L'evento non ha raggiunto gli iscritti";
@@ -17,6 +18,7 @@ public class Notifica {
 	public static final String NON_ISCRITTO = "utente non iscritto";
 	public static final String REVOCA_ISCRIZIONE = "revocata iscrizione con successo";
 	public static final String ISCRIZIONE_GIA_FATTA = "iscrizione gia fatta";
+	public static final String NUOVO_EVENTO_APERTO = "nuovo evento aperto";
 	
 	public Notifica(Evento _evento, String mes) {
 		evento=_evento;

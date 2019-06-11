@@ -21,6 +21,7 @@ import org.xml.sax.SAXException;
 import cervello.Campo;
 import cervello.Categoria;
 import cervello.Evento;
+import cervello.Invito;
 import cervello.Notifica;
 import cervello.PartitaCalcioCat;
 import cervello.PartitaCalcioEvento;
@@ -242,7 +243,18 @@ public class LeggiXML {
 			String messaggio = nodoMessaggio.getTextContent();
 			Evento evento = leggiPartitaCalcioEvento(Integer.parseInt(nodoID.getTextContent()));
 			boolean letto = Boolean.valueOf(nodoLetto.getTextContent());
-			ritorno.add(new Notifica(evento, messaggio, letto));
+			if(messaggio.contains(Notifica.INVITO)) {
+				GregorianCalendar data = new GregorianCalendar();
+				Element valore = (Element) nodoNotifica.getElementsByTagName(NomiDB.TAG_VALORE.getNome()).item(0);
+				int anno = Integer.parseInt(valore.getElementsByTagName(NomiDB.TAG_ANNO.getNome()).item(0).getTextContent());
+				int mese = Integer.parseInt(valore.getElementsByTagName(NomiDB.TAG_MESE.getNome()).item(0).getTextContent());
+				int giorno = Integer.parseInt(valore.getElementsByTagName(NomiDB.TAG_GIORNO.getNome()).item(0).getTextContent());
+				int ora = Integer.parseInt(valore.getElementsByTagName(NomiDB.TAG_ORA.getNome()).item(0).getTextContent());
+
+				data.set(anno, mese, giorno, ora, 0);
+				ritorno.add(new Invito(evento, messaggio, letto, data));
+			}else
+				ritorno.add(new Notifica(evento, messaggio, letto));
 			
 		}
 		

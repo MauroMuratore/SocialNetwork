@@ -37,6 +37,7 @@ public enum NomiDB {
 	TAG_MESE("mese"),
 	TAG_GIORNO("giorno"),
 	TAG_ORA("ora"),
+	TAG_DATA("data"),
 	TAG_CATEGORIA("categoria"),
 	TAG_NOTIFICA("notifica"), 
 	STATO_EVENTO_CHIUSO("chiuso"),
@@ -44,8 +45,13 @@ public enum NomiDB {
 	STATO_EVENTO_CONCLUSO("concluso"),
 	STATO_EVENTO_FALLITO("fallito"), 
 	STATO_EVENTO("stato"), 
-	STATO_EVENTO_CANCELLATO("cancellato"), ATT_EVENTI_CREATI("eventi_creati"), ATT_ETA_MIN("eta_min"), ATT_ETA_MAX("eta_max"), ATT_INTERESSI("interessi"), PERSONE_INTERESSATE("persone_interessate"), 
-	;
+	STATO_EVENTO_CANCELLATO("cancellato"),
+	ATT_EVENTI_CREATI("eventi_creati"), 
+	ATT_ETA_MIN("eta_min"), 
+	ATT_ETA_MAX("eta_max"), 
+	ATT_INTERESSI("interessi"), 
+	PERSONE_INTERESSATE("persone_interessate"), 
+	CAT_PARTITA_CALCIO("partita calcio");
 	
 	
 	private String nome;

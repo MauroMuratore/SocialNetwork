@@ -3,6 +3,7 @@ package cervello;
 import java.util.*;
 
 import database.ConsultaDB;
+import database.NomiDB;
 
 public class SocialNetwork {
 	// UML QUANDO E' FINITO
@@ -22,7 +23,8 @@ public class SocialNetwork {
 	public static final String PW_DIVERSE = "ATTENZIONE! : password diverse";
 	public static final String NOTIFICA_CANCELLATA = "Notifica cancellata";
 	public static final String IMPOSSIBILE_CANCELLARE_EVENTO = "impossibile cancellare evento";
-	private static final String ETAMIN_MAGG_ETAMAX = "Eta minima maggiore di eta massima";
+	public static final String ETAMIN_MAGG_ETAMAX = "Eta minima maggiore di eta massima";
+	public static final String INVITI_SPEDITI = "Inviti spediti";
 
 	public SocialNetwork() {
 		categorie = new Hashtable<String, Categoria>();
@@ -148,15 +150,14 @@ public class SocialNetwork {
 		return messaggio;
 	}
 
-	public void addEvento(Evento evento) {
+	public void addEvento(Evento evento, LinkedList<String> personeInvitate) {
 		String nome = utente.getUsername();
 		Notifica notificaIscrizione = new Notifica(evento, evento.iscrizione(nome));
 		evento.setProprietario(nome);
 		utente.riceviNotifica(notificaIscrizione);
-		Notifica notificaStato = evento.cambioStato();
 		utente.creaEvento(evento.getIdEvento());
-		if (notificaStato != null)
-			utente.riceviNotifica(notificaStato);
+		invitaUtenti(personeInvitate, evento);
+		informaInteressati(NomiDB.CAT_PARTITA_CALCIO.getNome(), evento);
 		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
 		if (evento.getClass() == PartitaCalcioEvento.class)
 			categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).aggiungiEvento((PartitaCalcioEvento) evento);
@@ -256,7 +257,7 @@ public class SocialNetwork {
 		salvaTutto();
 		return ritorno.getMessaggio();
 	}
-	
+
 	public String modificaUtente(int tipoAttributo, String attributoUtente) {
 		if(tipoAttributo==Utente.ETA_MIN) {
 			if(!Campo.controlloIntero(attributoUtente).equals(Campo.OK))
@@ -275,55 +276,91 @@ public class SocialNetwork {
 			utente.removeInteresse(attributoUtente);
 		}
 		
+		consultaDB.salvaUtente(getUtente());
+
 		return Utente.MODIFICA_RIUSCITA;
 	}
+
+
+	public LinkedList<String> getPersoneInvitabili(String categoria){
+		LinkedList<String> personeInvitabili = new LinkedList<String> ();
+		Categoria cat = categorie.get(categoria);
+		for(Evento e : (ArrayList<Evento>)cat.getBacheca()) { //poi tutti gli eventi
+			for(String partecipante: e.getPartecipanti()) { //con tutti i loro partecipanti
+				if(!personeInvitabili.contains(partecipante))
+					personeInvitabili.add(partecipante);
+			}
+		}
+
+
+		personeInvitabili.remove(utente.getUsername());
+		return personeInvitabili;
+	}
 	
+	public String invitaUtenti(LinkedList<String> personeInvitate, Evento evento) {
+		for(String persona: personeInvitate) {
+			if(notificheDaInoltrare.get(persona)==null)
+				notificheDaInoltrare.put(persona, new LinkedList<Notifica>());
+			notificheDaInoltrare.get(persona).add(new Invito(evento));
+		}
+		
+		System.out.println(INVITI_SPEDITI);
+		return INVITI_SPEDITI;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void informaInteressati(String categoria, Evento evento) {
+		for(String interessato: (LinkedList<String>)categorie.get(categoria).getPersoneInteressate()) {
+			if(notificheDaInoltrare.get(interessato)==null) 
+				notificheDaInoltrare.put(interessato, new LinkedList<Notifica>());
+			notificheDaInoltrare.get(interessato).add(new Notifica(evento, Notifica.NUOVO_EVENTO_APERTO));	
+		}
+		System.out.println("persone interessate informate");
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

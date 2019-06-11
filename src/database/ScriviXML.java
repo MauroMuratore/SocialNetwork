@@ -21,6 +21,7 @@ import org.xml.sax.SAXException;
 import cervello.Campo;
 import cervello.Categoria;
 import cervello.Evento;
+import cervello.Invito;
 import cervello.Notifica;
 import cervello.PartitaCalcioEvento;
 import cervello.StatoEvento;
@@ -528,10 +529,36 @@ public class ScriviXML {
 			nodoMessaggio.setTextContent(n.getMessaggio());
 			nodoEvento.setTextContent(String.valueOf(n.getEvento().getIdEvento()));
 			nodoLetto.setTextContent(String.valueOf(n.getLetta()));
-
 			nodoNotifica.appendChild(nodoMessaggio);
 			nodoNotifica.appendChild(nodoEvento);
 			nodoNotifica.appendChild(nodoLetto);
+			if(n.getMessaggio().contains(Notifica.INVITO)) {
+				GregorianCalendar data = ((Invito) n).getDataInvito();
+				Element nodoDataInvito = doc.createElement(NomiDB.TAG_DATA.getNome());
+				Element annoNodo = doc.createElement(NomiDB.TAG_ANNO.getNome());
+				int annoInt =data.get(GregorianCalendar.YEAR);
+				annoNodo.setTextContent( String.valueOf(annoInt) );
+
+				Element meseNodo = doc.createElement(NomiDB.TAG_MESE.getNome());
+				int meseInt = data.get(GregorianCalendar.MONTH);
+				meseNodo.setTextContent(String.valueOf(meseInt));
+
+				Element giornoNodo = doc.createElement(NomiDB.TAG_GIORNO.getNome());
+				int giornoInt = data.get(GregorianCalendar.DAY_OF_MONTH);
+				giornoNodo.setTextContent(String.valueOf(giornoInt));
+
+				Element oraNodo = doc.createElement(NomiDB.TAG_ORA.getNome());
+				int oraInt = data.get(GregorianCalendar.HOUR_OF_DAY);
+				oraNodo.setTextContent(String.valueOf(oraInt));
+				
+				nodoDataInvito.appendChild(annoNodo);
+				nodoDataInvito.appendChild(meseNodo);
+				nodoDataInvito.appendChild(giornoNodo);
+				nodoDataInvito.appendChild(oraNodo);
+				
+				nodoNotifica.appendChild(nodoDataInvito);
+			}
+
 			elenco.appendChild(nodoNotifica);
 		}
 
@@ -563,7 +590,9 @@ public class ScriviXML {
 				Element utente = (Element) elenco.getElementsByTagName(NomiDB.TAG_UTENTE.getNome()).item(i);
 				if(key.equals(utente.getTextContent())) {
 					notPresent=false;
-					for(Notifica not: notifichePendenti.get(key)) {
+					for(int j=utente.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).getLength();
+							j<notifichePendenti.get(key).size(); j++) {
+						Notifica not = notifichePendenti.get(key).get(j);
 						Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
 						Element nodoMessaggio = doc.createElement(NomiDB.TAG_DESCRIZIONE.getNome());
 						Element nodoEvento = doc.createElement(NomiDB.TAG_ID.getNome());
@@ -573,6 +602,34 @@ public class ScriviXML {
 						nodoEvento.setTextContent(String.valueOf(not.getEvento().getIdEvento()));
 						nodoLetto.setTextContent(String.valueOf(not.getLetta()));
 
+						if(not.getMessaggio().contains(Notifica.INVITO)) {
+							GregorianCalendar data = ((Invito) not).getDataInvito();
+							Element nodoDataInvito = doc.createElement(NomiDB.TAG_DATA.getNome());
+							Element annoNodo = doc.createElement(NomiDB.TAG_ANNO.getNome());
+							int annoInt =data.get(GregorianCalendar.YEAR);
+							annoNodo.setTextContent( String.valueOf(annoInt) );
+
+							Element meseNodo = doc.createElement(NomiDB.TAG_MESE.getNome());
+							int meseInt = data.get(GregorianCalendar.MONTH);
+							meseNodo.setTextContent(String.valueOf(meseInt));
+
+							Element giornoNodo = doc.createElement(NomiDB.TAG_GIORNO.getNome());
+							int giornoInt = data.get(GregorianCalendar.DAY_OF_MONTH);
+							giornoNodo.setTextContent(String.valueOf(giornoInt));
+
+							Element oraNodo = doc.createElement(NomiDB.TAG_ORA.getNome());
+							int oraInt = data.get(GregorianCalendar.HOUR_OF_DAY);
+							oraNodo.setTextContent(String.valueOf(oraInt));
+							
+							nodoDataInvito.appendChild(annoNodo);
+							nodoDataInvito.appendChild(meseNodo);
+							nodoDataInvito.appendChild(giornoNodo);
+							nodoDataInvito.appendChild(oraNodo);
+							
+							nodoNotifica.appendChild(nodoDataInvito);
+						}
+
+						
 						nodoNotifica.appendChild(nodoMessaggio);
 						nodoNotifica.appendChild(nodoEvento);
 						nodoNotifica.appendChild(nodoLetto);
@@ -592,6 +649,34 @@ public class ScriviXML {
 					nodoMessaggio.setTextContent(not.getMessaggio());
 					nodoEvento.setTextContent(String.valueOf(not.getEvento().getIdEvento()));
 					nodoLetto.setTextContent(String.valueOf(not.getLetta()));
+
+					
+					if(not.getMessaggio().contains(Notifica.INVITO)) {
+						GregorianCalendar data = ((Invito) not).getDataInvito();
+						Element nodoDataInvito = doc.createElement(NomiDB.TAG_DATA.getNome());
+						Element annoNodo = doc.createElement(NomiDB.TAG_ANNO.getNome());
+						int annoInt =data.get(GregorianCalendar.YEAR);
+						annoNodo.setTextContent( String.valueOf(annoInt) );
+
+						Element meseNodo = doc.createElement(NomiDB.TAG_MESE.getNome());
+						int meseInt = data.get(GregorianCalendar.MONTH);
+						meseNodo.setTextContent(String.valueOf(meseInt));
+
+						Element giornoNodo = doc.createElement(NomiDB.TAG_GIORNO.getNome());
+						int giornoInt = data.get(GregorianCalendar.DAY_OF_MONTH);
+						giornoNodo.setTextContent(String.valueOf(giornoInt));
+
+						Element oraNodo = doc.createElement(NomiDB.TAG_ORA.getNome());
+						int oraInt = data.get(GregorianCalendar.HOUR_OF_DAY);
+						oraNodo.setTextContent(String.valueOf(oraInt));
+						
+						nodoDataInvito.appendChild(annoNodo);
+						nodoDataInvito.appendChild(meseNodo);
+						nodoDataInvito.appendChild(giornoNodo);
+						nodoDataInvito.appendChild(oraNodo);
+						
+						nodoNotifica.appendChild(nodoDataInvito);
+					}
 
 					nodoNotifica.appendChild(nodoMessaggio);
 					nodoNotifica.appendChild(nodoEvento);
