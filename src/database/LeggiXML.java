@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Hashtable;
 import java.util.LinkedList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -89,7 +90,13 @@ public class LeggiXML {
 		String nome = categoria.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
 		String descrizione = categoria.getElementsByTagName(NomiDB.TAG_DESCRIZIONE.getNome()).item(0).getTextContent();
 		ArrayList<PartitaCalcioEvento> bacheca = new ArrayList<PartitaCalcioEvento>(leggiListaPartiteCalcio(doc));
-		ritorno = new PartitaCalcioCat<>(nome, descrizione, bacheca);
+		LinkedList<String> personeInteressate = new LinkedList<String>();
+		for(int i=0; i<categoria.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).getLength(); i++) {
+			Element utente = (Element) categoria.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).item(i);
+			String nomeUtente = utente.getTextContent();
+			personeInteressate.add(nomeUtente);
+		}
+		ritorno = new PartitaCalcioCat<>(nome, descrizione, bacheca, personeInteressate);
 		return ritorno;
 	}
 
@@ -241,6 +248,7 @@ public class LeggiXML {
 		
 		return ritorno;
 	}
+	
 
 	/**
 	 * torna l'oggetto utente
@@ -271,7 +279,54 @@ public class LeggiXML {
 		String nome = utente.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
 		byte[] hash = utente.getElementsByTagName(NomiDB.TAG_HASH.getNome()).item(0).getTextContent().getBytes();
 		Element notifiche = (Element) utente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
-		Utente ritorno = new Utente(nome, hash, leggiNotifiche(notifiche));
+		
+		
+		int etaMin = Integer.parseInt(utente.getElementsByTagName(NomiDB.ATT_ETA_MIN.getNome()).item(0).getTextContent());
+		int etaMax = Integer.parseInt(utente.getElementsByTagName(NomiDB.ATT_ETA_MAX.getNome()).item(0).getTextContent());
+		
+		ArrayList<Integer> eventiCreati = new ArrayList<Integer>();
+		Element eventiCreatiNodo = (Element) utente.getElementsByTagName(NomiDB.ATT_EVENTI_CREATI.getNome()).item(0);
+		for(int i=0; i<eventiCreatiNodo.getElementsByTagName(NomiDB.TAG_EVENTO.getNome()).getLength(); i++) {
+			int idEvento = Integer.parseInt(eventiCreatiNodo.getElementsByTagName(NomiDB.TAG_EVENTO.getNome()).item(i).getTextContent());
+			eventiCreati.add(idEvento);
+		}
+		
+		LinkedList<String> interessi = new LinkedList<String> ();
+		Element interessiNodo = (Element) utente.getElementsByTagName(NomiDB.ATT_INTERESSI.getNome()).item(0);
+		for(int i=0; i<interessiNodo.getElementsByTagName(NomiDB.TAG_NOME.getNome()).getLength(); i++) {
+			String categoria = interessiNodo.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(i).getTextContent();
+			interessi.add(categoria);
+		}
+		
+		
+		Utente ritorno = new Utente(nome, hash, leggiNotifiche(notifiche), interessi, eventiCreati ,etaMin, etaMax);
+		return ritorno;
+	}
+	
+	public Hashtable<String, LinkedList<Notifica>> leggiNotifichePendenti() {
+		Hashtable<String, LinkedList<Notifica>> ritorno = new Hashtable<String, LinkedList<Notifica>>();
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder;
+		Document doc = null;
+
+		try {
+			builder = factory.newDocumentBuilder();
+			doc = builder.parse(new File(NomiDB.FILE_NOTIFICHE_PENDENTI.getNome()));
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Element elenco = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+		
+		for(int i=0; i<elenco.getElementsByTagName(NomiDB.TAG_UTENTE.getNome()).getLength(); i++) {
+			Element utente = (Element) elenco.getElementsByTagName(NomiDB.TAG_UTENTE.getNome()).item(i);
+			String nomeUtente = utente.getTextContent();
+			ritorno.put(nomeUtente, leggiNotifiche(utente));
+			
+		}
+		
+		
 		return ritorno;
 	}
 

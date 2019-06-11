@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import cervello.Categoria;
 import cervello.Evento;
 import cervello.Notifica;
 import cervello.PartitaCalcioCat;
@@ -55,9 +56,9 @@ public class ConsultaDB {
 	}
 
 
-	public void aggiungiUtente(String id, byte[] pw)//questo metondo crea e aggiunge un utente al database e ritorna l'oggetto utente creato
+	public void aggiungiUtente(String id, byte[] pw, int etaMin, int etaMax, String[] categoriePref)//questo metondo crea e aggiunge un utente al database e ritorna l'oggetto utente creato
 	{
-		scrittura.aggiungiUtente(id, pw);
+		scrittura.aggiungiUtente(id, pw, etaMin, etaMax, categoriePref);
 	}
 
 	/**
@@ -99,6 +100,18 @@ public class ConsultaDB {
 	public void cancellaEvento(Evento evento) {
 		scrittura.cancellaEvento(evento);
 	}*/
+
+	public Hashtable<String, LinkedList<Notifica>> leggiNotifichePendenti() {
+		return lettura.leggiNotifichePendenti();
+		
+	}
+
+	public void salvaCategorie(Hashtable<String, Categoria> categorie) {
+		for(String key: categorie.keySet()) {
+			scrittura.scriviCategoriaPartitaCalcio(categorie.get(key));
+		}
+		
+	}
 	
 	
 }

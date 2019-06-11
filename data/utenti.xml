@@ -2,46 +2,13 @@
 <elenco>
 <utente>
 <nome>mauro</nome>
-<hash>1231231</hash>
-
-
-
-<elenco>
-
-
-<notifica>
-<descrizione>revocata iscrizione con successo</descrizione>
-<id>912525696</id>
-<letto>false</letto>
-</notifica>
-
-<notifica>
-<descrizione>impossibile, oltre termine ultimo di ritiro</descrizione>
-<id>583580172</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>revocata iscrizione con successo</descrizione>
-<id>912525696</id>
-<letto>false</letto>
-</notifica>
-</elenco>
-</utente>
-<utente>
-<nome>alessandro</nome>
-<hash>monteverde</hash>
-
-<elenco>
-</elenco>
-</utente>
-<utente>
-<nome>alessandro2</nome>
-<hash>monteverde</hash>
+<hash>123123123</hash>
 <elenco/>
-</utente>
-<utente>
-<nome>prova44</nome>
-<hash>aaaaaaa</hash>
-<elenco/>
+<eventi_creati/>
+<eta_min>20</eta_min>
+<eta_max>23</eta_max>
+<interessi>
+<nome>Partita calcio</nome>
+</interessi>
 </utente>
 </elenco>

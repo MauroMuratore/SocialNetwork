@@ -22,12 +22,13 @@ public class SocialNetwork {
 	public static final String PW_DIVERSE = "ATTENZIONE! : password diverse";
 	public static final String NOTIFICA_CANCELLATA = "Notifica cancellata";
 	public static final String IMPOSSIBILE_CANCELLARE_EVENTO = "impossibile cancellare evento";
+	private static final String ETAMIN_MAGG_ETAMAX = "Eta minima maggiore di eta massima";
 
 	public SocialNetwork() {
 		categorie = new Hashtable<String, Categoria>();
 		PartitaCalcioCat pdc = consultaDB.getPartitaCalcioCat();
 		categorie.put(pdc.getNome(), pdc);
-		notificheDaInoltrare = new Hashtable<String, LinkedList<Notifica>>();
+		notificheDaInoltrare = consultaDB.leggiNotifichePendenti();
 		aggiornamentoEventi(); // aggiorna tutti gli eventi
 		// quando vengono caricate gli eventi bisogna fare un controllo sulle notifiche
 	}
@@ -80,16 +81,16 @@ public class SocialNetwork {
 				if (uguali = false)
 					return PW_DIVERSE;
 			}
-			//qua va aggiunto il controllo su minEta e maxEta
-			//
-			//
-			//
-			//
-			//
-			//
-			//
-			//
-			consultaDB.aggiungiUtente(username, hash);//da aggiungere minEta , maxEta, categoriePref !!!!
+
+			if(!Campo.controlloIntero(minEta).equals(Campo.OK))
+				return Campo.controlloIntero(minEta);
+			if(!Campo.controlloIntero(maxEta).equals(Campo.OK))
+				return Campo.controlloIntero(maxEta);
+			int etaMin = Integer.parseInt(minEta);
+			int etaMax = Integer.parseInt(maxEta);
+			if(etaMin>etaMax)
+				return ETAMIN_MAGG_ETAMAX;
+			consultaDB.aggiungiUtente(username, hash, etaMin, etaMax, categoriePref);//da aggiungere minEta , maxEta, categoriePref !!!!
 			setUtente(username);
 			return BENVENUTO;
 		} else
@@ -102,7 +103,7 @@ public class SocialNetwork {
 	 */
 	private void setUtente(String id) {
 		utente = consultaDB.caricaUtente(id);
-		System.out.println(utente.getUsername());
+		System.out.println("login di " + utente.getUsername());
 		aggiornamentoUtente();
 	}
 
@@ -114,6 +115,7 @@ public class SocialNetwork {
 	public int salvaTutto() {
 		consultaDB.salvaUtente(utente);
 		consultaDB.salvaNotifichePendenti(notificheDaInoltrare);
+		consultaDB.salvaCategorie(categorie);
 		return 0;
 	}
 
@@ -152,6 +154,7 @@ public class SocialNetwork {
 		evento.setProprietario(nome);
 		utente.riceviNotifica(notificaIscrizione);
 		Notifica notificaStato = evento.cambioStato();
+		utente.creaEvento(evento.getIdEvento());
 		if (notificaStato != null)
 			utente.riceviNotifica(notificaStato);
 		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
@@ -173,11 +176,11 @@ public class SocialNetwork {
 				utente.riceviNotifica(notifica);
 			} else { // altrimenti la salvo il notifiche da inoltrare
 				if (notificheDaInoltrare.containsKey(nome)) { // se l'utente ha già altre notifiche da inoltrare
-																// aggiungo la notifica
+					// aggiungo la notifica
 					LinkedList<Notifica> lista = notificheDaInoltrare.get(nome);
 					lista.add(notifica);
 				} else { // se l'utente non ha altre notifiche creo la lista e aggiungo la coppia nome
-							// lista a notificaDaInoltrare
+					// lista a notificaDaInoltrare
 					LinkedList<Notifica> lista = new LinkedList<Notifica>();
 					lista.add(notifica);
 					notificheDaInoltrare.put(nome, lista);
@@ -253,5 +256,74 @@ public class SocialNetwork {
 		salvaTutto();
 		return ritorno.getMessaggio();
 	}
+	
+	public String modificaUtente(int tipoAttributo, String attributoUtente) {
+		if(tipoAttributo==Utente.ETA_MIN) {
+			if(!Campo.controlloIntero(attributoUtente).equals(Campo.OK))
+				return Campo.controlloIntero(attributoUtente);
+			utente.setEtaMin(Integer.parseInt(attributoUtente));
+		}
+		else if(tipoAttributo==Utente.ETA_MAX) {
+			if(!Campo.controlloIntero(attributoUtente).equals(Campo.OK))
+				return Campo.controlloIntero(attributoUtente);
+			utente.setEtaMax(Integer.parseInt(attributoUtente));
+		}
+		else if(tipoAttributo==Utente.AGGIUNGI_INTERESSE) {
+			utente.aggiungiInteresse(attributoUtente);
+		}
+		else if(tipoAttributo==Utente.RIMUOVI_INTERESSE) {
+			utente.removeInteresse(attributoUtente);
+		}
+		
+		return Utente.MODIFICA_RIUSCITA;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -19,6 +19,7 @@ import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 import cervello.Campo;
+import cervello.Categoria;
 import cervello.Evento;
 import cervello.Notifica;
 import cervello.PartitaCalcioEvento;
@@ -32,8 +33,11 @@ public class ScriviXML {
 	 * scrive alla fine del file le credenziali dell'utente
 	 * @param username
 	 * @param hash
+	 * @param categoriePref 
+	 * @param etaMax 
+	 * @param etaMin 
 	 */
-	public void aggiungiUtente(String username, byte[] hash) {
+	public void aggiungiUtente(String username, byte[] hash, int etaMin, int etaMax, String[] categoriePref) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
 		Document doc=null;
@@ -53,24 +57,48 @@ public class ScriviXML {
 
 		Element root = (Element) doc.getFirstChild();
 
-		Element newChild = doc.createElement(NomiDB.TAG_UTENTE.getNome());
+		Element nodoUtente = doc.createElement(NomiDB.TAG_UTENTE.getNome());
 		Element childName=doc.createElement(NomiDB.TAG_NOME.getNome());
 		childName.setTextContent(username);
 		Element childPW = doc.createElement(NomiDB.TAG_HASH.getNome());
 		childPW.setTextContent(hashChar);
 		Element childNotifiche = doc.createElement(NomiDB.TAG_ELENCO.getNome());
 
-		newChild.appendChild(childName);
-		newChild.appendChild(childPW);
-		newChild.appendChild(childNotifiche);
+		nodoUtente.appendChild(childName);
+		nodoUtente.appendChild(childPW);
+		nodoUtente.appendChild(childNotifiche);
 
-		root.appendChild(newChild);
+		//eta min
+		Element etaMinNodo = doc.createElement(NomiDB.ATT_ETA_MIN.getNome());
+		etaMinNodo.setTextContent(String.valueOf(etaMin));
+		nodoUtente.appendChild(etaMinNodo);
+
+		//eta massima
+		Element etaMaxNodo = doc.createElement(NomiDB.ATT_ETA_MAX.getNome());
+		etaMaxNodo.setTextContent(String.valueOf(etaMax));
+		nodoUtente.appendChild(etaMaxNodo);
+
+		//interessi
+		Element interessi = doc.createElement(NomiDB.ATT_INTERESSI.getNome());
+
+		for(String cat: categoriePref) {
+			Element categoriaNodo =null;
+			categoriaNodo = doc.createElement(NomiDB.TAG_NOME.getNome());
+			categoriaNodo.setTextContent(cat);
+			interessi.appendChild(categoriaNodo);
+
+		}
+		nodoUtente.appendChild(interessi);
+		
+		Element eventicreati = doc.createElement(NomiDB.ATT_EVENTI_CREATI.getNome());
+		nodoUtente.appendChild(eventicreati);
+		root.appendChild(nodoUtente);
 
 		//effetivament per scrivere
 		scriviSuFile(doc, NomiDB.FILE_UTENTI);
 
 
-		System.out.println("Scrittura completata");
+		System.out.println("aggiunto utente " + username + " eta min " + etaMin + " hashChar " +hashChar );
 	}
 
 	public void salvaUtente(Utente utente) {
@@ -95,13 +123,114 @@ public class ScriviXML {
 			}
 		}
 		Element notifiche = (Element) nodoUtente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
-
 		scriviNotificheUtente(doc, utente.getNotifiche(), notifiche);
-
 		nodoUtente.appendChild(notifiche);
-		System.out.println("salvo utente " + utente.getUsername());
+
+		//eventi creati dall'utente
+		Element eventiCreati=(Element) nodoUtente.getElementsByTagName(NomiDB.ATT_EVENTI_CREATI.getNome()).item(0);
+		if(eventiCreati==null)
+			eventiCreati=doc.createElement(NomiDB.ATT_EVENTI_CREATI.getNome());
+
+		for(int id: utente.getIdEventi()) {
+			boolean notPresent = true;
+			for(int i=0; i<eventiCreati.getElementsByTagName(NomiDB.TAG_EVENTO.getNome()).getLength(); i++) {
+				Element idEventoNodo = (Element) eventiCreati.getElementsByTagName(NomiDB.TAG_EVENTO.getNome()).item(i);
+				int idEvento = Integer.parseInt(idEventoNodo.getTextContent());
+				if(id==idEvento) {
+					notPresent = false;
+					break;
+				}
+			}
+			Element idEventoNodo = null;
+			if(notPresent) {
+				idEventoNodo = doc.createElement(NomiDB.TAG_EVENTO.getNome());
+				idEventoNodo.setTextContent(String.valueOf(id));
+				eventiCreati.appendChild(idEventoNodo);
+			}
+		}
+		nodoUtente.appendChild(eventiCreati);
+
+		//eta minima
+		Element etaMin = (Element) nodoUtente.getElementsByTagName(NomiDB.ATT_ETA_MIN.getNome()).item(0);
+		if(etaMin == null)
+			etaMin = doc.createElement(NomiDB.ATT_ETA_MIN.getNome());
+		etaMin.setTextContent(String.valueOf(utente.getEtaMin()));
+		nodoUtente.appendChild(etaMin);
+
+		//eta massima
+		Element etaMax = (Element) nodoUtente.getElementsByTagName(NomiDB.ATT_ETA_MAX.getNome()).item(0);
+		if(etaMax == null)
+			etaMax = doc.createElement(NomiDB.ATT_ETA_MAX.getNome());
+		etaMax.setTextContent(String.valueOf(utente.getEtaMax()));
+		nodoUtente.appendChild(etaMax);
+
+		//interessi
+		Element interessi = (Element) nodoUtente.getElementsByTagName(NomiDB.ATT_INTERESSI.getNome()).item(0);
+		if(interessi==null)
+			interessi = doc.createElement(NomiDB.ATT_INTERESSI.getNome());
+
+		for(String cat: utente.getInteressi()) {
+			boolean notPresent = true;
+			for(int i=0; i<interessi.getElementsByTagName(NomiDB.TAG_NOME.getNome()).getLength(); i++) {
+				Element categoriaNodo = (Element) interessi.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(i);
+				String categoria = categoriaNodo.getTextContent();
+				if(categoria.equals(cat)) {
+					notPresent = false;
+					break;
+				}
+			}
+			Element categoriaNodo =null;
+			if(notPresent) {
+				categoriaNodo = doc.createElement(NomiDB.TAG_NOME.getNome());
+				categoriaNodo.setTextContent(cat);
+				interessi.appendChild(categoriaNodo);
+			}
+		}
+		nodoUtente.appendChild(interessi);
+
+		System.out.println("salvo utente " + utente.getUsername() + " eta min " +utente.getEtaMin());
 		scriviSuFile(doc, NomiDB.FILE_UTENTI);
 
+
+	}
+
+	public void scriviCategoriaPartitaCalcio(Categoria cat) {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder;
+		Document doc=null;
+		try {
+			builder = factory.newDocumentBuilder();
+			doc = builder.parse(new File(NomiDB.FILE_PARTITA_CALCIO.getNome())); 
+
+		}catch (SAXException sax) {
+			sax.printStackTrace();
+		}catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (IOException io) {
+			io.printStackTrace();
+		}
+
+		Element categoria = (Element) doc.getElementsByTagName(NomiDB.TAG_CATEGORIA.getNome()).item(0);
+
+		for(String personaInteressata: (LinkedList<String>) cat.getPersoneInteressate()) {
+			boolean notPresent = true;
+			for(int i=0; i<categoria.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).getLength(); i++) {
+				Element personaNodo = (Element) categoria.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).item(i);
+				String persona = personaNodo.getTextContent();
+				if(persona.equals(personaInteressata)) {
+					notPresent = false;
+					break;
+				}
+			}
+			Element personaNodo = null;
+			if(notPresent) {
+				personaNodo = doc.createElement(NomiDB.PERSONE_INTERESSATE.getNome());
+				personaNodo.setTextContent(personaInteressata);
+				categoria.appendChild(personaNodo);
+			}
+		}
+
+		scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
 
 	}
 
@@ -235,8 +364,8 @@ public class ScriviXML {
 			else if(statoEvento.equals(StatoEvento.CANCELLATO)) {
 				newStato.setTextContent(NomiDB.STATO_EVENTO_CANCELLATO.getNome());
 			}
-		
-			
+
+
 			nodoStatoEvento.appendChild(newStato);
 		}
 	}
@@ -328,23 +457,23 @@ public class ScriviXML {
 	}
 
 	public void scriviPartecipanti(LinkedList<String> lista, Element evento, Document doc) {
-		
+
 		Element nodoLista = null;
 		if(evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome()).item(0)==null)
 			nodoLista = doc.createElement(NomiDB.CAMPO_PARTECIPANTI.getNome());
 		else
 			nodoLista = (Element) evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome()).item(0);
-		
+
 		for(int i=0; i<lista.size(); i++) {
 			boolean isPresent=false;
-			
+
 			for (int index=0; index<nodoLista.getElementsByTagName(NomiDB.TAG_NOME.getNome()).getLength(); index++) {
 				Element nodoPartecipante = (Element) nodoLista.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(index);
 				if(nodoPartecipante.getTextContent().equals(lista.get(i)))
 					isPresent=true;
 				else
 					nodoLista.removeChild(nodoPartecipante);
-				
+
 			}
 			Element nodoNome=null;
 			if(!isPresent) {
@@ -352,9 +481,9 @@ public class ScriviXML {
 				nodoNome.setTextContent(lista.get(i));
 				nodoLista.appendChild(nodoNome);
 			}
-			
+
 		}
-		
+
 		evento.appendChild(nodoLista);
 
 	}
@@ -426,8 +555,52 @@ public class ScriviXML {
 			io.printStackTrace();
 		}
 		Element elenco = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
+
+
 		for(String key : notifichePendenti.keySet()) {
-			scriviNotificheUtente(doc, notifichePendenti.get(key), elenco);
+			boolean notPresent=true;
+			for(int i=0; i<elenco.getElementsByTagName(NomiDB.TAG_UTENTE.getNome()).getLength(); i++) {
+				Element utente = (Element) elenco.getElementsByTagName(NomiDB.TAG_UTENTE.getNome()).item(i);
+				if(key.equals(utente.getTextContent())) {
+					notPresent=false;
+					for(Notifica not: notifichePendenti.get(key)) {
+						Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
+						Element nodoMessaggio = doc.createElement(NomiDB.TAG_DESCRIZIONE.getNome());
+						Element nodoEvento = doc.createElement(NomiDB.TAG_ID.getNome());
+						Element nodoLetto = doc.createElement(NomiDB.TAG_LETTO.getNome());
+
+						nodoMessaggio.setTextContent(not.getMessaggio());
+						nodoEvento.setTextContent(String.valueOf(not.getEvento().getIdEvento()));
+						nodoLetto.setTextContent(String.valueOf(not.getLetta()));
+
+						nodoNotifica.appendChild(nodoMessaggio);
+						nodoNotifica.appendChild(nodoEvento);
+						nodoNotifica.appendChild(nodoLetto);
+						utente.appendChild(nodoNotifica);
+					}
+					break;
+				}				
+			}
+			if(!notPresent) {
+				Element utente= doc.createElement(NomiDB.TAG_UTENTE.getNome());
+				for(Notifica not: notifichePendenti.get(key)) {
+					Element nodoNotifica = doc.createElement(NomiDB.TAG_NOTIFICA.getNome());
+					Element nodoMessaggio = doc.createElement(NomiDB.TAG_DESCRIZIONE.getNome());
+					Element nodoEvento = doc.createElement(NomiDB.TAG_ID.getNome());
+					Element nodoLetto = doc.createElement(NomiDB.TAG_LETTO.getNome());
+
+					nodoMessaggio.setTextContent(not.getMessaggio());
+					nodoEvento.setTextContent(String.valueOf(not.getEvento().getIdEvento()));
+					nodoLetto.setTextContent(String.valueOf(not.getLetta()));
+
+					nodoNotifica.appendChild(nodoMessaggio);
+					nodoNotifica.appendChild(nodoEvento);
+					nodoNotifica.appendChild(nodoLetto);
+					utente.appendChild(nodoNotifica);
+				}
+				elenco.appendChild(utente);
+			}
+
 
 		}
 
@@ -457,7 +630,7 @@ public class ScriviXML {
 				nodoUtente = (Element)lista.item(i);
 			}
 		}
-		
+
 		Element listaNotifiche =(Element) nodoUtente.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
 		for(int i=0; i<listaNotifiche.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).getLength(); i++) {
 			Element nodoNotifica = (Element) listaNotifiche.getElementsByTagName(NomiDB.TAG_NOTIFICA.getNome()).item(i);
@@ -474,31 +647,6 @@ public class ScriviXML {
 		scriviSuFile(doc, NomiDB.FILE_UTENTI);
 
 	}
-	/*
-	public void cancellaEvento(Evento evento) {
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder builder;
-		Document doc=null;
-		try {
-			builder = factory.newDocumentBuilder();
-			doc = builder.parse(new File(NomiDB.FILE_PARTITA_CALCIO.getNome()));
-		} catch (SAXException | IOException | ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Element elenco = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
-		NodeList listaEventi = elenco.getElementsByTagName(NomiDB.TAG_EVENTO.getNome());
-		
-		for(int i=0; i<listaEventi.getLength(); i++) {
-			String stringID = ((Element)listaEventi.item(i)).getAttribute("id");
-			int id = Integer.parseInt(stringID);
-			if(id==evento.getIdEvento())
-				elenco.removeChild(listaEventi.item(i));
-		}
-		System.out.println("Cancello partita ");
-		scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
-	}*/
 
 
 
