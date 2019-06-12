@@ -29,7 +29,7 @@ public class SezioneRegistrazione {
 	private JLabel lblNewLabel;
 	private JTextField textField;
 	private JLabel lblPassword;
-	private JTextField textField_1;
+	private JTextField textField_pw;
 	private JTextField textField_2;
 	private JLabel lblRipetiPassword;
 	private JLabel lblNoteaDopoLa;
@@ -142,10 +142,10 @@ public class SezioneRegistrazione {
 				isReg=true;
 				
 				username=textField.getText();
-				password=textField_1.getText();
+				password=textField_pw.getText();
 				ripetiPassword=textField_2.getText();
-				min=textField_1.getText();
-				max=textField_2.getText();
+				min=textField_3.getText();
+				max=textField_4.getText();
 				categoriePreferite= ((String [])listaCat.getSelectedItems());
 				
 			}
@@ -155,7 +155,7 @@ public class SezioneRegistrazione {
 		
 		lblNewLabel = new JLabel("(deve contenere almeno 7 caratteri)");
 		lblNewLabel.setForeground(SystemColor.textHighlight);
-		lblNewLabel.setBounds(20, 95, 184, 14);
+		lblNewLabel.setBounds(20, 95, 216, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		textField = new JTextField();
@@ -167,10 +167,10 @@ public class SezioneRegistrazione {
 		lblPassword.setBounds(20, 120, 154, 14);
 		frame.getContentPane().add(lblPassword);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(21, 145, 153, 20);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		textField_pw = new JTextField();
+		textField_pw.setBounds(21, 145, 153, 20);
+		frame.getContentPane().add(textField_pw);
+		textField_pw.setColumns(10);
 		
 		textField_2 = new JTextField();
 		textField_2.setBounds(21, 215, 153, 20);
@@ -194,7 +194,7 @@ public class SezioneRegistrazione {
 		
 		JLabel label = new JLabel("(deve contenere almeno 7 caratteri)");
 		label.setForeground(SystemColor.textHighlight);
-		label.setBounds(20, 165, 276, 14);
+		label.setBounds(20, 165, 220, 14);
 		frame.getContentPane().add(label);
 		
 		textPane_1 = new JTextPane();
@@ -204,35 +204,35 @@ public class SezioneRegistrazione {
 		frame.getContentPane().add(textPane_1);
 		
 		label_1 = new JLabel("FasciaDiet\u00E0 :");
-		label_1.setBounds(214, 50, 76, 17);
+		label_1.setBounds(246, 120, 76, 17);
 		frame.getContentPane().add(label_1);
 		
 		label_2 = new JLabel("min:");
-		label_2.setBounds(319, 48, 34, 21);
+		label_2.setBounds(330, 119, 34, 21);
 		frame.getContentPane().add(label_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(363, 48, 50, 20);
+		textField_3.setBounds(377, 120, 50, 20);
 		frame.getContentPane().add(textField_3);
 		
 		label_3 = new JLabel("max:");
-		label_3.setBounds(423, 48, 34, 21);
+		label_3.setBounds(440, 120, 34, 21);
 		frame.getContentPane().add(label_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(467, 48, 50, 20);
+		textField_4.setBounds(484, 120, 50, 20);
 		frame.getContentPane().add(textField_4);
 		
 		label_4 = new JLabel("CategorieDiInteresse:");
-		label_4.setBounds(214, 92, 139, 21);
+		label_4.setBounds(242, 190, 131, 21);
 		frame.getContentPane().add(label_4);
 		
 		listaCat = new List();
 		listaCat.setForeground(new Color(0, 0, 0));
 		listaCat.setBackground(new Color(0, 204, 204));
-		listaCat.setBounds(363, 95, 156, 23);
+		listaCat.setBounds(377, 190, 156, 23);
 		listaCat.setMultipleMode(true);
 		for(int i =0;i<sn.titoliCategorie().size();i++)
 			listaCat.add(sn.titoliCategorie().get(i));

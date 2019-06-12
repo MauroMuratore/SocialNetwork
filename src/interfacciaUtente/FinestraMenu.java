@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,12 +27,14 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 import cervello.Categoria;
 import cervello.Evento;
 import cervello.PartitaCalcioEvento;
 import cervello.SocialNetwork;
 import cervello.StatoEvento;
+import cervello.Utente;
 
 public class FinestraMenu {
 
@@ -48,9 +51,12 @@ public class FinestraMenu {
 	private int k=0;//serve per un for(dichiarata qua per questioni di visibilita)
 	private UserInterface UI;
 	private JPanel finestraCEV;
+	private JPanel panelModificaDati;
 	private Evento eventoCreato ;
 	private TextArea textArea;
 	private Label messaggioErr;
+	private JPanel panelInvito;
+	private JLabel confermaSistema;
 	private Label noteSistema;
 	private List listaNot ;
 	private static final String EVENTO_VALIDO = "Evento valido";
@@ -76,14 +82,14 @@ public class FinestraMenu {
 		frame.setBounds(600, 300, 680, 477);//+30
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		frame.addWindowListener(new WindowAdapter()
 		{
-		    public void windowClosing(WindowEvent e)
-		    {
-		      System.out.println("salvo tutto");
-		      sn.salvaTutto();
-		    }
+			public void windowClosing(WindowEvent e)
+			{
+				System.out.println("salvo tutto");
+				sn.salvaTutto();
+			}
 		});
 		frame.getContentPane().setLayout(null);
 
@@ -96,20 +102,6 @@ public class FinestraMenu {
 		JButton btnAreapersonale = new JButton("AreaPersonale");
 		btnAreapersonale.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(finestraCEV!= null)
-					frame.getContentPane().remove(finestraCEV);
-				if (panelAP!= null)
-					frame.getContentPane().remove(panelAP);
-				if (panelInfo != null)
-					frame.getContentPane().remove(panelInfo);
-				if (bachecaPDC != null)
-					frame.getContentPane().remove(bachecaPDC);
-				if (panelCategorie != null)
-					frame.getContentPane().remove(panelCategorie);
-				if(finestraEV != null)
-					frame.getContentPane().remove(finestraEV);
-				frame.revalidate();
-				frame.repaint();
 				costruisciFinestraAP();
 			}
 		});
@@ -131,6 +123,8 @@ public class FinestraMenu {
 		JButton btnVistacategorie = new JButton("VistaCategorie");
 		btnVistacategorie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(panelModificaDati!= null)
+					frame.getContentPane().remove(panelModificaDati);
 				if(finestraCEV!= null)
 					frame.getContentPane().remove(finestraCEV);
 				if(panelCategorie != null)
@@ -536,11 +530,11 @@ public class FinestraMenu {
 		choice.add("F");
 		choice.setBounds(435, 94, 159, 20);
 		finestraCEV.add(choice);
-		
+
 		Label label_15 = new Label("ToleranzaPartecipanti: ");
 		label_15.setBounds(307, 66, 125, 22);
 		finestraCEV.add(label_15);
-		
+
 		JTextField textTolleranza = new JTextField();
 		textTolleranza.setColumns(10);
 		textTolleranza.setBounds(435, 66, 159, 20);
@@ -549,7 +543,7 @@ public class FinestraMenu {
 		Label label_16 = new Label("TermineUltimoRitiro:");
 		label_16.setBounds(307, 206, 122, 22);
 		finestraCEV.add(label_16);
-		
+
 		JTextField termineultRit = new JTextField();
 		termineultRit.setColumns(10);
 		termineultRit.setText("GG/MM/AA");
@@ -591,15 +585,15 @@ public class FinestraMenu {
 				String tolleranza= textTolleranza.getText();
 				String termineUltRit= termineultRit.getText();
 				eventoCreato = new PartitaCalcioEvento();
-				
+
 				messaggioErr.setText(settaCampi(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine,sesso,eta,tolleranza,termineUltRit));
 				if(messaggioErr.getText().equals(OK))
 				{  
 					System.out.println(messaggioErr.getText());
 					//if(eventoCreato.valido())
 					{
-						sn.addEvento(eventoCreato);
-						costruisciBachecaPDC();
+						costruisciPanelInvito(eventoCreato);
+
 					}
 				}
 				else
@@ -651,7 +645,7 @@ public class FinestraMenu {
 	}
 	public void costruisciFinestraEvento(Evento ev){
 
-		
+
 		frame.setBounds(600, 300, 680, 540);
 		finestraEV = new JPanel();
 		finestraEV.setBackground(new Color(224, 255, 255));
@@ -756,8 +750,8 @@ public class FinestraMenu {
 				noteSistema.setText(sn.iscrizione(ev));
 			}
 		});
-		
-		
+
+
 
 		Button disiscrizione = new Button("disiscrzione");
 		disiscrizione.setBounds(91, 446, 76, 22);
@@ -778,7 +772,7 @@ public class FinestraMenu {
 				noteSistema.setText(sn.revocaIscrizione(ev));
 			}
 		});
-		
+
 
 		noteSistema = new Label("\r\n");
 		noteSistema.setText("");
@@ -789,30 +783,30 @@ public class FinestraMenu {
 		JLabel txtPartecnec = new JLabel();
 		txtPartecnec.setText("ParetecipantiNecessari: "+ev.getPartecipantiNecessari().getValoreString());
 		txtPartecnec.setOpaque(true);
- 
+
 		txtPartecnec.setBackground(SystemColor.info);
 		txtPartecnec.setBounds(10, 354, 641, 20);
 		finestraEV.add(txtPartecnec);
-		
+
 		JLabel statoEvento = new JLabel();
 		statoEvento.setText("StatoEvento: "+ev.getStato());
 		statoEvento.setOpaque(true);
 		statoEvento.setBackground(SystemColor.info);
 		statoEvento.setBounds(10, 385, 641, 20);
 		finestraEV.add(statoEvento);
-		
+
 		JLabel proprietario = new JLabel();
 		proprietario.setText("ProprietarioEvento: "+ev.getProprietario());
 		proprietario.setOpaque(true);
 		proprietario.setBackground(SystemColor.info);
 		proprietario.setBounds(10, 416, 641, 20);
 		finestraEV.add(proprietario);
-		
+
 		Button cancellazioneEv = new Button("EliminaEvento");
 		cancellazioneEv.setBackground(SystemColor.desktop);
 		cancellazioneEv.setBounds(575, 446, 76, 22);
 		finestraEV.add(cancellazioneEv);
-		
+
 		cancellazioneEv.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -833,13 +827,13 @@ public class FinestraMenu {
 				}
 				else
 					noteSistema.setText("Non puoi cancellare un eveto se non sei il proprietario");
-				
+
 			}
 		});
-		
-		
-		
-		
+
+
+
+
 
 		//		frame.setResizable(false);
 		//		frame.setBounds(600, 300, 667, 430);
@@ -872,9 +866,26 @@ public class FinestraMenu {
 
 	public void costruisciFinestraAP(){
 
-		if(panelAP!=null)frame.remove(panelAP);
+		if(finestraCEV!= null)
+			frame.getContentPane().remove(finestraCEV);
+		if(panelModificaDati!= null){
+			frame.getContentPane().remove(panelModificaDati);
+			System.out.println("ti ho rimosso");
+		}
+		if (panelAP!= null)
+			frame.getContentPane().remove(panelAP);
+		if (panelInfo != null)
+			frame.getContentPane().remove(panelInfo);
+		if (bachecaPDC != null)
+			frame.getContentPane().remove(bachecaPDC);
+		if (panelCategorie != null)
+			frame.getContentPane().remove(panelCategorie);
+		if(finestraEV != null)
+			frame.getContentPane().remove(finestraEV);
+
 		frame.revalidate();
 		frame.repaint();
+
 		panelAP = new JPanel();
 		panelAP.setBackground(new Color(176, 224, 230));
 		panelAP.setBounds(0, 23, 673, 385);
@@ -972,47 +983,53 @@ public class FinestraMenu {
 		label.setBounds(0, 10, 198, 22);
 		panel.add(label);
 
-		Label label_1 = new Label("username: " + UI.getUS());
+		Label label_1 = new Label("username: " + sn.getUtente().getUsername());
 		label_1.setBounds(0, 38, 198, 22);
 		panel.add(label_1);
 
-		Label label_3 = new Label("password: " + new String(UI.getPASS()));
+		Label label_3 = new Label("password: " + new String(sn.getUtente().getPassword()));
 		label_3.setBounds(0, 66, 198, 22);
 		panel.add(label_3);
-		
+
 		JButton btnModificadati = new JButton("ModificaDati");
 		btnModificadati.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				btnModificadati.setBackground(new Color(0, 206, 209));
-				
+
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
 				btnModificadati.setBackground(new Color(127, 255, 212));
 			}
 		});
+		btnModificadati.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {		
+				costruisciPanelModificaDati();
+			}
+		});
+
 		btnModificadati.setBackground(new Color(127, 255, 212));
 		btnModificadati.setBounds(10, 351, 178, 23);
 		panel.add(btnModificadati);
-		
-		Label label_4 = new Label("FasciaDiEta: ");
+
+		Label label_4 = new Label("FasciaDiEta: "+sn.getUtente().getEtaMin()+"-"+sn.getUtente().getEtaMax());
 		label_4.setBounds(0, 94, 198, 22);
 		panel.add(label_4);
-		
+
 		Label label_5 = new Label("CategorieDiInteresse:");
 		label_5.setBounds(0, 122, 198, 22);
 		panel.add(label_5);
-		
+
 		List list_1 = new List();
 		list_1.setForeground(SystemColor.text);
 		list_1.setBackground(new Color(176, 224, 230));
 		list_1.setBounds(10, 150, 178, 22);
-//		for(int i=0;i<sn.getCategoriePreferite().size();i++)
-//			list_1.add(sn.getCategoriePreferite().get(i));
+		for(int i=0;i<sn.getUtente().getInteressi().size();i++)
+			list_1.add(sn.getUtente().getInteressi().get(i));
 		list_1.setMultipleSelections(false);
 		panel.add(list_1);
-	
+
 
 		Label label_2 = new Label("Seleziona una delle notifiche per visualizzarne il contenuto -->");
 		label_2.setBackground(new Color(0, 139, 139));
@@ -1027,7 +1044,168 @@ public class FinestraMenu {
 
 		frame.revalidate();
 		frame.repaint();
+	}
+	public void costruisciPanelModificaDati(){
 
+
+		frame.setBounds(600, 300, 680, 540);
+		panelModificaDati = new JPanel();
+		panelModificaDati.setBackground(new Color(224, 255, 255));
+		panelModificaDati.setBounds(0, 23, 673, 540);
+		panelModificaDati.setLayout(null);
+		frame.getContentPane().add(panelModificaDati);
+
+		Label label = new Label("(Nota: solo i campi FasciaDiet\u00E0 e CategorieDiInteresse possono essere modificati)");
+		label.setBackground(SystemColor.desktop);
+		label.setBounds(10, 10, 642, 25);
+		panelModificaDati.add(label);
+
+		JLabel lblFasciadiet = new JLabel("FasciaDiEt\u00E0: ");
+		lblFasciadiet.setBounds(10, 79, 74, 14);
+		panelModificaDati.add(lblFasciadiet);
+
+		JLabel lblMin = new JLabel("min:");
+		lblMin.setBounds(113, 79, 38, 14);
+		panelModificaDati.add(lblMin);
+
+		JTextField textField_9 = new JTextField();
+		textField_9.setBounds(161, 76, 38, 20);
+		panelModificaDati.add(textField_9);
+		textField_9.setColumns(10);
+
+		JLabel lblMax = new JLabel("max:");
+		lblMax.setBounds(209, 79, 38, 14);
+		panelModificaDati.add(lblMax);
+
+		JTextField textField_10 = new JTextField();
+		textField_10.setColumns(10);
+		textField_10.setBounds(257, 76, 38, 20);
+		panelModificaDati.add(textField_10);
+
+		JLabel lblCategoriediinteresse = new JLabel("CategorieDiInteresse: ");
+		lblCategoriediinteresse.setBounds(10, 197, 129, 14);
+		panelModificaDati.add(lblCategoriediinteresse);
+		frame.getContentPane().remove(panelAP);
+
+
+		List list_1 = new List();
+		list_1.setForeground(SystemColor.text);
+		list_1.setBackground(new Color(176, 224, 230));
+		list_1.setBounds(145, 197, 178, 22);
+		for(int i=0;i<sn.titoliCategorie().size();i++)
+			list_1.add(sn.titoliCategorie().get(i));
+		panelModificaDati.add(list_1);
+
+		Button button = new Button("ConfermaModifica");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String min= textField_9.getText();
+				String max= textField_10.getText();
+				int[] selezionatiInt=list_1.getSelectedIndexes();
+
+				for(int k=0;k<selezionatiInt.length;k++) 
+					sn.modificaUtente(Utente.AGGIUNGI_INTERESSE, sn.titoliCategorie().get(k));
+
+				String confermaEtaMin =sn.modificaUtente(Utente.ETA_MIN, min);
+				String confermaEtaMax =sn.modificaUtente(Utente.ETA_MAX, max);
+				if(!confermaEtaMin.equals(Utente.MODIFICA_RIUSCITA)) confermaSistema.setText(confermaEtaMin);
+				if(!confermaEtaMax.equals(Utente.MODIFICA_RIUSCITA)) confermaSistema.setText(confermaEtaMax);
+				else confermaSistema.setText(Utente.MODIFICA_RIUSCITA);
+				if(confermaSistema.getText().equals(Utente.MODIFICA_RIUSCITA))
+				{
+					System.out.println("modifica ok");
+					costruisciFinestraAP();
+				}
+				else 
+				{
+					costruisciPanelModificaDati();
+				}
+
+			}
+		});
+		button.setBackground(SystemColor.desktop);
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				button.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				button.setBackground(SystemColor.desktop);
+			}
+		});
+		button.setBounds(10, 363, 129, 22);
+		panelModificaDati.add(button);
+
+
+		confermaSistema = new JLabel("");
+		confermaSistema.setBounds(145, 363, 507, 22);
+		panelModificaDati.add(confermaSistema);
+
+		frame.revalidate();
+		frame.repaint();
+	}
+	public void costruisciPanelInvito(Evento eventoCreato){
+		
+		if(finestraCEV!= null)
+			frame.getContentPane().remove(finestraCEV);
+		if(panelAP != null)
+			frame.getContentPane().remove(panelAP);
+		if(panelInfo != null)
+			frame.getContentPane().remove(panelInfo);
+		if(bachecaPDC != null)
+			frame.getContentPane().remove(bachecaPDC);
+		if(finestraEV != null)
+			frame.getContentPane().remove(finestraEV);
+		if(panelCategorie!= null)
+			frame.getContentPane().remove(panelCategorie);
+
+		frame.setBounds(600, 300, 680, 415);
+		panelInvito = new JPanel();
+		panelInvito.setBackground(new Color(224, 255, 255));
+		panelInvito.setBounds(0, 23, 673, 307);
+		panelInvito.setLayout(null);
+
+		frame.getContentPane().add(panelInvito);
+
+		Label label = new Label("Seleziona le persone a cui invire un invito per il tuo evento-->");
+		label.setBackground(SystemColor.activeCaption);
+		label.setBounds(10, 10, 653, 22);
+		panelInvito.add(label);
+
+		List list = new List();
+		list.setBackground(UIManager.getColor("InternalFrame.inactiveTitleGradient"));
+		list.setBounds(10, 53, 221, 77);
+		list.setMultipleMode(true);
+		for(int i =0;i<sn.getPersoneInvitabili("Partita calcio").size();i++)
+			list.addItem(sn.getPersoneInvitabili("Partita calcio").get(i));
+		panelInvito.add(list);
+
+		JButton btnConferma = new JButton("Conferma");
+		btnConferma.setBackground(SystemColor.desktop);
+		btnConferma.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnConferma.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnConferma.setBackground(SystemColor.desktop);
+			}
+		});
+		btnConferma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int[] invitatiInt=list.getSelectedIndexes();
+				LinkedList<String> invitati= new LinkedList<String>();
+
+				for(int c=0;c<invitatiInt.length;c++)
+					invitati.add(sn.getPersoneInvitabili("Partita calcio").get(invitatiInt[c]));
+				sn.addEvento(eventoCreato,invitati);
+				costruisciBachecaPDC();
+			}
+		});
+		btnConferma.setBounds(10, 185, 100, 23);
+		panelInvito.add(btnConferma);
 
 	}
 }
