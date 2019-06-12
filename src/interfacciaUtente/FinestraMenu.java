@@ -56,7 +56,7 @@ public class FinestraMenu {
 	private TextArea textArea;
 	private Label messaggioErr;
 	private JPanel panelInvito;
-	private JLabel confermaSistema;
+	private JLabel confermaSistema = new JLabel("");
 	private Label noteSistema;
 	private List listaNot ;
 	private static final String EVENTO_VALIDO = "Evento valido";
@@ -1004,7 +1004,8 @@ public class FinestraMenu {
 			}
 		});
 		btnModificadati.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {		
+			public void actionPerformed(ActionEvent arg0) {	
+				confermaSistema.setText("");
 				costruisciPanelModificaDati();
 			}
 		});
@@ -1047,6 +1048,22 @@ public class FinestraMenu {
 	}
 	public void costruisciPanelModificaDati(){
 
+		if(panelModificaDati!= null)
+			frame.getContentPane().remove(panelModificaDati);
+		if(finestraCEV!= null)
+			frame.getContentPane().remove(finestraCEV);
+		if(panelCategorie != null)
+			frame.getContentPane().remove(panelCategorie);
+		if(panelAP != null)
+			frame.getContentPane().remove(panelAP);
+		if(panelInfo != null)
+			frame.getContentPane().remove(panelInfo);
+		if(bachecaPDC != null)
+			frame.getContentPane().remove(bachecaPDC);
+		if(finestraEV != null)
+			frame.getContentPane().remove(finestraEV);
+		frame.revalidate();
+		frame.repaint();
 
 		frame.setBounds(600, 300, 680, 540);
 		panelModificaDati = new JPanel();
@@ -1059,6 +1076,9 @@ public class FinestraMenu {
 		label.setBackground(SystemColor.desktop);
 		label.setBounds(10, 10, 642, 25);
 		panelModificaDati.add(label);
+		
+		confermaSistema.setBounds(145, 363, 507, 22);
+		panelModificaDati.add(confermaSistema);
 
 		JLabel lblFasciadiet = new JLabel("FasciaDiEt\u00E0: ");
 		lblFasciadiet.setBounds(10, 79, 74, 14);
@@ -1137,11 +1157,6 @@ public class FinestraMenu {
 		button.setBounds(10, 363, 129, 22);
 		panelModificaDati.add(button);
 
-
-		confermaSistema = new JLabel("");
-		confermaSistema.setBounds(145, 363, 507, 22);
-		panelModificaDati.add(confermaSistema);
-
 		frame.revalidate();
 		frame.repaint();
 	}
@@ -1159,6 +1174,8 @@ public class FinestraMenu {
 			frame.getContentPane().remove(finestraEV);
 		if(panelCategorie!= null)
 			frame.getContentPane().remove(panelCategorie);
+		frame.revalidate();
+		frame.repaint();
 
 		frame.setBounds(600, 300, 680, 415);
 		panelInvito = new JPanel();
