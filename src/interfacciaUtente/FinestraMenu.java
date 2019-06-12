@@ -35,6 +35,7 @@ import cervello.PartitaCalcioEvento;
 import cervello.SocialNetwork;
 import cervello.StatoEvento;
 import cervello.Utente;
+import database.NomiDB;
 
 public class FinestraMenu {
 
@@ -292,8 +293,8 @@ public class FinestraMenu {
 		bachecaPDC.add(pannelloTitoliE);
 		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 
-		pdc = sn.mostraCategoria("Partita calcio");
-		System.out.println(pdc.getNome());
+		pdc = sn.mostraCategoria(NomiDB.CAT_PARTITA_CALCIO.getNome());
+		if(pdc==null)System.out.println("dio cane");
 		ArrayList<Evento> bacheca = pdc.getBacheca();
 		int size = bacheca.size();
 
@@ -1122,7 +1123,8 @@ public class FinestraMenu {
 				String min= textField_9.getText();
 				String max= textField_10.getText();
 				int[] selezionatiInt=list_1.getSelectedIndexes();
-
+				for(int k=0;k<sn.getUtente().getInteressi().size();k++)
+					sn.modificaUtente(Utente.RIMUOVI_INTERESSE, sn.getUtente().getInteressi().get(k));
 				for(int k=0;k<selezionatiInt.length;k++) 
 					sn.modificaUtente(Utente.AGGIUNGI_INTERESSE, sn.titoliCategorie().get(k));
 
@@ -1194,8 +1196,8 @@ public class FinestraMenu {
 		list.setBackground(UIManager.getColor("InternalFrame.inactiveTitleGradient"));
 		list.setBounds(10, 53, 221, 77);
 		list.setMultipleMode(true);
-		for(int i =0;i<sn.getPersoneInvitabili("Partita calcio").size();i++)
-			list.addItem(sn.getPersoneInvitabili("Partita calcio").get(i));
+		for(int i =0;i<sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).size();i++)
+			list.addItem(sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).get(i));
 		panelInvito.add(list);
 
 		JButton btnConferma = new JButton("Conferma");
