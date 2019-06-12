@@ -132,6 +132,8 @@ public class FinestraMenu {
 					frame.getContentPane().remove(panelCategorie);
 				if(panelAP != null)
 					frame.getContentPane().remove(panelAP);
+				if(panelInvito!= null)
+					frame.getContentPane().remove(panelInvito);	
 				if(panelInfo != null)
 					frame.getContentPane().remove(panelInfo);
 				if(bachecaPDC != null)
@@ -266,6 +268,8 @@ public class FinestraMenu {
 			frame.getContentPane().remove(finestraEV);
 		if(panelCategorie!= null)
 			frame.getContentPane().remove(panelCategorie);
+		if(panelInvito!= null)
+			frame.getContentPane().remove(panelInvito);
 
 		frame.setBounds(600, 300, 680, 477);//+30
 		frame.setResizable(false);
@@ -869,10 +873,10 @@ public class FinestraMenu {
 
 		if(finestraCEV!= null)
 			frame.getContentPane().remove(finestraCEV);
-		if(panelModificaDati!= null){
+		if(panelModificaDati!= null)
 			frame.getContentPane().remove(panelModificaDati);
-			System.out.println("ti ho rimosso");
-		}
+		if(panelInvito!= null)
+			frame.getContentPane().remove(panelInvito);	
 		if (panelAP!= null)
 			frame.getContentPane().remove(panelAP);
 		if (panelInfo != null)
@@ -1176,6 +1180,8 @@ public class FinestraMenu {
 			frame.getContentPane().remove(finestraEV);
 		if(panelCategorie!= null)
 			frame.getContentPane().remove(panelCategorie);
+		if(panelInvito!= null)
+			frame.getContentPane().remove(panelInvito);
 		frame.revalidate();
 		frame.repaint();
 
@@ -1218,9 +1224,9 @@ public class FinestraMenu {
 				LinkedList<String> invitati= new LinkedList<String>();
 
 				for(int c=0;c<invitatiInt.length;c++)
-					invitati.add(sn.getPersoneInvitabili("Partita calcio").get(invitatiInt[c]));
+					invitati.add(sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).get(invitatiInt[c]));
 				sn.addEvento(eventoCreato,invitati);
-				costruisciBachecaPDC();
+				initialize();
 			}
 		});
 		btnConferma.setBounds(10, 185, 100, 23);
