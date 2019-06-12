@@ -16,7 +16,8 @@ public class Campo<T> {
 	public static final String FORMATO_ORA_SBAGLIATO = "Le ore vanno da 0 a 23";
 	public static final String FORMATO_DATA_SBAGLIATO = "Formato della data sbagliato";
 	public static final String FORMATO_INTERO_SBAGLIATO = "Formato intero sbagliato";
-	private static final String DATA_PASSATA = "data passata";
+	public static final String DATA_PASSATA = "data passata";
+	public static final String STRINGA_VUOTA = "stringa vuota";
 	
 	public Campo(String _nome, String _descrizione, T _valore, boolean _obbl) {
 		nome=_nome;
@@ -174,6 +175,8 @@ public class Campo<T> {
 	}
 	
 	public static String controlloIntero(String intero) {
+		if(intero.equals(""))
+			return STRINGA_VUOTA;
 		for(int i=0; i<intero.length(); i++) {
 			char c = intero.charAt(i);
 			if(c<'0' || c>'9')
