@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <categoria>
-<nome>Partita calcio</nome>
+<nome>partita calcio</nome>
 <descrizione/>
 <elenco>
 <evento id="123123123">
@@ -116,4 +116,5 @@
 <proprietario>mauro</proprietario>
 </evento>
 </elenco>
+<persone_interessate>mauro</persone_interessate>
 </categoria>

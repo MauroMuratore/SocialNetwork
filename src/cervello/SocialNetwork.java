@@ -93,6 +93,10 @@ public class SocialNetwork {
 			if(etaMin>etaMax)
 				return ETAMIN_MAGG_ETAMAX;
 			consultaDB.aggiungiUtente(username, hash, etaMin, etaMax, categoriePref);//da aggiungere minEta , maxEta, categoriePref !!!!
+			for(String cat: categoriePref) {
+				categorie.get(cat).addPersonaInteressata(username);
+			}
+			consultaDB.salvaCategorie(categorie);
 			setUtente(username);
 			return BENVENUTO;
 		} else
@@ -154,11 +158,11 @@ public class SocialNetwork {
 		String nome = utente.getUsername();
 		Notifica notificaIscrizione = new Notifica(evento, evento.iscrizione(nome));
 		evento.setProprietario(nome);
+		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
 		utente.riceviNotifica(notificaIscrizione);
 		utente.creaEvento(evento.getIdEvento());
 		invitaUtenti(personeInvitate, evento);
 		informaInteressati(NomiDB.CAT_PARTITA_CALCIO.getNome(), evento);
-		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
 		if (evento.getClass() == PartitaCalcioEvento.class)
 			categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).aggiungiEvento((PartitaCalcioEvento) evento);
 
@@ -259,6 +263,8 @@ public class SocialNetwork {
 	}
 
 	public String modificaUtente(int tipoAttributo, String attributoUtente) {
+		if(attributoUtente.equals(""))
+			return utente.MODIFICA_RIUSCITA;
 		if(tipoAttributo==Utente.ETA_MIN) {
 			if(!Campo.controlloIntero(attributoUtente).equals(Campo.OK))
 				return Campo.controlloIntero(attributoUtente);
@@ -277,10 +283,12 @@ public class SocialNetwork {
 		}
 		else if(tipoAttributo==Utente.AGGIUNGI_INTERESSE) {
 			categorie.get(attributoUtente).addPersonaInteressata(utente.getUsername());
+			consultaDB.salvaCategorie(categorie);
 			utente.aggiungiInteresse(attributoUtente);
 		}
 		else if(tipoAttributo==Utente.RIMUOVI_INTERESSE) {
 			categorie.get(attributoUtente).removePersonaInteressata(utente.getUsername());
+			consultaDB.salvaCategorie(categorie);
 			utente.removeInteresse(attributoUtente);
 		}
 		

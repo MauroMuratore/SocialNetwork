@@ -95,6 +95,7 @@ public class LeggiXML {
 		for(int i=0; i<categoria.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).getLength(); i++) {
 			Element utente = (Element) categoria.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).item(i);
 			String nomeUtente = utente.getTextContent();
+			System.out.println("persone interessate " +  nomeUtente);
 			personeInteressate.add(nomeUtente);
 		}
 		ritorno = new PartitaCalcioCat<>(nome, descrizione, bacheca, personeInteressate);

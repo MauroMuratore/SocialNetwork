@@ -185,9 +185,5 @@ public class Campo<T> {
 		return OK;
 		
 		}
-	public static String controlloEta(String eta){
-		
-		return OK;
-	}
 
 }

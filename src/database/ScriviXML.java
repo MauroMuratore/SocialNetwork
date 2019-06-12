@@ -319,7 +319,8 @@ public class ScriviXML {
 		statoEvento.appendChild(stato);
 		newEvento.appendChild(statoEvento);
 		elenco.appendChild(newEvento);
-
+		
+		System.out.println("scrivo partita ");
 		scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
 
 	}
