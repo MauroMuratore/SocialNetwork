@@ -262,17 +262,25 @@ public class SocialNetwork {
 		if(tipoAttributo==Utente.ETA_MIN) {
 			if(!Campo.controlloIntero(attributoUtente).equals(Campo.OK))
 				return Campo.controlloIntero(attributoUtente);
-			utente.setEtaMin(Integer.parseInt(attributoUtente));
+			int etaMin = Integer.parseInt(attributoUtente);
+			if(etaMin>utente.getEtaMax())
+				return ETAMIN_MAGG_ETAMAX;
+			utente.setEtaMin(etaMin);
 		}
 		else if(tipoAttributo==Utente.ETA_MAX) {
 			if(!Campo.controlloIntero(attributoUtente).equals(Campo.OK))
 				return Campo.controlloIntero(attributoUtente);
-			utente.setEtaMax(Integer.parseInt(attributoUtente));
+			int etaMax = Integer.parseInt(attributoUtente);
+			if(etaMax<utente.getEtaMin())
+				return ETAMIN_MAGG_ETAMAX;
+			utente.setEtaMax(etaMax);
 		}
 		else if(tipoAttributo==Utente.AGGIUNGI_INTERESSE) {
+			categorie.get(attributoUtente).addPersonaInteressata(utente.getUsername());
 			utente.aggiungiInteresse(attributoUtente);
 		}
 		else if(tipoAttributo==Utente.RIMUOVI_INTERESSE) {
+			categorie.get(attributoUtente).removePersonaInteressata(utente.getUsername());
 			utente.removeInteresse(attributoUtente);
 		}
 		

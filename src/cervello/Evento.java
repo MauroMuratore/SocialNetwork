@@ -49,7 +49,7 @@ public abstract class Evento {
 		this.idEvento = idEvento;
 		this.titolo = titolo;
 		this.partecipantiNecessari = partecipantiNecessari;
-		this.partecipanti=(LinkedList<String>) partecipanti.clone();
+		this.partecipanti= new LinkedList<String>(partecipanti);
 		this.termineUltimo = termineUltimo;
 		this.termineUltimoRitiro = termineUltimoRitiro;
 		this.luogo = luogo;
