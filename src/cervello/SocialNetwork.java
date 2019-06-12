@@ -12,8 +12,6 @@ public class SocialNetwork {
 	private ConsultaDB consultaDB = new ConsultaDB();
 	private Hashtable<String, LinkedList<Notifica>> notificheDaInoltrare;
 
-	public static final String KEY_CATEGORIA_PARTITA_CALCIO = "Partita calcio";
-
 	public static final String BENVENUTO = "BENVENUTO";
 	public static final String ID_INESISTENTE = "ATTENZIONE! : username inesistente";
 	public static final String ID_CORTO = "ATTENZIONE! : id troppo corto";
@@ -164,7 +162,7 @@ public class SocialNetwork {
 		invitaUtenti(personeInvitate, evento);
 		informaInteressati(NomiDB.CAT_PARTITA_CALCIO.getNome(), evento);
 		if (evento.getClass() == PartitaCalcioEvento.class)
-			categorie.get(KEY_CATEGORIA_PARTITA_CALCIO).aggiungiEvento((PartitaCalcioEvento) evento);
+			categorie.get(NomiDB.CAT_PARTITA_CALCIO.getNome()).aggiungiEvento((PartitaCalcioEvento) evento);
 
 	}
 
