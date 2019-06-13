@@ -11,6 +11,7 @@ public class SocialNetwork {
 	private Utente utente;
 	private ConsultaDB consultaDB = new ConsultaDB();
 	private Hashtable<String, LinkedList<Notifica>> notificheDaInoltrare;
+	public static final String IMPOSSIBILE_CANCELLARE_EVENTO = "impossibile cancellare evento";
 
 	public static final String BENVENUTO = "BENVENUTO";
 	public static final String ID_INESISTENTE = "ATTENZIONE! : username inesistente";
@@ -20,7 +21,6 @@ public class SocialNetwork {
 	public static final String ID_IN_USO = "ATTENZIONE! : username in uso";
 	public static final String PW_DIVERSE = "ATTENZIONE! : password diverse";
 	public static final String NOTIFICA_CANCELLATA = "Notifica cancellata";
-	public static final String IMPOSSIBILE_CANCELLARE_EVENTO = "impossibile cancellare evento";
 	public static final String ETAMIN_MAGG_ETAMAX = "Eta minima maggiore di eta massima";
 	public static final String INVITI_SPEDITI = "Inviti spediti";
 

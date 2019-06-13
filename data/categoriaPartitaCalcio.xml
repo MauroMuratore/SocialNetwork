@@ -454,12 +454,14 @@
 </valore>
 <obbligatorio>true</obbligatorio>
 </campo>
-<partecipanti>
-<nome>alessandro</nome>
-</partecipanti>
+
 <stato_evento>
 <stato>aperto</stato>
 </stato_evento>
+<partecipanti>
+
+<nome>mauro</nome>
+</partecipanti>
 </evento>
 </elenco>
 <persone_interessate>mauro</persone_interessate>
