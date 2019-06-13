@@ -20,6 +20,7 @@ import org.xml.sax.SAXException;
 
 import cervello.Campo;
 import cervello.Categoria;
+import cervello.EscursioneMontagnaEvento;
 import cervello.Evento;
 import cervello.Invito;
 import cervello.Notifica;
@@ -240,7 +241,29 @@ public class ScriviXML {
 	 * scrittura partita da calcio, se è nuova viene creato un nuovo oggetto, altrimenti viene sovrascritto
 	 * @param evento
 	 */
-	public void scriviPartitaCalcioEvento(PartitaCalcioEvento evento) {
+	public void scriviPartitaCalcioEvento(PartitaCalcioEvento evento, Element nodoPartita, Document doc, boolean sovrascrivi) {
+		if(sovrascrivi) {
+			sovrascriviCampo(evento.getSesso(), nodoPartita, doc);
+			sovrascriviCampo(evento.getEta(), nodoPartita, doc);
+		}else {
+			scriviCampo(evento.getSesso(), nodoPartita, doc);
+			scriviCampo(evento.getEta(), nodoPartita, doc);
+		}
+	}
+	
+	public void scriviEscursioneMontagnaEvento(EscursioneMontagnaEvento evento, Element nodoEM, Document doc, boolean sovrascrivi) {
+		if(sovrascrivi) {
+			sovrascriviCampo(evento.getAttrezzatura(), nodoEM, doc);
+			sovrascriviCampo(evento.getIstruttore(), nodoEM, doc);
+		}else {
+			scriviCampo(evento.getAttrezzatura(), nodoEM, doc);
+			scriviCampo(evento.getIstruttore(), nodoEM, doc);			
+		}
+		scriviPartecipanti(evento.getListaPerAttrezzature(), nodoEM, doc, NomiDB.LISTA_ATTREZZATURE.getNome());
+		scriviPartecipanti(evento.getListaPerIstruttore(), nodoEM, doc, NomiDB.LISTA_ISTRUTTORE.getNome());
+	}
+	
+	public void scriviEvento(Evento evento) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
 		Document doc=null;
@@ -272,12 +295,15 @@ public class ScriviXML {
 				sovrascriviCampo(evento.getQuotaIndividuale(), nodo, doc);
 				sovrascriviCampo(evento.getCompresoQuota(), nodo, doc);
 				sovrascriviCampo(evento.getNote(), nodo, doc);
-				sovrascriviCampo(evento.getSesso(), nodo, doc);
-				sovrascriviCampo(evento.getEta(), nodo, doc);
 				sovrascriviCampo(evento.getTolleranzaPartecipanti(), nodo, doc);
 				sovrascriviCampo(evento.getTermineUltimoRitiro(), nodo, doc);
-				scriviPartecipanti(evento.getPartecipanti(), nodo, doc);
+				scriviPartecipanti(evento.getPartecipanti(), nodo, doc, NomiDB.CAMPO_PARTECIPANTI.getNome());
 				scriviStato(nodo, evento.getStato(), doc);
+				if(evento.getClass().equals(PartitaCalcioEvento.class)) {
+					scriviPartitaCalcioEvento((PartitaCalcioEvento)evento, nodo, doc, true);
+				}else if(evento.getClass().equals(EscursioneMontagnaEvento.class)) {
+					
+				}
 				scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
 				return;
 			}
@@ -299,11 +325,9 @@ public class ScriviXML {
 		scriviCampo(evento.getQuotaIndividuale(), newEvento, doc);
 		scriviCampo(evento.getCompresoQuota(), newEvento, doc);
 		scriviCampo(evento.getNote(), newEvento, doc);
-		scriviCampo(evento.getSesso(), newEvento, doc);
-		scriviCampo(evento.getEta(), newEvento, doc);
 		scriviCampo(evento.getTolleranzaPartecipanti(), newEvento, doc);
 		scriviCampo(evento.getTermineUltimoRitiro(), newEvento, doc);
-		scriviPartecipanti(evento.getPartecipanti(), newEvento, doc);
+		scriviPartecipanti(evento.getPartecipanti(), newEvento, doc, NomiDB.CAMPO_PARTECIPANTI.getNome());
 
 
 		Element statoEvento = doc.createElement(NomiDB.CAMPO_STATO_EVENTO.getNome());
@@ -322,8 +346,11 @@ public class ScriviXML {
 		
 		System.out.println("scrivo partita ");
 		scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
-
+		
 	}
+	
+	
+	
 
 	public void scriviStato(Element nodoEvento, StatoEvento statoEvento, Document doc) {
 		System.out.println("scrivo stato evento");
@@ -458,13 +485,13 @@ public class ScriviXML {
 		}
 	}
 
-	public void scriviPartecipanti(LinkedList<String> lista, Element evento, Document doc) {
+	public void scriviPartecipanti(LinkedList<String> lista, Element evento, Document doc, String nomeNodoDaAgg) {
 
 		Element nodoLista = null;
-		if(evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome()).item(0)==null)
-			nodoLista = doc.createElement(NomiDB.CAMPO_PARTECIPANTI.getNome());
+		if(evento.getElementsByTagName(nomeNodoDaAgg).item(0)==null)
+			nodoLista = doc.createElement(nomeNodoDaAgg);
 		else
-			nodoLista = (Element) evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome()).item(0);
+			nodoLista = (Element) evento.getElementsByTagName(nomeNodoDaAgg).item(0);
 
 		for(int i=0; i<lista.size(); i++) {
 			boolean isPresent=false;

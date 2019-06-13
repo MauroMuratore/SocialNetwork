@@ -275,7 +275,10 @@ public abstract class Evento {
 
 	/**
 	 * cambia lo stato dell'evento e torna una notifica 
-	 * @return null se lo stato non è cambiato
+	 * @return 
+	 * null se lo stato non è cambiato 
+	 * Notifica.CHIUSO se l'evento si e' chiuso
+	 * Notifica.FALLITO se l'evento è fallit
 	 */
 	public Notifica cambioStato() {
 		Date date = new Date(System.currentTimeMillis()); 
@@ -353,6 +356,9 @@ public abstract class Evento {
 		Date date = new Date(System.currentTimeMillis()); 
 		GregorianCalendar oggi = new GregorianCalendar();
 		oggi.setTime(date);
+		if(termineUltimoRitiro==null) {
+			termineUltimoRitiro=termineUltimo;
+		}
 		Notifica ritorno=null;
 		if(oggi.after(termineUltimoRitiro.getValore())) {
 			ritorno = new Notifica(this, Notifica.OLTRE_TUR);

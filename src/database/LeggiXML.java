@@ -20,6 +20,7 @@ import org.xml.sax.SAXException;
 
 import cervello.Campo;
 import cervello.Categoria;
+import cervello.EscursioneMontagnaCat;
 import cervello.Evento;
 import cervello.Invito;
 import cervello.Notifica;
@@ -67,14 +68,18 @@ public class LeggiXML {
 	}
 
 
-	public PartitaCalcioCat leggiPartitaCalcioCat() {
+	public Categoria leggiCategoria(String categoria) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
 		Document doc=null;
-		PartitaCalcioCat ritorno;
+		Categoria ritorno=null;
 		try {
 			builder=factory.newDocumentBuilder();
-			doc=builder.parse(new File(NomiDB.FILE_PARTITA_CALCIO.getNome()));
+			if(categoria.equals(NomiDB.CAT_PARTITA_CALCIO.getNome())) 
+				doc=builder.parse(new File(NomiDB.FILE_PARTITA_CALCIO.getNome()));
+			else if(categoria.equals(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()))
+				doc=builder.parse(new File(NomiDB.FILE_ESCURSIONE_MONTAGNA.getNome()));
+
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,37 +92,43 @@ public class LeggiXML {
 		}
 
 
-		Element categoria = (Element) doc.getElementsByTagName(NomiDB.TAG_CATEGORIA.getNome()).item(0);
-		String nome = categoria.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
-		String descrizione = categoria.getElementsByTagName(NomiDB.TAG_DESCRIZIONE.getNome()).item(0).getTextContent();
-		ArrayList<PartitaCalcioEvento> bacheca = new ArrayList<PartitaCalcioEvento>(leggiListaPartiteCalcio(doc));
+		Element categoriaNodo = (Element) doc.getElementsByTagName(NomiDB.TAG_CATEGORIA.getNome()).item(0);
+		String nome = categoriaNodo.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(0).getTextContent();
+		String descrizione = categoriaNodo.getElementsByTagName(NomiDB.TAG_DESCRIZIONE.getNome()).item(0).getTextContent();
 		LinkedList<String> personeInteressate = new LinkedList<String>();
-		for(int i=0; i<categoria.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).getLength(); i++) {
-			Element utente = (Element) categoria.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).item(i);
+		for(int i=0; i<categoriaNodo.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).getLength(); i++) {
+			Element utente = (Element) categoriaNodo.getElementsByTagName(NomiDB.PERSONE_INTERESSATE.getNome()).item(i);
 			String nomeUtente = utente.getTextContent();
 			personeInteressate.add(nomeUtente);
 		}
-		ritorno = new PartitaCalcioCat<>(nome, descrizione, bacheca, personeInteressate);
+		ArrayList<Evento> bacheca = new ArrayList<Evento>(leggiListaEventi(doc, categoria));
+
+		if(categoria.equals(NomiDB.CAT_PARTITA_CALCIO.getNome())) 			
+			ritorno = new PartitaCalcioCat<>(nome, descrizione, bacheca, personeInteressate);
+		else if(categoria.equals(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()))
+			ritorno = new EscursioneMontagnaCat<>(nome, descrizione, bacheca, personeInteressate);
+
 		return ritorno;
 	}
 
-	public ArrayList<PartitaCalcioEvento> leggiListaPartiteCalcio(Document doc) {
+	public ArrayList<Evento> leggiListaEventi(Document doc, String categoria) {
 		Element lista = (Element) doc.getElementsByTagName(NomiDB.TAG_ELENCO.getNome()).item(0);
-		ArrayList<PartitaCalcioEvento> ritorno = new ArrayList<PartitaCalcioEvento>();
+		ArrayList<Evento> ritorno = new ArrayList<Evento>();
 		for(int i=0; i<lista.getElementsByTagName(NomiDB.TAG_EVENTO.getNome()).getLength(); i++) {
 			Element newEvento = (Element) lista.getElementsByTagName(NomiDB.TAG_EVENTO.getNome()).item(i);
-			ritorno.add(leggiPartitaCalcioEvento(newEvento));
+			ritorno.add(leggiEvento(newEvento, categoria));
 
 		}
 
 		return ritorno;
 	}
 
-	public PartitaCalcioEvento leggiPartitaCalcioEvento(Element evento) {
+
+	public Evento leggiEvento(Element evento, String categoria) {
+		Evento ritorno = null;
+		//PARTE COMUNE A TUTTI GLI EVENTI
 		int id = Integer.parseInt(evento.getAttribute("id"));
-
 		String proprietario = evento.getElementsByTagName(NomiDB.CAMPO_PROPRIETARIO.getNome()).item(0).getTextContent();
-
 		Campo<String> titolo = leggiCampo(evento, String.class, NomiDB.CAMPO_TITOLO);
 		Campo<Integer> nPartecipanti = leggiCampo(evento, Integer.class, NomiDB.CAMPO_PARTECIPANTI_MAX);
 		Campo<GregorianCalendar> termineUltimo = leggiCampo(evento, GregorianCalendar.class, NomiDB.CAMPO_TERMINE_ULTIMO);
@@ -128,8 +139,6 @@ public class LeggiXML {
 		Campo<Integer> quotaIndividuale = leggiCampo(evento, Integer.class, NomiDB.CAMPO_QUOTA_IND);
 		Campo<String> compresoQuota = leggiCampo(evento, String.class, NomiDB.CAMPO_COMPRESO_QUOTA);
 		Campo<String> nota = leggiCampo(evento, String.class, NomiDB.CAMPO_NOTE);
-		Campo<String> sesso = leggiCampo(evento, String.class, NomiDB.CAMPO_SESSO);
-		Campo<Integer> eta = leggiCampo(evento, Integer.class, NomiDB.CAMPO_ETA);
 		Campo<GregorianCalendar> termineUltimoRitiro = leggiCampo(evento, GregorianCalendar.class, NomiDB.CAMPO_TERMINE_ULTIMO_RITIRO);
 		Campo<Integer> tolleranza = leggiCampo(evento, Integer.class, NomiDB.CAMPO_TOLLERANZA);
 		LinkedList<String> partecipanti = leggiPartecipanti(evento);
@@ -147,8 +156,17 @@ public class LeggiXML {
 		else if(stato.equals(NomiDB.STATO_EVENTO_CANCELLATO.getNome()))
 			statoEvento=StatoEvento.CANCELLATO;
 
-		PartitaCalcioEvento ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, partecipanti,proprietario, termineUltimo, termineUltimoRitiro, luogo, dataInizio,
-				durata, quotaIndividuale, compresoQuota, dataFine, nota, tolleranza, sesso, eta, statoEvento);
+		//SOLO PARTITE DI CALCIO
+		if(categoria.equals(NomiDB.CAT_PARTITA_CALCIO.getNome())) {
+			Campo<String> sesso = leggiCampo(evento, String.class, NomiDB.CAMPO_SESSO);
+			Campo<Integer> eta = leggiCampo(evento, Integer.class, NomiDB.CAMPO_ETA);
+			ritorno = new PartitaCalcioEvento(id, titolo, nPartecipanti, partecipanti,proprietario, termineUltimo, termineUltimoRitiro, luogo, dataInizio,
+					durata, quotaIndividuale, compresoQuota, dataFine, nota, tolleranza, sesso, eta, statoEvento);
+		}
+
+		if(categoria.equals(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome())) {
+			System.out.println("NON STO LEGGENDO NIENTE COGLIONE");
+		}
 		return ritorno;
 	}
 
@@ -157,11 +175,9 @@ public class LeggiXML {
 	 * @param id unico
 	 * @return
 	 */
-	public PartitaCalcioEvento leggiPartitaCalcioEvento(int id) {
-		PartitaCalcioCat<PartitaCalcioEvento> cat = leggiPartitaCalcioCat();
-		ArrayList<PartitaCalcioEvento> list = new ArrayList<PartitaCalcioEvento>(cat.getBacheca());
-
-		for(PartitaCalcioEvento pce : list) {
+	public Evento leggiEvento(int id, String categoria) {
+		Categoria<Evento> cat = leggiCategoria(categoria);
+		for(Evento pce :cat.getBacheca()) {
 			if (pce.getIdEvento()==id)
 				return pce;
 		}
@@ -241,7 +257,9 @@ public class LeggiXML {
 			Element nodoLetto = (Element) nodoNotifica.getElementsByTagName(NomiDB.TAG_LETTO.getNome()).item(0);
 
 			String messaggio = nodoMessaggio.getTextContent();
-			Evento evento = leggiPartitaCalcioEvento(Integer.parseInt(nodoID.getTextContent()));
+			Evento evento = leggiEvento(Integer.parseInt(nodoID.getTextContent()), NomiDB.CAT_PARTITA_CALCIO.getNome());
+			if(evento==null)
+				evento = leggiEvento(Integer.parseInt(nodoID.getTextContent()), NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
 			boolean letto = Boolean.valueOf(nodoLetto.getTextContent());
 			if(messaggio.contains(Notifica.INVITO)) {
 				GregorianCalendar data = new GregorianCalendar();

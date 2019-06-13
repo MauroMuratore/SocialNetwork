@@ -70,12 +70,12 @@ public class ConsultaDB {
 		return lettura.caricaUtente(id);
 	}
 
-	public PartitaCalcioCat getPartitaCalcioCat() {
-		return lettura.leggiPartitaCalcioCat();
+	public Categoria leggiCategoria(String categoria) {
+		return lettura.leggiCategoria(categoria);
 	}
 	
-	public void scriviEvento(PartitaCalcioEvento pce) {
-		scrittura.scriviPartitaCalcioEvento(pce);
+	public void scriviEvento(Evento pce) {
+		scrittura.scriviEvento(pce);
 	}
 	
 	public void salvaUtente(Utente utente) {
@@ -83,8 +83,11 @@ public class ConsultaDB {
 	}
 	
 	public boolean controllaEvento(int id) {
-		if(lettura.leggiPartitaCalcioEvento(id)!=null) {
-			return true;
+		boolean ritorno=false;
+		if(lettura.leggiEvento(id, NomiDB.CAT_PARTITA_CALCIO.getNome())!=null) {
+			ritorno= true;
+		}else if(lettura.leggiEvento(id, NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome())!=null) {
+			ritorno=true;
 		}
 		return false;
 	}

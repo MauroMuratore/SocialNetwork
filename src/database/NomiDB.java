@@ -18,9 +18,12 @@ public enum NomiDB {
 	CAMPO_STATO_EVENTO("stato_evento"),
 	CAMPO_TOLLERANZA("tolleranza"),
 	CAMPO_PROPRIETARIO("proprietario"),
+	CAMPO_ISTRUTTORE("istruttore"),
+	CAMPO_ATTREZZATURA("attrezzatura"),
 	CAMPO_TERMINE_ULTIMO_RITIRO("termine ultimo ritiro"),
 	FILE_UTENTI("data/utenti.xml"),
 	FILE_PARTITA_CALCIO("data/categoriaPartitaCalcio.xml"),
+	FILE_ESCURSIONE_MONTAGNA("data/escursioneMontagna.xml"),
 	FILE_NOTIFICHE_PENDENTI("data/notifichePendenti.xml"),
 	TAG_UTENTE("utente"),
 	TAG_ELENCO("elenco"),
@@ -51,7 +54,10 @@ public enum NomiDB {
 	ATT_ETA_MAX("eta_max"), 
 	ATT_INTERESSI("interessi"), 
 	PERSONE_INTERESSATE("persone_interessate"), 
-	CAT_PARTITA_CALCIO("partita calcio");
+	CAT_PARTITA_CALCIO("partita calcio"),
+	CAT_ESCURSIOME_MONTAGNA("escursione in montagna"),
+	LISTA_ATTREZZATURE("lista_attrezzature"),
+	LISTA_ISTRUTTORE("lista_istruttore");
 	
 	
 	private String nome;

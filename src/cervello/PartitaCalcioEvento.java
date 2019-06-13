@@ -10,16 +10,17 @@ public class PartitaCalcioEvento extends Evento {
 	private Campo<String> sesso;
 	private Campo<Integer> eta;
 
-	public PartitaCalcioEvento(int idEvento, Campo<String> titolo, Campo<Integer> partecipantiMax, LinkedList<String> partecipanti, String proprietario,
-			Campo<GregorianCalendar> termineUltimo,Campo<GregorianCalendar> termineUltimoRitiro, Campo<String> luogo, Campo<GregorianCalendar> dataInizio,
-			Campo<Integer> durata, Campo<Integer> quotaIndividuale, Campo<String> compresoQuota,
-			Campo<GregorianCalendar> dataFine, Campo<String> note, Campo<Integer> tolleranzaPartecipanti, Campo<String> sesso, Campo<Integer> eta, StatoEvento stato) {
+	public PartitaCalcioEvento(int _idEvento, Campo<String> _titolo, Campo<Integer> _partecipantiMax, LinkedList<String> _partecipanti, String _proprietario,
+			Campo<GregorianCalendar> _termineUltimo,Campo<GregorianCalendar> _termineUltimoRitiro, Campo<String> _luogo, Campo<GregorianCalendar> _dataInizio,
+			Campo<Integer> _durata, Campo<Integer> _quotaIndividuale, Campo<String> _compresoQuota,
+			Campo<GregorianCalendar> _dataFine, Campo<String> _note, Campo<Integer> _tolleranzaPartecipanti, Campo<String> _sesso, Campo<Integer> _eta, StatoEvento _stato) {
+		
 
 
-		super(idEvento, titolo, partecipantiMax, partecipanti, proprietario, termineUltimo, termineUltimoRitiro, luogo, dataInizio, durata, quotaIndividuale, compresoQuota,
-				dataFine, note, tolleranzaPartecipanti, stato);
-		this.sesso=sesso;
-		this.eta=eta;
+		super(_idEvento, _titolo, _partecipantiMax, _partecipanti, _proprietario, _termineUltimo, _termineUltimoRitiro, _luogo, _dataInizio, _durata, _quotaIndividuale, _compresoQuota,
+				_dataFine, _note, _tolleranzaPartecipanti, _stato);
+		this.sesso=_sesso;
+		this.eta=_eta;
 	}
 
 	public PartitaCalcioEvento(Campo<String> titolo, Campo<Integer> partecipantiMax, String proprietario,
@@ -44,7 +45,7 @@ public class PartitaCalcioEvento extends Evento {
 		dataFine = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_FINE.getNome(), "", false);
 		note = new Campo<String>(NomiDB.CAMPO_NOTE.getNome(), "", false);
 		tolleranzaPartecipanti = new Campo<Integer>(NomiDB.CAMPO_TOLLERANZA.getNome(), "", false);
-		termineUltimoRitiro = new Campo<GregorianCalendar>(NomiDB.CAMPO_TERMINE_ULTIMO_RITIRO.getNome(), "", true);
+		termineUltimoRitiro = new Campo<GregorianCalendar>(NomiDB.CAMPO_TERMINE_ULTIMO_RITIRO.getNome(), "", false);
 		sesso = new Campo<String>(NomiDB.CAMPO_SESSO.getNome(), "", true);
 		eta = new Campo<Integer>(NomiDB.CAMPO_ETA.getNome(), "",false);
 	}

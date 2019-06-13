@@ -26,8 +26,10 @@ public class SocialNetwork {
 
 	public SocialNetwork() {
 		categorie = new Hashtable<String, Categoria>();
-		PartitaCalcioCat pdc = consultaDB.getPartitaCalcioCat();
+		PartitaCalcioCat pdc = (PartitaCalcioCat) consultaDB.leggiCategoria(NomiDB.CAT_PARTITA_CALCIO.getNome());
+		EscursioneMontagnaCat emc = (EscursioneMontagnaCat) consultaDB.leggiCategoria(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
 		categorie.put(pdc.getNome(), pdc);
+		categorie.put(emc.getNome(), emc);
 		notificheDaInoltrare = consultaDB.leggiNotifichePendenti();
 		aggiornamentoEventi(); // aggiorna tutti gli eventi
 		// quando vengono caricate gli eventi bisogna fare un controllo sulle notifiche
@@ -35,10 +37,12 @@ public class SocialNetwork {
 
 	/**
 	 * permette di fare il login
-	 * 
 	 * @param id
 	 * @param hash
 	 * @return torna l'esito del login
+	 * BENVENUTO se e' riuscito
+	 * PW_SBAGLIATA se la password e' sbagliata
+	 * ID_INESISTENTE se l'id non esiste
 	 */
 	public String login(String id, byte[] hash) {
 
@@ -60,6 +64,12 @@ public class SocialNetwork {
 	 * @param hash
 	 * @param conferma
 	 * @return esito della registrazione
+	 * ID_CORTO l'id troppo corto
+	 * PW_CORTA password troppo corta
+	 * PW_DIVERSE password diverse
+	 * ETAMIN_MAGG_ETAMAX eta' minima maggiore di quella massim
+	 * BENVENUTO se la registrazione avviene con successo
+	 * ID_IN_USO id gia' in uso
 	 */
 	public String registrazione(String username, byte[] hash, byte[] conferma,String minEta,String maxEta,String[] categoriePref) {
 		if (!consultaDB.controllaID(username))// controllo se ce gia id nel database
@@ -111,11 +121,16 @@ public class SocialNetwork {
 		aggiornamentoUtente();
 	}
 
-	// TUTTI I SALVATAGGI VANNO FATTI
 	public void logout() {
+		salvaTutto();
 		utente = null;
+		
 	}
-
+	
+	/**
+	 * salva tutto lo stato di social network
+	 * @return
+	 */
 	public int salvaTutto() {
 		consultaDB.salvaUtente(utente);
 		consultaDB.salvaNotifichePendenti(notificheDaInoltrare);
@@ -139,19 +154,56 @@ public class SocialNetwork {
 	public Categoria mostraCategoria(String categoria) {
 		return categorie.get(categoria);
 	}
-
+	
+	/**
+	 * caso specifico di iscrizione per gli oggetti EscursioneMontagnaEvento
+	 * @param evento
+	 * @param istr
+	 * @param attr
+	 * @return
+	 */
+	public String iscrizione(EscursioneMontagnaEvento evento, boolean istr, boolean attr) {
+		String messaggio = evento.iscrizione(utente.getUsername(), istr, attr);
+		utente.riceviNotifica(new Notifica(evento, messaggio));
+		if (evento.cambioStato() != null)
+			aggiornamentoNotifiche(evento.cambioStato());
+		consultaDB.scriviEvento(evento);
+		System.out.print("scrittura iscrizione ");
+		consultaDB.salvaUtente(utente);		
+		return messaggio;
+	}
+	
+	
+	/**
+	 * serve per far iscrivere l'utente all'evento, invia la notifica all'utente e
+	 * se l'evento si chiude aggiorna anche tutti gli altri utenti tramite notifica
+	 * @param evento
+	 * @return l'esito dell'iscrizione:
+	 * Notifica.ISCRIZIONE se e' andata a buon fine
+	 * Notifica.ISCRIZIONE_GIA_FATTA se l'utente era gia' precedentemente iscritto
+	 * Notifica.ERRORE_DI_ISCRIZIONE se ci sono stati errori nell'iscrizione
+	 */
 	public String iscrizione(Evento evento) {
 
 		String messaggio = evento.iscrizione(utente.getUsername());
 		utente.riceviNotifica(new Notifica(evento, messaggio));
 		if (evento.cambioStato() != null)
 			aggiornamentoNotifiche(evento.cambioStato());
-		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
+		consultaDB.scriviEvento(evento);
 		System.out.print("scrittura iscrizione ");
 		consultaDB.salvaUtente(utente);
 		return messaggio;
 	}
-
+	
+	/**
+	 * crea un evento e viene aggiunta alla bacheca dalla propria categoria
+	 * manda un invito a tutte le persone che sono state invitate, una notifica
+	 * alle persone che sono interessate a quella categoria di eventi e salva 
+	 * l'evento
+	 * 
+	 * @param evento
+	 * @param personeInvitate
+	 */
 	public void addEvento(Evento evento, LinkedList<String> personeInvitate) {
 		String nome = utente.getUsername();
 		Notifica notificaIscrizione = new Notifica(evento, evento.iscrizione(nome));
@@ -160,19 +212,37 @@ public class SocialNetwork {
 		utente.riceviNotifica(notificaIscrizione);
 		utente.creaEvento(evento.getIdEvento());
 		invitaUtenti(personeInvitate, evento);
-		informaInteressati(NomiDB.CAT_PARTITA_CALCIO.getNome(), evento);
-		if (evento.getClass() == PartitaCalcioEvento.class)
-			categorie.get(NomiDB.CAT_PARTITA_CALCIO.getNome()).aggiungiEvento((PartitaCalcioEvento) evento);
+		if (evento.getClass().equals(PartitaCalcioEvento.class)) {
+			categorie.get(NomiDB.CAT_PARTITA_CALCIO.getNome()).aggiungiEvento(evento);
+			informaInteressati(NomiDB.CAT_PARTITA_CALCIO.getNome(), evento);
+		}
+		else if(evento.getClass().equals(EscursioneMontagnaEvento.class)) {
+			categorie.get(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()).aggiungiEvento(evento);
+			informaInteressati(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome(), evento);
+		}
 
 	}
 
 	/**
-	 * invia una notifica agli utenti iscritti
-	 * 
+	 * invia una notifica a tutti gli utenti iscritti all'evento
 	 * @param notifica
 	 */
 	public void aggiornamentoNotifiche(Notifica notifica) {
 		for (String nome : notifica.getEvento().getPartecipanti()) {
+			//calcolo qui quanto deve pagare
+			if(notifica.getMessaggio().contains(Notifica.COSTO_FINALE)) {
+				EscursioneMontagnaEvento evento = (EscursioneMontagnaEvento) notifica.getEvento();
+				int costo = evento.getQuotaIndividuale().getValore().intValue();
+				if(evento.getListaPerIstruttore().contains(nome)) {
+					costo += evento.getIstruttore().getValore().intValue();
+				}
+				if(evento.getListaPerAttrezzature().contains(nome)) {
+					costo += evento.getAttrezzatura().getValore().intValue();
+				}
+				notifica = new Notifica(evento, notifica.getMessaggio() + costo);
+			}
+			
+			
 			if (utente == null)
 				return;
 			else if (nome.equals(utente.getUsername())) { // se l'utente è quello loggato gli invio la notifica
@@ -211,7 +281,7 @@ public class SocialNetwork {
 	}
 
 	/**
-	 * aggiorna tutti gli stati di tutti gli eventi inviando le varie notifiche
+	 * aggiorna tutti gli stati di tutti gli eventi inviando in caso le varie notifiche
 	 */
 	public void aggiornamentoEventi() {
 		for (String key : categorie.keySet()) {
@@ -225,10 +295,9 @@ public class SocialNetwork {
 	}
 
 	/**
-	 * cancella la notifica
-	 * 
+	 * cancella la notifica dell'utente
 	 * @param notifica
-	 * @return
+	 * @return NOTIFICA_CANCELLATA
 	 */
 	public String cancellaNotifica(Notifica notifica) {
 		utente.cancellaNotifica(notifica);
@@ -242,16 +311,38 @@ public class SocialNetwork {
 		return utente;
 	}
 
+	/**
+	 * se l'utente e' il proprietario dell'evento viene cancellato l'evento e 
+	 * tutti i partecipanti vengono avvertiti tramite notifica, se e' scaduto
+	 * il termine ultimo di ritiro non viene cancellato, se l'utente non
+	 * è' il proprietario non succede nulla, in tutti i casi all'utente arriva
+	 * una notifica con l'esito dell'operazione
+	 * @param evento
+	 * @return
+	 * Notifica.PROPRIETARIO_DIVERSO se l'utente non è il proprietario dell'evento
+	 * Notifica.EVENTO_CANCELLATO se l'evento e' stato cancellato
+	 * Notifica.OLTRE_TUR se oltre il tur
+	 */
 	public String cancellaEvento(Evento evento) {
 		Notifica ritorno = evento.cancella(utente.getUsername());
 		utente.riceviNotifica(ritorno);
 		aggiornamentoNotifiche(ritorno);
 		System.out.print("cancella evento scrittura ");
 		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
-		//consultaDB.cancellaEvento(evento);
 		return ritorno.getMessaggio();
 	}
-
+	
+	/**
+	 * se l'utente è iscritto all'evento viene tolto dall'elenco dei partecipanti,
+	 * se però e' scaduto il termine ultimo per ritirarsi non viene tolto, mentre 
+	 * nel caso in cui non sia iscritto non succede nulla, in tutti e tre i casi 
+	 * gli arriva la notifica del risultato del metodo
+	 * @param evento
+	 * @return il messaggio della notifica
+	 * Notifica.OLTRE_TUR se la revoca viene fatta oltre il TUR
+	 * Notifica.NON_ISCRITTO se l'utente non e' iscritto
+	 * Notifica.REVOCA_ISCRIZIONE se viene revocata l'iscrizione
+	 */
 	public String revocaIscrizione(Evento evento) {
 		Notifica ritorno = evento.revocaIscrizione(utente.getUsername());
 		utente.riceviNotifica(ritorno);
@@ -260,6 +351,13 @@ public class SocialNetwork {
 		return ritorno.getMessaggio();
 	}
 
+	/**
+	 * si possono modificare gli attributi modificabili dell'utente, etaMin, etaMax
+	 * e aggiungere e togliere interessi
+	 * @param tipoAttributo
+	 * @param attributoUtente
+	 * @return
+	 */
 	public String modificaUtente(int tipoAttributo, String attributoUtente) {
 		if(attributoUtente.equals(""))
 			return utente.MODIFICA_RIUSCITA;
@@ -296,6 +394,12 @@ public class SocialNetwork {
 	}
 
 
+	/**
+	 * crea la lista di persone che l'utente può invitare, quindi tutti i 
+	 * partecipanti di qualsiasi altro suo evento
+	 * @param categoria dell'evento
+	 * @return lista degli invitabili
+	 */
 	public LinkedList<String> getPersoneInvitabili(String categoria){
 		LinkedList<String> personeInvitabili = new LinkedList<String> ();
 		Categoria cat = categorie.get(categoria);
@@ -311,6 +415,12 @@ public class SocialNetwork {
 		return personeInvitabili;
 	}
 	
+	/**
+	 * invia l'invito all'evento a tutte le persone nella lista personeInvitate
+	 * @param personeInvitate
+	 * @param evento
+	 * @return
+	 */
 	public String invitaUtenti(LinkedList<String> personeInvitate, Evento evento) {
 		for(String persona: personeInvitate) {
 			if(notificheDaInoltrare.get(persona)==null)
@@ -322,6 +432,12 @@ public class SocialNetwork {
 		return INVITI_SPEDITI;
 	}
 	
+	/**
+	 * invia una notifica di un nuovo evento aperto di una certa categoria a tutti
+	 * gli utenti che sono interessati
+	 * @param categoria
+	 * @param evento
+	 */
 	public void informaInteressati(String categoria, Evento evento) {
 		for(String interessato: (LinkedList<String>)categorie.get(categoria).getPersoneInteressate()) {
 			if(notificheDaInoltrare.get(interessato)==null) 
