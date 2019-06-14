@@ -30,6 +30,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 import cervello.Categoria;
+import cervello.EscursioneMontagnaEvento;
 import cervello.Evento;
 import cervello.PartitaCalcioEvento;
 import cervello.SocialNetwork;
@@ -43,15 +44,19 @@ public class FinestraMenu {
 	private JPanel panelInfo;
 	private JPanel panelCategorie;
 	private JButton btnPartitedicalcio;
+	private JButton btnEscursione;
 	private JLabel txtpnSelezionaLaCategoria;
 	private JPanel bachecaPDC ;
+	private JPanel bachecaEIM;
 	private JPanel panelAP;
 	private SocialNetwork sn;
 	private Categoria pdc;
+	private Categoria eim;
 	private JPanel finestraEV;
 	private int k=0;//serve per un for(dichiarata qua per questioni di visibilita)
 	private UserInterface UI;
-	private JPanel finestraCEV;
+	private JPanel finestraCEVPartita;
+	private JPanel finestraCEVEscu;
 	private JPanel panelModificaDati;
 	private Evento eventoCreato ;
 	private TextArea textArea;
@@ -124,10 +129,13 @@ public class FinestraMenu {
 		JButton btnVistacategorie = new JButton("VistaCategorie");
 		btnVistacategorie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if (bachecaEIM!= null)
+					frame.getContentPane().remove(bachecaEIM);
 				if(panelModificaDati!= null)
 					frame.getContentPane().remove(panelModificaDati);
-				if(finestraCEV!= null)
-					frame.getContentPane().remove(finestraCEV);
+				if(finestraCEVPartita!= null)
+					frame.getContentPane().remove(finestraCEVPartita);
 				if(panelCategorie != null)
 					frame.getContentPane().remove(panelCategorie);
 				if(panelAP != null)
@@ -168,7 +176,32 @@ public class FinestraMenu {
 				btnPartitedicalcio.setBackground(SystemColor.desktop);
 				btnPartitedicalcio.setBounds(10, 59, 290, 23);
 				panelCategorie.add(btnPartitedicalcio);
+				
+				
+				
+				
+				
+				btnEscursione = new JButton("EscursioneInMontagna");
+				btnEscursione.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						btnEscursione.setBackground(Color.green);
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						btnEscursione.setBackground(SystemColor.desktop);
+					}
+				});
+				btnEscursione.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						costruisciBachecaEIM();
+					}
+				});
 
+				btnEscursione.setBackground(SystemColor.desktop);
+				btnEscursione.setBounds(10, 85, 290, 23);
+				panelCategorie.add(btnPartitedicalcio);
+				
 				txtpnSelezionaLaCategoria = new JLabel();
 				txtpnSelezionaLaCategoria.setOpaque(true);
 				txtpnSelezionaLaCategoria.setText("Seleziona la categoria di ciu voi visualizzare gli eventi ->");
@@ -255,9 +288,11 @@ public class FinestraMenu {
 	}
 
 	public void costruisciBachecaPDC(){
-
-		if(finestraCEV!= null)
-			frame.getContentPane().remove(finestraCEV);
+		
+		if (bachecaEIM!= null)
+			frame.getContentPane().remove(bachecaEIM);
+		if(finestraCEVPartita!= null)
+			frame.getContentPane().remove(finestraCEVPartita);
 		if(panelAP != null)
 			frame.getContentPane().remove(panelAP);
 		if(panelInfo != null)
@@ -298,7 +333,6 @@ public class FinestraMenu {
 		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 
 		pdc = sn.mostraCategoria(NomiDB.CAT_PARTITA_CALCIO.getNome());
-		if(pdc==null)System.out.println("dio cane");
 		ArrayList<Evento> bacheca = pdc.getBacheca();
 		int size = bacheca.size();
 
@@ -361,7 +395,7 @@ public class FinestraMenu {
 					frame.getContentPane().remove(finestraEV);
 				frame.revalidate();
 				frame.repaint();
-				costruisciFinestraCreazioneEV();
+				costruisciFinestraCreazioneEVPartita();
 			}
 		});
 
@@ -369,13 +403,13 @@ public class FinestraMenu {
 		frame.repaint();
 
 	}
-	public void costruisciFinestraCreazioneEV(){
+	public void costruisciFinestraCreazioneEVPartita(){
 
-		finestraCEV = new JPanel();
-		finestraCEV.setBackground(new Color(224, 255, 255));
-		finestraCEV.setBounds(0, 23, 673, 385);
-		finestraCEV.setLayout(null);
-		frame.getContentPane().add(finestraCEV);
+		finestraCEVPartita = new JPanel();
+		finestraCEVPartita.setBackground(new Color(224, 255, 255));
+		finestraCEVPartita.setBounds(0, 23, 673, 385);
+		finestraCEVPartita.setLayout(null);
+		frame.getContentPane().add(finestraCEVPartita);
 
 		JTextField textField;
 		JTextField textField_1;
@@ -395,165 +429,165 @@ public class FinestraMenu {
 		Label label = new Label("Sezione creazione evento(compila i campi e dai conferma per creare l'evento desiderato):");
 		label.setForeground(new Color(0, 0, 255));
 		label.setBounds(10, 10, 653, 22);
-		finestraCEV.add(label);
+		finestraCEVPartita.add(label);
 
 		Label label_1 = new Label("Titolo:");
 		label_1.setBounds(10, 38, 62, 22);
-		finestraCEV.add(label_1);
+		finestraCEVPartita.add(label_1);
 
 		Label label_2 = new Label("PartecipantiNec:");
 		label_2.setBounds(10, 66, 122, 22);
-		finestraCEV.add(label_2);
+		finestraCEVPartita.add(label_2);
 
 		Label label_3 = new Label("Luogo:");
 		label_3.setBounds(10, 94, 62, 22);
-		finestraCEV.add(label_3);
+		finestraCEVPartita.add(label_3);
 
 		Label label_4 = new Label("DataInizio:");
 		label_4.setBounds(10, 122, 62, 22);
-		finestraCEV.add(label_4);
+		finestraCEVPartita.add(label_4);
 
 		Label label_5 = new Label("TermineUltimoIsc:\r\n");
 		label_5.setBounds(10, 262, 105, 22);
-		finestraCEV.add(label_5);
+		finestraCEVPartita.add(label_5);
 
 		Label label_6 = new Label("Durata:");
 		label_6.setBounds(10, 178, 62, 22);
-		finestraCEV.add(label_6);
+		finestraCEVPartita.add(label_6);
 
 		Label label_7 = new Label("QuotaIndividuale:");
 		label_7.setBounds(10, 206, 122, 22);
-		finestraCEV.add(label_7);
+		finestraCEVPartita.add(label_7);
 
 		Label label_8 = new Label("CompresoNellaQuota:");
 		label_8.setBounds(10, 234, 122, 22);
-		finestraCEV.add(label_8);
+		finestraCEVPartita.add(label_8);
 
 		Label label_9 = new Label("DataFine:\r\n");
 		label_9.setBounds(10, 150, 62, 22);
-		finestraCEV.add(label_9);
+		finestraCEVPartita.add(label_9);
 
 		Label label_10 = new Label("Note:");
 		label_10.setBounds(10, 290, 62, 22);
-		finestraCEV.add(label_10);
+		finestraCEVPartita.add(label_10);
 
 		textField = new JTextField();
 		textField.setBounds(142, 40, 159, 20);
-		finestraCEV.add(textField);
+		finestraCEVPartita.add(textField);
 		textField.setColumns(10);
 
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(142, 66, 159, 20);
-		finestraCEV.add(textField_1);
+		finestraCEVPartita.add(textField_1);
 
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(142, 96, 159, 20);
-		finestraCEV.add(textField_2);
+		finestraCEVPartita.add(textField_2);
 
 		txtGgmmaa_1 = new JTextField();
 		txtGgmmaa_1.setText("GG/MM/AA");
 		txtGgmmaa_1.setColumns(10);
 		txtGgmmaa_1.setBounds(142, 122, 159, 20);
-		finestraCEV.add(txtGgmmaa_1);
+		finestraCEVPartita.add(txtGgmmaa_1);
 
 		txtGgmmaa_2 = new JTextField();
 		txtGgmmaa_2.setText("GG/MM/AA");
 		txtGgmmaa_2.setColumns(10);
 		txtGgmmaa_2.setBounds(142, 152, 159, 20);
-		finestraCEV.add(txtGgmmaa_2);
+		finestraCEVPartita.add(txtGgmmaa_2);
 
 		txtnumeroDiGiorni = new JTextField();
 		txtnumeroDiGiorni.setText("(NUMERO DI GIORNI)");
 		txtnumeroDiGiorni.setColumns(10);
 		txtnumeroDiGiorni.setBounds(142, 180, 159, 20);
-		finestraCEV.add(txtnumeroDiGiorni);
+		finestraCEVPartita.add(txtnumeroDiGiorni);
 
 		textField_6 = new JTextField();
 		textField_6.setText("(\u20AC)");
 		textField_6.setColumns(10);
 		textField_6.setBounds(142, 208, 159, 20);
-		finestraCEV.add(textField_6);
+		finestraCEVPartita.add(textField_6);
 
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
 		textField_7.setBounds(142, 236, 159, 20);
-		finestraCEV.add(textField_7);
+		finestraCEVPartita.add(textField_7);
 
 		txtGgmmaa = new JTextField();
 		txtGgmmaa.setText("GG/MM/AA");
 		txtGgmmaa.setColumns(10);
 		txtGgmmaa.setBounds(142, 262, 159, 20);
-		finestraCEV.add(txtGgmmaa);
+		finestraCEVPartita.add(txtGgmmaa);
 
 		textField_8 = new JTextField();
 		textField_8.setColumns(10);
 		textField_8.setBounds(142, 290, 159, 20);
-		finestraCEV.add(textField_8);
+		finestraCEVPartita.add(textField_8);
 
 		messaggioErr= new Label();
 		messaggioErr.setForeground(Color.red);
 		messaggioErr.setBounds(307, 336, 356, 22);
-		finestraCEV.add(messaggioErr);
+		finestraCEVPartita.add(messaggioErr);
 
 		Label label_11 = new Label("OraInizio: ");
 		label_11.setBounds(307, 150, 62, 22);
-		finestraCEV.add(label_11);
+		finestraCEVPartita.add(label_11);
 
 		Label label_12 = new Label("OraFine: ");
 		label_12.setBounds(307, 178, 62, 22);
-		finestraCEV.add(label_12);
+		finestraCEVPartita.add(label_12);
 
 		txtOraminuti = new JTextField();
 		txtOraminuti.setText("ORA:MINUTI");
 		txtOraminuti.setColumns(10);
 		txtOraminuti.setBounds(435, 152, 159, 20);
-		finestraCEV.add(txtOraminuti);
+		finestraCEVPartita.add(txtOraminuti);
 
 		textOraminutiFine = new JTextField();
 		textOraminutiFine.setText("ORA:MINUTI");
 		textOraminutiFine.setColumns(10);
 		textOraminutiFine.setBounds(435, 178, 159, 20);
-		finestraCEV.add(textOraminutiFine);
+		finestraCEVPartita.add(textOraminutiFine);
 
 		Label label_13 = new Label("Sesso:");
 		label_13.setBounds(307, 94, 62, 22);
-		finestraCEV.add(label_13);
+		finestraCEVPartita.add(label_13);
 
 		textfieldEta = new JTextField();
 		textfieldEta.setColumns(10);
 		textfieldEta.setBounds(435, 122, 159, 20);
-		finestraCEV.add(textfieldEta);
+		finestraCEVPartita.add(textfieldEta);
 
 		Label label_14 = new Label("Et\u00E0:");
 		label_14.setBounds(307, 122, 62, 22);
-		finestraCEV.add(label_14);
+		finestraCEVPartita.add(label_14);
 
 		Choice choice = new Choice();
 		choice.add("M");
 		choice.add("F");
 		choice.setBounds(435, 94, 159, 20);
-		finestraCEV.add(choice);
+		finestraCEVPartita.add(choice);
 
 		Label label_15 = new Label("ToleranzaPartecipanti: ");
 		label_15.setBounds(307, 66, 125, 22);
-		finestraCEV.add(label_15);
+		finestraCEVPartita.add(label_15);
 
 		JTextField textTolleranza = new JTextField();
 		textTolleranza.setColumns(10);
 		textTolleranza.setBounds(435, 66, 159, 20);
-		finestraCEV.add(textTolleranza);
+		finestraCEVPartita.add(textTolleranza);
 
 		Label label_16 = new Label("TermineUltimoRitiro:");
 		label_16.setBounds(307, 206, 122, 22);
-		finestraCEV.add(label_16);
+		finestraCEVPartita.add(label_16);
 
 		JTextField termineultRit = new JTextField();
 		termineultRit.setColumns(10);
 		termineultRit.setText("GG/MM/AA");
 		termineultRit.setBounds(435, 206, 159, 20);
-		finestraCEV.add(termineultRit);
+		finestraCEVPartita.add(termineultRit);
 
 
 		frame.revalidate();
@@ -604,14 +638,14 @@ public class FinestraMenu {
 				else
 				{
 					System.out.println(messaggioErr.getText());
-					costruisciFinestraCreazioneEV();
+					costruisciFinestraCreazioneEVPartita();
 				}
 
 			}
 		});
 		btnNewButton.setBackground(SystemColor.desktop);
 		btnNewButton.setBounds(142, 336, 159, 23);
-		finestraCEV.add(btnNewButton);
+		finestraCEVPartita.add(btnNewButton);
 
 
 	}
@@ -870,9 +904,10 @@ public class FinestraMenu {
 	}
 
 	public void costruisciFinestraAP(){
-
-		if(finestraCEV!= null)
-			frame.getContentPane().remove(finestraCEV);
+		if (bachecaEIM!= null)
+			frame.getContentPane().remove(bachecaEIM);
+		if(finestraCEVPartita!= null)
+			frame.getContentPane().remove(finestraCEVPartita);
 		if(panelModificaDati!= null)
 			frame.getContentPane().remove(panelModificaDati);
 		if(panelInvito!= null)
@@ -1055,8 +1090,8 @@ public class FinestraMenu {
 
 		if(panelModificaDati!= null)
 			frame.getContentPane().remove(panelModificaDati);
-		if(finestraCEV!= null)
-			frame.getContentPane().remove(finestraCEV);
+		if(finestraCEVPartita!= null)
+			frame.getContentPane().remove(finestraCEVPartita);
 		if(panelCategorie != null)
 			frame.getContentPane().remove(panelCategorie);
 		if(panelAP != null)
@@ -1111,6 +1146,12 @@ public class FinestraMenu {
 		lblCategoriediinteresse.setBounds(10, 197, 129, 14);
 		panelModificaDati.add(lblCategoriediinteresse);
 		frame.getContentPane().remove(panelAP);
+		
+		Label label_5 = new Label("Info: seleziona nella lista le tue categorie di interesse,le precedenti verranno sovrascritte.");
+		label_5.setBackground(SystemColor.info);
+		label_5.setBounds(145, 225, 507, 22);
+		panelModificaDati.add(label_5);
+
 
 
 		List list_1 = new List();
@@ -1167,9 +1208,10 @@ public class FinestraMenu {
 		frame.repaint();
 	}
 	public void costruisciPanelInvito(Evento eventoCreato){
-		
-		if(finestraCEV!= null)
-			frame.getContentPane().remove(finestraCEV);
+		if (bachecaEIM!= null)
+			frame.getContentPane().remove(bachecaEIM);
+		if(finestraCEVPartita!= null)
+			frame.getContentPane().remove(finestraCEVPartita);
 		if(panelAP != null)
 			frame.getContentPane().remove(panelAP);
 		if(panelInfo != null)
@@ -1233,6 +1275,445 @@ public class FinestraMenu {
 		panelInvito.add(btnConferma);
 
 	}
+	
+	public void costruisciBachecaEIM(){
+		
+		
+		if (bachecaEIM!= null)
+			frame.getContentPane().remove(bachecaEIM);
+		if(finestraCEVPartita!= null)
+			frame.getContentPane().remove(finestraCEVPartita);
+		if(panelAP != null)
+			frame.getContentPane().remove(panelAP);
+		if(panelInfo != null)
+			frame.getContentPane().remove(panelInfo);
+		if(bachecaPDC != null)
+			frame.getContentPane().remove(bachecaPDC);
+		if(finestraEV != null)
+			frame.getContentPane().remove(finestraEV);
+		if(panelCategorie!= null)
+			frame.getContentPane().remove(panelCategorie);
+		if(panelInvito!= null)
+			frame.getContentPane().remove(panelInvito);
+
+		frame.setBounds(600, 300, 680, 477);//+30
+		frame.setResizable(false);
+
+		bachecaEIM = new JPanel();
+		bachecaEIM.setBackground(new Color(224, 255, 255));
+		bachecaEIM.setBounds(0, 23, 673, 385);
+		bachecaEIM.setLayout(null);
+
+		Panel pannelloSpiegazione = new Panel();
+		pannelloSpiegazione.setBounds(0, 0, 663, 40);
+		bachecaEIM.add(pannelloSpiegazione);
+		pannelloSpiegazione.setLayout(null);
+
+		JLabel txtpnQuestiSonoI = new JLabel();
+		txtpnQuestiSonoI.setOpaque(true);
+		txtpnQuestiSonoI.setForeground(SystemColor.BLACK);
+		txtpnQuestiSonoI.setText("Questi sono i titoli degli eventi disponibili( per maggiori informazioni su un evento fai click su di esso)");
+		txtpnQuestiSonoI.setBackground(SystemColor.info);
+		txtpnQuestiSonoI.setBounds(10, 5, 643, 20);
+		pannelloSpiegazione.add(txtpnQuestiSonoI);
+
+		Panel pannelloTitoliE = new Panel();
+		pannelloTitoliE.setBounds(0, 39, 476, 336);
+		bachecaEIM.add(pannelloTitoliE);
+		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+
+		eim = sn.mostraCategoria(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
+		ArrayList<Evento> bacheca = eim.getBacheca();
+		int size = bacheca.size();
+
+		for(k=0;k<size;k++)
+		{  
+			if(((Evento) eim.getBacheca().get(k)).getStato().equals(StatoEvento.APERTO)||((Evento) eim.getBacheca().get(k)).getStato().equals(StatoEvento.CHIUSO))
+			{
+				String titolo= ((Evento) eim.getBacheca().get(k)).getTitolo().getValoreString();
+				JButton btnNewButton = new JButton(titolo);
+				btnNewButton.setBackground(SystemColor.desktop);
+				costruisciActionListener(btnNewButton,k);
+				pannelloTitoliE.add(btnNewButton);
+			}
+		}
+		frame.getContentPane().add(bachecaEIM);
+
+		Panel panel = new Panel();
+		panel.setBackground(new Color(224, 255, 255));
+		panel.setForeground(new Color(51, 255, 255));
+		panel.setBounds(476, 39, 187, 336);
+		bachecaEIM.add(panel);
+		panel.setLayout(null);
+
+		Label label = new Label("Vuoi creare un nuovo evento?");
+		label.setForeground(new Color(0, 0, 255));
+		label.setBounds(0, 10, 187, 22);
+		panel.add(label);
+
+		Label label_1 = new Label("vai alla sezione di creazione");
+		label_1.setForeground(new Color(0, 0, 255));
+		label_1.setBounds(0, 33, 187, 22);
+		panel.add(label_1);
+
+		JButton btnCreaEvento = new JButton("CreaEvento");
+		btnCreaEvento.setBounds(0, 61, 100, 23);
+		btnCreaEvento.setBackground(SystemColor.desktop);
+		panel.add(btnCreaEvento);
+
+		btnCreaEvento.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnCreaEvento.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnCreaEvento.setBackground(SystemColor.desktop);
+			}
+		});
+		btnCreaEvento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (panelAP!= null)
+					frame.getContentPane().remove(panelAP);
+				if (bachecaEIM!= null)
+					frame.getContentPane().remove(bachecaEIM);
+				if (panelInfo != null)
+					frame.getContentPane().remove(panelInfo);
+				if (bachecaPDC != null)
+					frame.getContentPane().remove(bachecaPDC);
+				if (panelCategorie != null)
+					frame.getContentPane().remove(panelCategorie);
+				if(finestraEV != null)
+					frame.getContentPane().remove(finestraEV);
+				frame.revalidate();
+				frame.repaint();
+				costruisciFinestraCreazioneEVEscursione();
+			}
+		});
+
+		frame.revalidate();
+		frame.repaint();
+	}
+	
+	
+	public void costruisciFinestraCreazioneEVEscursione(){
+		
+		finestraCEVEscu = new JPanel();
+		finestraCEVEscu.setBackground(new Color(224, 255, 255));
+		finestraCEVEscu.setBounds(0, 23, 673, 458);
+		finestraCEVEscu.setLayout(null);
+		frame.getContentPane().add(finestraCEVEscu);
+
+		JTextField textField;
+		JTextField textField_1;
+		JTextField textField_2;
+		JTextField txtGgmmaa_1;
+		JTextField txtGgmmaa_2;
+		JTextField txtnumeroDiGiorni;
+		JTextField textField_6;
+		JTextField textField_7;
+		JTextField txtGgmmaa;
+		JTextField textField_8;
+		JTextField txtOraminuti;
+		JTextField textField_11;
+		JTextField textfieldEta;
+		JTextField textField_12;
+		JTextField textOraminutiFine;
+
+
+		Label label = new Label("Sezione creazione evento(compila i campi e dai conferma per creare l'evento desiderato):");
+		label.setForeground(new Color(0, 0, 255));
+		label.setBounds(10, 10, 653, 22);
+		finestraCEVEscu.add(label);
+
+		Label label_1 = new Label("Titolo:");
+		label_1.setBounds(10, 38, 62, 22);
+		finestraCEVEscu.add(label_1);
+
+		Label label_2 = new Label("PartecipantiNec:");
+		label_2.setBounds(10, 66, 122, 22);
+		finestraCEVEscu.add(label_2);
+
+		Label label_3 = new Label("Luogo:");
+		label_3.setBounds(10, 94, 62, 22);
+		finestraCEVEscu.add(label_3);
+
+		Label label_4 = new Label("DataInizio:");
+		label_4.setBounds(10, 122, 62, 22);
+		finestraCEVEscu.add(label_4);
+
+		Label label_5 = new Label("TermineUltimoIsc:\r\n");
+		label_5.setBounds(10, 262, 105, 22);
+		finestraCEVEscu.add(label_5);
+
+		Label label_6 = new Label("Durata:");
+		label_6.setBounds(10, 178, 62, 22);
+		finestraCEVEscu.add(label_6);
+
+		Label label_7 = new Label("QuotaIndividuale:");
+		label_7.setBounds(10, 206, 122, 22);
+		finestraCEVEscu.add(label_7);
+
+		Label label_8 = new Label("CompresoNellaQuota:");
+		label_8.setBounds(10, 234, 122, 22);
+		finestraCEVEscu.add(label_8);
+
+		Label label_9 = new Label("DataFine:\r\n");
+		label_9.setBounds(10, 150, 62, 22);
+		finestraCEVEscu.add(label_9);
+
+		Label label_10 = new Label("Note:");
+		label_10.setBounds(10, 290, 62, 22);
+		finestraCEVEscu.add(label_10);
+
+		textField = new JTextField();
+		textField.setBounds(142, 40, 159, 20);
+		finestraCEVEscu.add(textField);
+		textField.setColumns(10);
+
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(142, 66, 159, 20);
+		finestraCEVEscu.add(textField_1);
+
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(142, 96, 159, 20);
+		finestraCEVEscu.add(textField_2);
+
+		txtGgmmaa_1 = new JTextField();
+		txtGgmmaa_1.setText("GG/MM/AA");
+		txtGgmmaa_1.setColumns(10);
+		txtGgmmaa_1.setBounds(142, 122, 159, 20);
+		finestraCEVEscu.add(txtGgmmaa_1);
+
+		txtGgmmaa_2 = new JTextField();
+		txtGgmmaa_2.setText("GG/MM/AA");
+		txtGgmmaa_2.setColumns(10);
+		txtGgmmaa_2.setBounds(142, 152, 159, 20);
+		finestraCEVEscu.add(txtGgmmaa_2);
+
+		txtnumeroDiGiorni = new JTextField();
+		txtnumeroDiGiorni.setText("(NUMERO DI GIORNI)");
+		txtnumeroDiGiorni.setColumns(10);
+		txtnumeroDiGiorni.setBounds(142, 180, 159, 20);
+		finestraCEVEscu.add(txtnumeroDiGiorni);
+
+		textField_6 = new JTextField();
+		textField_6.setText("(\u20AC)");
+		textField_6.setColumns(10);
+		textField_6.setBounds(142, 208, 159, 20);
+		finestraCEVEscu.add(textField_6);
+
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(142, 236, 159, 20);
+		finestraCEVEscu.add(textField_7);
+
+		txtGgmmaa = new JTextField();
+		txtGgmmaa.setText("GG/MM/AA");
+		txtGgmmaa.setColumns(10);
+		txtGgmmaa.setBounds(142, 262, 159, 20);
+		finestraCEVEscu.add(txtGgmmaa);
+
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+		textField_8.setBounds(142, 290, 159, 20);
+		finestraCEVEscu.add(textField_8);
+
+		messaggioErr= new Label();
+		messaggioErr.setForeground(Color.red);
+		messaggioErr.setBounds(307, 336, 356, 22);
+		finestraCEVEscu.add(messaggioErr);
+
+		Label label_11 = new Label("OraInizio: ");
+		label_11.setBounds(307, 150, 62, 22);
+		finestraCEVEscu.add(label_11);
+
+		Label label_12 = new Label("OraFine: ");
+		label_12.setBounds(307, 178, 62, 22);
+		finestraCEVEscu.add(label_12);
+
+		txtOraminuti = new JTextField();
+		txtOraminuti.setText("ORA:MINUTI");
+		txtOraminuti.setColumns(10);
+		txtOraminuti.setBounds(435, 152, 159, 20);
+		finestraCEVEscu.add(txtOraminuti);
+
+		textOraminutiFine = new JTextField();
+		textOraminutiFine.setText("ORA:MINUTI");
+		textOraminutiFine.setColumns(10);
+		textOraminutiFine.setBounds(435, 178, 159, 20);
+		finestraCEVEscu.add(textOraminutiFine);
+
+		Label label_13 = new Label("Sesso:");
+		label_13.setBounds(307, 94, 62, 22);
+		finestraCEVEscu.add(label_13);
+
+		textfieldEta = new JTextField();
+		textfieldEta.setColumns(10);
+		textfieldEta.setBounds(435, 122, 159, 20);
+		finestraCEVEscu.add(textfieldEta);
+
+		Label label_14 = new Label("Et\u00E0:");
+		label_14.setBounds(307, 122, 62, 22);
+		finestraCEVEscu.add(label_14);
+
+		Choice choice = new Choice();
+		choice.add("M");
+		choice.add("F");
+		choice.setBounds(435, 94, 159, 20);
+		finestraCEVEscu.add(choice);
+
+		Label label_15 = new Label("ToleranzaPartecipanti: ");
+		label_15.setBounds(307, 66, 125, 22);
+		finestraCEVEscu.add(label_15);
+
+		JTextField textTolleranza = new JTextField();
+		textTolleranza.setColumns(10);
+		textTolleranza.setBounds(435, 66, 159, 20);
+		finestraCEVEscu.add(textTolleranza);
+
+		Label label_16 = new Label("TermineUltimoRitiro:");
+		label_16.setBounds(307, 206, 122, 22);
+		finestraCEVEscu.add(label_16);
+
+		JTextField termineultRit = new JTextField();
+		termineultRit.setColumns(10);
+		termineultRit.setText("GG/MM/AA");
+		termineultRit.setBounds(435, 206, 159, 20);
+		finestraCEVEscu.add(termineultRit);
+		
+		textField_11 = new JTextField();
+		textField_11.setText("(\u20AC)");
+		textField_11.setColumns(10);
+		textField_11.setBounds(435, 234, 159, 20);
+		finestraCEVEscu.add(textField_11);
+		
+		textField_12 = new JTextField();
+		textField_12.setText("(\u20AC)");
+		textField_12.setColumns(10);
+		textField_12.setBounds(435, 262, 159, 20);
+		finestraCEVEscu.add(textField_12);
+
+
+
+		JButton btnNewButton = new JButton("CreaEvento");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				btnNewButton.setBackground(Color.green);
+			}
+			public void mouseExited(MouseEvent e){
+				btnNewButton.setBackground(SystemColor.desktop);
+			}
+		});
+
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String titolo = textField.getText();
+				String partNecessari = textField_1.getText();
+				String luogo = textField_2.getText();
+				String dataInizio = txtGgmmaa_1.getText();
+				String dataFine = txtGgmmaa_2.getText();
+				String durata = (txtnumeroDiGiorni.getText());
+				String quota = (textField_6.getText());
+				String compresoQuota = textField_7.getText();
+				String termineUltimo = txtGgmmaa_2.getText();
+				String note = textField_8.getText();
+				String oraMinInizio=txtOraminuti.getText();
+				String oraMinFine=textOraminutiFine.getText();
+				String sesso= choice.getSelectedItem();
+				String eta= textfieldEta.getText();
+				String tolleranza= textTolleranza.getText();
+				String termineUltRit= termineultRit.getText();
+				String quotaIstruttore= textField_11.getText();
+				String quotaAttrezzatura= textField_12.getText();
+				eventoCreato = new EscursioneMontagnaEvento();
+
+				messaggioErr.setText(settaCampi(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine,sesso,eta,tolleranza,termineUltRit,quotaIstruttore,quotaAttrezzatura));
+				if(messaggioErr.getText().equals(OK))
+				{  
+					System.out.println(messaggioErr.getText());
+					//if(eventoCreato.valido())
+					{
+						costruisciPanelInvito(eventoCreato);
+
+					}
+				}
+				else
+				{
+					System.out.println(messaggioErr.getText());
+					costruisciFinestraCreazioneEVEscursione();
+				}
+
+			}
+		});
+		btnNewButton.setBackground(SystemColor.desktop);
+		btnNewButton.setBounds(142, 336, 159, 23);
+		finestraCEVEscu.add(btnNewButton);
+		
+		Label label_17 = new Label("QuotaIstruttorePersonale:");
+		label_17.setBounds(307, 234, 122, 22);
+		finestraCEVEscu.add(label_17);
+		
+		Label label_18 = new Label("QuotaAttrezzatura:");
+		label_18.setBounds(307, 262, 122, 22);
+		finestraCEVEscu.add(label_18);
+		
+		
+
+
+		
+	}
+	public String settaCampi(String titolo,String partNec, String luogo, String dataInizio,String dataFine,String durata,String quota,String compresoQuota,String termineUltimo,String note,String oraIni,String oraFine,String sesso,String eta,String tolleranza,String termineUltRit,String quotaIst,String quotaAtt){
+		
+		
+		String messaggio;
+		messaggio=((EscursioneMontagnaEvento)eventoCreato).setTitolo(titolo);
+		if(!messaggio.equals(OK))return messaggio+" titolo";
+		messaggio=eventoCreato.setPartecipantiNecessari(partNec);
+		if(!messaggio.equals(OK))return messaggio+" part necessari";
+		messaggio=eventoCreato.setLuogo(luogo);
+		if(!messaggio.equals(OK))return messaggio+" luogo";
+		messaggio=eventoCreato.setDataInizio(dataInizio, oraIni);
+		if(!messaggio.equals(OK))return messaggio+" data inizio";
+		messaggio=eventoCreato.setDataFine(dataFine, oraFine);
+		if(!messaggio.equals(OK))return messaggio+" data fine";
+		messaggio=eventoCreato.setDurata(durata);
+		if(!messaggio.equals(OK))return messaggio+ " durata";
+		messaggio=eventoCreato.setQuotaIndividuale(quota);
+		if(!messaggio.equals(OK))return messaggio+" quota";
+		messaggio=eventoCreato.setCompresoQuota(compresoQuota);
+		if(!messaggio.equals(OK))return messaggio+" compreso quota";
+		messaggio=eventoCreato.setTermineUltimo(termineUltimo);
+		if(!messaggio.equals(OK))return messaggio+" termine ultimo";
+		messaggio=eventoCreato.setNote(note);
+		if(!messaggio.equals(OK))return messaggio+" note";
+		messaggio=((PartitaCalcioEvento) eventoCreato).setSesso(sesso);
+		if(!messaggio.equals(OK))return messaggio+" sesso";
+		messaggio=((PartitaCalcioEvento) eventoCreato).setEta(eta);
+		if(!messaggio.equals(OK))return messaggio+" et�";
+		messaggio=eventoCreato.setTolleranzaPartecipanti(tolleranza);
+		if(!messaggio.equals(OK))return messaggio+" tolleranza";
+		messaggio=eventoCreato.setTermineUltimoRitiro(termineUltRit);
+		if(!messaggio.equals(OK))return messaggio+"termine ultimo ritiro";
+		messaggio=((EscursioneMontagnaEvento)eventoCreato).setIstruttore(quotaIst);
+		if(!messaggio.equals(OK))return messaggio+"quota istruttore";
+		messaggio=((EscursioneMontagnaEvento)eventoCreato).setAttrezzatura(quotaAtt);
+		if(!messaggio.equals(OK))return messaggio+"quota attrezzatura";
+		
+		return OK;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 }
 
 
