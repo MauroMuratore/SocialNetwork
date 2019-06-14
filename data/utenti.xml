@@ -101,6 +101,41 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <elenco>
 <notifica>
 <descrizione>nuovo evento aperto</descrizione>
@@ -158,20 +193,84 @@
 <id>1428603161</id>
 <letto>false</letto>
 </notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>1435942574</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>evento cancellato </descrizione>
+<id>1435942574</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>evento cancellato </descrizione>
+<id>1435942574</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>1436321436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>1437066732</id>
+<letto>false</letto>
+</notifica>
 </elenco>
 <eventi_creati>
 <evento>1297027164</evento>
 <evento>1428603161</evento>
+<evento>1435942574</evento>
+<evento>1436321436</evento>
+<evento>1437066732</evento>
 </eventi_creati>
 <eta_min>12</eta_min>
 <eta_max>22</eta_max>
 <interessi>
 <nome>partita calcio</nome>
+<nome>escursione in montagna</nome>
 </interessi>
 </utente>
 <utente>
 <nome>mauro123</nome>
 <hash>123123123</hash>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <elenco>
 <notifica>
 <descrizione>revocata iscrizione con successo</descrizione>
@@ -183,12 +282,23 @@
 <id>1295033731</id>
 <letto>false</letto>
 </notifica>
+<notifica>
+<descrizione>nuovo evento aperto </descrizione>
+<id>1437066732</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>1428603161</id>
+<letto>false</letto>
+</notifica>
 </elenco>
 <eventi_creati/>
 <eta_min>20</eta_min>
 <eta_max>22</eta_max>
 <interessi>
 <nome>partita calcio</nome>
+<nome>escursione in montagna</nome>
 </interessi>
 </utente>
 </elenco>

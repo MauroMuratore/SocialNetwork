@@ -84,11 +84,11 @@ public class FinestraMenu {
 		this.frame = frame;
 	}
 	private void initialize() {
+		rimozioneVariPanel();
 		frame = new JFrame("SocialNetwork M&M (menu)");
 		frame.setBounds(600, 300, 680, 477);//+30
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		frame.addWindowListener(new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent e)
@@ -130,24 +130,7 @@ public class FinestraMenu {
 		btnVistacategorie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if (bachecaEIM!= null)
-					frame.getContentPane().remove(bachecaEIM);
-				if(panelModificaDati!= null)
-					frame.getContentPane().remove(panelModificaDati);
-				if(finestraCEVPartita!= null)
-					frame.getContentPane().remove(finestraCEVPartita);
-				if(panelCategorie != null)
-					frame.getContentPane().remove(panelCategorie);
-				if(panelAP != null)
-					frame.getContentPane().remove(panelAP);
-				if(panelInvito!= null)
-					frame.getContentPane().remove(panelInvito);	
-				if(panelInfo != null)
-					frame.getContentPane().remove(panelInfo);
-				if(bachecaPDC != null)
-					frame.getContentPane().remove(bachecaPDC);
-				if(finestraEV != null)
-					frame.getContentPane().remove(finestraEV);
+				rimozioneVariPanel();
 				frame.revalidate();
 				frame.repaint();
 				panelCategorie = new JPanel();
@@ -175,11 +158,7 @@ public class FinestraMenu {
 
 				btnPartitedicalcio.setBackground(SystemColor.desktop);
 				btnPartitedicalcio.setBounds(10, 59, 290, 23);
-				panelCategorie.add(btnPartitedicalcio);
-				
-				
-				
-				
+				panelCategorie.add(btnPartitedicalcio);		
 				
 				btnEscursione = new JButton("EscursioneInMontagna");
 				btnEscursione.addMouseListener(new MouseAdapter() {
@@ -289,25 +268,8 @@ public class FinestraMenu {
 
 	public void costruisciBachecaPDC(){
 		
-		if (bachecaEIM!= null)
-			frame.getContentPane().remove(bachecaEIM);
-		if (finestraCEVEscu!= null)
-			frame.getContentPane().remove(finestraCEVEscu);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelAP != null)
-			frame.getContentPane().remove(panelAP);
-		if(panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if(bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
-		if(panelCategorie!= null)
-			frame.getContentPane().remove(panelCategorie);
-		if(panelInvito!= null)
-			frame.getContentPane().remove(panelInvito);
 
+		rimozioneVariPanel();
 		frame.setBounds(600, 300, 680, 477);//+30
 		frame.setResizable(false);
 
@@ -408,7 +370,7 @@ public class FinestraMenu {
 
 	}
 	public void costruisciFinestraCreazioneEVPartita(){
-
+		rimozioneVariPanel();
 		finestraCEVPartita = new JPanel();
 		finestraCEVPartita.setBackground(new Color(224, 255, 255));
 		finestraCEVPartita.setBounds(0, 23, 673, 385);
@@ -688,7 +650,7 @@ public class FinestraMenu {
 	}
 	public void costruisciFinestraEventoPartita(Evento ev){
 
-
+		rimozioneVariPanel();
 		frame.setBounds(600, 300, 680, 540);
 		finestraEV = new JPanel();
 		finestraEV.setBackground(new Color(224, 255, 255));
@@ -905,29 +867,11 @@ public class FinestraMenu {
 		frame.repaint();
 	}
 	public void costruisciFinestraAP(){
-		if (bachecaEIM!= null)
-			frame.getContentPane().remove(bachecaEIM);
-		if (finestraCEVEscu!= null)
-			frame.getContentPane().remove(finestraCEVEscu);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelModificaDati!= null)
-			frame.getContentPane().remove(panelModificaDati);
-		if(panelInvito!= null)
-			frame.getContentPane().remove(panelInvito);	
-		if (panelAP!= null)
-			frame.getContentPane().remove(panelAP);
-		if (panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if (bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if (panelCategorie != null)
-			frame.getContentPane().remove(panelCategorie);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
-
+		rimozioneVariPanel();
+		
 		frame.revalidate();
 		frame.repaint();
+		frame.setBounds(600, 300, 680, 477);
 
 		panelAP = new JPanel();
 		panelAP.setBackground(new Color(176, 224, 230));
@@ -1091,22 +1035,8 @@ public class FinestraMenu {
 	}
 	public void costruisciPanelModificaDati(){
 
-		if(panelModificaDati!= null)
-			frame.getContentPane().remove(panelModificaDati);
-		if (finestraCEVEscu!= null)
-			frame.getContentPane().remove(finestraCEVEscu);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelCategorie != null)
-			frame.getContentPane().remove(panelCategorie);
-		if(panelAP != null)
-			frame.getContentPane().remove(panelAP);
-		if(panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if(bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
+		rimozioneVariPanel();
+
 		frame.revalidate();
 		frame.repaint();
 
@@ -1160,6 +1090,7 @@ public class FinestraMenu {
 
 
 		List list_1 = new List();
+		list_1.setMultipleMode(true);
 		list_1.setForeground(SystemColor.text);
 		list_1.setBackground(new Color(176, 224, 230));
 		list_1.setBounds(145, 197, 178, 22);
@@ -1213,25 +1144,8 @@ public class FinestraMenu {
 		frame.repaint();
 	}
 	public void costruisciPanelInvito(Evento eventoCreato){
-		if (bachecaEIM!= null)
-			frame.getContentPane().remove(bachecaEIM);
-		if (finestraCEVEscu!= null)
-			frame.getContentPane().remove(finestraCEVEscu);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelAP != null)
-			frame.getContentPane().remove(panelAP);
-		if(panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if(bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
-		if(panelCategorie!= null)
-			frame.getContentPane().remove(panelCategorie);
-		if(panelInvito!= null)
-			frame.getContentPane().remove(panelInvito);
-		
+
+		rimozioneVariPanel();
 		frame.revalidate();
 		frame.repaint();
 
@@ -1300,7 +1214,8 @@ public class FinestraMenu {
 				}
 				
 				sn.addEvento(eventoCreato,invitati);
-				initialize();
+				System.out.println("sono qua");
+				costruisciFinestraAP();
 			}
 		});
 		btnConferma.setBounds(10, 185, 100, 23);
@@ -1310,23 +1225,8 @@ public class FinestraMenu {
 	
 	public void costruisciBachecaEIM(){
 		
-		
-		if (bachecaEIM!= null)
-			frame.getContentPane().remove(bachecaEIM);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelAP != null)
-			frame.getContentPane().remove(panelAP);
-		if(panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if(bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
-		if(panelCategorie!= null)
-			frame.getContentPane().remove(panelCategorie);
-		if(panelInvito!= null)
-			frame.getContentPane().remove(panelInvito);
+		rimozioneVariPanel();
+
 
 		frame.setBounds(600, 300, 680, 477);//+30
 		frame.setResizable(false);
@@ -1405,18 +1305,8 @@ public class FinestraMenu {
 		});
 		btnCreaEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (panelAP!= null)
-					frame.getContentPane().remove(panelAP);
-				if (bachecaEIM!= null)
-					frame.getContentPane().remove(bachecaEIM);
-				if (panelInfo != null)
-					frame.getContentPane().remove(panelInfo);
-				if (bachecaPDC != null)
-					frame.getContentPane().remove(bachecaPDC);
-				if (panelCategorie != null)
-					frame.getContentPane().remove(panelCategorie);
-				if(finestraEV != null)
-					frame.getContentPane().remove(finestraEV);
+				rimozioneVariPanel();
+	
 				frame.revalidate();
 				frame.repaint();
 				costruisciFinestraCreazioneEVEscursione();
@@ -1736,7 +1626,6 @@ public class FinestraMenu {
 	
 	
 	}
-	
 	public void costruisciFinestraEventoEscu(Evento ev){
 		
 		
@@ -1945,19 +1834,34 @@ public class FinestraMenu {
 			}
 		});
 
-
-
-
-
-		//		frame.setResizable(false);
-		//		frame.setBounds(600, 300, 667, 430);
 		frame.revalidate();
 		frame.repaint();
 		
 		
 	}
-	
-	
+	public void rimozioneVariPanel(){
+		if (bachecaEIM!= null)
+			frame.getContentPane().remove(bachecaEIM);
+		if (finestraCEVEscu!= null)
+			frame.getContentPane().remove(finestraCEVEscu);
+		if(finestraCEVPartita!= null)
+			frame.getContentPane().remove(finestraCEVPartita);
+		if(panelAP != null)
+			frame.getContentPane().remove(panelAP);
+		if(panelInfo != null)
+			frame.getContentPane().remove(panelInfo);
+		if(bachecaPDC != null)
+			frame.getContentPane().remove(bachecaPDC);
+		if(finestraEV != null)
+			frame.getContentPane().remove(finestraEV);
+		if(panelCategorie!= null)
+			frame.getContentPane().remove(panelCategorie);
+		if(panelModificaDati!= null)
+			frame.getContentPane().remove(panelModificaDati);
+		if(panelInvito!= null)
+			frame.getContentPane().remove(panelInvito);	
+				
+	}
 }
 
 
