@@ -232,7 +232,7 @@ public class SezioneRegistrazione {
 		listaCat = new List();
 		listaCat.setForeground(new Color(0, 0, 0));
 		listaCat.setBackground(new Color(0, 204, 204));
-		listaCat.setBounds(377, 190, 156, 23);
+		listaCat.setBounds(377, 190, 156, 45);
 		listaCat.setMultipleMode(true);
 		for(int i =0;i<sn.titoliCategorie().size();i++)
 			listaCat.add(sn.titoliCategorie().get(i));
