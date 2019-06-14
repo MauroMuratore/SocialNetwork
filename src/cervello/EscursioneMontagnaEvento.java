@@ -89,12 +89,15 @@ public class EscursioneMontagnaEvento extends Evento {
 	
 	public Notifica cambioStato() {
 		Notifica ritorno = super.cambioStato();
+		if(ritorno==null)
+			return ritorno;
 		if(ritorno.getMessaggio().equals(Notifica.CHIUSO)) {
 			ritorno = new Notifica(this, Notifica.CHIUSO + Notifica.COSTO_FINALE);
 		}
 		return ritorno;
 	}
 	
+
 	
 	
 	
@@ -221,9 +224,7 @@ public class EscursioneMontagnaEvento extends Evento {
 		}
 		else if(cdb.controllaEvento(getIdEvento()))
 			return false;
-		else if(termineUltimoRitiro.getValore()==null) {
-			return false;
-		}
+
 		return true;
 	}
 

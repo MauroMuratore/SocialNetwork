@@ -124,9 +124,9 @@ public class SocialNetwork {
 	public void logout() {
 		salvaTutto();
 		utente = null;
-		
+
 	}
-	
+
 	/**
 	 * salva tutto lo stato di social network
 	 * @return
@@ -154,7 +154,7 @@ public class SocialNetwork {
 	public Categoria mostraCategoria(String categoria) {
 		return categorie.get(categoria);
 	}
-	
+
 	/**
 	 * caso specifico di iscrizione per gli oggetti EscursioneMontagnaEvento
 	 * @param evento
@@ -167,13 +167,13 @@ public class SocialNetwork {
 		utente.riceviNotifica(new Notifica(evento, messaggio));
 		if (evento.cambioStato() != null)
 			aggiornamentoNotifiche(evento.cambioStato());
-		consultaDB.scriviEvento(evento);
-		System.out.print("scrittura iscrizione ");
+		consultaDB.scriviEvento(evento, NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
+		System.out.print("scrittura iscrizione emc");
 		consultaDB.salvaUtente(utente);		
 		return messaggio;
 	}
-	
-	
+
+
 	/**
 	 * serve per far iscrivere l'utente all'evento, invia la notifica all'utente e
 	 * se l'evento si chiude aggiorna anche tutti gli altri utenti tramite notifica
@@ -189,12 +189,12 @@ public class SocialNetwork {
 		utente.riceviNotifica(new Notifica(evento, messaggio));
 		if (evento.cambioStato() != null)
 			aggiornamentoNotifiche(evento.cambioStato());
-		consultaDB.scriviEvento(evento);
+		consultaDB.scriviEvento(evento, NomiDB.CAT_PARTITA_CALCIO.getNome());
 		System.out.print("scrittura iscrizione ");
 		consultaDB.salvaUtente(utente);
 		return messaggio;
 	}
-	
+
 	/**
 	 * crea un evento e viene aggiunta alla bacheca dalla propria categoria
 	 * manda un invito a tutte le persone che sono state invitate, una notifica
@@ -208,7 +208,10 @@ public class SocialNetwork {
 		String nome = utente.getUsername();
 		Notifica notificaIscrizione = new Notifica(evento, evento.iscrizione(nome));
 		evento.setProprietario(nome);
-		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
+		if (evento.getClass().equals(PartitaCalcioEvento.class))
+			consultaDB.scriviEvento(evento, NomiDB.CAT_PARTITA_CALCIO.getNome());
+		else if(evento.getClass().equals(EscursioneMontagnaEvento.class))
+			consultaDB.scriviEvento(evento, NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
 		utente.riceviNotifica(notificaIscrizione);
 		utente.creaEvento(evento.getIdEvento());
 		invitaUtenti(personeInvitate, evento);
@@ -241,8 +244,8 @@ public class SocialNetwork {
 				}
 				notifica = new Notifica(evento, notifica.getMessaggio() + costo);
 			}
-			
-			
+
+
 			if (utente == null)
 				return;
 			else if (nome.equals(utente.getUsername())) { // se l'utente è quello loggato gli invio la notifica
@@ -328,10 +331,13 @@ public class SocialNetwork {
 		utente.riceviNotifica(ritorno);
 		aggiornamentoNotifiche(ritorno);
 		System.out.print("cancella evento scrittura ");
-		consultaDB.scriviEvento((PartitaCalcioEvento) evento);
+		if (evento.getClass().equals(PartitaCalcioEvento.class))
+			consultaDB.scriviEvento(evento, NomiDB.CAT_PARTITA_CALCIO.getNome());
+		else if(evento.getClass().equals(EscursioneMontagnaEvento.class))
+			consultaDB.scriviEvento(evento, NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
 		return ritorno.getMessaggio();
 	}
-	
+
 	/**
 	 * se l'utente è iscritto all'evento viene tolto dall'elenco dei partecipanti,
 	 * se però e' scaduto il termine ultimo per ritirarsi non viene tolto, mentre 
@@ -387,7 +393,7 @@ public class SocialNetwork {
 			consultaDB.salvaCategorie(categorie);
 			utente.removeInteresse(attributoUtente);
 		}
-		
+
 		consultaDB.salvaUtente(getUtente());
 
 		return Utente.MODIFICA_RIUSCITA;
@@ -414,7 +420,7 @@ public class SocialNetwork {
 		personeInvitabili.remove(utente.getUsername());
 		return personeInvitabili;
 	}
-	
+
 	/**
 	 * invia l'invito all'evento a tutte le persone nella lista personeInvitate
 	 * @param personeInvitate
@@ -427,11 +433,11 @@ public class SocialNetwork {
 				notificheDaInoltrare.put(persona, new LinkedList<Notifica>());
 			notificheDaInoltrare.get(persona).add(new Invito(evento));
 		}
-		
+
 		System.out.println(INVITI_SPEDITI);
 		return INVITI_SPEDITI;
 	}
-	
+
 	/**
 	 * invia una notifica di un nuovo evento aperto di una certa categoria a tutti
 	 * gli utenti che sono interessati
