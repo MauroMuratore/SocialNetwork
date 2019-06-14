@@ -31,6 +31,36 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <elenco>
 <notifica>
 <descrizione>nuovo evento aperto</descrizione>
@@ -68,9 +98,15 @@
 <id>1297027164</id>
 <letto>false</letto>
 </notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>1428603161</id>
+<letto>false</letto>
+</notifica>
 </elenco>
 <eventi_creati>
 <evento>1297027164</evento>
+<evento>1428603161</evento>
 </eventi_creati>
 <eta_min>12</eta_min>
 <eta_max>22</eta_max>

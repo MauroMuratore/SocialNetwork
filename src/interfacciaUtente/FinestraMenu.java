@@ -200,7 +200,7 @@ public class FinestraMenu {
 
 				btnEscursione.setBackground(SystemColor.desktop);
 				btnEscursione.setBounds(10, 85, 290, 23);
-				panelCategorie.add(btnPartitedicalcio);
+				panelCategorie.add(btnEscursione);
 				
 				txtpnSelezionaLaCategoria = new JLabel();
 				txtpnSelezionaLaCategoria.setOpaque(true);
@@ -291,6 +291,8 @@ public class FinestraMenu {
 		
 		if (bachecaEIM!= null)
 			frame.getContentPane().remove(bachecaEIM);
+		if (finestraCEVEscu!= null)
+			frame.getContentPane().remove(finestraCEVEscu);
 		if(finestraCEVPartita!= null)
 			frame.getContentPane().remove(finestraCEVPartita);
 		if(panelAP != null)
@@ -393,6 +395,8 @@ public class FinestraMenu {
 					frame.getContentPane().remove(panelCategorie);
 				if(finestraEV != null)
 					frame.getContentPane().remove(finestraEV);
+				if (finestraCEVEscu!= null)
+					frame.getContentPane().remove(finestraCEVEscu);
 				frame.revalidate();
 				frame.repaint();
 				costruisciFinestraCreazioneEVPartita();
@@ -487,13 +491,13 @@ public class FinestraMenu {
 		finestraCEVPartita.add(textField_2);
 
 		txtGgmmaa_1 = new JTextField();
-		txtGgmmaa_1.setText("GG/MM/AA");
+		txtGgmmaa_1.setText("GG/MM/AAAA");
 		txtGgmmaa_1.setColumns(10);
 		txtGgmmaa_1.setBounds(142, 122, 159, 20);
 		finestraCEVPartita.add(txtGgmmaa_1);
 
 		txtGgmmaa_2 = new JTextField();
-		txtGgmmaa_2.setText("GG/MM/AA");
+		txtGgmmaa_2.setText("GG/MM/AAAA");
 		txtGgmmaa_2.setColumns(10);
 		txtGgmmaa_2.setBounds(142, 152, 159, 20);
 		finestraCEVPartita.add(txtGgmmaa_2);
@@ -516,7 +520,7 @@ public class FinestraMenu {
 		finestraCEVPartita.add(textField_7);
 
 		txtGgmmaa = new JTextField();
-		txtGgmmaa.setText("GG/MM/AA");
+		txtGgmmaa.setText("GG/MM/AAAA");
 		txtGgmmaa.setColumns(10);
 		txtGgmmaa.setBounds(142, 262, 159, 20);
 		finestraCEVPartita.add(txtGgmmaa);
@@ -585,7 +589,7 @@ public class FinestraMenu {
 
 		JTextField termineultRit = new JTextField();
 		termineultRit.setColumns(10);
-		termineultRit.setText("GG/MM/AA");
+		termineultRit.setText("GG/MM/AAAA");
 		termineultRit.setBounds(435, 206, 159, 20);
 		finestraCEVPartita.add(termineultRit);
 
@@ -902,10 +906,11 @@ public class FinestraMenu {
 		frame.revalidate();
 		frame.repaint();
 	}
-
 	public void costruisciFinestraAP(){
 		if (bachecaEIM!= null)
 			frame.getContentPane().remove(bachecaEIM);
+		if (finestraCEVEscu!= null)
+			frame.getContentPane().remove(finestraCEVEscu);
 		if(finestraCEVPartita!= null)
 			frame.getContentPane().remove(finestraCEVPartita);
 		if(panelModificaDati!= null)
@@ -1090,6 +1095,8 @@ public class FinestraMenu {
 
 		if(panelModificaDati!= null)
 			frame.getContentPane().remove(panelModificaDati);
+		if (finestraCEVEscu!= null)
+			frame.getContentPane().remove(finestraCEVEscu);
 		if(finestraCEVPartita!= null)
 			frame.getContentPane().remove(finestraCEVPartita);
 		if(panelCategorie != null)
@@ -1210,6 +1217,8 @@ public class FinestraMenu {
 	public void costruisciPanelInvito(Evento eventoCreato){
 		if (bachecaEIM!= null)
 			frame.getContentPane().remove(bachecaEIM);
+		if (finestraCEVEscu!= null)
+			frame.getContentPane().remove(finestraCEVEscu);
 		if(finestraCEVPartita!= null)
 			frame.getContentPane().remove(finestraCEVPartita);
 		if(panelAP != null)
@@ -1224,6 +1233,7 @@ public class FinestraMenu {
 			frame.getContentPane().remove(panelCategorie);
 		if(panelInvito!= null)
 			frame.getContentPane().remove(panelInvito);
+		
 		frame.revalidate();
 		frame.repaint();
 
@@ -1244,8 +1254,21 @@ public class FinestraMenu {
 		list.setBackground(UIManager.getColor("InternalFrame.inactiveTitleGradient"));
 		list.setBounds(10, 53, 221, 77);
 		list.setMultipleMode(true);
-		for(int i =0;i<sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).size();i++)
-			list.addItem(sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).get(i));
+		
+		if(eventoCreato.getClass()==PartitaCalcioEvento.class)
+		{
+			
+			for(int i =0;i<sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).size();i++)
+				list.addItem(sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).get(i));
+		}
+		
+		if(eventoCreato.getClass()==EscursioneMontagnaEvento.class)
+		{
+			
+			for(int i =0;i<sn.getPersoneInvitabili(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()).size();i++)
+				list.addItem(sn.getPersoneInvitabili(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()).get(i));
+		}
+		
 		panelInvito.add(list);
 
 		JButton btnConferma = new JButton("Conferma");
@@ -1261,12 +1284,23 @@ public class FinestraMenu {
 			}
 		});
 		btnConferma.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { 
+				
 				int[] invitatiInt=list.getSelectedIndexes();
 				LinkedList<String> invitati= new LinkedList<String>();
-
+				
+				if(eventoCreato.getClass()==PartitaCalcioEvento.class)
+				{
 				for(int c=0;c<invitatiInt.length;c++)
 					invitati.add(sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).get(invitatiInt[c]));
+				}
+				else if(eventoCreato.getClass()==EscursioneMontagnaEvento.class)
+				{
+					for(int c=0;c<invitatiInt.length;c++)
+						invitati.add(sn.getPersoneInvitabili(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()).get(invitatiInt[c]));
+
+				}
+				
 				sn.addEvento(eventoCreato,invitati);
 				initialize();
 			}
@@ -1416,7 +1450,6 @@ public class FinestraMenu {
 		JTextField textField_8;
 		JTextField txtOraminuti;
 		JTextField textField_11;
-		JTextField textfieldEta;
 		JTextField textField_12;
 		JTextField textOraminutiFine;
 
@@ -1482,13 +1515,13 @@ public class FinestraMenu {
 		finestraCEVEscu.add(textField_2);
 
 		txtGgmmaa_1 = new JTextField();
-		txtGgmmaa_1.setText("GG/MM/AA");
+		txtGgmmaa_1.setText("GG/MM/AAAA");
 		txtGgmmaa_1.setColumns(10);
 		txtGgmmaa_1.setBounds(142, 122, 159, 20);
 		finestraCEVEscu.add(txtGgmmaa_1);
 
 		txtGgmmaa_2 = new JTextField();
-		txtGgmmaa_2.setText("GG/MM/AA");
+		txtGgmmaa_2.setText("GG/MM/AAAA");
 		txtGgmmaa_2.setColumns(10);
 		txtGgmmaa_2.setBounds(142, 152, 159, 20);
 		finestraCEVEscu.add(txtGgmmaa_2);
@@ -1511,7 +1544,7 @@ public class FinestraMenu {
 		finestraCEVEscu.add(textField_7);
 
 		txtGgmmaa = new JTextField();
-		txtGgmmaa.setText("GG/MM/AA");
+		txtGgmmaa.setText("GG/MM/AAAA");
 		txtGgmmaa.setColumns(10);
 		txtGgmmaa.setBounds(142, 262, 159, 20);
 		finestraCEVEscu.add(txtGgmmaa);
@@ -1546,25 +1579,6 @@ public class FinestraMenu {
 		textOraminutiFine.setBounds(435, 178, 159, 20);
 		finestraCEVEscu.add(textOraminutiFine);
 
-		Label label_13 = new Label("Sesso:");
-		label_13.setBounds(307, 94, 62, 22);
-		finestraCEVEscu.add(label_13);
-
-		textfieldEta = new JTextField();
-		textfieldEta.setColumns(10);
-		textfieldEta.setBounds(435, 122, 159, 20);
-		finestraCEVEscu.add(textfieldEta);
-
-		Label label_14 = new Label("Et\u00E0:");
-		label_14.setBounds(307, 122, 62, 22);
-		finestraCEVEscu.add(label_14);
-
-		Choice choice = new Choice();
-		choice.add("M");
-		choice.add("F");
-		choice.setBounds(435, 94, 159, 20);
-		finestraCEVEscu.add(choice);
-
 		Label label_15 = new Label("ToleranzaPartecipanti: ");
 		label_15.setBounds(307, 66, 125, 22);
 		finestraCEVEscu.add(label_15);
@@ -1580,7 +1594,7 @@ public class FinestraMenu {
 
 		JTextField termineultRit = new JTextField();
 		termineultRit.setColumns(10);
-		termineultRit.setText("GG/MM/AA");
+		termineultRit.setText("GG/MM/AAAA");
 		termineultRit.setBounds(435, 206, 159, 20);
 		finestraCEVEscu.add(termineultRit);
 		
@@ -1623,15 +1637,13 @@ public class FinestraMenu {
 				String note = textField_8.getText();
 				String oraMinInizio=txtOraminuti.getText();
 				String oraMinFine=textOraminutiFine.getText();
-				String sesso= choice.getSelectedItem();
-				String eta= textfieldEta.getText();
 				String tolleranza= textTolleranza.getText();
 				String termineUltRit= termineultRit.getText();
 				String quotaIstruttore= textField_11.getText();
 				String quotaAttrezzatura= textField_12.getText();
 				eventoCreato = new EscursioneMontagnaEvento();
 
-				messaggioErr.setText(settaCampi(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine,sesso,eta,tolleranza,termineUltRit,quotaIstruttore,quotaAttrezzatura));
+				messaggioErr.setText(settaCampiEscu(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine,tolleranza,termineUltRit,quotaIstruttore,quotaAttrezzatura));
 				if(messaggioErr.getText().equals(OK))
 				{  
 					System.out.println(messaggioErr.getText());
@@ -1666,9 +1678,9 @@ public class FinestraMenu {
 
 		
 	}
-	public String settaCampi(String titolo,String partNec, String luogo, String dataInizio,String dataFine,String durata,String quota,String compresoQuota,String termineUltimo,String note,String oraIni,String oraFine,String sesso,String eta,String tolleranza,String termineUltRit,String quotaIst,String quotaAtt){
-		
-		
+	public String settaCampiEscu(String titolo,String partNec, String luogo, String dataInizio,String dataFine,String durata,String quota,String compresoQuota,String termineUltimo,String note,String oraIni,String oraFine,String tolleranza,String termineUltRit,String quotaIst,String quotaAtt)
+	{
+			
 		String messaggio;
 		messaggio=((EscursioneMontagnaEvento)eventoCreato).setTitolo(titolo);
 		if(!messaggio.equals(OK))return messaggio+" titolo";
@@ -1690,10 +1702,6 @@ public class FinestraMenu {
 		if(!messaggio.equals(OK))return messaggio+" termine ultimo";
 		messaggio=eventoCreato.setNote(note);
 		if(!messaggio.equals(OK))return messaggio+" note";
-		messaggio=((PartitaCalcioEvento) eventoCreato).setSesso(sesso);
-		if(!messaggio.equals(OK))return messaggio+" sesso";
-		messaggio=((PartitaCalcioEvento) eventoCreato).setEta(eta);
-		if(!messaggio.equals(OK))return messaggio+" et�";
 		messaggio=eventoCreato.setTolleranzaPartecipanti(tolleranza);
 		if(!messaggio.equals(OK))return messaggio+" tolleranza";
 		messaggio=eventoCreato.setTermineUltimoRitiro(termineUltRit);
