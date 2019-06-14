@@ -74,8 +74,8 @@ public class ConsultaDB {
 		return lettura.leggiCategoria(categoria);
 	}
 	
-	public void scriviEvento(Evento pce) {
-		scrittura.scriviEvento(pce);
+	public void scriviEvento(Evento pce, String categoria) {
+		scrittura.scriviEvento(pce, categoria);
 	}
 	
 	public void salvaUtente(Utente utente) {
@@ -107,7 +107,7 @@ public class ConsultaDB {
 
 	public void salvaCategorie(Hashtable<String, Categoria> categorie) {
 		for(String key: categorie.keySet()) {
-			scrittura.scriviCategoriaPartitaCalcio(categorie.get(key));
+			scrittura.scriviCategoria(categorie.get(key));
 		}
 		
 	}

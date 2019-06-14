@@ -21,6 +21,7 @@ import org.xml.sax.SAXException;
 import cervello.Campo;
 import cervello.Categoria;
 import cervello.EscursioneMontagnaCat;
+import cervello.EscursioneMontagnaEvento;
 import cervello.Evento;
 import cervello.Invito;
 import cervello.Notifica;
@@ -141,7 +142,7 @@ public class LeggiXML {
 		Campo<String> nota = leggiCampo(evento, String.class, NomiDB.CAMPO_NOTE);
 		Campo<GregorianCalendar> termineUltimoRitiro = leggiCampo(evento, GregorianCalendar.class, NomiDB.CAMPO_TERMINE_ULTIMO_RITIRO);
 		Campo<Integer> tolleranza = leggiCampo(evento, Integer.class, NomiDB.CAMPO_TOLLERANZA);
-		LinkedList<String> partecipanti = leggiPartecipanti(evento);
+		LinkedList<String> partecipanti = leggiPartecipanti(evento, NomiDB.CAMPO_PARTECIPANTI.getNome());
 
 		Element nodoStato = (Element) evento.getElementsByTagName(NomiDB.CAMPO_STATO_EVENTO.getNome()).item(0);
 		int lastIndex = nodoStato.getElementsByTagName(NomiDB.STATO_EVENTO.getNome()).getLength()-1;
@@ -165,7 +166,13 @@ public class LeggiXML {
 		}
 
 		if(categoria.equals(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome())) {
-			System.out.println("NON STO LEGGENDO NIENTE COGLIONE");
+			Campo<Integer> istruttore = leggiCampo(evento, Integer.class, NomiDB.CAMPO_ISTRUTTORE);
+			Campo<Integer> attrezzatura = leggiCampo(evento, Integer.class, NomiDB.CAMPO_ATTREZZATURA);
+			LinkedList<String> listaIstr = leggiPartecipanti(evento, NomiDB.LISTA_ISTRUTTORE.getNome());
+			LinkedList<String> listaAttr = leggiPartecipanti(evento, NomiDB.LISTA_ATTREZZATURE.getNome());
+			ritorno = new EscursioneMontagnaEvento(id, titolo, nPartecipanti, partecipanti, proprietario, termineUltimo, termineUltimoRitiro, luogo, dataInizio,
+					durata, quotaIndividuale, compresoQuota, dataFine, nota, tolleranza, istruttore, attrezzatura, listaIstr, listaAttr, statoEvento);
+			
 		}
 		return ritorno;
 	}
@@ -216,9 +223,9 @@ public class LeggiXML {
 		return ritorno;
 	}
 
-	public LinkedList<String> leggiPartecipanti(Element evento){
+	public LinkedList<String> leggiPartecipanti(Element evento, String nomeNodo){
 		LinkedList<String> lista = new LinkedList<String>();
-		Element nodoLista = (Element) evento.getElementsByTagName(NomiDB.CAMPO_PARTECIPANTI.getNome()).item(0);
+		Element nodoLista = (Element) evento.getElementsByTagName(nomeNodo).item(0);
 		for(int i=0; i<nodoLista.getElementsByTagName(NomiDB.TAG_NOME.getNome()).getLength(); i++) {
 			String username = nodoLista.getElementsByTagName(NomiDB.TAG_NOME.getNome()).item(i).getTextContent();
 			lista.add(username);

@@ -91,7 +91,7 @@ public class ScriviXML {
 
 		}
 		nodoUtente.appendChild(interessi);
-		
+
 		Element eventicreati = doc.createElement(NomiDB.ATT_EVENTI_CREATI.getNome());
 		nodoUtente.appendChild(eventicreati);
 		root.appendChild(nodoUtente);
@@ -196,14 +196,16 @@ public class ScriviXML {
 
 	}
 
-	public void scriviCategoriaPartitaCalcio(Categoria cat) {
+	public void scriviCategoria(Categoria cat) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
 		Document doc=null;
 		try {
 			builder = factory.newDocumentBuilder();
-			doc = builder.parse(new File(NomiDB.FILE_PARTITA_CALCIO.getNome())); 
-
+			if(cat.getNome().equals(NomiDB.CAT_PARTITA_CALCIO.getNome()))
+				doc = builder.parse(new File(NomiDB.FILE_PARTITA_CALCIO.getNome())); 
+			else if(cat.getNome().equals(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()))
+				doc = builder.parse(new File(NomiDB.FILE_ESCURSIONE_MONTAGNA.getNome()));
 		}catch (SAXException sax) {
 			sax.printStackTrace();
 		}catch (ParserConfigurationException e) {
@@ -232,8 +234,10 @@ public class ScriviXML {
 			}
 		}
 
-		scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
-
+		if(cat.getNome().equals(NomiDB.CAT_PARTITA_CALCIO.getNome()))
+			scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
+		else if(cat.getNome().equals(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()))
+			scriviSuFile(doc, NomiDB.FILE_ESCURSIONE_MONTAGNA);
 	}
 
 
@@ -250,7 +254,7 @@ public class ScriviXML {
 			scriviCampo(evento.getEta(), nodoPartita, doc);
 		}
 	}
-	
+
 	public void scriviEscursioneMontagnaEvento(EscursioneMontagnaEvento evento, Element nodoEM, Document doc, boolean sovrascrivi) {
 		if(sovrascrivi) {
 			sovrascriviCampo(evento.getAttrezzatura(), nodoEM, doc);
@@ -262,15 +266,17 @@ public class ScriviXML {
 		scriviPartecipanti(evento.getListaPerAttrezzature(), nodoEM, doc, NomiDB.LISTA_ATTREZZATURE.getNome());
 		scriviPartecipanti(evento.getListaPerIstruttore(), nodoEM, doc, NomiDB.LISTA_ISTRUTTORE.getNome());
 	}
-	
-	public void scriviEvento(Evento evento) {
+
+	public void scriviEvento(Evento evento, String categoria) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
 		Document doc=null;
 		try {
 			builder = factory.newDocumentBuilder();
-			doc = builder.parse(new File(NomiDB.FILE_PARTITA_CALCIO.getNome())); 
-
+			if(categoria.equals(NomiDB.CAT_PARTITA_CALCIO.getNome()))
+				doc = builder.parse(new File(NomiDB.FILE_PARTITA_CALCIO.getNome())); 
+			else if(categoria.equals(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()))
+				doc = builder.parse(new File(NomiDB.FILE_ESCURSIONE_MONTAGNA.getNome()));
 		}catch (SAXException sax) {
 			sax.printStackTrace();
 		}catch (ParserConfigurationException e) {
@@ -302,9 +308,12 @@ public class ScriviXML {
 				if(evento.getClass().equals(PartitaCalcioEvento.class)) {
 					scriviPartitaCalcioEvento((PartitaCalcioEvento)evento, nodo, doc, true);
 				}else if(evento.getClass().equals(EscursioneMontagnaEvento.class)) {
-					
+					scriviEscursioneMontagnaEvento((EscursioneMontagnaEvento) evento, nodo, doc, true);
 				}
-				scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
+				if(categoria.equals(NomiDB.CAT_PARTITA_CALCIO.getNome()))
+					scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
+				else if(categoria.equals(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()))
+					scriviSuFile(doc, NomiDB.FILE_ESCURSIONE_MONTAGNA);
 				return;
 			}
 		}
@@ -328,7 +337,12 @@ public class ScriviXML {
 		scriviCampo(evento.getTolleranzaPartecipanti(), newEvento, doc);
 		scriviCampo(evento.getTermineUltimoRitiro(), newEvento, doc);
 		scriviPartecipanti(evento.getPartecipanti(), newEvento, doc, NomiDB.CAMPO_PARTECIPANTI.getNome());
-
+		
+		if(evento.getClass().equals(PartitaCalcioEvento.class)) {
+			scriviPartitaCalcioEvento((PartitaCalcioEvento)evento, newEvento, doc, false);
+		}else if(evento.getClass().equals(EscursioneMontagnaEvento.class)) {
+			scriviEscursioneMontagnaEvento((EscursioneMontagnaEvento) evento, newEvento, doc, false);
+		}
 
 		Element statoEvento = doc.createElement(NomiDB.CAMPO_STATO_EVENTO.getNome());
 		Element stato = doc.createElement(NomiDB.STATO_EVENTO.getNome());
@@ -343,14 +357,17 @@ public class ScriviXML {
 		statoEvento.appendChild(stato);
 		newEvento.appendChild(statoEvento);
 		elenco.appendChild(newEvento);
-		
+
 		System.out.println("scrivo partita ");
-		scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
-		
+		if(categoria.equals(NomiDB.CAT_PARTITA_CALCIO.getNome()))
+			scriviSuFile(doc, NomiDB.FILE_PARTITA_CALCIO);
+		else if(categoria.equals(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()))
+			scriviSuFile(doc, NomiDB.FILE_ESCURSIONE_MONTAGNA);
+
 	}
-	
-	
-	
+
+
+
 
 	public void scriviStato(Element nodoEvento, StatoEvento statoEvento, Document doc) {
 		System.out.println("scrivo stato evento");
@@ -488,8 +505,10 @@ public class ScriviXML {
 	public void scriviPartecipanti(LinkedList<String> lista, Element evento, Document doc, String nomeNodoDaAgg) {
 
 		Element nodoLista = null;
-		if(evento.getElementsByTagName(nomeNodoDaAgg).item(0)==null)
+		if(evento.getElementsByTagName(nomeNodoDaAgg).item(0)==null) {
 			nodoLista = doc.createElement(nomeNodoDaAgg);
+			System.out.println("creo il nodo " + nomeNodoDaAgg);
+		}
 		else
 			nodoLista = (Element) evento.getElementsByTagName(nomeNodoDaAgg).item(0);
 
@@ -578,12 +597,12 @@ public class ScriviXML {
 				Element oraNodo = doc.createElement(NomiDB.TAG_ORA.getNome());
 				int oraInt = data.get(GregorianCalendar.HOUR_OF_DAY);
 				oraNodo.setTextContent(String.valueOf(oraInt));
-				
+
 				nodoDataInvito.appendChild(annoNodo);
 				nodoDataInvito.appendChild(meseNodo);
 				nodoDataInvito.appendChild(giornoNodo);
 				nodoDataInvito.appendChild(oraNodo);
-				
+
 				nodoNotifica.appendChild(nodoDataInvito);
 			}
 
@@ -648,16 +667,16 @@ public class ScriviXML {
 							Element oraNodo = doc.createElement(NomiDB.TAG_ORA.getNome());
 							int oraInt = data.get(GregorianCalendar.HOUR_OF_DAY);
 							oraNodo.setTextContent(String.valueOf(oraInt));
-							
+
 							nodoDataInvito.appendChild(annoNodo);
 							nodoDataInvito.appendChild(meseNodo);
 							nodoDataInvito.appendChild(giornoNodo);
 							nodoDataInvito.appendChild(oraNodo);
-							
+
 							nodoNotifica.appendChild(nodoDataInvito);
 						}
 
-						
+
 						nodoNotifica.appendChild(nodoMessaggio);
 						nodoNotifica.appendChild(nodoEvento);
 						nodoNotifica.appendChild(nodoLetto);
@@ -678,7 +697,7 @@ public class ScriviXML {
 					nodoEvento.setTextContent(String.valueOf(not.getEvento().getIdEvento()));
 					nodoLetto.setTextContent(String.valueOf(not.getLetta()));
 
-					
+
 					if(not.getMessaggio().contains(Notifica.INVITO)) {
 						GregorianCalendar data = ((Invito) not).getDataInvito();
 						Element nodoDataInvito = doc.createElement(NomiDB.TAG_DATA.getNome());
@@ -697,12 +716,12 @@ public class ScriviXML {
 						Element oraNodo = doc.createElement(NomiDB.TAG_ORA.getNome());
 						int oraInt = data.get(GregorianCalendar.HOUR_OF_DAY);
 						oraNodo.setTextContent(String.valueOf(oraInt));
-						
+
 						nodoDataInvito.appendChild(annoNodo);
 						nodoDataInvito.appendChild(meseNodo);
 						nodoDataInvito.appendChild(giornoNodo);
 						nodoDataInvito.appendChild(oraNodo);
-						
+
 						nodoNotifica.appendChild(nodoDataInvito);
 					}
 
