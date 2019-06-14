@@ -345,7 +345,7 @@ public class FinestraMenu {
 				String titolo= ((Evento) pdc.getBacheca().get(k)).getTitolo().getValoreString();
 				JButton btnNewButton = new JButton(titolo);
 				btnNewButton.setBackground(SystemColor.desktop);
-				costruisciActionListener(btnNewButton,k);
+				costruisciActionListenerPartita(btnNewButton,k);
 				pannelloTitoliE.add(btnNewButton);
 			}
 		}
@@ -686,7 +686,7 @@ public class FinestraMenu {
 		if(!messaggio.equals(OK))return messaggio+"termine ultimo ritiro";
 		return OK;
 	}
-	public void costruisciFinestraEvento(Evento ev){
+	public void costruisciFinestraEventoPartita(Evento ev){
 
 
 		frame.setBounds(600, 300, 680, 540);
@@ -883,7 +883,7 @@ public class FinestraMenu {
 		frame.revalidate();
 		frame.repaint();
 	}
-	public void costruisciActionListener(JButton btn, int k){
+	public void costruisciActionListenerPartita(JButton btn, int k){
 
 		btn.addMouseListener(new MouseAdapter() {
 			@Override
@@ -897,12 +897,10 @@ public class FinestraMenu {
 		});
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				costruisciFinestraEvento((Evento) pdc.getBacheca().get(k));
+				costruisciFinestraEventoPartita((Evento) pdc.getBacheca().get(k));
 			}
 		});
 
-		//		frame.setResizable(false);
-		//		frame.setBounds(600, 300, 667, 430);
 		frame.revalidate();
 		frame.repaint();
 	}
@@ -1367,7 +1365,7 @@ public class FinestraMenu {
 				String titolo= ((Evento) eim.getBacheca().get(k)).getTitolo().getValoreString();
 				JButton btnNewButton = new JButton(titolo);
 				btnNewButton.setBackground(SystemColor.desktop);
-				costruisciActionListener(btnNewButton,k);
+				costruisciActionListenerEscu(btnNewButton,k);
 				pannelloTitoliE.add(btnNewButton);
 			}
 		}
@@ -1715,11 +1713,249 @@ public class FinestraMenu {
 		
 		
 	}
+	public void costruisciActionListenerEscu(JButton btn, int k){
+
+		btn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btn.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btn.setBackground(SystemColor.desktop);
+			}
+		});
+		btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				costruisciFinestraEventoEscu((Evento) eim.getBacheca().get(k));
+			}
+		});
+
+		frame.revalidate();
+		frame.repaint();
 	
 	
+	}
 	
-	
-	
+	public void costruisciFinestraEventoEscu(Evento ev){
+		
+		
+		frame.setBounds(600, 300, 680, 540);
+		finestraEV = new JPanel();
+		finestraEV.setBackground(new Color(224, 255, 255));
+		finestraEV.setBounds(0, 23, 673, 478);
+		finestraEV.setLayout(null);
+		
+		frame.getContentPane().remove(bachecaEIM);
+		frame.getContentPane().add(finestraEV);
+
+		JLabel txtpnNome = new JLabel();
+		txtpnNome.setOpaque(true);
+		txtpnNome.setBackground(SystemColor.info);
+		txtpnNome.setText("Titolo: "+ ev.getTitolo().getValore());
+		txtpnNome.setBounds(10, 11, 641, 22);
+		finestraEV.add(txtpnNome);
+
+		JLabel txtpnTermineUltimo = new JLabel();
+		txtpnTermineUltimo.setOpaque(true);
+		txtpnTermineUltimo.setBackground(SystemColor.info);
+		txtpnTermineUltimo.setText("Termine Ultimo: "+ ev.getTermineUltimo().getValoreString());
+		txtpnTermineUltimo.setBounds(10, 44, 641, 20);
+		finestraEV.add(txtpnTermineUltimo);
+
+		JLabel txtpnLuogo = new JLabel();
+		txtpnLuogo.setOpaque(true);
+		txtpnLuogo.setBackground(SystemColor.info);
+		txtpnLuogo.setText("Luogo: "+ev.getLuogo().getValoreString());
+		txtpnLuogo.setBounds(10, 75, 641, 20);
+		finestraEV.add(txtpnLuogo);
+
+		JLabel txtpnDatainizio = new JLabel();
+		txtpnDatainizio.setOpaque(true);
+		txtpnDatainizio.setBackground(SystemColor.info);
+		txtpnDatainizio.setText("DataInizio: "+ev.getDataInizio().getValoreString());
+		txtpnDatainizio.setBounds(10, 106, 641, 20);
+		finestraEV.add(txtpnDatainizio);
+
+		JLabel txtpnDatafine = new JLabel();
+		txtpnDatafine.setOpaque(true);
+		txtpnDatafine.setBackground(SystemColor.info);
+		txtpnDatafine.setText("DataFine: "+ev.getDataFine().getValoreString());
+		txtpnDatafine.setBounds(10, 137, 641, 20);
+		finestraEV.add(txtpnDatafine);
+
+		JLabel txtpnDurata = new JLabel();
+		txtpnDurata .setOpaque(true);
+		txtpnDurata.setBackground(SystemColor.info);
+		txtpnDurata.setText("Durata(giorni): "+ev.getDurata().getValoreString());
+		txtpnDurata.setBounds(10, 168, 641, 20);
+		finestraEV.add(txtpnDurata);
+
+		JLabel txtpnCompresonellaquota = new JLabel();
+		txtpnCompresonellaquota .setOpaque(true);
+		txtpnCompresonellaquota.setBackground(SystemColor.info);
+		txtpnCompresonellaquota.setText("CompresoNellaQuota: "+ev.getCompresoQuota().getValoreString());
+		txtpnCompresonellaquota.setBounds(10, 199, 641, 20);
+		finestraEV.add(txtpnCompresonellaquota);
+
+		JLabel txtpnNote = new JLabel();
+		txtpnNote.setOpaque(true);
+		txtpnNote.setBackground(SystemColor.info);
+		txtpnNote.setText("Note: "+ev.getNote().getValoreString());
+		txtpnNote.setBounds(10, 323, 641, 20);
+		finestraEV.add(txtpnNote);
+
+		JLabel txtQuota = new JLabel();
+		txtQuota.setOpaque(true);
+		txtQuota.setBackground(SystemColor.info);
+		txtQuota.setText("Quota: "+ev.getQuotaIndividuale().getValoreString()+" �");
+		txtQuota.setBounds(10, 230, 641, 20);
+		finestraEV.add(txtQuota);
+
+		JLabel txtEta = new JLabel();
+		txtEta.setOpaque(true);
+		txtEta.setBackground(SystemColor.info);
+		txtEta.setText("QuotaIstruttore: "+((EscursioneMontagnaEvento)ev).getIstruttore().getValoreString());
+		txtEta.setBounds(10,261, 530, 20);
+		finestraEV.add(txtEta);
+
+		JLabel txtSesso1 = new JLabel();
+		txtSesso1.setOpaque(true);
+		txtSesso1.setBackground(SystemColor.info);
+		txtSesso1.setText("QuotaAttrezzatura: "+((EscursioneMontagnaEvento)ev).getAttrezzatura().getValoreString());
+		txtSesso1.setBounds(10,292, 530, 20);
+		finestraEV.add(txtSesso1);
+		
+		Choice choice = new Choice();
+		choice.setBounds(546, 261, 105, 20);
+		choice.add("si");
+		choice.add("no");
+		boolean istruttore;
+		if(choice.getSelectedItem().equals("si"))istruttore=true;
+		else istruttore=false;
+		finestraEV.add(choice);
+		
+		Choice choice_1 = new Choice();
+		choice_1.setBounds(546, 292, 105, 20);
+		choice_1.add("si");
+		choice_1.add("no");
+		boolean attrezzatura;
+		if(choice_1.getSelectedItem().equals("si"))attrezzatura=true;
+		else attrezzatura=false;
+		finestraEV.add(choice_1);
+		
+
+		Button button = new Button("Iscrizione");
+		button.setBounds(10, 446, 76, 22);
+		finestraEV.add(button);
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				button.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				button.setBackground(SystemColor.desktop);
+			}
+		});
+		button.setBackground(SystemColor.desktop);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {		
+				noteSistema.setText(sn.iscrizione(((EscursioneMontagnaEvento)ev), istruttore, attrezzatura));
+			}
+		});
+
+
+
+		Button disiscrizione = new Button("disiscrzione");
+		disiscrizione.setBounds(91, 446, 76, 22);
+		finestraEV.add(disiscrizione);
+		disiscrizione.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				disiscrizione.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				disiscrizione.setBackground(SystemColor.desktop);
+			}
+		});
+		disiscrizione.setBackground(SystemColor.desktop);
+		disiscrizione.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {		
+				noteSistema.setText(sn.revocaIscrizione(ev));
+			}
+		});
+
+
+		noteSistema = new Label("\r\n");
+		noteSistema.setText("");
+		noteSistema.setBounds(169, 446, 405, 22);
+		noteSistema.setForeground(Color.green);
+		finestraEV.add(noteSistema);
+
+		JLabel txtPartecnec = new JLabel();
+		txtPartecnec.setText("ParetecipantiNecessari: "+ev.getPartecipantiNecessari().getValoreString());
+		txtPartecnec.setOpaque(true);
+
+		txtPartecnec.setBackground(SystemColor.info);
+		txtPartecnec.setBounds(10, 354, 641, 20);
+		finestraEV.add(txtPartecnec);
+
+		JLabel statoEvento = new JLabel();
+		statoEvento.setText("StatoEvento: "+ev.getStato());
+		statoEvento.setOpaque(true);
+		statoEvento.setBackground(SystemColor.info);
+		statoEvento.setBounds(10, 385, 641, 20);
+		finestraEV.add(statoEvento);
+
+		JLabel proprietario = new JLabel();
+		proprietario.setText("ProprietarioEvento: "+ev.getProprietario());
+		proprietario.setOpaque(true);
+		proprietario.setBackground(SystemColor.info);
+		proprietario.setBounds(10, 416, 641, 20);
+		finestraEV.add(proprietario);
+
+		Button cancellazioneEv = new Button("EliminaEvento");
+		cancellazioneEv.setBackground(SystemColor.desktop);
+		cancellazioneEv.setBounds(575, 446, 76, 22);
+		finestraEV.add(cancellazioneEv);
+
+		cancellazioneEv.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				cancellazioneEv.setBackground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				cancellazioneEv.setBackground(SystemColor.desktop);
+			}
+		});
+		cancellazioneEv.setBackground(SystemColor.desktop);
+		cancellazioneEv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {		
+				if(ev.getProprietario().equals(sn.getUtente().getUsername()))
+				{
+					sn.cancellaEvento(ev);
+					costruisciBachecaPDC();
+				}
+				else
+					noteSistema.setText("Non puoi cancellare un eveto se non sei il proprietario");
+
+			}
+		});
+
+
+
+
+
+		//		frame.setResizable(false);
+		//		frame.setBounds(600, 300, 667, 430);
+		frame.revalidate();
+		frame.repaint();
+		
+		
+	}
 	
 	
 }

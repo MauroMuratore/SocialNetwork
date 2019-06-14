@@ -61,6 +61,46 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <elenco>
 <notifica>
 <descrizione>nuovo evento aperto</descrizione>
@@ -96,6 +136,21 @@
 <notifica>
 <descrizione>Ti sei iscritto all'evento</descrizione>
 <id>1297027164</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>1428603161</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>1428603161</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>1428603161</id>
 <letto>false</letto>
 </notifica>
 <notifica>
