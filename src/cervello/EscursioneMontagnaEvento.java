@@ -97,6 +97,18 @@ public class EscursioneMontagnaEvento extends Evento {
 		return ritorno;
 	}
 	
+	public Notifica revocaIscrizione(String username) {
+		Notifica ritorno = super.revocaIscrizione(username);
+		if(ritorno.getMessaggio().equals(Notifica.REVOCA_ISCRIZIONE)) {
+			listaPerAttrezzature.remove(username);
+			listaPerIstruttore.remove(username);
+		}
+		
+		return ritorno;
+			
+	}
+	
+	
 
 	
 	
