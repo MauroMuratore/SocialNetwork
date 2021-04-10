@@ -38,5 +38,26 @@ public class Channel {
 		}
 	}
 	
+	public void write(Object obj) {
+		try {
+			output.writeObject(obj);
+		} catch (IOException e) {
+			Log.writeErrorLog(this.getClass(), "errore IO nella scrittura in " + output.getClass().getName()) ;
+			e.printStackTrace();
+		}
+	}
+	
+	public Object read() {
+		try {
+			return input.readObject();
+		} catch (ClassNotFoundException e) {
+			Log.writeErrorLog(this.getClass(), "classe non trovata nella lettura in " +input.getClass().getName());
+			e.printStackTrace();
+		} catch(IOException e) {
+			Log.writeErrorLog(this.getClass(), "errore IO nella lettura in " +input.getClass().getName());
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }
