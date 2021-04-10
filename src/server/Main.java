@@ -62,7 +62,7 @@ public class Main {
 
 				System.out.println("prendo credenziali");
 				String id=UI.getUS();
-				byte[] pw=UI.getPASS();
+				String pw=new String (UI.getPASS());
 				risposta=SN.login(id,pw);
 				System.out.println(risposta);
 				rispostaUI=UI.riceviStringa(risposta) ;//facciamo che il metodo ricevi sringa di UI ritorna un bool: vero se risposta ï¿½ benvenuto oppure registrazione effettuata, falso se risposta ï¿½ un messaggio di errore
@@ -74,9 +74,10 @@ public class Main {
 			{
 				System.out.println("prendo credenziali registrazione");
 				String id = UI.getIDREG();
-				byte[] pw = UI.getPWREG();  
-				byte[] confermaPW = UI.getConfermaPWREG();
-			    String min=UI.getMin();
+				String pw = new String(UI.getPWREG());  
+				String confermaPW = new String (UI.getConfermaPWREG());
+			    
+				String min=UI.getMin();
 			    String max=UI.getMax();
 			    String[] categoriePreferite=UI.getCategoriePreferite();
 				risposta=SN.registrazione(id, pw, confermaPW,min,max,categoriePreferite);

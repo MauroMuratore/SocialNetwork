@@ -309,7 +309,7 @@ public class LeggiXML {
 		}
 
 		String nome = utente.getElementsByTagName(Nomi.TAG_NOME.getNome()).item(0).getTextContent();
-		byte[] hash = utente.getElementsByTagName(Nomi.TAG_HASH.getNome()).item(0).getTextContent().getBytes();
+		String hash = utente.getElementsByTagName(Nomi.TAG_HASH.getNome()).item(0).getTextContent();
 		Element notifiche = (Element) utente.getElementsByTagName(Nomi.TAG_ELENCO.getNome()).item(0);
 
 

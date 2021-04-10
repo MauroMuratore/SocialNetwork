@@ -55,7 +55,7 @@ public class SocialNetwork {
 	 * PW_SBAGLIATA se la password e' sbagliata
 	 * ID_INESISTENTE se l'id non esiste
 	 */
-	public String login(String id, byte[] hash) {
+	public String login(String id, String hash) {
 
 		if (consultaDB.controllaID(id)) {
 			if (consultaDB.controllaPW(hash, id)) {
@@ -80,27 +80,20 @@ public class SocialNetwork {
 	 * BENVENUTO se la registrazione avviene con successo
 	 * ID_IN_USO id gia' in uso
 	 */
-	public String registrazione(String username, byte[] hash, byte[] conferma,String minEta,String maxEta,String[] categoriePref) {
+	public String registrazione(String username, String hash, String conferma,String minEta,String maxEta,String[] categoriePref) {
 		if (!consultaDB.controllaID(username))// controllo se ce gia id nel database
 		{
 			if (username.length() < 7)
 				return ID_CORTO;
-			String hashString = new String(hash);
-			if (hashString.length() < 7) {
+			if (hash.length() < 7) {
 				return PW_CORTA;
 			}
 			boolean uguali = true;
-			if (hash.length != conferma.length)
+			if (hash.length() != conferma.length())
 				return PW_DIVERSE;
-			else {
-				for (int i = 0; i < hash.length; i++) {
-					if (hash[i] != conferma[i]) // controllo byte per byte se hash e conferma sono uguali
-						uguali = false;
-				}
-				if (uguali = false)
-					return PW_DIVERSE;
-			}
-
+			else if(!hash.equals(conferma))
+				return PW_DIVERSE;
+	
 			if(!ControlloCampo.controlloIntero(minEta).equals(Campo.OK))
 				return ControlloCampo.controlloIntero(minEta);
 			if(!ControlloCampo.controlloIntero(maxEta).equals(Campo.OK))

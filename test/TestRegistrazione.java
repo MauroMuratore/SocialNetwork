@@ -16,11 +16,11 @@ public class TestRegistrazione {
 	ConsultaDB cdb;
 	String username, etaMin, etaMax, stringaCorta, stringaVuota;
 	String[] categorie;
-	byte[] pw, conferma;
+	String pw, conferma;
 
 	@Before
 	public void setUp() {
-		utest = new Utente ("utenteRegistrato", "utenteRegistrato".getBytes(), 1, 10);
+		utest = new Utente ("utenteRegistrato", "utenteRegistrato", 1, 10);
 		sn = new SocialNetwork(ConsultaDB.getInstance());
 		cdb = ConsultaDB.getInstance();
 		cdb.salvaUtente(utest);
@@ -30,7 +30,7 @@ public class TestRegistrazione {
 		etaMin = "1";
 		etaMax = "10";
 		categorie = new String[0];
-		pw = conferma = "passwordTest".getBytes();
+		pw = conferma = "passwordTest";
 	}
 
 	@Test
@@ -48,23 +48,23 @@ public class TestRegistrazione {
 		assertEquals(SocialNetwork.ID_IN_USO, ritorno);
 
 		//test con pw corta (<7)
-		ritorno = sn.registrazione(username, stringaCorta.getBytes(), conferma, etaMin, etaMax, categorie);
+		ritorno = sn.registrazione(username, stringaCorta, conferma, etaMin, etaMax, categorie);
 		assertEquals(SocialNetwork.PW_CORTA, ritorno);
 
 		//test con pw vuota
-		ritorno = sn.registrazione(username, stringaVuota.getBytes(), conferma, etaMin, etaMax, categorie);
+		ritorno = sn.registrazione(username, stringaVuota, conferma, etaMin, etaMax, categorie);
 		assertEquals(SocialNetwork.PW_CORTA, ritorno);
 
 		//test con conferma vuota
-		ritorno = sn.registrazione(username, pw, stringaVuota.getBytes(), etaMin, etaMax, categorie);
+		ritorno = sn.registrazione(username, pw, stringaVuota, etaMin, etaMax, categorie);
 		assertEquals(SocialNetwork.PW_DIVERSE, ritorno);
 		
 		//test con pw vuota e conferma vuota
-		ritorno = sn.registrazione(username, stringaVuota.getBytes(), stringaVuota.getBytes(), etaMin, etaMax, categorie);
+		ritorno = sn.registrazione(username, stringaVuota, stringaVuota, etaMin, etaMax, categorie);
 		assertEquals(SocialNetwork.PW_CORTA, ritorno);
 
 		//test con conferma diversa
-		ritorno = sn.registrazione(username, pw, "passwordTes".getBytes(), etaMin, etaMax, categorie);
+		ritorno = sn.registrazione(username, pw, "passwordTes", etaMin, etaMax, categorie);
 		assertEquals(SocialNetwork.PW_DIVERSE, ritorno);
 		
 		//test con input vuoti per etaMin e etaMax

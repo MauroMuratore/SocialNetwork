@@ -40,8 +40,8 @@ public class FactoryNodoXML {
 			childName.setTextContent(utente.getUsername());
 			Element childPW = doc.createElement(Nomi.TAG_HASH.getNome());
 			try {
-				childPW.setTextContent(new String(utente.getPassword(), "UTF-8"));
-			} catch (DOMException | UnsupportedEncodingException e) {
+				childPW.setTextContent(utente.getPassword());
+			} catch (DOMException e) {
 				Log.writeErrorLog(this.getClass(), "errore nella creazione nodo utente");
 				e.printStackTrace();
 			}

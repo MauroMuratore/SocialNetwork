@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class Utente {
 
 	private String username;
-	private byte[] password;
+	private String password;
 	private LinkedList<Notifica> notifiche;
 	private ArrayList<Integer> eventiCreati;
 	private LinkedList<String> interessiCategorie;
@@ -21,7 +21,7 @@ public class Utente {
 	public static final int AGGIUNGI_INTERESSE = 40;
 	public static final String MODIFICA_RIUSCITA = "Modifica riuscita";
 
-	public Utente(String id,byte[] pw, int _etamin, int _etamax)
+	public Utente(String id,String pw, int _etamin, int _etamax)
 	{
 		username=id;
 		password=pw;
@@ -32,7 +32,7 @@ public class Utente {
 		etamax=_etamax;
 	}
 	
-	public Utente(String id,byte[] pw, int _etamin, int _etamax, String[] ic)
+	public Utente(String id,String pw, int _etamin, int _etamax, String[] ic)
 	{
 		username=id;
 		password=pw;
@@ -47,7 +47,7 @@ public class Utente {
 	}
 
 
-	public Utente(String id, byte[] pw, LinkedList<Notifica> _notifiche, LinkedList<String> _interessiCategorie, ArrayList<Integer> _eventiCreati, int _etamin, int _etamax) {
+	public Utente(String id, String pw, LinkedList<Notifica> _notifiche, LinkedList<String> _interessiCategorie, ArrayList<Integer> _eventiCreati, int _etamin, int _etamax) {
 		username=id;
 		password=pw;
 		notifiche = new LinkedList<Notifica>(_notifiche);
@@ -57,7 +57,7 @@ public class Utente {
 		etamax = _etamax;
 	}
 
-	public byte[] getPassword() {
+	public String getPassword() {
 		return password;
 	}
 

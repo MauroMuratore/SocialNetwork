@@ -17,7 +17,7 @@ public class TestLogin {
 	@Before
 	public void setUp() {
 		sn = new SocialNetwork(ConsultaDB.getInstance());
-		utest = new Utente ("utenteTest", "utenteTest".getBytes(), 1, 10);
+		utest = new Utente ("utenteTest", "utenteTest", 1, 10);
 		cdb = ConsultaDB.getInstance();
 		cdb.salvaUtente(utest);		
 	}
@@ -25,11 +25,11 @@ public class TestLogin {
 	@Test
 	public void testLogin() {
 		//test con password sbagliata
-		String ritorno = sn.login(utest.getUsername(), "utenteTes".getBytes()); 
+		String ritorno = sn.login(utest.getUsername(), "utenteTes"); 
 		assertEquals(SocialNetwork.PW_SBAGLIATA, ritorno);
 		
 		//test con password vuota
-		ritorno = sn.login(utest.getUsername(), "".getBytes());
+		ritorno = sn.login(utest.getUsername(), "");
 		assertEquals(SocialNetwork.PW_SBAGLIATA, ritorno);
 		
 		//test con nome sbagliato

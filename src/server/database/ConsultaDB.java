@@ -44,8 +44,7 @@ public class ConsultaDB {
 		return lettura.controllaUtente(username);
 	}
 
-	public boolean controllaPW(byte[] hash, String username) {
-		String pw =new String(hash);
+	public boolean controllaPW(String pw, String username) {
 		return lettura.controllaPW(pw, username);
 		
 	}
