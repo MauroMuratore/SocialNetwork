@@ -1,4 +1,5 @@
-package cervello;
+
+package server.core;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -30,6 +31,21 @@ public class Utente {
 		etamin=_etamin;
 		etamax=_etamax;
 	}
+	
+	public Utente(String id,byte[] pw, int _etamin, int _etamax, String[] ic)
+	{
+		username=id;
+		password=pw;
+		notifiche = new LinkedList<Notifica>();
+		interessiCategorie = new LinkedList<String>();
+		for(String s: ic) {
+			interessiCategorie.add(s);
+		}
+		eventiCreati = new ArrayList<Integer>();
+		etamin=_etamin;
+		etamax=_etamax;
+	}
+
 
 	public Utente(String id, byte[] pw, LinkedList<Notifica> _notifiche, LinkedList<String> _interessiCategorie, ArrayList<Integer> _eventiCreati, int _etamin, int _etamax) {
 		username=id;
@@ -76,9 +92,8 @@ public class Utente {
 	}
 
 	public void cancellaNotifica(Notifica notifica) {
-		if(notifiche.remove(notifica))
-			System.out.println("rimossa notifica " + notifica.getMessaggio());;
-
+		notifiche.remove(notifica);
+			
 	}
 
 	public void aggiungiInteresse(String categoria) {

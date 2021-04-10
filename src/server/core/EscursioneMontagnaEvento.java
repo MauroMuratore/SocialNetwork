@@ -1,10 +1,12 @@
-package cervello;
+
+package server.core;
 
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-import database.ConsultaDB;
-import database.NomiDB;
+import server.database.ConsultaDB;
+import util.Nomi;
+import util.ControlloCampo;
 
 public class EscursioneMontagnaEvento extends Evento {
 	
@@ -15,22 +17,23 @@ public class EscursioneMontagnaEvento extends Evento {
 	
 	public EscursioneMontagnaEvento() {
 		super();
-		titolo = new Campo<String>(NomiDB.CAMPO_TITOLO.getNome(), "", false);
-		partecipantiNecessari = new Campo<Integer>(NomiDB.CAMPO_PARTECIPANTI_MAX.getNome(), "", true);
-		termineUltimo = new Campo<GregorianCalendar>(NomiDB.CAMPO_TERMINE_ULTIMO.getNome(), "", true);
-		luogo = new Campo<String>(NomiDB.CAMPO_LUOGO.getNome(), "", true);
-		dataInizio = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_INIZIO.getNome(), "", true);
-		durata = new Campo<Integer>(NomiDB.CAMPO_DURATA.getNome(), "", false);
-		quotaIndividuale = new Campo<Integer>(NomiDB.CAMPO_QUOTA_IND.getNome(), "", true);
-		compresoQuota = new Campo<String>(NomiDB.CAMPO_COMPRESO_QUOTA.getNome(), "", false);
-		dataFine = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_FINE.getNome(), "", false);
-		note = new Campo<String>(NomiDB.CAMPO_NOTE.getNome(), "", false);
-		tolleranzaPartecipanti = new Campo<Integer>(NomiDB.CAMPO_TOLLERANZA.getNome(), "", false);
-		termineUltimoRitiro = new Campo<GregorianCalendar>(NomiDB.CAMPO_TERMINE_ULTIMO_RITIRO.getNome(), "", false);
-		istruttore = new Campo<Integer>(NomiDB.CAMPO_ISTRUTTORE.getNome(), "", false);
-		attrezzatura = new Campo<Integer>(NomiDB.CAMPO_ATTREZZATURA.getNome(), "", false);
+		titolo = new Campo<String>(Nomi.CAMPO_TITOLO.getNome(), "", false);
+		partecipantiNecessari = new Campo<Integer>(Nomi.CAMPO_PARTECIPANTI_MAX.getNome(), "", true);
+		termineUltimo = new Campo<GregorianCalendar>(Nomi.CAMPO_TERMINE_ULTIMO.getNome(), "", true);
+		luogo = new Campo<String>(Nomi.CAMPO_LUOGO.getNome(), "", true);
+		dataInizio = new Campo<GregorianCalendar>(Nomi.CAMPO_DATA_INIZIO.getNome(), "", true);
+		durata = new Campo<Integer>(Nomi.CAMPO_DURATA.getNome(), "", false);
+		quotaIndividuale = new Campo<Integer>(Nomi.CAMPO_QUOTA_IND.getNome(), "", true);
+		compresoQuota = new Campo<String>(Nomi.CAMPO_COMPRESO_QUOTA.getNome(), "", false);
+		dataFine = new Campo<GregorianCalendar>(Nomi.CAMPO_DATA_FINE.getNome(), "", false);
+		note = new Campo<String>(Nomi.CAMPO_NOTE.getNome(), "", false);
+		tolleranzaPartecipanti = new Campo<Integer>(Nomi.CAMPO_TOLLERANZA.getNome(), "", false);
+		termineUltimoRitiro = new Campo<GregorianCalendar>(Nomi.CAMPO_TERMINE_ULTIMO_RITIRO.getNome(), "", false);
+		istruttore = new Campo<Integer>(Nomi.CAMPO_ISTRUTTORE.getNome(), "", false);
+		attrezzatura = new Campo<Integer>(Nomi.CAMPO_ATTREZZATURA.getNome(), "", false);
 		listaPerAttrezzature = new LinkedList<String>();
 		listaPerIstruttore = new LinkedList<String>();
+		categoria=Nomi.CAT_ESCURSIOME_MONTAGNA.getNome();
 	}
 	
 	public EscursioneMontagnaEvento(int _idEvento, Campo<String> _titolo, Campo<Integer> _partecipantiMax, LinkedList<String> _partecipanti, String _proprietario, 
@@ -44,6 +47,7 @@ public class EscursioneMontagnaEvento extends Evento {
 		attrezzatura=_attrezzatura;
 		listaPerIstruttore=new LinkedList<String>(_listaPerIstruttore);
 		listaPerAttrezzature=new LinkedList<String>(_listaPerAttrezzatura);
+		categoria=Nomi.CAT_ESCURSIOME_MONTAGNA.getNome();
 	}
 	
 	public Campo<Integer> getIstruttore(){
@@ -63,15 +67,15 @@ public class EscursioneMontagnaEvento extends Evento {
 	}
 	
 	public String setIstruttore(String costoIstruttore) {
-		if(!Campo.controlloIntero(costoIstruttore).equals(Campo.OK))
-			return Campo.controlloIntero(costoIstruttore);
+		if(!ControlloCampo.controlloIntero(costoIstruttore).equals(Campo.OK))
+			return ControlloCampo.controlloIntero(costoIstruttore);
 		istruttore.setValore(Integer.parseInt(costoIstruttore));
 		return OK;
 	}
 	
 	public String setAttrezzatura(String costoAttrezzatura) {
-		if(!Campo.controlloIntero(costoAttrezzatura).equals(Campo.OK))
-			return Campo.controlloIntero(costoAttrezzatura);
+		if(!ControlloCampo.controlloIntero(costoAttrezzatura).equals(Campo.OK))
+			return ControlloCampo.controlloIntero(costoAttrezzatura);
 		attrezzatura.setValore(Integer.parseInt(costoAttrezzatura));
 		return OK;
 	}
@@ -109,116 +113,9 @@ public class EscursioneMontagnaEvento extends Evento {
 	}
 	
 	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public boolean valido() {
-		ConsultaDB cdb = new ConsultaDB();
+		ConsultaDB cdb = ConsultaDB.getInstance();
 		if(partecipantiNecessari.getValore()==null) {
 			return false;
 		}

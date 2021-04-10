@@ -14,7 +14,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextPane;
 
-import cervello.SocialNetwork;
+import server.core.SocialNetwork;
 
 import java.awt.Font;
 import java.awt.List;
@@ -98,8 +98,8 @@ public class SezioneRegistrazione {
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-	public SezioneRegistrazione(SocialNetwork sn) {
-		this.sn=sn;
+	public SezioneRegistrazione() {
+		sn=SocialNetwork.getInstance();
 		initialize();
 	}
 	private void initialize() {
@@ -232,7 +232,7 @@ public class SezioneRegistrazione {
 		listaCat = new List();
 		listaCat.setForeground(new Color(0, 0, 0));
 		listaCat.setBackground(new Color(0, 204, 204));
-		listaCat.setBounds(377, 190, 156, 23);
+		listaCat.setBounds(377, 190, 156, 45);
 		listaCat.setMultipleMode(true);
 		for(int i =0;i<sn.titoliCategorie().size();i++)
 			listaCat.add(sn.titoliCategorie().get(i));

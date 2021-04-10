@@ -1,0 +1,639 @@
+10-04-2021 11:26:51 database.ScriviXML Scrittura su file data/escursioneMontagna.xml
+10-04-2021 11:27:02 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:02 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:02 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:02 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:02 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:02 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:02 database.LeggiXML leggi evento Test
+10-04-2021 11:27:02 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:02 database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 11:27:02 database.LeggiXML leggi evento escursione con amici
+10-04-2021 11:27:02 database.LeggiXML leggi evento SlackTenno
+10-04-2021 11:27:02 database.LeggiXML leggi evento camminata
+10-04-2021 11:27:02 database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 11:27:02 database.FactoryDocXML apertura doc data/notifichePendenti.xml
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento escursione con amici
+10-04-2021 11:27:08 database.LeggiXML leggi evento SlackTenno
+10-04-2021 11:27:08 database.LeggiXML leggi evento camminata
+10-04-2021 11:27:08 database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento escursione con amici
+10-04-2021 11:27:08 database.LeggiXML leggi evento SlackTenno
+10-04-2021 11:27:08 database.LeggiXML leggi evento camminata
+10-04-2021 11:27:08 database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento escursione con amici
+10-04-2021 11:27:08 database.LeggiXML leggi evento SlackTenno
+10-04-2021 11:27:08 database.LeggiXML leggi evento camminata
+10-04-2021 11:27:08 database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento escursione con amici
+10-04-2021 11:27:08 database.LeggiXML leggi evento SlackTenno
+10-04-2021 11:27:08 database.LeggiXML leggi evento camminata
+10-04-2021 11:27:08 database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento escursione con amici
+10-04-2021 11:27:08 database.LeggiXML leggi evento SlackTenno
+10-04-2021 11:27:08 database.LeggiXML leggi evento camminata
+10-04-2021 11:27:08 database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento escursione con amici
+10-04-2021 11:27:08 database.LeggiXML leggi evento SlackTenno
+10-04-2021 11:27:08 database.LeggiXML leggi evento camminata
+10-04-2021 11:27:08 database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento escursione con amici
+10-04-2021 11:27:08 database.LeggiXML leggi evento SlackTenno
+10-04-2021 11:27:08 database.LeggiXML leggi evento camminata
+10-04-2021 11:27:08 database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:08 database.LeggiXML leggi evento partitella
+10-04-2021 11:27:08 database.LeggiXML leggi evento prova4
+10-04-2021 11:27:08 database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 11:27:08 database.LeggiXML leggi evento partaConMonte
+10-04-2021 11:27:08 database.LeggiXML leggi evento torneoO
+10-04-2021 11:27:08 database.LeggiXML leggi evento Test
+10-04-2021 11:27:08 database.LeggiXML leggi categoria partita calcio
+10-04-2021 11:27:08 database.LeggiXML leggi utente mauro
+10-04-2021 11:27:08 core.SocialNetwork login di mauro
+10-04-2021 11:27:14 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:14 database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:14 database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 11:27:14 database.ScriviXML salvo utente mauro
+10-04-2021 11:27:14 database.ScriviXML Scrittura su file data/utenti.xml
+10-04-2021 11:27:16 database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 11:27:16 database.ScriviXML salvo utente mauro
+10-04-2021 11:27:16 database.ScriviXML Scrittura su file data/utenti.xml
+10-04-2021 11:27:16 database.FactoryDocXML apertura doc data/notifichePendenti.xml
+10-04-2021 11:27:16 database.ScriviXML Scrittura su file data/notifichePendenti.xml
+10-04-2021 11:27:16 database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:16 database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
+10-04-2021 11:27:16 database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 11:27:16 database.ScriviXML Scrittura su file data/escursioneMontagna.xml
+10-04-2021 12:11:52 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:11:52 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:11:52 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:11:52 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:11:52 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:11:52 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:11:52 server.database.LeggiXML leggi evento Test
+10-04-2021 12:11:52 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:11:52 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:11:52 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:11:52 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:11:52 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:11:52 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:11:52 server.database.FactoryDocXML apertura doc data/notifichePendenti.xml
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:00 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:00 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:00 server.database.LeggiXML leggi utente mauro
+10-04-2021 12:12:00 server.core.SocialNetwork login di mauro
+10-04-2021 12:12:19 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:12:19 server.database.ScriviXML salvo utente mauro
+10-04-2021 12:12:19 server.database.ScriviXML Scrittura su file data/utenti.xml
+10-04-2021 12:12:19 server.database.FactoryDocXML apertura doc data/notifichePendenti.xml
+10-04-2021 12:12:19 server.database.ScriviXML Scrittura su file data/notifichePendenti.xml
+10-04-2021 12:12:19 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:19 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:19 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:12:19 server.database.ScriviXML Scrittura su file data/escursioneMontagna.xml
+10-04-2021 12:12:37 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:37 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:37 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:37 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:37 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:37 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:37 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:37 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:37 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:12:37 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:12:37 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:12:37 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:12:37 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:12:37 server.database.FactoryDocXML apertura doc data/notifichePendenti.xml
+10-04-2021 12:12:45 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:12:45 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:12:45 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:12:45 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:45 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:45 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:45 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:45 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:45 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:12:45 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:12:45 server.database.LeggiXML leggi evento Test
+10-04-2021 12:12:45 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:15:33 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:15:33 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:15:33 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:15:33 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:15:33 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:15:33 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:15:33 server.database.LeggiXML leggi evento Test
+10-04-2021 12:15:33 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:15:33 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:15:33 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:15:33 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:15:33 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:15:33 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:15:33 server.database.FactoryDocXML apertura doc data/notifichePendenti.xml
+10-04-2021 12:15:43 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:15:43 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:15:43 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:15:43 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento Test
+10-04-2021 12:15:43 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:15:43 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:15:43 server.database.LeggiXML leggi evento Test
+10-04-2021 12:15:43 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:15:43 server.database.LeggiXML leggi utente mauro123
+10-04-2021 12:15:43 server.core.SocialNetwork login di mauro123
+10-04-2021 12:16:53 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:16:53 server.database.FactoryNodoXML creo il nodo lista di partecipanti partecipanti
+10-04-2021 12:16:53 server.database.ScriviXML scrivo partita 
+10-04-2021 12:16:53 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
+10-04-2021 12:16:53 server.core.SocialNetwork Inviti spediti
+10-04-2021 12:16:53 server.core.SocialNetwork persone interessate informate
+10-04-2021 12:16:53 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:16:53 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:37 server.core.SocialNetwork revoca iscrizione scrittura 
+10-04-2021 12:17:37 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:17:37 server.database.ScriviXML salvo utente mauro123
+10-04-2021 12:17:37 server.database.ScriviXML Scrittura su file data/utenti.xml
+10-04-2021 12:17:37 server.database.FactoryDocXML apertura doc data/notifichePendenti.xml
+10-04-2021 12:17:37 server.database.ScriviXML Scrittura su file data/notifichePendenti.xml
+10-04-2021 12:17:37 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:37 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:37 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:37 server.database.ScriviXML Scrittura su file data/escursioneMontagna.xml
+10-04-2021 12:17:39 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:39 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:39 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:17:39 server.database.ScriviXML salvo utente mauro123
+10-04-2021 12:17:39 server.database.ScriviXML Scrittura su file data/utenti.xml
+10-04-2021 12:17:41 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:17:41 server.database.ScriviXML salvo utente mauro123
+10-04-2021 12:17:41 server.database.ScriviXML Scrittura su file data/utenti.xml
+10-04-2021 12:17:41 server.database.FactoryDocXML apertura doc data/notifichePendenti.xml
+10-04-2021 12:17:41 server.database.ScriviXML Scrittura su file data/notifichePendenti.xml
+10-04-2021 12:17:41 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:41 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:41 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:41 server.database.ScriviXML Scrittura su file data/escursioneMontagna.xml
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento escursione con amici
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento SlackTenno
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento camminata
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria escursione in montagna
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partitella
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento prova4
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento provaFinale(relise 4)
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento partaConMonte
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento torneoO
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test
+10-04-2021 12:17:47 server.database.LeggiXML leggi evento Test2
+10-04-2021 12:17:47 server.database.LeggiXML leggi categoria partita calcio
+10-04-2021 12:17:47 server.database.LeggiXML leggi utente mauro
+10-04-2021 12:17:47 server.core.SocialNetwork login di mauro
+10-04-2021 12:17:58 server.database.FactoryDocXML apertura doc data/utenti.xml
+10-04-2021 12:17:58 server.database.ScriviXML salvo utente mauro
+10-04-2021 12:17:58 server.database.ScriviXML Scrittura su file data/utenti.xml
+10-04-2021 12:17:58 server.database.FactoryDocXML apertura doc data/notifichePendenti.xml
+10-04-2021 12:17:58 server.database.ScriviXML Scrittura su file data/notifichePendenti.xml
+10-04-2021 12:17:58 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:58 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
+10-04-2021 12:17:58 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
+10-04-2021 12:17:58 server.database.ScriviXML Scrittura su file data/escursioneMontagna.xml

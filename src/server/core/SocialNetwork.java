@@ -1,18 +1,21 @@
-package cervello;
+package server.core;
 
 import java.util.*;
 
-import database.ConsultaDB;
-import database.NomiDB;
+import server.database.ConsultaDB;
+import util.Nomi;
+import util.ControlloCampo;
+import util.Log;
 
 public class SocialNetwork {
 	// UML QUANDO E' FINITO
+	private static SocialNetwork sn;
 	private Hashtable<String, Categoria> categorie;
 	private Utente utente;
-	private ConsultaDB consultaDB = new ConsultaDB();
+	private ConsultaDB consultaDB;
 	private Hashtable<String, LinkedList<Notifica>> notificheDaInoltrare;
-	public static final String IMPOSSIBILE_CANCELLARE_EVENTO = "impossibile cancellare evento";
 
+	public static final String IMPOSSIBILE_CANCELLARE_EVENTO = "impossibile cancellare evento";
 	public static final String BENVENUTO = "BENVENUTO";
 	public static final String ID_INESISTENTE = "ATTENZIONE! : username inesistente";
 	public static final String ID_CORTO = "ATTENZIONE! : id troppo corto";
@@ -24,15 +27,23 @@ public class SocialNetwork {
 	public static final String ETAMIN_MAGG_ETAMAX = "Eta minima maggiore di eta massima";
 	public static final String INVITI_SPEDITI = "Inviti spediti";
 
-	public SocialNetwork() {
+	public SocialNetwork(ConsultaDB cDB) {
+		this.consultaDB=cDB;
 		categorie = new Hashtable<String, Categoria>();
-		PartitaCalcioCat pdc = (PartitaCalcioCat) consultaDB.leggiCategoria(NomiDB.CAT_PARTITA_CALCIO.getNome());
-		EscursioneMontagnaCat emc = (EscursioneMontagnaCat) consultaDB.leggiCategoria(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
+		PartitaCalcioCat pdc = (PartitaCalcioCat) consultaDB.leggiCategoria(Nomi.CAT_PARTITA_CALCIO.getNome());
+		EscursioneMontagnaCat emc = (EscursioneMontagnaCat) consultaDB.leggiCategoria(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome());
 		categorie.put(pdc.getNome(), pdc);
 		categorie.put(emc.getNome(), emc);
 		notificheDaInoltrare = consultaDB.leggiNotifichePendenti();
 		aggiornamentoEventi(); // aggiorna tutti gli eventi
 		// quando vengono caricate gli eventi bisogna fare un controllo sulle notifiche
+	}
+	
+	public static SocialNetwork getInstance() {
+		if(sn== null) {
+			sn=new SocialNetwork(ConsultaDB.getInstance()) ;
+		}
+		return sn;
 	}
 
 	/**
@@ -47,7 +58,7 @@ public class SocialNetwork {
 	public String login(String id, byte[] hash) {
 
 		if (consultaDB.controllaID(id)) {
-			if (consultaDB.controllaPW(hash)) {
+			if (consultaDB.controllaPW(hash, id)) {
 				setUtente(id);
 				return BENVENUTO;
 			} else
@@ -58,9 +69,7 @@ public class SocialNetwork {
 
 	/**
 	 * serve per registrare un nuovo utente
-	 * 
 	 * @param username
-	 * 
 	 * @param hash
 	 * @param conferma
 	 * @return esito della registrazione
@@ -92,15 +101,17 @@ public class SocialNetwork {
 					return PW_DIVERSE;
 			}
 
-			if(!Campo.controlloIntero(minEta).equals(Campo.OK))
-				return Campo.controlloIntero(minEta);
-			if(!Campo.controlloIntero(maxEta).equals(Campo.OK))
-				return Campo.controlloIntero(maxEta);
+			if(!ControlloCampo.controlloIntero(minEta).equals(Campo.OK))
+				return ControlloCampo.controlloIntero(minEta);
+			if(!ControlloCampo.controlloIntero(maxEta).equals(Campo.OK))
+				return ControlloCampo.controlloIntero(maxEta);
 			int etaMin = Integer.parseInt(minEta);
 			int etaMax = Integer.parseInt(maxEta);
 			if(etaMin>etaMax)
 				return ETAMIN_MAGG_ETAMAX;
-			consultaDB.aggiungiUtente(username, hash, etaMin, etaMax, categoriePref);//da aggiungere minEta , maxEta, categoriePref !!!!
+
+			Utente nuovoUtente = new Utente (username, hash, etaMin, etaMax, categoriePref);
+			consultaDB.salvaUtente(nuovoUtente);
 			for(String cat: categoriePref) {
 				categorie.get(cat).addPersonaInteressata(username);
 			}
@@ -117,7 +128,7 @@ public class SocialNetwork {
 	 */
 	private void setUtente(String id) {
 		utente = consultaDB.caricaUtente(id);
-		System.out.println("login di " + utente.getUsername());
+		Log.writeRoutineLog(this.getClass(), "login di " + utente.getUsername());
 		aggiornamentoUtente();
 	}
 
@@ -164,19 +175,23 @@ public class SocialNetwork {
 	 */
 	public String iscrizione(EscursioneMontagnaEvento evento, boolean istr, boolean attr) {
 		String messaggio = evento.iscrizione(utente.getUsername(), istr, attr);
-		utente.riceviNotifica(new Notifica(evento, messaggio));
-		if (evento.cambioStato() != null)
-			aggiornamentoNotifiche(evento.cambioStato());
-		consultaDB.scriviEvento(evento, NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
-		System.out.print("scrittura iscrizione emc");
-		consultaDB.salvaUtente(utente);		
+		gestisciIscrizione(evento, messaggio);		
 		return messaggio;
 	}
 
-
+	/**
+	 * check degli utenti registrati da file
+	 * @param id
+	 * @return true se c'è false se non c'è
+	 */
+	public boolean controllaID(String username) {
+		return consultaDB.controllaID(username);
+		
+	}
+	
 	/**
 	 * serve per far iscrivere l'utente all'evento, invia la notifica all'utente e
-	 * se l'evento si chiude aggiorna anche tutti gli altri utenti tramite notifica
+	 * se l'evento si chiude aggiorna anche tutti gli altri
 	 * @param evento
 	 * @return l'esito dell'iscrizione:
 	 * Notifica.ISCRIZIONE se e' andata a buon fine
@@ -184,16 +199,19 @@ public class SocialNetwork {
 	 * Notifica.ERRORE_DI_ISCRIZIONE se ci sono stati errori nell'iscrizione
 	 */
 	public String iscrizione(Evento evento) {
-
 		String messaggio = evento.iscrizione(utente.getUsername());
+		gestisciIscrizione(evento, messaggio);
+		return messaggio;
+	}
+
+	public void gestisciIscrizione(Evento evento, String messaggio) {
 		utente.riceviNotifica(new Notifica(evento, messaggio));
 		if (evento.cambioStato() != null)
 			aggiornamentoNotifiche(evento.cambioStato());
-		consultaDB.scriviEvento(evento, NomiDB.CAT_PARTITA_CALCIO.getNome());
-		System.out.print("scrittura iscrizione ");
+		consultaDB.scriviEvento(evento);
 		consultaDB.salvaUtente(utente);
-		return messaggio;
 	}
+
 
 	/**
 	 * crea un evento e viene aggiunta alla bacheca dalla propria categoria
@@ -204,25 +222,19 @@ public class SocialNetwork {
 	 * @param evento
 	 * @param personeInvitate
 	 */
-	public void addEvento(Evento evento, LinkedList<String> personeInvitate) {
+	public void addEvento(Evento evento, List<String> personeInvitate) {
 		String nome = utente.getUsername();
-		Notifica notificaIscrizione = new Notifica(evento, evento.iscrizione(nome));
+		evento.iscrizione(nome);
+		Notifica notificaIscrizione = new Notifica(evento, nome);
 		evento.setProprietario(nome);
-		if (evento.getClass().equals(PartitaCalcioEvento.class))
-			consultaDB.scriviEvento(evento, NomiDB.CAT_PARTITA_CALCIO.getNome());
-		else if(evento.getClass().equals(EscursioneMontagnaEvento.class))
-			consultaDB.scriviEvento(evento, NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
+		consultaDB.scriviEvento(evento);
 		utente.riceviNotifica(notificaIscrizione);
 		utente.creaEvento(evento.getIdEvento());
 		invitaUtenti(personeInvitate, evento);
-		if (evento.getClass().equals(PartitaCalcioEvento.class)) {
-			categorie.get(NomiDB.CAT_PARTITA_CALCIO.getNome()).aggiungiEvento(evento);
-			informaInteressati(NomiDB.CAT_PARTITA_CALCIO.getNome(), evento);
-		}
-		else if(evento.getClass().equals(EscursioneMontagnaEvento.class)) {
-			categorie.get(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()).aggiungiEvento(evento);
-			informaInteressati(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome(), evento);
-		}
+		categorie.get(evento.getCategoria()).aggiungiEvento(evento);
+		informaInteressati(evento);
+
+		consultaDB.scriviEvento(evento);
 
 	}
 
@@ -304,7 +316,7 @@ public class SocialNetwork {
 	 */
 	public String cancellaNotifica(Notifica notifica) {
 		utente.cancellaNotifica(notifica);
-		System.out.print("cancello notifica ");
+		Log.writeRoutineLog(this.getClass(), "cancello notifica ");
 		consultaDB.cancellaNotifica(notifica, utente);
 
 		return NOTIFICA_CANCELLATA;
@@ -330,11 +342,8 @@ public class SocialNetwork {
 		Notifica ritorno = evento.cancella(utente.getUsername());
 		utente.riceviNotifica(ritorno);
 		aggiornamentoNotifiche(ritorno);
-		System.out.print("cancella evento scrittura ");
-		if (evento.getClass().equals(PartitaCalcioEvento.class))
-			consultaDB.scriviEvento(evento, NomiDB.CAT_PARTITA_CALCIO.getNome());
-		else if(evento.getClass().equals(EscursioneMontagnaEvento.class))
-			consultaDB.scriviEvento(evento, NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
+		Log.writeRoutineLog(this.getClass(), "cancella evento scrittura ");
+		consultaDB.scriviEvento(evento);
 		return ritorno.getMessaggio();
 	}
 
@@ -352,7 +361,7 @@ public class SocialNetwork {
 	public String revocaIscrizione(Evento evento) {
 		Notifica ritorno = evento.revocaIscrizione(utente.getUsername());
 		utente.riceviNotifica(ritorno);
-		System.out.print("revoca iscrizione scrittura ");
+		Log.writeRoutineLog(this.getClass(), "revoca iscrizione scrittura ");
 		salvaTutto();
 		return ritorno.getMessaggio();
 	}
@@ -368,16 +377,16 @@ public class SocialNetwork {
 		if(attributoUtente.equals(""))
 			return utente.MODIFICA_RIUSCITA;
 		if(tipoAttributo==Utente.ETA_MIN) {
-			if(!Campo.controlloIntero(attributoUtente).equals(Campo.OK))
-				return Campo.controlloIntero(attributoUtente);
+			if(!ControlloCampo.controlloIntero(attributoUtente).equals(Campo.OK))
+				return ControlloCampo.controlloIntero(attributoUtente);
 			int etaMin = Integer.parseInt(attributoUtente);
 			if(etaMin>utente.getEtaMax())
 				return ETAMIN_MAGG_ETAMAX;
 			utente.setEtaMin(etaMin);
 		}
 		else if(tipoAttributo==Utente.ETA_MAX) {
-			if(!Campo.controlloIntero(attributoUtente).equals(Campo.OK))
-				return Campo.controlloIntero(attributoUtente);
+			if(!ControlloCampo.controlloIntero(attributoUtente).equals(Campo.OK))
+				return ControlloCampo.controlloIntero(attributoUtente);
 			int etaMax = Integer.parseInt(attributoUtente);
 			if(etaMax<utente.getEtaMin())
 				return ETAMIN_MAGG_ETAMAX;
@@ -427,14 +436,14 @@ public class SocialNetwork {
 	 * @param evento
 	 * @return
 	 */
-	public String invitaUtenti(LinkedList<String> personeInvitate, Evento evento) {
+	public String invitaUtenti(List<String> personeInvitate, Evento evento) {
 		for(String persona: personeInvitate) {
 			if(notificheDaInoltrare.get(persona)==null)
 				notificheDaInoltrare.put(persona, new LinkedList<Notifica>());
 			notificheDaInoltrare.get(persona).add(new Invito(evento));
 		}
 
-		System.out.println(INVITI_SPEDITI);
+		Log.writeRoutineLog(this.getClass(), INVITI_SPEDITI);
 		return INVITI_SPEDITI;
 	}
 
@@ -444,13 +453,13 @@ public class SocialNetwork {
 	 * @param categoria
 	 * @param evento
 	 */
-	public void informaInteressati(String categoria, Evento evento) {
-		for(String interessato: (LinkedList<String>)categorie.get(categoria).getPersoneInteressate()) {
+	public void informaInteressati(Evento evento) {
+		for(String interessato: (LinkedList<String>)categorie.get(evento.getCategoria()).getPersoneInteressate()) {
 			if(notificheDaInoltrare.get(interessato)==null) 
 				notificheDaInoltrare.put(interessato, new LinkedList<Notifica>());
 			notificheDaInoltrare.get(interessato).add(new Notifica(evento, Notifica.NUOVO_EVENTO_APERTO));	
 		}
-		System.out.println("persone interessate informate");
+		Log.writeRoutineLog(this.getClass(),"persone interessate informate");
 	}
 
 

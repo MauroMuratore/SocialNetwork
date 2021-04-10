@@ -29,14 +29,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
-import cervello.Categoria;
-import cervello.EscursioneMontagnaEvento;
-import cervello.Evento;
-import cervello.PartitaCalcioEvento;
-import cervello.SocialNetwork;
-import cervello.StatoEvento;
-import cervello.Utente;
-import database.NomiDB;
+import server.core.Categoria;
+import server.core.EscursioneMontagnaEvento;
+import server.core.Evento;
+import server.core.PartitaCalcioEvento;
+import server.core.SocialNetwork;
+import server.core.StatoEvento;
+import server.core.Utente;
+import util.Nomi;
 
 public class FinestraMenu {
 
@@ -65,16 +65,11 @@ public class FinestraMenu {
 	private JLabel confermaSistema = new JLabel("");
 	private Label noteSistema;
 	private List listaNot ;
-	private static final String EVENTO_VALIDO = "Evento valido";
-	private static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento � gia esistente";
-	private static final String VUOTO = "ATTENZIONE: il campo � vuoto";
-	private static final String OK = "OK";
-	private static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato � errato";
-	private static final String PARTECIPANTI_NECESSARI_MIN ="partecipanti necessari inconsistenti";
+	
 
-	public FinestraMenu(SocialNetwork _sn, UserInterface ui) {
+	public FinestraMenu( UserInterface ui) {
 		UI = ui;
-		sn=_sn;
+		sn= SocialNetwork.getInstance();
 		initialize();
 	}
 	public JFrame getFrame() {
@@ -84,11 +79,11 @@ public class FinestraMenu {
 		this.frame = frame;
 	}
 	private void initialize() {
+		rimozioneVariPanel();
 		frame = new JFrame("SocialNetwork M&M (menu)");
 		frame.setBounds(600, 300, 680, 477);//+30
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		frame.addWindowListener(new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent e)
@@ -130,24 +125,7 @@ public class FinestraMenu {
 		btnVistacategorie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if (bachecaEIM!= null)
-					frame.getContentPane().remove(bachecaEIM);
-				if(panelModificaDati!= null)
-					frame.getContentPane().remove(panelModificaDati);
-				if(finestraCEVPartita!= null)
-					frame.getContentPane().remove(finestraCEVPartita);
-				if(panelCategorie != null)
-					frame.getContentPane().remove(panelCategorie);
-				if(panelAP != null)
-					frame.getContentPane().remove(panelAP);
-				if(panelInvito!= null)
-					frame.getContentPane().remove(panelInvito);	
-				if(panelInfo != null)
-					frame.getContentPane().remove(panelInfo);
-				if(bachecaPDC != null)
-					frame.getContentPane().remove(bachecaPDC);
-				if(finestraEV != null)
-					frame.getContentPane().remove(finestraEV);
+				rimozioneVariPanel();
 				frame.revalidate();
 				frame.repaint();
 				panelCategorie = new JPanel();
@@ -175,11 +153,7 @@ public class FinestraMenu {
 
 				btnPartitedicalcio.setBackground(SystemColor.desktop);
 				btnPartitedicalcio.setBounds(10, 59, 290, 23);
-				panelCategorie.add(btnPartitedicalcio);
-				
-				
-				
-				
+				panelCategorie.add(btnPartitedicalcio);		
 				
 				btnEscursione = new JButton("EscursioneInMontagna");
 				btnEscursione.addMouseListener(new MouseAdapter() {
@@ -289,25 +263,8 @@ public class FinestraMenu {
 
 	public void costruisciBachecaPDC(){
 		
-		if (bachecaEIM!= null)
-			frame.getContentPane().remove(bachecaEIM);
-		if (finestraCEVEscu!= null)
-			frame.getContentPane().remove(finestraCEVEscu);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelAP != null)
-			frame.getContentPane().remove(panelAP);
-		if(panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if(bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
-		if(panelCategorie!= null)
-			frame.getContentPane().remove(panelCategorie);
-		if(panelInvito!= null)
-			frame.getContentPane().remove(panelInvito);
 
+		rimozioneVariPanel();
 		frame.setBounds(600, 300, 680, 477);//+30
 		frame.setResizable(false);
 
@@ -334,7 +291,7 @@ public class FinestraMenu {
 		bachecaPDC.add(pannelloTitoliE);
 		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 
-		pdc = sn.mostraCategoria(NomiDB.CAT_PARTITA_CALCIO.getNome());
+		pdc = sn.mostraCategoria(Nomi.CAT_PARTITA_CALCIO.getNome());
 		ArrayList<Evento> bacheca = pdc.getBacheca();
 		int size = bacheca.size();
 
@@ -408,7 +365,7 @@ public class FinestraMenu {
 
 	}
 	public void costruisciFinestraCreazioneEVPartita(){
-
+		rimozioneVariPanel();
 		finestraCEVPartita = new JPanel();
 		finestraCEVPartita.setBackground(new Color(224, 255, 255));
 		finestraCEVPartita.setBounds(0, 23, 673, 385);
@@ -630,7 +587,7 @@ public class FinestraMenu {
 				eventoCreato = new PartitaCalcioEvento();
 
 				messaggioErr.setText(settaCampi(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine,sesso,eta,tolleranza,termineUltRit));
-				if(messaggioErr.getText().equals(OK))
+				if(messaggioErr.getText().equals(Evento.OK))
 				{  
 					System.out.println(messaggioErr.getText());
 					//if(eventoCreato.valido())
@@ -657,38 +614,38 @@ public class FinestraMenu {
 	{
 		String messaggio;
 		messaggio=eventoCreato.setTitolo(titolo);
-		if(!messaggio.equals(OK))return messaggio+" titolo";
+		if(!messaggio.equals(Evento.OK))return messaggio+" titolo";
 		messaggio=eventoCreato.setPartecipantiNecessari(partNec);
-		if(!messaggio.equals(OK))return messaggio+" part necessari";
+		if(!messaggio.equals(Evento.OK))return messaggio+" part necessari";
 		messaggio=eventoCreato.setLuogo(luogo);
-		if(!messaggio.equals(OK))return messaggio+" luogo";
+		if(!messaggio.equals(Evento.OK))return messaggio+" luogo";
 		messaggio=eventoCreato.setDataInizio(dataInizio, oraIni);
-		if(!messaggio.equals(OK))return messaggio+" data inizio";
+		if(!messaggio.equals(Evento.OK))return messaggio+" data inizio";
 		messaggio=eventoCreato.setDataFine(dataFine, oraFine);
-		if(!messaggio.equals(OK))return messaggio+" data fine";
+		if(!messaggio.equals(Evento.OK))return messaggio+" data fine";
 		messaggio=eventoCreato.setDurata(durata);
-		if(!messaggio.equals(OK))return messaggio+ " durata";
+		if(!messaggio.equals(Evento.OK))return messaggio+ " durata";
 		messaggio=eventoCreato.setQuotaIndividuale(quota);
-		if(!messaggio.equals(OK))return messaggio+" quota";
+		if(!messaggio.equals(Evento.OK))return messaggio+" quota";
 		messaggio=eventoCreato.setCompresoQuota(compresoQuota);
-		if(!messaggio.equals(OK))return messaggio+" compreso quota";
+		if(!messaggio.equals(Evento.OK))return messaggio+" compreso quota";
 		messaggio=eventoCreato.setTermineUltimo(termineUltimo);
-		if(!messaggio.equals(OK))return messaggio+" termine ultimo";
+		if(!messaggio.equals(Evento.OK))return messaggio+" termine ultimo";
 		messaggio=eventoCreato.setNote(note);
-		if(!messaggio.equals(OK))return messaggio+" note";
+		if(!messaggio.equals(Evento.OK))return messaggio+" note";
 		messaggio=((PartitaCalcioEvento) eventoCreato).setSesso(sesso);
-		if(!messaggio.equals(OK))return messaggio+" sesso";
+		if(!messaggio.equals(Evento.OK))return messaggio+" sesso";
 		messaggio=((PartitaCalcioEvento) eventoCreato).setEta(eta);
-		if(!messaggio.equals(OK))return messaggio+" et�";
+		if(!messaggio.equals(Evento.OK))return messaggio+" et�";
 		messaggio=eventoCreato.setTolleranzaPartecipanti(tolleranza);
-		if(!messaggio.equals(OK))return messaggio+" tolleranza";
+		if(!messaggio.equals(Evento.OK))return messaggio+" tolleranza";
 		messaggio=eventoCreato.setTermineUltimoRitiro(termineUltRit);
-		if(!messaggio.equals(OK))return messaggio+"termine ultimo ritiro";
-		return OK;
+		if(!messaggio.equals(Evento.OK))return messaggio+"termine ultimo ritiro";
+		return Evento.OK;
 	}
 	public void costruisciFinestraEventoPartita(Evento ev){
 
-
+		rimozioneVariPanel();
 		frame.setBounds(600, 300, 680, 540);
 		finestraEV = new JPanel();
 		finestraEV.setBackground(new Color(224, 255, 255));
@@ -905,29 +862,11 @@ public class FinestraMenu {
 		frame.repaint();
 	}
 	public void costruisciFinestraAP(){
-		if (bachecaEIM!= null)
-			frame.getContentPane().remove(bachecaEIM);
-		if (finestraCEVEscu!= null)
-			frame.getContentPane().remove(finestraCEVEscu);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelModificaDati!= null)
-			frame.getContentPane().remove(panelModificaDati);
-		if(panelInvito!= null)
-			frame.getContentPane().remove(panelInvito);	
-		if (panelAP!= null)
-			frame.getContentPane().remove(panelAP);
-		if (panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if (bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if (panelCategorie != null)
-			frame.getContentPane().remove(panelCategorie);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
-
+		rimozioneVariPanel();
+		
 		frame.revalidate();
 		frame.repaint();
+		frame.setBounds(600, 300, 680, 477);
 
 		panelAP = new JPanel();
 		panelAP.setBackground(new Color(176, 224, 230));
@@ -1091,22 +1030,8 @@ public class FinestraMenu {
 	}
 	public void costruisciPanelModificaDati(){
 
-		if(panelModificaDati!= null)
-			frame.getContentPane().remove(panelModificaDati);
-		if (finestraCEVEscu!= null)
-			frame.getContentPane().remove(finestraCEVEscu);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelCategorie != null)
-			frame.getContentPane().remove(panelCategorie);
-		if(panelAP != null)
-			frame.getContentPane().remove(panelAP);
-		if(panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if(bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
+		rimozioneVariPanel();
+
 		frame.revalidate();
 		frame.repaint();
 
@@ -1160,6 +1085,7 @@ public class FinestraMenu {
 
 
 		List list_1 = new List();
+		list_1.setMultipleMode(true);
 		list_1.setForeground(SystemColor.text);
 		list_1.setBackground(new Color(176, 224, 230));
 		list_1.setBounds(145, 197, 178, 22);
@@ -1213,25 +1139,8 @@ public class FinestraMenu {
 		frame.repaint();
 	}
 	public void costruisciPanelInvito(Evento eventoCreato){
-		if (bachecaEIM!= null)
-			frame.getContentPane().remove(bachecaEIM);
-		if (finestraCEVEscu!= null)
-			frame.getContentPane().remove(finestraCEVEscu);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelAP != null)
-			frame.getContentPane().remove(panelAP);
-		if(panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if(bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
-		if(panelCategorie!= null)
-			frame.getContentPane().remove(panelCategorie);
-		if(panelInvito!= null)
-			frame.getContentPane().remove(panelInvito);
-		
+
+		rimozioneVariPanel();
 		frame.revalidate();
 		frame.repaint();
 
@@ -1256,15 +1165,15 @@ public class FinestraMenu {
 		if(eventoCreato.getClass()==PartitaCalcioEvento.class)
 		{
 			
-			for(int i =0;i<sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).size();i++)
-				list.addItem(sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).get(i));
+			for(int i =0;i<sn.getPersoneInvitabili(Nomi.CAT_PARTITA_CALCIO.getNome()).size();i++)
+				list.addItem(sn.getPersoneInvitabili(Nomi.CAT_PARTITA_CALCIO.getNome()).get(i));
 		}
 		
 		if(eventoCreato.getClass()==EscursioneMontagnaEvento.class)
 		{
 			
-			for(int i =0;i<sn.getPersoneInvitabili(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()).size();i++)
-				list.addItem(sn.getPersoneInvitabili(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()).get(i));
+			for(int i =0;i<sn.getPersoneInvitabili(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()).size();i++)
+				list.addItem(sn.getPersoneInvitabili(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()).get(i));
 		}
 		
 		panelInvito.add(list);
@@ -1290,17 +1199,18 @@ public class FinestraMenu {
 				if(eventoCreato.getClass()==PartitaCalcioEvento.class)
 				{
 				for(int c=0;c<invitatiInt.length;c++)
-					invitati.add(sn.getPersoneInvitabili(NomiDB.CAT_PARTITA_CALCIO.getNome()).get(invitatiInt[c]));
+					invitati.add(sn.getPersoneInvitabili(Nomi.CAT_PARTITA_CALCIO.getNome()).get(invitatiInt[c]));
 				}
 				else if(eventoCreato.getClass()==EscursioneMontagnaEvento.class)
 				{
 					for(int c=0;c<invitatiInt.length;c++)
-						invitati.add(sn.getPersoneInvitabili(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome()).get(invitatiInt[c]));
+						invitati.add(sn.getPersoneInvitabili(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()).get(invitatiInt[c]));
 
 				}
 				
 				sn.addEvento(eventoCreato,invitati);
-				initialize();
+				System.out.println("sono qua");
+				costruisciFinestraAP();
 			}
 		});
 		btnConferma.setBounds(10, 185, 100, 23);
@@ -1310,23 +1220,8 @@ public class FinestraMenu {
 	
 	public void costruisciBachecaEIM(){
 		
-		
-		if (bachecaEIM!= null)
-			frame.getContentPane().remove(bachecaEIM);
-		if(finestraCEVPartita!= null)
-			frame.getContentPane().remove(finestraCEVPartita);
-		if(panelAP != null)
-			frame.getContentPane().remove(panelAP);
-		if(panelInfo != null)
-			frame.getContentPane().remove(panelInfo);
-		if(bachecaPDC != null)
-			frame.getContentPane().remove(bachecaPDC);
-		if(finestraEV != null)
-			frame.getContentPane().remove(finestraEV);
-		if(panelCategorie!= null)
-			frame.getContentPane().remove(panelCategorie);
-		if(panelInvito!= null)
-			frame.getContentPane().remove(panelInvito);
+		rimozioneVariPanel();
+
 
 		frame.setBounds(600, 300, 680, 477);//+30
 		frame.setResizable(false);
@@ -1354,7 +1249,7 @@ public class FinestraMenu {
 		bachecaEIM.add(pannelloTitoliE);
 		pannelloTitoliE.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 
-		eim = sn.mostraCategoria(NomiDB.CAT_ESCURSIOME_MONTAGNA.getNome());
+		eim = sn.mostraCategoria(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome());
 		ArrayList<Evento> bacheca = eim.getBacheca();
 		int size = bacheca.size();
 
@@ -1405,18 +1300,8 @@ public class FinestraMenu {
 		});
 		btnCreaEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (panelAP!= null)
-					frame.getContentPane().remove(panelAP);
-				if (bachecaEIM!= null)
-					frame.getContentPane().remove(bachecaEIM);
-				if (panelInfo != null)
-					frame.getContentPane().remove(panelInfo);
-				if (bachecaPDC != null)
-					frame.getContentPane().remove(bachecaPDC);
-				if (panelCategorie != null)
-					frame.getContentPane().remove(panelCategorie);
-				if(finestraEV != null)
-					frame.getContentPane().remove(finestraEV);
+				rimozioneVariPanel();
+	
 				frame.revalidate();
 				frame.repaint();
 				costruisciFinestraCreazioneEVEscursione();
@@ -1642,7 +1527,7 @@ public class FinestraMenu {
 				eventoCreato = new EscursioneMontagnaEvento();
 
 				messaggioErr.setText(settaCampiEscu(titolo,partNecessari,luogo,dataInizio,dataFine,durata,quota,compresoQuota,termineUltimo,note,oraMinInizio,oraMinFine,tolleranza,termineUltRit,quotaIstruttore,quotaAttrezzatura));
-				if(messaggioErr.getText().equals(OK))
+				if(messaggioErr.getText().equals(Evento.OK))
 				{  
 					System.out.println(messaggioErr.getText());
 					//if(eventoCreato.valido())
@@ -1681,35 +1566,35 @@ public class FinestraMenu {
 			
 		String messaggio;
 		messaggio=((EscursioneMontagnaEvento)eventoCreato).setTitolo(titolo);
-		if(!messaggio.equals(OK))return messaggio+" titolo";
+		if(!messaggio.equals(Evento.OK))return messaggio+" titolo";
 		messaggio=eventoCreato.setPartecipantiNecessari(partNec);
-		if(!messaggio.equals(OK))return messaggio+" part necessari";
+		if(!messaggio.equals(Evento.OK))return messaggio+" part necessari";
 		messaggio=eventoCreato.setLuogo(luogo);
-		if(!messaggio.equals(OK))return messaggio+" luogo";
+		if(!messaggio.equals(Evento.OK))return messaggio+" luogo";
 		messaggio=eventoCreato.setDataInizio(dataInizio, oraIni);
-		if(!messaggio.equals(OK))return messaggio+" data inizio";
+		if(!messaggio.equals(Evento.OK))return messaggio+" data inizio";
 		messaggio=eventoCreato.setDataFine(dataFine, oraFine);
-		if(!messaggio.equals(OK))return messaggio+" data fine";
+		if(!messaggio.equals(Evento.OK))return messaggio+" data fine";
 		messaggio=eventoCreato.setDurata(durata);
-		if(!messaggio.equals(OK))return messaggio+ " durata";
+		if(!messaggio.equals(Evento.OK))return messaggio+ " durata";
 		messaggio=eventoCreato.setQuotaIndividuale(quota);
-		if(!messaggio.equals(OK))return messaggio+" quota";
+		if(!messaggio.equals(Evento.OK))return messaggio+" quota";
 		messaggio=eventoCreato.setCompresoQuota(compresoQuota);
-		if(!messaggio.equals(OK))return messaggio+" compreso quota";
+		if(!messaggio.equals(Evento.OK))return messaggio+" compreso quota";
 		messaggio=eventoCreato.setTermineUltimo(termineUltimo);
-		if(!messaggio.equals(OK))return messaggio+" termine ultimo";
+		if(!messaggio.equals(Evento.OK))return messaggio+" termine ultimo";
 		messaggio=eventoCreato.setNote(note);
-		if(!messaggio.equals(OK))return messaggio+" note";
+		if(!messaggio.equals(Evento.OK))return messaggio+" note";
 		messaggio=eventoCreato.setTolleranzaPartecipanti(tolleranza);
-		if(!messaggio.equals(OK))return messaggio+" tolleranza";
+		if(!messaggio.equals(Evento.OK))return messaggio+" tolleranza";
 		messaggio=eventoCreato.setTermineUltimoRitiro(termineUltRit);
-		if(!messaggio.equals(OK))return messaggio+"termine ultimo ritiro";
+		if(!messaggio.equals(Evento.OK))return messaggio+"termine ultimo ritiro";
 		messaggio=((EscursioneMontagnaEvento)eventoCreato).setIstruttore(quotaIst);
-		if(!messaggio.equals(OK))return messaggio+"quota istruttore";
+		if(!messaggio.equals(Evento.OK))return messaggio+"quota istruttore";
 		messaggio=((EscursioneMontagnaEvento)eventoCreato).setAttrezzatura(quotaAtt);
-		if(!messaggio.equals(OK))return messaggio+"quota attrezzatura";
+		if(!messaggio.equals(Evento.OK))return messaggio+"quota attrezzatura";
 		
-		return OK;
+		return Evento.OK;
 		
 		
 	}
@@ -1736,7 +1621,6 @@ public class FinestraMenu {
 	
 	
 	}
-	
 	public void costruisciFinestraEventoEscu(Evento ev){
 		
 		
@@ -1945,19 +1829,34 @@ public class FinestraMenu {
 			}
 		});
 
-
-
-
-
-		//		frame.setResizable(false);
-		//		frame.setBounds(600, 300, 667, 430);
 		frame.revalidate();
 		frame.repaint();
 		
 		
 	}
-	
-	
+	public void rimozioneVariPanel(){
+		if (bachecaEIM!= null)
+			frame.getContentPane().remove(bachecaEIM);
+		if (finestraCEVEscu!= null)
+			frame.getContentPane().remove(finestraCEVEscu);
+		if(finestraCEVPartita!= null)
+			frame.getContentPane().remove(finestraCEVPartita);
+		if(panelAP != null)
+			frame.getContentPane().remove(panelAP);
+		if(panelInfo != null)
+			frame.getContentPane().remove(panelInfo);
+		if(bachecaPDC != null)
+			frame.getContentPane().remove(bachecaPDC);
+		if(finestraEV != null)
+			frame.getContentPane().remove(finestraEV);
+		if(panelCategorie!= null)
+			frame.getContentPane().remove(panelCategorie);
+		if(panelModificaDati!= null)
+			frame.getContentPane().remove(panelModificaDati);
+		if(panelInvito!= null)
+			frame.getContentPane().remove(panelInvito);	
+				
+	}
 }
 
 

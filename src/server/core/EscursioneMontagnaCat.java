@@ -1,4 +1,5 @@
-package cervello;
+
+package server.core;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

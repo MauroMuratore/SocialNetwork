@@ -1,24 +1,25 @@
+package server;
+
 import java.awt.EventQueue;
 
-import cervello.SocialNetwork;
 import interfacciaUtente.UserInterface;
+import server.core.SocialNetwork;
 
 public class Main {
 
-	public static SocialNetwork SN= new SocialNetwork(); //non dovrebbe essere static	2
-	static boolean rispostaUI=false;
-	public static  UserInterface UI =null; //non dovrebbe essere static
+	private static SocialNetwork SN= SocialNetwork.getInstance(); //non dovrebbe essere static	2
+	private static boolean rispostaUI=false;
+	private static  UserInterface UI =null; //non dovrebbe essere static
 
 	public static void main(String[] args)
 	{
 
 		try {
 
-			UI = new UserInterface(SN);
-			UI.getFrame().setVisible(true);
+			UI = new UserInterface();
+			//UI.getFrame().setVisible(true);
 
 		} catch (Exception e) {
-			System.out.println("User interface non disponibile!!");
 			e.printStackTrace();
 		}	
 
@@ -29,7 +30,6 @@ public class Main {
 			//System.out.println("sto cercando il logout");
 			if (UI.isLogOut())
 			{
-				System.out.println("ho trovato il logout");
 				cicloDiLogin();
 			}
 		}while(true);

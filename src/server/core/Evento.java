@@ -1,4 +1,5 @@
-package cervello;
+
+package server.core;
 
 import java.sql.Time;
 import java.util.Calendar;
@@ -6,8 +7,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-import database.ConsultaDB;
-import database.NomiDB;
+import server.database.ConsultaDB;
+import util.Nomi;
+import util.ControlloCampo;
+import util.Log;
 
 //FINISHIM
 public abstract class Evento {
@@ -28,6 +31,7 @@ public abstract class Evento {
 	protected Campo<GregorianCalendar> dataFine;
 	protected Campo<String> note;
 	protected Campo<Integer> tolleranzaPartecipanti;
+	protected String categoria;
 
 
 	public static final String EVENTO_VALIDO = "Evento valido";
@@ -158,6 +162,10 @@ public abstract class Evento {
 	public String getProprietario() {
 		return proprietario;
 	}
+	
+	public String getCategoria() {
+		return categoria;
+	}
 
 
 	public String setTitolo(String _titolo) {
@@ -173,15 +181,15 @@ public abstract class Evento {
 	}
 	
 	public String setTermineUltimoRitiro(String _termineUltimoRitiro) {
-		if(!Campo.controlloData(_termineUltimoRitiro).equals(Campo.OK))
-			return Campo.controlloData(_termineUltimoRitiro);
-		termineUltimoRitiro.setValore(Campo.assumiData(_termineUltimoRitiro));
+		if(!ControlloCampo.controlloData(_termineUltimoRitiro).equals(Campo.OK))
+			return ControlloCampo.controlloData(_termineUltimoRitiro);
+		termineUltimoRitiro.setValore(ControlloCampo.assumiData(_termineUltimoRitiro));
 		return OK;
 	}
 
 	public String setPartecipantiNecessari(String _partecipantiNecessari) {
 		_partecipantiNecessari.trim();
-		if(Campo.controlloIntero(_partecipantiNecessari).equals(Campo.FORMATO_INTERO_SBAGLIATO)) {
+		if(ControlloCampo.controlloIntero(_partecipantiNecessari).equals(Campo.FORMATO_INTERO_SBAGLIATO)) {
 			return Campo.FORMATO_INTERO_SBAGLIATO;
 		}
 		int partNec = Integer.parseInt(_partecipantiNecessari);
@@ -194,10 +202,10 @@ public abstract class Evento {
 
 
 	public String setTermineUltimo(String data) {
-		if(!Campo.controlloData(data).equals(Campo.OK))
-			return Campo.controlloData(data);
-		termineUltimoRitiro.setValore(Campo.assumiData(data));
-		termineUltimo.setValore(Campo.assumiData(data));
+		if(!ControlloCampo.controlloData(data).equals(Campo.OK))
+			return ControlloCampo.controlloData(data);
+		termineUltimoRitiro.setValore(ControlloCampo.assumiData(data));
+		termineUltimo.setValore(ControlloCampo.assumiData(data));
 		return OK;
 	}
 
@@ -210,21 +218,21 @@ public abstract class Evento {
 	}
 
 	public String setDataInizio(String data, String ora) {
-		if(!Campo.controlloData(data, ora).equals(Campo.OK))
-			return Campo.controlloData(data, ora);
-		dataInizio.setValore(Campo.assumiData(data, ora));
+		if(!ControlloCampo.controlloData(data, ora).equals(Campo.OK))
+			return ControlloCampo.controlloData(data, ora);
+		dataInizio.setValore(ControlloCampo.assumiData(data, ora));
 		return OK;
 	}
 
 	public String setDurata(String _durata) {
-		if(Campo.controlloIntero(_durata).equals(Campo.FORMATO_INTERO_SBAGLIATO))
+		if(ControlloCampo.controlloIntero(_durata).equals(Campo.FORMATO_INTERO_SBAGLIATO))
 			return Campo.FORMATO_INTERO_SBAGLIATO;
 		durata.setValore(Integer.parseInt(_durata));
 		return OK;
 	}
 
 	public String setQuotaIndividuale(String _quotaIndividuale) {
-		if(Campo.controlloIntero(_quotaIndividuale).equals(Campo.FORMATO_INTERO_SBAGLIATO))
+		if(ControlloCampo.controlloIntero(_quotaIndividuale).equals(Campo.FORMATO_INTERO_SBAGLIATO))
 			return Campo.FORMATO_INTERO_SBAGLIATO;
 		quotaIndividuale.setValore(Integer.parseInt(_quotaIndividuale));
 		return OK;
@@ -239,9 +247,9 @@ public abstract class Evento {
 	}
 
 	public String setDataFine(String data, String ora) {
-		if(!Campo.controlloData(data, ora).equals(Campo.OK))
-			return Campo.controlloData(data, ora);
-		dataFine.setValore(Campo.assumiData(data, ora));
+		if(!ControlloCampo.controlloData(data, ora).equals(Campo.OK))
+			return ControlloCampo.controlloData(data, ora);
+		dataFine.setValore(ControlloCampo.assumiData(data, ora));
 		return OK;
 	}
 
@@ -254,8 +262,8 @@ public abstract class Evento {
 	}
 	
 	public String setTolleranzaPartecipanti(String _tolleranzaPartecipanti) {
-		if(!Campo.controlloIntero(_tolleranzaPartecipanti).equals(OK)) {
-			return Campo.controlloIntero(_tolleranzaPartecipanti);
+		if(!ControlloCampo.controlloIntero(_tolleranzaPartecipanti).equals(OK)) {
+			return ControlloCampo.controlloIntero(_tolleranzaPartecipanti);
 		}
 		tolleranzaPartecipanti.setValore(Integer.parseInt(_tolleranzaPartecipanti));
 		return OK;
@@ -339,7 +347,7 @@ public abstract class Evento {
 		oggi.setTime(date);
 		Notifica ritorno;
 		if(!proprietario.equals(_proprietario)) {
-			System.out.println("proprietario diverso " + proprietario );
+			Log.writeRoutineLog(this.getClass(), "proprietario diverso " + proprietario );
 			ritorno = new Notifica (this, Notifica.PROPRIETARIO_DIVERSO);
 		}
 		else if(oggi.before(termineUltimoRitiro.getValore()) || oggi.equals(termineUltimoRitiro.getValore())) {

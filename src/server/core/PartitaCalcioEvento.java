@@ -1,10 +1,12 @@
-package cervello;
+
+package server.core;
 
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-import database.ConsultaDB;
-import database.NomiDB;
+import server.database.ConsultaDB;
+import util.Nomi;
+import util.ControlloCampo;
 public class PartitaCalcioEvento extends Evento {
 
 	private Campo<String> sesso;
@@ -21,6 +23,7 @@ public class PartitaCalcioEvento extends Evento {
 				_dataFine, _note, _tolleranzaPartecipanti, _stato);
 		this.sesso=_sesso;
 		this.eta=_eta;
+		categoria=Nomi.CAT_PARTITA_CALCIO.getNome();
 	}
 
 	public PartitaCalcioEvento(Campo<String> titolo, Campo<Integer> partecipantiMax, String proprietario,
@@ -30,28 +33,30 @@ public class PartitaCalcioEvento extends Evento {
 		super(titolo, partecipantiMax, proprietario, termineUltimo, termineUltimoRitiro, luogo, dataInizio, durata, quotaIndividuale, compresoQuota, dataFine, note, tolleranzaPartecipanti);
 		this.sesso=sesso;
 		this.eta=eta;
+		categoria=Nomi.CAT_PARTITA_CALCIO.getNome();
 	}
 
 	public PartitaCalcioEvento() {
 		super();
-		titolo = new Campo<String>(NomiDB.CAMPO_TITOLO.getNome(), "", false);
-		partecipantiNecessari = new Campo<Integer>(NomiDB.CAMPO_PARTECIPANTI_MAX.getNome(), "", true);
-		termineUltimo = new Campo<GregorianCalendar>(NomiDB.CAMPO_TERMINE_ULTIMO.getNome(), "", true);
-		luogo = new Campo<String>(NomiDB.CAMPO_LUOGO.getNome(), "", true);
-		dataInizio = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_INIZIO.getNome(), "", true);
-		durata = new Campo<Integer>(NomiDB.CAMPO_DURATA.getNome(), "", false);
-		quotaIndividuale = new Campo<Integer>(NomiDB.CAMPO_QUOTA_IND.getNome(), "", true);
-		compresoQuota = new Campo<String>(NomiDB.CAMPO_COMPRESO_QUOTA.getNome(), "", false);
-		dataFine = new Campo<GregorianCalendar>(NomiDB.CAMPO_DATA_FINE.getNome(), "", false);
-		note = new Campo<String>(NomiDB.CAMPO_NOTE.getNome(), "", false);
-		tolleranzaPartecipanti = new Campo<Integer>(NomiDB.CAMPO_TOLLERANZA.getNome(), "", false);
-		termineUltimoRitiro = new Campo<GregorianCalendar>(NomiDB.CAMPO_TERMINE_ULTIMO_RITIRO.getNome(), "", false);
-		sesso = new Campo<String>(NomiDB.CAMPO_SESSO.getNome(), "", true);
-		eta = new Campo<Integer>(NomiDB.CAMPO_ETA.getNome(), "",false);
+		titolo = new Campo<String>(Nomi.CAMPO_TITOLO.getNome(), "", false);
+		partecipantiNecessari = new Campo<Integer>(Nomi.CAMPO_PARTECIPANTI_MAX.getNome(), "", true);
+		termineUltimo = new Campo<GregorianCalendar>(Nomi.CAMPO_TERMINE_ULTIMO.getNome(), "", true);
+		luogo = new Campo<String>(Nomi.CAMPO_LUOGO.getNome(), "", true);
+		dataInizio = new Campo<GregorianCalendar>(Nomi.CAMPO_DATA_INIZIO.getNome(), "", true);
+		durata = new Campo<Integer>(Nomi.CAMPO_DURATA.getNome(), "", false);
+		quotaIndividuale = new Campo<Integer>(Nomi.CAMPO_QUOTA_IND.getNome(), "", true);
+		compresoQuota = new Campo<String>(Nomi.CAMPO_COMPRESO_QUOTA.getNome(), "", false);
+		dataFine = new Campo<GregorianCalendar>(Nomi.CAMPO_DATA_FINE.getNome(), "", false);
+		note = new Campo<String>(Nomi.CAMPO_NOTE.getNome(), "", false);
+		tolleranzaPartecipanti = new Campo<Integer>(Nomi.CAMPO_TOLLERANZA.getNome(), "", false);
+		termineUltimoRitiro = new Campo<GregorianCalendar>(Nomi.CAMPO_TERMINE_ULTIMO_RITIRO.getNome(), "", false);
+		sesso = new Campo<String>(Nomi.CAMPO_SESSO.getNome(), "", true);
+		eta = new Campo<Integer>(Nomi.CAMPO_ETA.getNome(), "",false);
+		categoria=Nomi.CAT_PARTITA_CALCIO.getNome();
 	}
 
 	public boolean valido() {
-		ConsultaDB cdb = new ConsultaDB();
+		ConsultaDB cdb = ConsultaDB.getInstance();
 		if(partecipantiNecessari.getValore()==null) {
 			return false;
 		}
@@ -95,7 +100,7 @@ public class PartitaCalcioEvento extends Evento {
 	}
 
 	public String setEta(String _eta) {
-		if(Campo.controlloIntero(_eta).equals(Campo.FORMATO_INTERO_SBAGLIATO))
+		if(ControlloCampo.controlloIntero(_eta).equals(Campo.FORMATO_INTERO_SBAGLIATO))
 			return Campo.FORMATO_INTERO_SBAGLIATO;
 		eta.setValore(Integer.parseInt(_eta));
 		return OK;

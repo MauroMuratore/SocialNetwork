@@ -1,6 +1,6 @@
-package database;
+package util;
 
-public enum NomiDB {
+public enum Nomi {
 
 	CAMPO_TITOLO("titolo"),
 	CAMPO_COMPRESO_QUOTA("compreso quota"),
@@ -62,7 +62,7 @@ public enum NomiDB {
 	
 	private String nome;
 	
-	private NomiDB(String _nome) {
+	private Nomi(String _nome) {
 		nome=_nome;
 	}
 	

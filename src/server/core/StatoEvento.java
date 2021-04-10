@@ -1,4 +1,5 @@
-package cervello;
+
+package server.core;
 
 public enum StatoEvento {
 	
