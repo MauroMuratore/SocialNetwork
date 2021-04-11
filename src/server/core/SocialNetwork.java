@@ -27,7 +27,7 @@ public class SocialNetwork {
 	public static final String ETAMIN_MAGG_ETAMAX = "Eta minima maggiore di eta massima";
 	public static final String INVITI_SPEDITI = "Inviti spediti";
 
-	public SocialNetwork(ConsultaDB cDB) {
+	private SocialNetwork(ConsultaDB cDB) {
 		this.consultaDB=cDB;
 		categorie = new Hashtable<String, Categoria>();
 		PartitaCalcioCat pdc = (PartitaCalcioCat) consultaDB.leggiCategoria(Nomi.CAT_PARTITA_CALCIO.getNome());

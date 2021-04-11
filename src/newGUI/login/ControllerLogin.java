@@ -18,9 +18,9 @@ public class ControllerLogin implements ActionListener {
 	private String[] categoriePref;
 	private boolean isReg;
 	
-	public ControllerLogin() {
+	public ControllerLogin(String[] cat) {
 		model = new ModelLogin();
-		view = new ViewLogin();
+		view = new ViewLogin(cat);
 		view.addActionListener(this);
 	}
 
@@ -52,6 +52,10 @@ public class ControllerLogin implements ActionListener {
 			e.printStackTrace();
 		}
 		return model;
+	}
+	
+	public void dispose() {
+		view.dispose();
 	}
 
 	

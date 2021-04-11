@@ -56,25 +56,9 @@ public class ViewLogin extends JFrame {
 	private JButton btnConfermaLog;
 	
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewLogin frame = new ViewLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-	public ViewLogin() {
+	public ViewLogin(String[] cat) {
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 402, 386);
@@ -200,11 +184,9 @@ public class ViewLogin extends JFrame {
 		panelReg.add(scrollPane);
 		
 		DefaultListModel<String> listaModel = new DefaultListModel();
-		listaModel.addElement("cosa1");
-		listaModel.addElement("cosa2");
-		listaModel.addElement("cosa3");
-		listaModel.addElement("cosa4");
-		
+		for(int i=0; i<cat.length; i++) {
+			listaModel.addElement(cat[i]);
+		}
 		list = new JList(listaModel);
 		scrollPane.setViewportView(list);
 		list.setVisible(true);
@@ -217,6 +199,8 @@ public class ViewLogin extends JFrame {
 		this.setVisible(true);
 	}
 	
+	
+
 	public void addActionListener(ActionListener al) {
 		btnConfermaLog.addActionListener(al);
 		btnConfermaLog.setActionCommand("Login");

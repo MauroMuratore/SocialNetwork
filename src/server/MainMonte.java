@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import interfacciaUtente.UserInterface;
 import server.core.SocialNetwork;
 
-public class Main {
+public class MainMonte {
 
 	private static SocialNetwork SN= SocialNetwork.getInstance(); //non dovrebbe essere static	2
 	private static boolean rispostaUI=false;
