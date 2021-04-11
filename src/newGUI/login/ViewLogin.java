@@ -27,6 +27,8 @@ import java.awt.Insets;
 import javax.swing.JSpinner;
 import javax.swing.JList;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
@@ -116,12 +118,7 @@ public class ViewLogin extends JFrame {
 		panel.add(panel_1);
 		
 		btnConfermaLog = new JButton("Conferma");
-		btnConfermaLog.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				username=textUsernameLog.getText();
-				password=new String(passwordFieldLog.getPassword());	
-				}
-		});
+
 		btnConfermaLog.setBounds(41, 246, 104, 25);
 		panelLog.add(btnConfermaLog);
 		
@@ -133,6 +130,7 @@ public class ViewLogin extends JFrame {
 			}
 		});
 		panelLog.add(btnRegistrati);
+		
 		
 		JPanel panelReg = new JPanel();
 		panelReg.setBorder(new EmptyBorder(0, 20, 0, 0));
@@ -212,17 +210,7 @@ public class ViewLogin extends JFrame {
 		list.setVisible(true);
 		
 		btnConfermaReg = new JButton("Conferma");
-		btnConfermaReg.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				username = textUsernameLog.getText();
-				password = new String (passwordFieldReg.getPassword());
-				confermaPW = new String (passwordFieldConferma.getPassword());
-				etaMin = ((Integer) spinnerEtaMin.getValue() ).intValue();
-				etaMax = ((Integer) spinnerEtaMax.getValue() ).intValue();
-				categoriePref = (String[]) list.getSelectedValuesList().toArray();
-				}
-		});
-		
+
 		btnConfermaReg.setBounds(22, 296, 117, 25);
 		panelReg.add(btnConfermaReg);	
 		
@@ -265,7 +253,12 @@ public class ViewLogin extends JFrame {
 	}
 
 	public String[] getCategoriePref() {
-		return categoriePref = (String[]) list.getSelectedValuesList().toArray();
+		int lenght = list.getSelectedValuesList().size();
+		String[] ritorno = new String[lenght];
+		for(int i=0; i<lenght; i++) {
+			ritorno[i]= (String) list.getSelectedValuesList().get(i);
+		}
+		return ritorno;
 	}
 	
 	
