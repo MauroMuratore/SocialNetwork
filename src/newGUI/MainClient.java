@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.List;
 
 import net.Channel;
 import newGUI.login.ControllerLogin;
 import newGUI.login.ModelLogin;
+import util.Nomi;
 
 public class MainClient {
 
@@ -28,15 +30,15 @@ public class MainClient {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		channel = new Channel(socket);
-		//ricevo titoli categorie
-		
+		controllerLogin = new ControllerLogin(channel);
+		controllerLogin.login();
 
 
 
 
 	}
+	
 
 
 

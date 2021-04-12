@@ -14,7 +14,7 @@ public class SocialNetwork {
 	private Utente utente;
 	private ConsultaDB consultaDB;
 	private Hashtable<String, LinkedList<Notifica>> notificheDaInoltrare;
-
+/*
 	public static final String IMPOSSIBILE_CANCELLARE_EVENTO = "impossibile cancellare evento";
 	public static final String BENVENUTO = "BENVENUTO";
 	public static final String ID_INESISTENTE = "ATTENZIONE! : username inesistente";
@@ -26,7 +26,7 @@ public class SocialNetwork {
 	public static final String NOTIFICA_CANCELLATA = "Notifica cancellata";
 	public static final String ETAMIN_MAGG_ETAMAX = "Eta minima maggiore di eta massima";
 	public static final String INVITI_SPEDITI = "Inviti spediti";
-
+*/
 	private SocialNetwork(ConsultaDB cDB) {
 		this.consultaDB=cDB;
 		categorie = new Hashtable<String, Categoria>();
@@ -60,11 +60,11 @@ public class SocialNetwork {
 		if (consultaDB.controllaID(id)) {
 			if (consultaDB.controllaPW(hash, id)) {
 				setUtente(id);
-				return BENVENUTO;
+				return Nomi.SN_BENVENUTO.getNome();
 			} else
-				return PW_SBAGLIATA;
+				return Nomi.SN_PW_SBAGLIATA.getNome();
 		} else
-			return ID_INESISTENTE;
+			return Nomi.SN_ID_INESISTENTE.getNome();
 	}
 
 	/**
@@ -80,39 +80,40 @@ public class SocialNetwork {
 	 * BENVENUTO se la registrazione avviene con successo
 	 * ID_IN_USO id gia' in uso
 	 */
-	public String registrazione(String username, String hash, String conferma,String minEta,String maxEta,String[] categoriePref) {
+	public String registrazione(String username, String hash, String conferma,int minEta,int maxEta,String[] categoriePref) {
 		if (!consultaDB.controllaID(username))// controllo se ce gia id nel database
 		{
 			if (username.length() < 7)
-				return ID_CORTO;
+				return Nomi.SN_ID_CORTO.getNome();
 			if (hash.length() < 7) {
-				return PW_CORTA;
+				return Nomi.SN_PW_CORTA.getNome();
 			}
 			boolean uguali = true;
 			if (hash.length() != conferma.length())
-				return PW_DIVERSE;
+				return Nomi.SN_PW_DIVERSE.getNome();
 			else if(!hash.equals(conferma))
-				return PW_DIVERSE;
+				return Nomi.SN_PW_DIVERSE.getNome();
 	
-			if(!ControlloCampo.controlloIntero(minEta).equals(Campo.OK))
+			/*if(!ControlloCampo.controlloIntero(minEta).equals(Campo.OK))
 				return ControlloCampo.controlloIntero(minEta);
 			if(!ControlloCampo.controlloIntero(maxEta).equals(Campo.OK))
 				return ControlloCampo.controlloIntero(maxEta);
 			int etaMin = Integer.parseInt(minEta);
 			int etaMax = Integer.parseInt(maxEta);
-			if(etaMin>etaMax)
-				return ETAMIN_MAGG_ETAMAX;
+			*/
+			if(minEta>maxEta)
+				return Nomi.SN_ETAMIN_MAGG_ETAMAX.getNome();
 
-			Utente nuovoUtente = new Utente (username, hash, etaMin, etaMax, categoriePref);
+			Utente nuovoUtente = new Utente (username, hash, minEta, maxEta, categoriePref);
 			consultaDB.salvaUtente(nuovoUtente);
 			for(String cat: categoriePref) {
 				categorie.get(cat).addPersonaInteressata(username);
 			}
 			consultaDB.salvaCategorie(categorie);
 			setUtente(username);
-			return BENVENUTO;
+			return Nomi.SN_BENVENUTO.getNome();
 		} else
-			return ID_IN_USO;
+			return Nomi.SN_ID_IN_USO.getNome();
 	}
 
 	/*
@@ -140,6 +141,10 @@ public class SocialNetwork {
 		consultaDB.salvaNotifichePendenti(notificheDaInoltrare);
 		consultaDB.salvaCategorie(categorie);
 		return 0;
+	}
+	
+	public void cancellaUtente(String username) {
+		consultaDB.cancellaUtente(username);
 	}
 
 	/**
@@ -312,7 +317,7 @@ public class SocialNetwork {
 		Log.writeRoutineLog(this.getClass(), "cancello notifica ");
 		consultaDB.cancellaNotifica(notifica, utente);
 
-		return NOTIFICA_CANCELLATA;
+		return Nomi.SN_NOTIFICA_CANCELLATA.getNome();
 	}
 
 	public Utente getUtente() {
@@ -374,7 +379,7 @@ public class SocialNetwork {
 				return ControlloCampo.controlloIntero(attributoUtente);
 			int etaMin = Integer.parseInt(attributoUtente);
 			if(etaMin>utente.getEtaMax())
-				return ETAMIN_MAGG_ETAMAX;
+				return Nomi.SN_ETAMIN_MAGG_ETAMAX.getNome();
 			utente.setEtaMin(etaMin);
 		}
 		else if(tipoAttributo==Utente.ETA_MAX) {
@@ -382,7 +387,7 @@ public class SocialNetwork {
 				return ControlloCampo.controlloIntero(attributoUtente);
 			int etaMax = Integer.parseInt(attributoUtente);
 			if(etaMax<utente.getEtaMin())
-				return ETAMIN_MAGG_ETAMAX;
+				return Nomi.SN_ETAMIN_MAGG_ETAMAX.getNome();
 			utente.setEtaMax(etaMax);
 		}
 		else if(tipoAttributo==Utente.AGGIUNGI_INTERESSE) {
@@ -436,8 +441,8 @@ public class SocialNetwork {
 			notificheDaInoltrare.get(persona).add(new Invito(evento));
 		}
 
-		Log.writeRoutineLog(this.getClass(), INVITI_SPEDITI);
-		return INVITI_SPEDITI;
+		Log.writeRoutineLog(this.getClass(), Nomi.SN_INVITI_SPEDITI.getNome());
+		return Nomi.SN_INVITI_SPEDITI.getNome();
 	}
 
 	/**

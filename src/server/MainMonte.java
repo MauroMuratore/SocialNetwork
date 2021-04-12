@@ -80,7 +80,7 @@ public class MainMonte {
 				String min=UI.getMin();
 			    String max=UI.getMax();
 			    String[] categoriePreferite=UI.getCategoriePreferite();
-				risposta=SN.registrazione(id, pw, confermaPW,min,max,categoriePreferite);
+				risposta=SN.registrazione(id, pw, confermaPW,Integer.parseInt(min), Integer.parseInt(max),categoriePreferite);
 				System.out.println(risposta);
 				rispostaUI=UI.riceviStringa(risposta);
 				UI.setFalse();

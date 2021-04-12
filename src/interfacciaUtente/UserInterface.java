@@ -12,6 +12,7 @@ import javax.swing.UIManager;
 
 import server.core.SocialNetwork;
 import server.database.ConsultaDB;
+import util.Nomi;
 
 import java.awt.SystemColor;
 import java.awt.FlowLayout;
@@ -109,40 +110,41 @@ public class UserInterface {
 		else return false;
 	}
 	public boolean riceviStringa(String rispostaSN){
-			switch(rispostaSN)
+			/*switch(rispostaSN)
 			{
-			case SocialNetwork.BENVENUTO : 
+			case Nomi.SN_BENVENUTO.getNome() : 
 				rispostaUI=true;
 				finestraLog.getTextPane().setText("");
 				return rispostaUI;
-			case SocialNetwork.ID_INESISTENTE :
+			case Nomi.SN_ID_INESISTENTE.getNome() :
 				rispostaUI=false;
-				finestraLog.getTextPane().setText(SocialNetwork.ID_INESISTENTE);
+				finestraLog.getTextPane().setText(Nomi.SN_ID_INESISTENTE.getNome());
 				return rispostaUI;
-			case SocialNetwork.PW_SBAGLIATA : 
+			case Nomi.SN_PW_SBAGLIATA.getNome() : 
 				rispostaUI=false;
-				finestraLog.getTextPane().setText(SocialNetwork.PW_SBAGLIATA);
+				finestraLog.getTextPane().setText(Nomi.SN_PW_SBAGLIATA.getNome());
 				return rispostaUI;
-			case SocialNetwork.ID_IN_USO : 
+			case Nomi.SN_ID_IN_USO.getNome() : 
 				rispostaUI=false;
-				finestraReg.getTextPane_1().setText(SocialNetwork.ID_IN_USO);
+				finestraReg.getTextPane_1().setText(Nomi.SN_ID_IN_USO.getNome());
 				return rispostaUI;
-			case SocialNetwork.PW_DIVERSE: 
+			case Nomi.SN_PW_DIVERSE.getNome(): 
 				rispostaUI=false;
-				finestraReg.getTextPane_1().setText(SocialNetwork.PW_DIVERSE);
+				finestraReg.getTextPane_1().setText(Nomi.SN_PW_DIVERSE.getNome());
 				return rispostaUI;
-			case SocialNetwork.PW_CORTA: 
+			case Nomi.SN_PW_CORTA.getNome(): 
 				rispostaUI=false;
-				finestraReg.getTextPane_1().setText(SocialNetwork.PW_CORTA);
+				finestraReg.getTextPane_1().setText(Nomi.SN_PW_CORTA.getNome());
 				return rispostaUI;
-			case SocialNetwork.ID_CORTO: 
+			case Nomi.SN_ID_CORTO.getNome(): 
 				rispostaUI=false;
-				finestraReg.getTextPane_1().setText(SocialNetwork.ID_CORTO);
+				finestraReg.getTextPane_1().setText(Nomi.SN_ID_CORTO.getNome());
 				return rispostaUI;
 			default : 
 				rispostaUI=false;
 				return rispostaUI;	
-			}	
+			}*/
+		return false;
 		}	
 
 	private void initialize(){	

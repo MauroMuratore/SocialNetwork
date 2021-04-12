@@ -57,8 +57,18 @@ public enum Nomi {
 	CAT_PARTITA_CALCIO("partita calcio"),
 	CAT_ESCURSIOME_MONTAGNA("escursione in montagna"),
 	LISTA_ATTREZZATURE("lista_attrezzature"),
-	LISTA_ISTRUTTORE("lista_istruttore");
-	
+	LISTA_ISTRUTTORE("lista_istruttore"),
+	SN_IMPOSSIBILE_CANCELLARE_EVENTO ("impossibile cancellare evento"),
+	SN_BENVENUTO ("BENVENUTO"),
+	SN_ID_INESISTENTE ("ATTENZIONE! : username inesistente"),
+	SN_ID_CORTO ("ATTENZIONE! : id troppo corto"),
+	SN_PW_SBAGLIATA ("ATTENZIONE! : password sbalgiata"),
+	SN_PW_CORTA ("ATTENZIONE! : passoword troppo corta"),
+	SN_ID_IN_USO ("ATTENZIONE! : username in uso"),
+	SN_PW_DIVERSE ("ATTENZIONE! : password diverse"),
+	SN_NOTIFICA_CANCELLATA ("Notifica cancellata"),
+	SN_ETAMIN_MAGG_ETAMAX ("Eta minima maggiore di eta massima"),
+	SN_INVITI_SPEDITI ("Inviti spediti");
 	
 	private String nome;
 	

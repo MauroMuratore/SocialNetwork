@@ -10,7 +10,11 @@ public class ModelLogin {
 	private String[] categoriePref;
 	
 	public ModelLogin() {
-		
+		username ="";
+		password ="";
+		confermaPW ="";
+		etaMin=0;
+		etaMax=0;
 	}
 
 	public String getUsername() {
