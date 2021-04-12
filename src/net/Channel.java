@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import util.Log;
+import util.Nomi;
 
 public class Channel implements AutoCloseable{
 
@@ -38,7 +39,8 @@ public class Channel implements AutoCloseable{
 		}
 	}
 
-	public void write(Object obj) {
+	public void write(Object obj){
+
 		try {
 			output.writeObject(obj);
 		} catch (IOException e) {
@@ -47,19 +49,28 @@ public class Channel implements AutoCloseable{
 		}
 	}
 
-	public Object read() {
+	public Object read() throws IOException {
+		if(socket.isClosed())
+			throw new IOException();
+		
 		
 		try {
-			return input.readObject();
+			Object ritorno = input.readObject();
+			if(ritorno.equals(Nomi.NET_CHIUSURA_SOCKET))
+				throw new IOException();
+
+
+
+			return ritorno;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		}/* catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
-		
+*/		return null;
+
 	}
 
 	public void close() {

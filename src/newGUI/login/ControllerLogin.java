@@ -30,7 +30,14 @@ public class ControllerLogin implements ActionListener, WindowListener {
 		channel = _channel;
 		List<String> listCat = null;;
 
-		listCat = (List<String>) channel.read();
+		try {
+			listCat = (List<String>) channel.read();
+		} catch (IOException e) {
+			System.err.println("perdita connessione con il server");
+			new JError("perdita connessione con il server");
+			e.printStackTrace();
+
+		}
 		String[] cat = new String[listCat.size()];
 		for(int i=0; i<listCat.size(); i++) {
 			cat[i]=listCat.get(i);
@@ -91,19 +98,28 @@ public class ControllerLogin implements ActionListener, WindowListener {
 			//invio prima username e password, che è comune a login e registrazione
 			channel.write(model.getUsername());
 			channel.write(model.getPassword());
-
 			//invio boolean per sapere se è un login o registrazione
 			channel.write(isReg);
+
+
+
 			//se è una registrazione mando anche tutti gli altri dati
 			if(isReg) {
 				channel.write(model.getConfermaPW());
 				channel.write(model.getEtaMin());
 				channel.write(model.getEtaMax());
 				channel.write(model.getCategoriePref());
+
 			}
 
 
-			risposta = (String) channel.read();
+			try {
+				risposta = (String) channel.read();
+			} catch (IOException e) {
+				System.err.println("perdita connessione con il server");
+				new JError("perdita connessione con il server");
+				e.printStackTrace();
+			}
 			if(!risposta.equals(Nomi.SN_BENVENUTO.getNome())) {
 				new JError(risposta);
 			}
@@ -126,7 +142,7 @@ public class ControllerLogin implements ActionListener, WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		channel.write("close");
+		channel.write(Nomi.NET_CHIUSURA_SOCKET);
 		channel.close();
 		System.exit(0);
 
