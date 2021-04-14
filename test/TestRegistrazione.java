@@ -4,11 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import server.core.Campo;
-import server.core.SocialNetwork;
-import server.core.Utente;
+import lib.core.Campo;
+import lib.core.Utente;
+import lib.util.Nomi;
+import server.SocialNetwork;
 import server.database.ConsultaDB;
-import util.Nomi;
 
 public class TestRegistrazione {
 

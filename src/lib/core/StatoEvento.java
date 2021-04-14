@@ -1,5 +1,5 @@
 
-package server.core;
+package lib.core;
 
 public enum StatoEvento {
 	

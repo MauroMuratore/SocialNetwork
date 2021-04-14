@@ -1,12 +1,12 @@
-package net;
+package lib.net;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-import util.Log;
-import util.Nomi;
+import lib.util.Log;
+import lib.util.Nomi;
 
 public class Channel implements AutoCloseable{
 

@@ -1,5 +1,5 @@
 
-package server.core;
+package lib.core;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -3,7 +3,6 @@ package server;
 import java.awt.EventQueue;
 
 import interfacciaUtente.UserInterface;
-import server.core.SocialNetwork;
 
 public class MainMonte {
 

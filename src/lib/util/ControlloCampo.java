@@ -1,8 +1,8 @@
-package util;
+package lib.util;
 
 import java.util.GregorianCalendar;
 
-import server.core.Campo;
+import lib.core.Campo;
 
 public class ControlloCampo {
 	/**

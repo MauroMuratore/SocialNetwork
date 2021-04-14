@@ -2,10 +2,10 @@ package server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import net.Channel;
-import server.core.SocialNetwork;
-import util.Log;
-import util.Nomi;
+
+import lib.net.Channel;
+import lib.util.Log;
+import lib.util.Nomi;
 
 public class MainServer {
 
@@ -28,7 +28,7 @@ public class MainServer {
 				e1.printStackTrace();
 			}
 		}
-
+		boolean noError=true;
 		while(true) {
 			System.out.println("In attesa di una connessione \n");
 			try {
@@ -40,7 +40,9 @@ public class MainServer {
 			//invio titoli categorie
 			channel.write(social.titoliCategorie());
 
-			login();
+			noError = login();
+			if(!noError)
+				continue;
 		}
 
 
@@ -48,7 +50,7 @@ public class MainServer {
 	}
 
 
-	public static void login() {
+	public static boolean login() {
 		String risposta;
 		String username = null, password=null, confermaPW = null;
 		String[] cat = null;
@@ -62,7 +64,7 @@ public class MainServer {
 			}catch(IOException e) {
 				Log.writeErrorLog(channel.getClass(), "Impossibile leggere dal client. Chiusura socket improvvisa");
 				e.printStackTrace();
-				return;
+				return false;
 			}
 			if(isReg) {
 
@@ -74,7 +76,7 @@ public class MainServer {
 				}catch(IOException e) {
 					Log.writeErrorLog(channel.getClass(), "Impossibile leggere dal client. Chiusura socket improvvisa");
 					e.printStackTrace();
-					return;
+					return false;
 				}
 				risposta = social.registrazione(username, password, confermaPW, etaMin, etaMax, cat);
 			}
@@ -84,6 +86,6 @@ public class MainServer {
 			channel.write(risposta);
 
 		}while(!risposta.equals(Nomi.SN_BENVENUTO.getNome()));
-
+		return true;
 	}
 }

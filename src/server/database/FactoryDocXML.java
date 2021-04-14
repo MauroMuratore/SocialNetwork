@@ -10,8 +10,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import util.Log;
-import util.Nomi;
+import lib.util.Log;
+import lib.util.Nomi;
 
 public class FactoryDocXML {
 	

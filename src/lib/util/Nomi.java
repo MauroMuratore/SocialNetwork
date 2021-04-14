@@ -1,4 +1,4 @@
-package util;
+package lib.util;
 
 public enum Nomi {
 

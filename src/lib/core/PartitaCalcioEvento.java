@@ -1,12 +1,12 @@
 
-package server.core;
+package lib.core;
 
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
+import lib.util.ControlloCampo;
+import lib.util.Nomi;
 import server.database.ConsultaDB;
-import util.Nomi;
-import util.ControlloCampo;
 public class PartitaCalcioEvento extends Evento {
 
 	private Campo<String> sesso;

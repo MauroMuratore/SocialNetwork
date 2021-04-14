@@ -21,17 +21,17 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
-import server.core.Campo;
-import server.core.Categoria;
-import server.core.EscursioneMontagnaEvento;
-import server.core.Evento;
-import server.core.Invito;
-import server.core.Notifica;
-import server.core.PartitaCalcioEvento;
-import server.core.StatoEvento;
-import server.core.Utente;
-import util.Log;
-import util.Nomi;
+import lib.core.Campo;
+import lib.core.Categoria;
+import lib.core.EscursioneMontagnaEvento;
+import lib.core.Evento;
+import lib.core.Invito;
+import lib.core.Notifica;
+import lib.core.PartitaCalcioEvento;
+import lib.core.StatoEvento;
+import lib.core.Utente;
+import lib.util.Log;
+import lib.util.Nomi;
 
 public class ScriviXML {
 

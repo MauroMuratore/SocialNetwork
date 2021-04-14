@@ -1,11 +1,20 @@
-package server.core;
+package server;
 
 import java.util.*;
 
+import lib.core.Campo;
+import lib.core.Categoria;
+import lib.core.EscursioneMontagnaCat;
+import lib.core.EscursioneMontagnaEvento;
+import lib.core.Evento;
+import lib.core.Invito;
+import lib.core.Notifica;
+import lib.core.PartitaCalcioCat;
+import lib.core.Utente;
+import lib.util.ControlloCampo;
+import lib.util.Log;
+import lib.util.Nomi;
 import server.database.ConsultaDB;
-import util.Nomi;
-import util.ControlloCampo;
-import util.Log;
 
 public class SocialNetwork {
 	// UML QUANDO E' FINITO

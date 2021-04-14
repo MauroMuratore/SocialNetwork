@@ -1,5 +1,5 @@
 
-package server.core;
+package lib.core;
 
 import java.sql.Time;
 import java.util.Calendar;
@@ -7,10 +7,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
+import lib.util.ControlloCampo;
+import lib.util.Log;
+import lib.util.Nomi;
 import server.database.ConsultaDB;
-import util.Nomi;
-import util.ControlloCampo;
-import util.Log;
 
 //FINISHIM
 public abstract class Evento {
@@ -176,7 +176,7 @@ public abstract class Evento {
 		return OK;
 	}
 	
-	protected void setProprietario(String _proprietario) {
+	public void setProprietario(String _proprietario) {
 		proprietario=_proprietario;
 	}
 	
