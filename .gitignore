@@ -4,5 +4,7 @@ bin
 .directory
 .settings/
 src/ProvaMain.java
+data/error.txt
+data/log.txt
 backupdata/
 Elaborato2018_19.pdf
