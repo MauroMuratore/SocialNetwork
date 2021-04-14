@@ -10,9 +10,9 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 
-import server.core.SocialNetwork;
+import lib.util.Nomi;
+import server.SocialNetwork;
 import server.database.ConsultaDB;
-import util.Nomi;
 
 import java.awt.SystemColor;
 import java.awt.FlowLayout;

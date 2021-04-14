@@ -14,7 +14,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextPane;
 
-import server.core.SocialNetwork;
+import server.SocialNetwork;
 
 import java.awt.Font;
 import java.awt.List;

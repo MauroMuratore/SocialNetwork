@@ -17,7 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
-import server.core.SocialNetwork;
+import server.SocialNetwork;
 
 
 public class Login {

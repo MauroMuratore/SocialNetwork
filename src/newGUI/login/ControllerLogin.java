@@ -9,21 +9,15 @@ import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.util.List;
 
-import net.Channel;
+import lib.net.Channel;
+import lib.util.Nomi;
 import newGUI.JError;
-import util.Nomi;
 
 public class ControllerLogin implements ActionListener, WindowListener {
 
 	private Channel channel;
 	private ViewLogin view;
 	private ModelLogin model;
-	private String username;
-	private String password;
-	private String confermaPW;
-	private int etaMin;
-	private int etaMax;
-	private String[] categoriePref;
 	private boolean isReg;
 
 	public ControllerLogin(Channel _channel) {
@@ -83,7 +77,7 @@ public class ControllerLogin implements ActionListener, WindowListener {
 	}
 
 	public void displayError(String error) {
-		JError jerror = new JError(error);
+		new JError(error);
 	}
 
 	public void dispose() {

@@ -6,10 +6,10 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.List;
 
-import net.Channel;
+import lib.net.Channel;
+import lib.util.Nomi;
 import newGUI.login.ControllerLogin;
 import newGUI.login.ModelLogin;
-import util.Nomi;
 
 public class MainClient {
 
@@ -24,10 +24,8 @@ public class MainClient {
 
 
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		channel = new Channel(socket);

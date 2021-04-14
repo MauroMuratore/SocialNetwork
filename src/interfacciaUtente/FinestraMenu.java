@@ -29,14 +29,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
-import server.core.Categoria;
-import server.core.EscursioneMontagnaEvento;
-import server.core.Evento;
-import server.core.PartitaCalcioEvento;
-import server.core.SocialNetwork;
-import server.core.StatoEvento;
-import server.core.Utente;
-import util.Nomi;
+import lib.core.Categoria;
+import lib.core.EscursioneMontagnaEvento;
+import lib.core.Evento;
+import lib.core.PartitaCalcioEvento;
+import lib.core.StatoEvento;
+import lib.core.Utente;
+import lib.util.Nomi;
+import server.SocialNetwork;
 
 public class FinestraMenu {
 
