@@ -164,6 +164,14 @@ public class SocialNetwork {
 		ritorno.addAll(categorie.keySet());
 		return ritorno;
 	}
+	
+	public List<Categoria> getCategorie(){
+		ArrayList<Categoria> ritorno = new ArrayList<Categoria>();
+		for(String key : categorie.keySet()) {
+			ritorno.add(categorie.get(key));
+		}
+		return ritorno;
+	}
 
 	/**
 	 * @param categoria
@@ -221,7 +229,7 @@ public class SocialNetwork {
 
 
 	/**
-	 * crea un evento e viene aggiunta alla bacheca dalla propria categoria
+	 * crea un evento e viene aggiunta alla bacheca della propria categoria
 	 * manda un invito a tutte le persone che sono state invitate, una notifica
 	 * alle persone che sono interessate a quella categoria di eventi e salva 
 	 * l'evento

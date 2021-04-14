@@ -1,11 +1,12 @@
 
 package lib.core;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class Categoria<E extends Evento> {
+public abstract class Categoria<E extends Evento> implements Serializable{
 
 	private String nome;
 	private String descrizione;
