@@ -36,7 +36,7 @@ public class MainTestClient {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ViewBody vb =new ViewBody(categorie);
+		ControllerBody cb = new ControllerBody(categorie, channel);
 		
 
 	}

@@ -38,7 +38,7 @@ public class PartitaCalcioEvento extends Evento {
 
 	public PartitaCalcioEvento() {
 		super();
-		titolo = new Campo<String>(Nomi.CAMPO_TITOLO.getNome(), "", false);
+		titolo = new Campo<String>(Nomi.CAMPO_TITOLO.getNome(), "", true);
 		partecipantiNecessari = new Campo<Integer>(Nomi.CAMPO_PARTECIPANTI_MAX.getNome(), "", true);
 		termineUltimo = new Campo<GregorianCalendar>(Nomi.CAMPO_TERMINE_ULTIMO.getNome(), "", true);
 		luogo = new Campo<String>(Nomi.CAMPO_LUOGO.getNome(), "", true);

@@ -33,7 +33,7 @@ public class ViewBody extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ViewBody(List<Categoria> categorie) {
+	public ViewBody(ViewBC viewBC) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setTitle("UNIBS Social Network");
@@ -58,7 +58,7 @@ public class ViewBody extends JFrame {
 		btnAreaPersonale.setPreferredSize(btnAreaPersonale.getMinimumSize());
 		panelBC.add(panelBtnAP, BorderLayout.WEST);
 		
-		ViewBC viewBC = new ViewBC(categorie);
+		//ViewBC viewBC = new ViewBC(categorie);
 		panelBC.add(viewBC, BorderLayout.CENTER);
 		
 		setVisible(true);

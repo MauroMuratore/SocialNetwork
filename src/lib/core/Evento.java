@@ -154,15 +154,15 @@ public abstract class Evento {
 	public StatoEvento getStato() {
 		return stato;
 	}
-	
+
 	public Campo<Integer> getTolleranzaPartecipanti(){
 		return tolleranzaPartecipanti;
 	}
-	
+
 	public String getProprietario() {
 		return proprietario;
 	}
-	
+
 	public String getCategoria() {
 		return categoria;
 	}
@@ -175,11 +175,11 @@ public abstract class Evento {
 		titolo.setValore(_titolo);
 		return OK;
 	}
-	
+
 	public void setProprietario(String _proprietario) {
 		proprietario=_proprietario;
 	}
-	
+
 	public String setTermineUltimoRitiro(String _termineUltimoRitiro) {
 		if(!ControlloCampo.controlloData(_termineUltimoRitiro).equals(Campo.OK))
 			return ControlloCampo.controlloData(_termineUltimoRitiro);
@@ -260,7 +260,7 @@ public abstract class Evento {
 		note.setValore(_note);
 		return OK;
 	}
-	
+
 	public String setTolleranzaPartecipanti(String _tolleranzaPartecipanti) {
 		if(!ControlloCampo.controlloIntero(_tolleranzaPartecipanti).equals(OK)) {
 			return ControlloCampo.controlloIntero(_tolleranzaPartecipanti);
@@ -315,8 +315,8 @@ public abstract class Evento {
 				ritorno= new Notifica(this, Notifica.CONCLUSO);
 			}
 		}
-		
-		
+
+
 		//devo salvare in caso lo stato sia cambiato
 		return ritorno;
 	}
@@ -330,15 +330,22 @@ public abstract class Evento {
 	public String iscrizione(String nome) {
 		String ritorno;
 		if(stato.equals(StatoEvento.APERTO) && !partecipanti.contains(nome)) {
-			partecipanti.add(nome);
-			ritorno = Notifica.ISCRIZIONE;
-			
+			int limitePartecipanti = partecipantiNecessari.getValore().intValue();
+			if(tolleranzaPartecipanti!=null)
+				limitePartecipanti = limitePartecipanti + tolleranzaPartecipanti.getValore().intValue();
+			if(partecipanti.size()<limitePartecipanti) {
+				partecipanti.add(nome);
+				ritorno = Notifica.ISCRIZIONE;
+			}
+			else
+				ritorno = Notifica.NUMERO_MAX_PARTECIPANTI;
+
 		}else if(partecipanti.contains(nome))
 			ritorno = Notifica.ISCRIZIONE_GIA_FATTA;
 		else 
 			ritorno = Notifica.ERRORE_DI_ISCRIZIONE;
 		return ritorno;
-		
+
 	}
 
 	public Notifica cancella(String _proprietario) {
@@ -353,7 +360,7 @@ public abstract class Evento {
 		else if(oggi.before(termineUltimoRitiro.getValore()) || oggi.equals(termineUltimoRitiro.getValore())) {
 			stato=StatoEvento.CANCELLATO;
 			ritorno = new Notifica (this, Notifica.EVENTO_CANCELLATO);
-			
+
 		}
 		else 
 			ritorno= new Notifica (this, Notifica.OLTRE_TUR);

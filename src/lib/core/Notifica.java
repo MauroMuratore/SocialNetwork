@@ -20,6 +20,7 @@ public class Notifica {
 	public static final String REVOCA_ISCRIZIONE = "revocata iscrizione con successo ";
 	public static final String ISCRIZIONE_GIA_FATTA = "iscrizione gia fatta ";
 	public static final String NUOVO_EVENTO_APERTO = "nuovo evento aperto ";
+	public static final String NUMERO_MAX_PARTECIPANTI = "iscrizione negata, numero massimo partecipanti raggiunto";
 	
 	public Notifica(Evento _evento, String mes) {
 		evento=_evento;
