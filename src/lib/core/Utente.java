@@ -1,11 +1,12 @@
 
 package lib.core;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 //un utente � dafinito da username e pasword 
-public class Utente {
+public class Utente implements Serializable {
 
 	private String username;
 	private String password;

@@ -62,8 +62,8 @@ public class ConsultaDB {
 		return lettura.leggiCategoria(categoria);
 	}
 	
-	public void scriviEvento(Evento pce) {
-		scrittura.scriviEvento(pce);
+	public void scriviEvento(Evento e) {
+		scrittura.scriviEvento(e);
 	}
 	
 	public void salvaUtente(Utente utente) {

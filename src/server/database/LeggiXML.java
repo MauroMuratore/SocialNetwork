@@ -101,7 +101,6 @@ public class LeggiXML {
 		else if(categoria.equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()))
 			ritorno = new EscursioneMontagnaCat<>(nome, descrizione, bacheca, personeInteressate);
 
-		Log.writeRoutineLog(this.getClass(), "leggi categoria " + ritorno.getNome());
 		return ritorno;
 	}
 
@@ -161,7 +160,6 @@ public class LeggiXML {
 			
 		}
 		
-		Log.writeRoutineLog(this.getClass(), "leggi evento " + ritorno.getTitolo().getValore());
 		return ritorno;
 	}
 	

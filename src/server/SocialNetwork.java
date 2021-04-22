@@ -35,7 +35,7 @@ public class SocialNetwork {
 		aggiornamentoEventi(); // aggiorna tutti gli eventi
 		// quando vengono caricate gli eventi bisogna fare un controllo sulle notifiche
 	}
-	
+
 	public static SocialNetwork getInstance() {
 		if(sn== null) {
 			sn=new SocialNetwork(ConsultaDB.getInstance()) ;
@@ -90,14 +90,14 @@ public class SocialNetwork {
 				return Nomi.SN_PW_DIVERSE.getNome();
 			else if(!hash.equals(conferma))
 				return Nomi.SN_PW_DIVERSE.getNome();
-	
+
 			/*if(!ControlloCampo.controlloIntero(minEta).equals(Campo.OK))
 				return ControlloCampo.controlloIntero(minEta);
 			if(!ControlloCampo.controlloIntero(maxEta).equals(Campo.OK))
 				return ControlloCampo.controlloIntero(maxEta);
 			int etaMin = Integer.parseInt(minEta);
 			int etaMax = Integer.parseInt(maxEta);
-			*/
+			 */
 			if(minEta>maxEta)
 				return Nomi.SN_ETAMIN_MAGG_ETAMAX.getNome();
 
@@ -139,7 +139,7 @@ public class SocialNetwork {
 		consultaDB.salvaCategorie(categorie);
 		return 0;
 	}
-	
+
 	public void cancellaUtente(String username) {
 		consultaDB.cancellaUtente(username);
 	}
@@ -152,7 +152,7 @@ public class SocialNetwork {
 		ritorno.addAll(categorie.keySet());
 		return ritorno;
 	}
-	
+
 	public List<Categoria> getCategorie(){
 		ArrayList<Categoria> ritorno = new ArrayList<Categoria>();
 		for(String key : categorie.keySet()) {
@@ -189,9 +189,9 @@ public class SocialNetwork {
 	 */
 	public boolean controllaID(String username) {
 		return consultaDB.controllaID(username);
-		
+
 	}
-	
+
 	/**
 	 * serve per far iscrivere l'utente all'evento, invia la notifica all'utente e
 	 * se l'evento si chiude aggiorna anche tutti gli altri
@@ -204,6 +204,7 @@ public class SocialNetwork {
 	public String iscrizione(Evento evento) {
 		String messaggio = evento.iscrizione(utente.getUsername());
 		gestisciIscrizione(evento, messaggio);
+		aggiornaEvento(evento);
 		return messaggio;
 	}
 
@@ -347,6 +348,7 @@ public class SocialNetwork {
 		aggiornamentoNotifiche(ritorno);
 		Log.writeRoutineLog(this.getClass(), "cancella evento scrittura ");
 		consultaDB.scriviEvento(evento);
+		aggiornaEvento(evento);
 		return ritorno.getMessaggio();
 	}
 
@@ -363,9 +365,11 @@ public class SocialNetwork {
 	 */
 	public String revocaIscrizione(Evento evento) {
 		Notifica ritorno = evento.revocaIscrizione(utente.getUsername());
+
 		utente.riceviNotifica(ritorno);
 		Log.writeRoutineLog(this.getClass(), "revoca iscrizione scrittura ");
-		salvaTutto();
+		consultaDB.scriviEvento(evento);
+		aggiornaEvento(evento);
 		return ritorno.getMessaggio();
 	}
 
@@ -465,6 +469,18 @@ public class SocialNetwork {
 		Log.writeRoutineLog(this.getClass(),"persone interessate informate");
 	}
 
+	public void aggiornaEvento(Evento e) {
+		String cat = e.getCategoria();
+		categorie.put(cat, consultaDB.leggiCategoria(cat));
+	}
+
+	public void stampaEventi() {
+		for(String key: categorie.keySet()) {
+			for(Evento e: (List<Evento>) categorie.get(key).getBacheca()) {
+				System.out.println(e.getTitolo().getValore() + " " +  e.getStato());
+			}
+		}
+	}
 
 
 

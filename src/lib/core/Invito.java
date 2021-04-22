@@ -1,9 +1,10 @@
 
 package lib.core;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-public class Invito extends Notifica {
+public class Invito extends Notifica implements Serializable{
 
 	private GregorianCalendar dataInvito;
 	

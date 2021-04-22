@@ -1,6 +1,8 @@
 package lib.core;
 
-public class Notifica {
+import java.io.Serializable;
+
+public class Notifica implements Serializable{
 	
 	private Evento evento;
 	private String messaggio;

@@ -1,11 +1,1 @@
 
-15-04-2021 17:38:05 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
-15-04-2021 17:38:05 server.database.LeggiXML leggi categoria partita calcio
-15-04-2021 17:38:05 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
-15-04-2021 17:38:05 server.database.LeggiXML leggi categoria escursione in montagna
-15-04-2021 17:38:05 server.database.FactoryDocXML apertura doc data/notifichePendenti.xml
-18-04-2021 15:03:48 server.database.FactoryDocXML apertura doc data/categoriaPartitaCalcio.xml
-18-04-2021 15:03:48 server.database.LeggiXML leggi categoria partita calcio
-18-04-2021 15:03:48 server.database.FactoryDocXML apertura doc data/escursioneMontagna.xml
-18-04-2021 15:03:48 server.database.LeggiXML leggi categoria escursione in montagna
-18-04-2021 15:03:48 server.database.FactoryDocXML apertura doc data/notifichePendenti.xml

@@ -91,7 +91,7 @@ public class ControlloCampo {
 	 * FORMATO_ORA_SBAGLIATO
 	 * OK
 	 */
-	public static String controlloData(String data, String ora) {
+	public static String controlloOra(String data, String ora) {
 		if(!controlloData(data).equals(Campo.OK))
 			return Campo.FORMATO_SBAGLIATO;
 		if(controlloIntero(ora).equals(Campo.FORMATO_SBAGLIATO))
@@ -114,7 +114,7 @@ public class ControlloCampo {
 		return Campo.OK;
 	}
 	
-	public static GregorianCalendar assumiData(String data, String ora) {
+	public static GregorianCalendar assumiOra(String data, String ora) {
 		GregorianCalendar gc = assumiData(data);
 		String[] campiOra = ora.split(":", 2);
 		int intOra = Integer.parseInt(campiOra[0]);

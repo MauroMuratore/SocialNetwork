@@ -27,7 +27,7 @@ public class FactoryDocXML {
 			e.printStackTrace();
 		}
 		
-		Log.writeRoutineLog(this.getClass(),"apertura doc " + file.getNome());
+		//Log.writeRoutineLog(this.getClass(),"apertura doc " + file.getNome());
 		return doc;
 	}
 

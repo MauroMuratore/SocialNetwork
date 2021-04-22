@@ -23,7 +23,7 @@ import lib.util.Log;
 import lib.util.Nomi;
 
 public class FactoryNodoXML {
-	
+
 	public Element creaNodoUtente(Document doc, Element elenco, Utente utente) {
 		NodeList lista = elenco.getElementsByTagName(Nomi.TAG_UTENTE.getNome());
 		Element nodoUtente = null;
@@ -33,7 +33,7 @@ public class FactoryNodoXML {
 				nodoUtente = (Element)lista.item(i);
 			}
 		}
-		
+
 		if(nodoUtente==null) {
 			nodoUtente = doc.createElement(Nomi.TAG_UTENTE.getNome());
 			Element childName=doc.createElement(Nomi.TAG_NOME.getNome());
@@ -46,12 +46,12 @@ public class FactoryNodoXML {
 				e.printStackTrace();
 			}
 			Element childNotifiche = doc.createElement(Nomi.TAG_ELENCO.getNome());
-			
+
 			nodoUtente.appendChild(childName);
 			nodoUtente.appendChild(childPW);
 			nodoUtente.appendChild(childNotifiche);
-			}
-		
+		}
+
 		Element notifiche = creaNodoElencoNotifiche(doc, utente.getNotifiche(), nodoUtente);
 		nodoUtente.appendChild(notifiche);
 
@@ -116,10 +116,10 @@ public class FactoryNodoXML {
 			}
 		}
 		nodoUtente.appendChild(interessi);
-		
+
 		return nodoUtente;
 	}
-	
+
 	public Element creaNodoElencoNotifiche(Document doc, LinkedList<Notifica> listaNotifiche, Element nodoUtente) {
 		Element elencoNotifiche = (Element) nodoUtente.getElementsByTagName(Nomi.TAG_ELENCO.getNome()).item(0);
 		if(elencoNotifiche==null)
@@ -132,7 +132,7 @@ public class FactoryNodoXML {
 		}
 		return elencoNotifiche;
 	}
-	
+
 	public Element creaNodoCategoria(Document doc, Categoria cat) {
 		Element categoria = (Element) doc.getElementsByTagName(Nomi.TAG_CATEGORIA.getNome()).item(0);
 
@@ -155,7 +155,7 @@ public class FactoryNodoXML {
 		}
 		return categoria;
 	}
-	
+
 	public Element creaNodoEvento(Document doc, Evento evento) {
 		Element newEvento = doc.createElement(Nomi.TAG_EVENTO.getNome());
 		newEvento.setAttribute("id", String.valueOf(evento.getIdEvento())); 
@@ -164,7 +164,7 @@ public class FactoryNodoXML {
 		newEvento.appendChild(proprietario);
 		return newEvento;
 	}
-	
+
 	public Element creaNodoData( Document doc, GregorianCalendar data, Element nodoData) {
 		Element annoNodo = doc.createElement(Nomi.TAG_ANNO.getNome());
 		int annoInt =data.get(GregorianCalendar.YEAR);
@@ -181,15 +181,15 @@ public class FactoryNodoXML {
 		Element oraNodo = doc.createElement(Nomi.TAG_ORA.getNome());
 		int oraInt = data.get(GregorianCalendar.HOUR_OF_DAY);
 		oraNodo.setTextContent(String.valueOf(oraInt));
-		
+
 		nodoData.appendChild(annoNodo);
 		nodoData.appendChild(meseNodo);
 		nodoData.appendChild(giornoNodo);
 		nodoData.appendChild(oraNodo);
-		
+
 		return nodoData;
 	}
-	
+
 	public Element creaNodoCampo(Document doc, Campo campo) {
 		Element nodoCampo = doc.createElement(Nomi.TAG_CAMPO.getNome());
 		Element nome = doc.createElement(Nomi.TAG_NOME.getNome());
@@ -212,10 +212,10 @@ public class FactoryNodoXML {
 		Element obbl = doc.createElement(Nomi.TAG_OBBL.getNome());
 		obbl.setTextContent(Boolean.toString(campo.isObbligatorio()));
 		nodoCampo.appendChild(obbl);
-		
+
 		return nodoCampo;
 	}
-	
+
 	public Element creaNodoStatoEvento(Document doc, StatoEvento statoEvento) {
 		Element newStato = doc.createElement(Nomi.STATO_EVENTO.getNome());
 		if(statoEvento.equals(StatoEvento.APERTO)) {
@@ -238,7 +238,7 @@ public class FactoryNodoXML {
 		}
 		return newStato;
 	}
-	
+
 	public Element creaNodoPartecipanti(Document doc, LinkedList<String> lista, Element nodoEvento, String tagListaPartecipanti) {
 		Element nodoLista = null;
 		if(nodoEvento.getElementsByTagName(tagListaPartecipanti).item(0)==null) {
@@ -247,17 +247,25 @@ public class FactoryNodoXML {
 		}
 		else
 			nodoLista = (Element) nodoEvento.getElementsByTagName(tagListaPartecipanti).item(0);
-
-		for(int i=0; i<lista.size(); i++) {
+		if(lista.isEmpty()) {
+			for (int index=0; index<nodoLista.getElementsByTagName(Nomi.TAG_NOME.getNome()).getLength(); index++) {
+				Element nodoPartecipante = (Element) nodoLista.getElementsByTagName(Nomi.TAG_NOME.getNome()).item(index);
+				nodoLista.removeChild(nodoPartecipante);
+			}
+		}
+		else for(int i=0; i<lista.size(); i++) {
 			boolean isPresent=false;
 
 			for (int index=0; index<nodoLista.getElementsByTagName(Nomi.TAG_NOME.getNome()).getLength(); index++) {
 				Element nodoPartecipante = (Element) nodoLista.getElementsByTagName(Nomi.TAG_NOME.getNome()).item(index);
 				if(nodoPartecipante.getTextContent().equals(lista.get(i)))
 					isPresent=true;
-				else
+				else {
+					
 					nodoLista.removeChild(nodoPartecipante);
-
+				}
+				Log.writeRoutineLog(this.getClass(), i + " " + isPresent );
+				
 			}
 			Element nodoNome=null;
 			if(!isPresent) {
@@ -269,7 +277,7 @@ public class FactoryNodoXML {
 		}
 		return nodoLista;
 	}
-	
+
 	public Element creaNodoNotifichePendenti(Map<String, LinkedList<Notifica>> notifichePendenti, Document doc) {
 		Element elenco = (Element) doc.getElementsByTagName(Nomi.TAG_ELENCO.getNome()).item(0);
 		for(String key : notifichePendenti.keySet()) {
@@ -300,7 +308,7 @@ public class FactoryNodoXML {
 		}
 		return elenco;
 	}
-	
+
 	public Element creaNodoNotifica(Document doc, Notifica not) {
 		Element nodoNotifica = doc.createElement(Nomi.TAG_NOTIFICA.getNome());
 		Element nodoMessaggio = doc.createElement(Nomi.TAG_DESCRIZIONE.getNome());
@@ -322,33 +330,33 @@ public class FactoryNodoXML {
 		nodoNotifica.appendChild(nodoMessaggio);
 		nodoNotifica.appendChild(nodoEvento);
 		nodoNotifica.appendChild(nodoLetto);
-		
+
 		return nodoNotifica;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

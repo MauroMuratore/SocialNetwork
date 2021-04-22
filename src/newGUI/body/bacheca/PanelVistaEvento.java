@@ -1,19 +1,27 @@
 package newGUI.body.bacheca;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import lib.core.EscursioneMontagnaEvento;
 import lib.core.Evento;
 import lib.core.PartitaCalcioEvento;
+import lib.util.Nomi;
+
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.ScrollPane;
 import java.awt.event.ActionListener;
 
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.Border;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 public class PanelVistaEvento extends JPanel {
 
@@ -21,99 +29,176 @@ public class PanelVistaEvento extends JPanel {
 	private JButton btnRevoca;
 	private JButton btnCancella;
 	private JButton btnIndietro;
+	private JCheckBox checkAttrezzatura;
+	private JCheckBox checkIstruttore;
+
 
 	/**
 	 * Create the panel.
 	 */
 	public PanelVistaEvento(Evento evento, ActionListener al) {
 
+
 		setLayout(new BorderLayout(0, 0));
 
-		JPanel panelLabel = new JPanel();
-		add(panelLabel, BorderLayout.CENTER);
+		JPanel panelCenter = new JPanel();
+		add(panelCenter, BorderLayout.CENTER);
 
-		JScrollPane scrollPane = new JScrollPane();
+		JPanel panelLbl = new JPanel();
+		panelLbl.setLayout(new GridLayout(30, 0, 0, 5));
+		panelLbl.setAlignmentX(LEFT_ALIGNMENT);
+
+		JLabel lblTitolo =new JLabel(evento.getTitolo().toString());
+		lblTitolo.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+		panelLbl.add(lblTitolo);
+
+		JLabel lblPartecipantiNecessari =new JLabel(evento.getPartecipantiNecessari().toString());
+		lblPartecipantiNecessari.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+		panelLbl.add(lblPartecipantiNecessari);
+
+		if(evento.getTolleranzaPartecipanti()!=null) {
+			JLabel lblTolleranza = new JLabel(evento.getTolleranzaPartecipanti().toString());
+			lblTolleranza.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+			panelLbl.add(lblTolleranza);
+		}
+		JLabel lblTermineUltimo =new JLabel(evento.getTermineUltimo().toString());
+		lblTermineUltimo.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+		panelLbl.add(lblTermineUltimo);
+
+		if(evento.getTermineUltimoRitiro()!=null) {
+			JLabel lblTermineUltimoRitiro = new JLabel(evento.getTermineUltimoRitiro().toString());
+			lblTermineUltimoRitiro.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+			panelLbl.add(lblTermineUltimoRitiro);
+
+		}
+
+		JLabel lblLuogo = new JLabel(evento.getLuogo().toString());
+		lblLuogo.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+		panelLbl.add(lblLuogo);
+
+		JLabel lblDataInizio = new JLabel(evento.getDataInizio().toString());
+		lblDataInizio.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+		panelLbl.add(lblDataInizio);
+
+		if(evento.getDataFine()!=null) {
+			JLabel lblDataFine =  new JLabel(evento.getDataFine().toString());
+			lblDataFine.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+			panelLbl.add(lblDataFine);
+		}
 
 
-		scrollPane.add(new JLabel(evento.getTitolo().toString()));
-
-		scrollPane.add(new JLabel(evento.getPartecipantiNecessari().toString()));
-
-		if(evento.getTolleranzaPartecipanti()!=null)
-			scrollPane.add(new JLabel(evento.getTolleranzaPartecipanti().toString()));
-
-		scrollPane.add(new JLabel(evento.getTermineUltimo().toString()));
-
-		if(evento.getTermineUltimoRitiro()!=null)
-			scrollPane.add(new JLabel(evento.getTermineUltimoRitiro().toString()));
+		if(evento.getDurata()!=null) {
+			JLabel lblDurata = new JLabel(evento.getDurata().toString());
+			lblDurata.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+			panelLbl.add(lblDurata);
+		}
 
 
-		scrollPane.add(new JLabel(evento.getLuogo().toString()));
+		JLabel lblQuota = new JLabel(evento.getQuotaIndividuale().toString());
+		lblQuota.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+		panelLbl.add(lblQuota);
 
-		scrollPane.add(new JLabel(evento.getDataInizio().toString()));
 
-		if(evento.getDataFine()!=null)
-			scrollPane.add(new JLabel(evento.getDataFine().toString()));
+		if(evento.getCompresoQuota()!=null) {
+			JLabel lblCompresoQuota = new JLabel(evento.getCompresoQuota().toString());
+			lblCompresoQuota.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+			panelLbl.add(lblCompresoQuota);
+		}
 
-		if(evento.getDurata()!=null) 
-			scrollPane.add(new JLabel(evento.getDurata().toString()));
 
-		scrollPane.add(new JLabel(evento.getQuotaIndividuale().toString()));
+		if(evento.getNote()!=null) {
+			JLabel lblNote = new JLabel(evento.getNote().toString());
+			lblNote.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+			panelLbl.add(lblNote);
 
-		if(evento.getCompresoQuota()!=null)
-			scrollPane.add(new JLabel(evento.getCompresoQuota().toString()));
-
-		if(evento.getNote()!=null)
-			scrollPane.add(new JLabel(evento.getNote().toString()));
+		}
 
 		if(evento.getClass().equals(PartitaCalcioEvento.class)) {
+			JLabel lblSesso = new JLabel(((PartitaCalcioEvento)evento).getSesso().toString());
+			lblSesso.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+			panelLbl.add(lblSesso);
 
-			scrollPane.add(new JLabel(((PartitaCalcioEvento)evento).getSesso().toString()));
+			if(((PartitaCalcioEvento)evento).getEta()!=null) {
+				JLabel lblEta = new JLabel(((PartitaCalcioEvento)evento).getEta().toString());
+				lblEta.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+				panelLbl.add(lblEta);
 
-			if(((PartitaCalcioEvento)evento).getEta()!=null) 
-				scrollPane.add(new JLabel(((PartitaCalcioEvento)evento).getEta().toString()));
+			}
 		}
-		
+
 		else if(evento.getClass().equals(EscursioneMontagnaEvento.class)) {
-			
-			if(((EscursioneMontagnaEvento)evento).getAttrezzatura()!=null)
-				scrollPane.add(new JLabel(((EscursioneMontagnaEvento)evento).getAttrezzatura().toString()));
-			
-			if(((EscursioneMontagnaEvento)evento).getIstruttore()!=null)
-				scrollPane.add(new JLabel(((EscursioneMontagnaEvento)evento).getIstruttore().toString()));
+
+			if(((EscursioneMontagnaEvento)evento).getAttrezzatura()!=null) {
+				JPanel panelAttr = new JPanel();
+				JLabel lblAttrezzatura = new JLabel(((EscursioneMontagnaEvento)evento).getAttrezzatura().toString()); 
+				lblAttrezzatura.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+				panelAttr.add(lblAttrezzatura);
+				checkAttrezzatura = new JCheckBox();
+				checkAttrezzatura.addActionListener(al);
+				checkAttrezzatura.setActionCommand("Select Att");
+				panelAttr.add(checkAttrezzatura);
+				panelAttr.setAlignmentX(LEFT_ALIGNMENT);
+				panelLbl.add(panelAttr);
+
+			}
+
+			if(((EscursioneMontagnaEvento)evento).getIstruttore()!=null) {
+
+				JPanel panelIstr = new JPanel();
+				JLabel lblIstruttore = new JLabel(((EscursioneMontagnaEvento)evento).getIstruttore().toString());
+				lblIstruttore.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+				checkIstruttore = new JCheckBox();
+				checkIstruttore.addActionListener(al);
+				checkIstruttore.setActionCommand("Select Istr");
+				panelIstr.add(lblIstruttore);
+				panelIstr.add(checkIstruttore);
+				panelIstr.setAlignmentX(LEFT_ALIGNMENT);
+				panelLbl.add(panelIstr);
+			}
+
 		}
-		scrollPane.add(new JLabel(evento.getStato().toString()));
+		JLabel lblStato = new JLabel("STATO EVENTO " + evento.getStato().toString());
+		lblStato.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+		panelLbl.add(lblStato);
 
-		scrollPane.add(new JLabel("Proprietario " + evento.getProprietario()));
+		JLabel lblProprietario = new JLabel("PROPRIETARIO " + evento.getProprietario());
+		lblProprietario.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+		panelLbl.add(lblProprietario);
 
-		String partecipanti = "Partecipanti: ";
+		String partecipanti = "PARTECIPANTI: ";
 
 		for(String partecipante: evento.getPartecipanti()) {
-			partecipanti.concat(partecipante + " ");
+			partecipanti = partecipanti.concat(partecipante + " ");
 		}
 
-		scrollPane.add(new JLabel(partecipanti));
+		JLabel lblPartecipanti = new JLabel(partecipanti);
+		lblPartecipanti.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
+		panelLbl.add(lblPartecipanti);
 
 
-		panelLabel.setLayout(new BorderLayout(0, 0));
+		panelCenter.setLayout(new BorderLayout(0, 0));
 
-		panelLabel.add(scrollPane);
+
+
+		ScrollPane scrollPane  = new ScrollPane();
+		scrollPane.add(panelLbl);
+		panelCenter.add(scrollPane);
 
 		JPanel panelButton = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panelButton.getLayout();
-		flowLayout.setHgap(0);
+		flowLayout.setHgap(20);
 		flowLayout.setVgap(0);
 		add(panelButton, BorderLayout.SOUTH);
 
-		btnIscrizione = new JButton("Iscrizione");
+		btnIscrizione = new JButton(Nomi.AZIONE_ISCRIZIONE.getNome());
 		btnIscrizione.addActionListener(al);
-		btnIscrizione.setActionCommand("Iscrizione");
-		btnRevoca = new JButton("Discrizione");
+		btnIscrizione.setActionCommand(Nomi.AZIONE_ISCRIZIONE.getNome());
+		btnRevoca = new JButton(Nomi.AZIONE_DISISCRIZIONE.getNome());
 		btnRevoca.addActionListener(al);
-		btnRevoca.setActionCommand("Discrizione");
-		btnCancella = new JButton("Cancella Evento");
+		btnRevoca.setActionCommand(Nomi.AZIONE_DISISCRIZIONE.getNome());
+		btnCancella = new JButton(Nomi.AZIONE_CANCELLA_EVENTO.getNome());
 		btnCancella.addActionListener(al);
-		btnCancella.setActionCommand("Cancella Evento");
+		btnCancella.setActionCommand(Nomi.AZIONE_CANCELLA_EVENTO.getNome());
 		btnIndietro = new JButton("Indietro");
 		btnIndietro.addActionListener(al);
 		btnIndietro.setActionCommand("Indietro");

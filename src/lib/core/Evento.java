@@ -1,6 +1,7 @@
 
 package lib.core;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
@@ -13,7 +14,7 @@ import lib.util.Nomi;
 import server.database.ConsultaDB;
 
 //FINISHIM
-public abstract class Evento {
+public abstract class Evento implements Serializable {
 
 	private int idEvento;
 	private StatoEvento stato;
@@ -218,9 +219,9 @@ public abstract class Evento {
 	}
 
 	public String setDataInizio(String data, String ora) {
-		if(!ControlloCampo.controlloData(data, ora).equals(Campo.OK))
-			return ControlloCampo.controlloData(data, ora);
-		dataInizio.setValore(ControlloCampo.assumiData(data, ora));
+		if(!ControlloCampo.controlloOra(data, ora).equals(Campo.OK))
+			return ControlloCampo.controlloOra(data, ora);
+		dataInizio.setValore(ControlloCampo.assumiOra(data, ora));
 		return OK;
 	}
 
@@ -247,9 +248,9 @@ public abstract class Evento {
 	}
 
 	public String setDataFine(String data, String ora) {
-		if(!ControlloCampo.controlloData(data, ora).equals(Campo.OK))
-			return ControlloCampo.controlloData(data, ora);
-		dataFine.setValore(ControlloCampo.assumiData(data, ora));
+		if(!ControlloCampo.controlloOra(data, ora).equals(Campo.OK))
+			return ControlloCampo.controlloOra(data, ora);
+		dataFine.setValore(ControlloCampo.assumiOra(data, ora));
 		return OK;
 	}
 

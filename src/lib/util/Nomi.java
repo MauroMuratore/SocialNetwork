@@ -54,8 +54,8 @@ public enum Nomi {
 	ATT_ETA_MAX("eta_max"), 
 	ATT_INTERESSI("interessi"), 
 	PERSONE_INTERESSATE("persone_interessate"), 
-	CAT_PARTITA_CALCIO("partita calcio"),
-	CAT_ESCURSIOME_MONTAGNA("escursione in montagna"),
+	CAT_PARTITA_CALCIO("Partita di calcio"),
+	CAT_ESCURSIOME_MONTAGNA("Escursione in montagna"),
 	LISTA_ATTREZZATURE("lista_attrezzature"),
 	LISTA_ISTRUTTORE("lista_istruttore"),
 	SN_IMPOSSIBILE_CANCELLARE_EVENTO ("impossibile cancellare evento"),
@@ -69,7 +69,16 @@ public enum Nomi {
 	SN_NOTIFICA_CANCELLATA ("Notifica cancellata"),
 	SN_ETAMIN_MAGG_ETAMAX ("Eta minima maggiore di eta massima"),
 	SN_INVITI_SPEDITI ("Inviti spediti"),
-	NET_CHIUSURA_SOCKET("Close");
+	NET_CHIUSURA_SOCKET("Close"),
+	AZIONE_DISISCRIZIONE("Disiscriviti"),
+	AZIONE_CANCELLA_EVENTO("Cancella evento"),
+	AZIONE_MODIFICA_PROFILO("Modifica profilo"),
+	AZIONE_CREA_EVENTO("Crea evento"),
+	AZIONE_ISCRIZIONE("Iscriviti"),
+	AZIONE_ISCRIZIONE_ATT("Iscriviti attrezzatura"),
+	AZIONE_ISCRIZIONE_IST("Iscriviti istruttore"),
+	AZIONE_ISCRIZIONE_ATT_IST("Iscriviti attrezzatura istruttore")
+	;
 	
 	
 	private String nome;

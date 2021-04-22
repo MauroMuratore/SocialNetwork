@@ -29,14 +29,8 @@ public class MainTestClient {
 		}
 		channel = new Channel(socket);
 		
-		List<Categoria> categorie=null;
-		try {
-			categorie = (List<Categoria>) channel.read();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		ControllerBody cb = new ControllerBody(categorie, channel);
+		ControllerBody cb = new ControllerBody(channel);
+		cb.cicloVita();
 		
 
 	}

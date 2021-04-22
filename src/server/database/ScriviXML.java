@@ -115,7 +115,7 @@ public class ScriviXML {
 		scriviNuovoEvento(doc, evento, newEvento);
 		elenco.appendChild(newEvento);
 
-		Log.writeRoutineLog(this.getClass(), "scrivo partita ");
+		Log.writeRoutineLog(this.getClass(), "scrivo evento ");
 		scriviSuFile(doc, nomeFile);
 
 	}

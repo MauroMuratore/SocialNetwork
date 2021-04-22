@@ -1,9 +1,10 @@
 package lib.core;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-public class Campo<T> {
+public class Campo<T> implements Serializable{
 	
 	private String nome;
 	private String descrizione;
@@ -69,9 +70,9 @@ public class Campo<T> {
 	
 	public String toString() {
 		if(valore.getClass().equals(GregorianCalendar.class))
-			return "Campo " + nome + " " + descrizione + " " + ((GregorianCalendar)valore).get(GregorianCalendar.DAY_OF_MONTH) + "/" +
+			return nome.toUpperCase() + descrizione + ": " + ((GregorianCalendar)valore).get(GregorianCalendar.DAY_OF_MONTH) + "/" +
 					((GregorianCalendar)valore).get(GregorianCalendar.MONTH) + "/"+ ((GregorianCalendar)valore).get(GregorianCalendar.YEAR) +"\n";
-		return "Campo " + nome + " " + descrizione + " " + valore.toString() + " \n";
+		return  nome.toUpperCase() + descrizione + ": " + valore.toString() + " \n";
 	}
 	
 	

@@ -65,6 +65,7 @@ public class ViewLogin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		CardLayout cl = new CardLayout(0, 0);
+		setResizable(false);
 		contentPane.setLayout(cl);
 		
 		JPanel panelLog = new JPanel();

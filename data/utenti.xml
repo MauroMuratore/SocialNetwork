@@ -1,10 +1,469 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <elenco>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <utente>
 <nome>mauro123</nome>
 <hash>123123123</hash>
-<elenco/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<elenco>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-364904061</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-364904061</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-364904061</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184716050</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>utente non iscritto </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>utente non iscritto </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-364904061</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>iscrizione gia fatta </descrizione>
+<id>-364904061</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-364904061</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-364904061</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>utente non iscritto </descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-184373436</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>revocata iscrizione con successo </descrizione>
+<id>-103035947</id>
+<letto>false</letto>
+</notifica>
+<notifica>
+<descrizione>Ti sei iscritto all'evento</descrizione>
+<id>-103035947</id>
+<letto>false</letto>
+</notifica>
+</elenco>
 <eventi_creati/>
 <eta_min>20</eta_min>
 <eta_max>25</eta_max>
