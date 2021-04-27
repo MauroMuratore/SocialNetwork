@@ -1208,7 +1208,7 @@ public class FinestraMenu {
 
 				}
 				
-				sn.addEvento(eventoCreato,invitati);
+				sn.creaEvento(eventoCreato,invitati);
 				System.out.println("sono qua");
 				costruisciFinestraAP();
 			}

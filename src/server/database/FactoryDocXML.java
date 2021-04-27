@@ -15,13 +15,22 @@ import lib.util.Nomi;
 
 public class FactoryDocXML {
 	
-	public Document creaDocument(Nomi file) {
+	public Document creaDocument(Nomi fileName) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
 		Document doc=null;
 		try {
 			builder = factory.newDocumentBuilder();
-			doc = builder.parse(new File(file.getNome()));
+			File file = new File(fileName.getNome());
+			if(!file.exists()) {
+				String os = System.getProperty("os.name");
+				if(os.startsWith("Windows")){
+					file = new File("..\\" + fileName.getNome());
+				}
+				else
+					file = new File("../" + fileName.getNome());
+			}
+			doc = builder.parse(file);
 		} catch (SAXException | IOException | ParserConfigurationException e) {
 			Log.writeErrorLog(this.getClass(), "errore nella creazione del docXML");
 			e.printStackTrace();

@@ -243,7 +243,7 @@ public class FactoryNodoXML {
 		Element nodoLista = null;
 		if(nodoEvento.getElementsByTagName(tagListaPartecipanti).item(0)==null) {
 			nodoLista = doc.createElement(tagListaPartecipanti);
-			Log.writeRoutineLog(this.getClass(),"creo il nodo lista di partecipanti " + tagListaPartecipanti);
+			Log.writeRoutineLog(this.getClass(),"creo il nodo lista di partecipanti " + tagListaPartecipanti, Log.LOW_PRIORITY);
 		}
 		else
 			nodoLista = (Element) nodoEvento.getElementsByTagName(tagListaPartecipanti).item(0);
@@ -264,7 +264,7 @@ public class FactoryNodoXML {
 					
 					nodoLista.removeChild(nodoPartecipante);
 				}
-				Log.writeRoutineLog(this.getClass(), i + " " + isPresent );
+				Log.writeRoutineLog(this.getClass(), i + " " + isPresent, Log.LOW_PRIORITY );
 				
 			}
 			Element nodoNome=null;

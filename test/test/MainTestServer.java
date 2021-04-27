@@ -1,4 +1,4 @@
-package server;
+package test;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -11,6 +11,7 @@ import lib.core.Evento;
 import lib.core.PartitaCalcioEvento;
 import lib.net.Channel;
 import lib.util.Nomi;
+import server.SocialNetwork;
 
 public class MainTestServer {
 
@@ -107,7 +108,18 @@ public class MainTestServer {
 					e.printStackTrace();
 				}
 			}
-			
+			else if(messaggio.equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
+				try {
+					Evento evento = (Evento) channel.read();
+					List<String> inviti = (List<String>) channel.read();
+					String esito = social.creaEvento(evento, inviti);
+					channel.write(esito);
+					channel.write(social.getCategorie());
+					System.out.println("evento aggiunto");
+				} catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
 			
 					
 			

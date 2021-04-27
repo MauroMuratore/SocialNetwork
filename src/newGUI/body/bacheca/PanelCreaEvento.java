@@ -138,13 +138,11 @@ public class PanelCreaEvento extends JPanel {
 		lblDataInizio.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 		panelInterno.add(lblDataInizio, c);
 		textDataInizio = new JTextField(25);
-		textDataInizio.setText("GG/MM/AAAA");
 		textDataInizio.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 		c.gridx = 1;
 		c.gridy = 6;
 		panelInterno.add(textDataInizio, c);
 		textOraInizio = new JTextField(25);
-		textOraInizio.setText("HH:MM");
 		textOraInizio.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 		c.gridx = 2;
 		c.gridy = 6;
@@ -156,14 +154,12 @@ public class PanelCreaEvento extends JPanel {
 		lblDataFine.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 		panelInterno.add(lblDataFine, c);
 		textDataFine = new JTextField(25);
-		textDataFine.setText("GG/MM/AAAA");
 		textDataFine.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 		c.gridx = 1;
 		c.gridy = 7;
 		panelInterno.add(textDataFine, c);
 		textOraFine = new JTextField(25);
-		textOraFine.setText("HH:MM");
-		
+
 		textOraFine.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 		c.gridx = 2;
 		c.gridy = 7;
@@ -258,32 +254,32 @@ public class PanelCreaEvento extends JPanel {
 			c.gridy = 13;
 			panelInterno.add(textIstruttore, c);
 		}
-		
+
 
 		JLabel lblInvitabili = new JLabel("Lista persone invitabili");
 		lblInvitabili.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 		c.gridx=0;
 		c.gridy=14;
 		panelInterno.add(lblInvitabili, c);
-		
+
 		DefaultListModel<String> listaModel = new DefaultListModel<>();
 		for(String p: personeInteressate) {
 			listaModel.addElement(p);
 		}
-		
+
 		invitabili = new JList(listaModel);
 		invitabili.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 		c.gridx=1;
 		c.gridy=14;
 		c.gridwidth=2;
 		panelInterno.add(invitabili, c);
-		
+
 
 		scrollPane = new ScrollPane();
 		panelCentrale.add(scrollPane);
 
 		scrollPane.add(panelInterno);
-		
+
 		btnCreaEvento = new JButton(Nomi.AZIONE_CREA_EVENTO.getNome());
 		btnCreaEvento.addActionListener(al);
 		btnCreaEvento.setActionCommand(Nomi.AZIONE_CREA_EVENTO.getNome());
@@ -357,11 +353,11 @@ public class PanelCreaEvento extends JPanel {
 		return textSesso.getText();
 	}
 
-	public String getTextEta() {
+	public String getEta() {
 		return textEta.getText();
 	}
 
-	public String getTextAttrezzatura() {
+	public String getAttrezzatura() {
 		return textAttrezzatura.getText();
 	}
 
@@ -369,13 +365,16 @@ public class PanelCreaEvento extends JPanel {
 		return textIstruttore.getText();
 	}
 
-	public List<String> getInvitabili() {
-		return invitabili.getSelectedValuesList();
+	public List<String> getInviti() {
+		ArrayList<String> ritorno = new ArrayList<>();
+		for(int i=0; i<invitabili.getSelectedValuesList().size(); i++)
+			ritorno.add((String) invitabili.getSelectedValuesList().get(i));
+		return ritorno;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 
 }

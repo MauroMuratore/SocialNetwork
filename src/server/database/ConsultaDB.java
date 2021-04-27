@@ -23,11 +23,12 @@ public class ConsultaDB {
 	private Element nodo;
 	private LeggiXML lettura = new LeggiXML();
 	private ScriviXML scrittura = new ScriviXML();
-
+	
 	public static ConsultaDB getInstance() {
 		if(istanza==null) {
 			istanza = new ConsultaDB();
 		}
+		
 		return istanza;
 	}
 	

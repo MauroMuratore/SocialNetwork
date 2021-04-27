@@ -34,8 +34,14 @@ import lib.util.Log;
 import lib.util.Nomi;
 
 public class LeggiXML {
+
+	private FactoryDocXML fdx;
+	private String os;
 	
-	FactoryDocXML cdx = new FactoryDocXML();
+	public LeggiXML() {
+		fdx = new FactoryDocXML();
+		os = System.getProperty("os.name");
+	}
 
 	/**
 	 * legge da file gli utenti
@@ -43,16 +49,23 @@ public class LeggiXML {
 	 * @return il nodo utente letto oppure null
 	 */
 	public boolean controllaUtente(String username) {
-		Document doc=cdx.creaDocument(Nomi.FILE_UTENTI);
+		Document doc = null;
+		if(os.startsWith("Windows"))
+			doc= fdx.creaDocument(Nomi.FILE_UTENTI_WIN);
+		else
+			doc = fdx.creaDocument(Nomi.FILE_UTENTI);
 		if(getUtenteNodo(doc, username)==null)
 			return false;
 
 		return true;
 	}
-	
+
 	public boolean controllaPW(String pw, String username) {
-		Document doc=cdx.creaDocument(Nomi.FILE_UTENTI);
-		Element nodoUtente = getUtenteNodo(doc, username);
+		Document doc = null;
+		if(os.startsWith("Windows"))
+			doc= fdx.creaDocument(Nomi.FILE_UTENTI_WIN);
+		else
+			doc = fdx.creaDocument(Nomi.FILE_UTENTI);Element nodoUtente = getUtenteNodo(doc, username);
 		Element hashNode = (Element) nodoUtente.getElementsByTagName(Nomi.TAG_HASH.getNome()).item(0);
 		String conferma = hashNode.getTextContent();
 		if(pw.equals(conferma)) {
@@ -60,7 +73,7 @@ public class LeggiXML {
 		}
 		return false;
 	}
-	
+
 	private Element getUtenteNodo(Document doc, String username ) {
 		NodeList lista =doc.getElementsByTagName(Nomi.TAG_UTENTE.getNome());
 		Element ritorno=null;
@@ -74,15 +87,23 @@ public class LeggiXML {
 		}
 		return ritorno;
 	}
-	
+
 
 	public Categoria leggiCategoria(String categoria) {
 		Nomi nomeFile=null;
-		if(categoria.equals(Nomi.CAT_PARTITA_CALCIO.getNome()))
-			nomeFile = Nomi.FILE_PARTITA_CALCIO;
-		else if(categoria.equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()))
-			nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA;
-		Document doc = cdx.creaDocument(nomeFile);
+		if(categoria.equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
+			if(os.startsWith("Windows"))
+				nomeFile = Nomi.FILE_NOTIFICHE_PENDENTI_WIN;
+			else 
+				nomeFile = Nomi.FILE_PARTITA_CALCIO;
+		}
+		else if(categoria.equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome())) {
+			if(os.startsWith("Windows"))
+				nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA_WIN;
+			else 
+				nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA;
+		}
+		Document doc = fdx.creaDocument(nomeFile);
 		Categoria ritorno = null;
 
 		Element categoriaNodo = (Element) doc.getElementsByTagName(Nomi.TAG_CATEGORIA.getNome()).item(0);
@@ -137,7 +158,7 @@ public class LeggiXML {
 		LinkedList<String> partecipanti = leggiPartecipanti(evento, Nomi.CAMPO_PARTECIPANTI.getNome());
 
 		StatoEvento statoEvento = leggiStatoEvento(evento);
-		
+
 		//SOLO PARTITE DI CALCIO
 		if(categoria.equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
 			Campo<String> sesso = leggiCampo(evento, String.class, Nomi.CAMPO_SESSO);
@@ -157,12 +178,12 @@ public class LeggiXML {
 					proprietario, termineUltimo, termineUltimoRitiro, luogo, dataInizio,
 					durata, quotaIndividuale, compresoQuota, dataFine, nota, tolleranza, 
 					istruttore, attrezzatura, listaIstr, listaAttr, statoEvento);
-			
+
 		}
-		
+
 		return ritorno;
 	}
-	
+
 	public StatoEvento leggiStatoEvento(Element evento) {
 		Element nodoStato = (Element) evento.getElementsByTagName(Nomi.CAMPO_STATO_EVENTO.getNome()).item(0);
 		int lastIndex = nodoStato.getElementsByTagName(Nomi.STATO_EVENTO.getNome()).getLength()-1;
@@ -176,7 +197,7 @@ public class LeggiXML {
 			statoEvento=StatoEvento.FALLITO;		
 		else if(stato.equals(Nomi.STATO_EVENTO_CANCELLATO.getNome()))
 			statoEvento=StatoEvento.CANCELLATO;
-		
+
 		return statoEvento;
 	}
 
@@ -222,8 +243,8 @@ public class LeggiXML {
 
 		return ritorno;
 	}
-	
-	
+
+
 	/**
 	 * trova il nodo campo nella lista dell'evento e torna il campo
 	 * @param evento
@@ -247,8 +268,8 @@ public class LeggiXML {
 		return ritorno;
 
 	}
-	
-	
+
+
 	public LinkedList<String> leggiPartecipanti(Element evento, String nomeNodo){
 		LinkedList<String> lista = new LinkedList<String>();
 		Element nodoLista = (Element) evento.getElementsByTagName(nomeNodo).item(0);
@@ -295,8 +316,12 @@ public class LeggiXML {
 	 * @return
 	 */
 	public Utente caricaUtente(String id) {
-		Document doc = cdx.creaDocument(Nomi.FILE_UTENTI);
-	
+		Document doc=null;
+		if(os.startsWith("Windows")){
+			doc = fdx.creaDocument(Nomi.FILE_UTENTI_WIN);
+		} else {
+			doc = fdx.creaDocument(Nomi.FILE_UTENTI);
+		}
 
 		Element elenco = (Element) doc.getElementsByTagName(Nomi.TAG_ELENCO.getNome()).item(0);
 		NodeList lista = elenco.getElementsByTagName(Nomi.TAG_UTENTE.getNome());
@@ -330,14 +355,14 @@ public class LeggiXML {
 
 
 		Utente ritorno = new Utente(nome, hash, leggiNotifiche(notifiche), interessi, eventiCreati ,etaMin, etaMax);
-		Log.writeRoutineLog(this.getClass(), "leggi utente " + ritorno.getUsername());
+		Log.writeRoutineLog(this.getClass(), "leggi utente " + ritorno.getUsername(), Log.HIGH_PRIORITY);
 		return ritorno;
 	}
 
 	public Hashtable<String, LinkedList<Notifica>> leggiNotifichePendenti() {
 		Hashtable<String, LinkedList<Notifica>> ritorno = new Hashtable<String, LinkedList<Notifica>>();
-		Document doc = cdx.creaDocument(Nomi.FILE_NOTIFICHE_PENDENTI);
-		
+		Document doc = fdx.creaDocument(Nomi.FILE_NOTIFICHE_PENDENTI);
+
 		Element elenco = (Element) doc.getElementsByTagName(Nomi.TAG_ELENCO.getNome()).item(0);
 
 		for(int i=0; i<elenco.getElementsByTagName(Nomi.TAG_UTENTE.getNome()).getLength(); i++) {
@@ -350,22 +375,35 @@ public class LeggiXML {
 
 		return ritorno;
 	}
-	
+
 	public GregorianCalendar leggiData(Element nodo) {
 		GregorianCalendar data = new GregorianCalendar();
 		Element valore = (Element) nodo.getElementsByTagName(Nomi.TAG_VALORE.getNome()).item(0);
-		int anno = Integer.parseInt(valore.getElementsByTagName(Nomi.TAG_ANNO.getNome()).item(0).getTextContent());
-		int mese = Integer.parseInt(valore.getElementsByTagName(Nomi.TAG_MESE.getNome()).item(0).getTextContent());
-		int giorno = Integer.parseInt(valore.getElementsByTagName(Nomi.TAG_GIORNO.getNome()).item(0).getTextContent());
-		int ora = Integer.parseInt(valore.getElementsByTagName(Nomi.TAG_ORA.getNome()).item(0).getTextContent());
+		int anno=0, mese=0, giorno=0, ora=0;
+		if(valore.getElementsByTagName(Nomi.TAG_ANNO.getNome()).getLength()==0) {
+			return null;
+		}
+		if(valore.getElementsByTagName(Nomi.TAG_ANNO.getNome()).item(0).getTextContent()!=null) {
+			anno = Integer.parseInt(valore.getElementsByTagName(Nomi.TAG_ANNO.getNome()).item(0).getTextContent());
+			
+		}
+		if(valore.getElementsByTagName(Nomi.TAG_MESE.getNome()).item(0).getTextContent()!=null) {
+			mese = Integer.parseInt(valore.getElementsByTagName(Nomi.TAG_MESE.getNome()).item(0).getTextContent());
+			
+		}
+		if(valore.getElementsByTagName(Nomi.TAG_GIORNO.getNome()).item(0).getTextContent()!=null) {
+			giorno = Integer.parseInt(valore.getElementsByTagName(Nomi.TAG_GIORNO.getNome()).item(0).getTextContent());
+			
+		}
+		ora = Integer.parseInt(valore.getElementsByTagName(Nomi.TAG_ORA.getNome()).item(0).getTextContent());
 
 		data.set(anno, mese, giorno, ora, 0);
 		return data;
-		
+
 	}
 
 
-
+	
 
 }
 

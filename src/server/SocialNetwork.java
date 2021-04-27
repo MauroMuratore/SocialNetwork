@@ -119,12 +119,13 @@ public class SocialNetwork {
 	 */
 	private void setUtente(String id) {
 		utente = consultaDB.caricaUtente(id);
-		Log.writeRoutineLog(this.getClass(), "login di " + utente.getUsername());
+		Log.writeRoutineLog(this.getClass(), "login di " + utente.getUsername(), Log.TOP_PRIORITY);
 		aggiornamentoUtente();
 	}
 
 	public void logout() {
 		salvaTutto();
+		Log.writeRoutineLog(this.getClass(), "logut di " + utente.getUsername(), Log.TOP_PRIORITY);
 		utente = null;
 
 	}
@@ -226,7 +227,7 @@ public class SocialNetwork {
 	 * @param evento
 	 * @param personeInvitate
 	 */
-	public void addEvento(Evento evento, List<String> personeInvitate) {
+	public String creaEvento(Evento evento, List<String> personeInvitate) {
 		String nome = utente.getUsername();
 		evento.iscrizione(nome);
 		Notifica notificaIscrizione = new Notifica(evento, nome);
@@ -239,6 +240,7 @@ public class SocialNetwork {
 		informaInteressati(evento);
 
 		consultaDB.scriviEvento(evento);
+		return "Evento creato";
 
 	}
 
@@ -320,7 +322,7 @@ public class SocialNetwork {
 	 */
 	public String cancellaNotifica(Notifica notifica) {
 		utente.cancellaNotifica(notifica);
-		Log.writeRoutineLog(this.getClass(), "cancello notifica ");
+		Log.writeRoutineLog(this.getClass(), "cancello notifica ", Log.MEDIUM_PRIORITY);
 		consultaDB.cancellaNotifica(notifica, utente);
 
 		return Nomi.SN_NOTIFICA_CANCELLATA.getNome();
@@ -346,7 +348,7 @@ public class SocialNetwork {
 		Notifica ritorno = evento.cancella(utente.getUsername());
 		utente.riceviNotifica(ritorno);
 		aggiornamentoNotifiche(ritorno);
-		Log.writeRoutineLog(this.getClass(), "cancella evento scrittura ");
+		Log.writeRoutineLog(this.getClass(), "cancella evento scrittura ", Log.HIGH_PRIORITY);
 		consultaDB.scriviEvento(evento);
 		aggiornaEvento(evento);
 		return ritorno.getMessaggio();
@@ -367,7 +369,7 @@ public class SocialNetwork {
 		Notifica ritorno = evento.revocaIscrizione(utente.getUsername());
 
 		utente.riceviNotifica(ritorno);
-		Log.writeRoutineLog(this.getClass(), "revoca iscrizione scrittura ");
+		Log.writeRoutineLog(this.getClass(), "revoca iscrizione scrittura ", Log.MEDIUM_PRIORITY);
 		consultaDB.scriviEvento(evento);
 		aggiornaEvento(evento);
 		return ritorno.getMessaggio();
@@ -450,7 +452,7 @@ public class SocialNetwork {
 			notificheDaInoltrare.get(persona).add(new Invito(evento));
 		}
 
-		Log.writeRoutineLog(this.getClass(), Nomi.SN_INVITI_SPEDITI.getNome());
+		Log.writeRoutineLog(this.getClass(), Nomi.SN_INVITI_SPEDITI.getNome(), Log.MEDIUM_PRIORITY);
 		return Nomi.SN_INVITI_SPEDITI.getNome();
 	}
 
@@ -466,7 +468,7 @@ public class SocialNetwork {
 				notificheDaInoltrare.put(interessato, new LinkedList<Notifica>());
 			notificheDaInoltrare.get(interessato).add(new Notifica(evento, Notifica.NUOVO_EVENTO_APERTO));	
 		}
-		Log.writeRoutineLog(this.getClass(),"persone interessate informate");
+		Log.writeRoutineLog(this.getClass(),"persone interessate informate", Log.MEDIUM_PRIORITY);
 	}
 
 	public void aggiornaEvento(Evento e) {

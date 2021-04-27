@@ -35,27 +35,51 @@ import lib.util.Nomi;
 
 public class ScriviXML {
 
-	private FactoryNodoXML fnx = new FactoryNodoXML();
-	private FactoryDocXML fdx = new FactoryDocXML();
+	private FactoryNodoXML fnx ;
+	private FactoryDocXML fdx ;
+	private String os;
+
+	public ScriviXML() {
+		fnx = new FactoryNodoXML();
+		fdx = new FactoryDocXML();
+		os = System.getProperty("os.name");
+	}
 
 	public void salvaUtente(Utente utente) {
-		Document doc = fdx.creaDocument(Nomi.FILE_UTENTI);
+		Document doc=null;
+		if(os.startsWith("Windows")){
+			doc = fdx.creaDocument(Nomi.FILE_UTENTI_WIN);
+		} else {
+			doc = fdx.creaDocument(Nomi.FILE_UTENTI);
+		}
 		Element elenco = (Element) doc.getElementsByTagName(Nomi.TAG_ELENCO.getNome()).item(0);
 		Element nodoUtente = fnx.creaNodoUtente(doc, elenco, utente);
 		elenco.appendChild(nodoUtente);
 
-		Log.writeRoutineLog(this.getClass(), "salvo utente " + utente.getUsername());
-		scriviSuFile(doc, Nomi.FILE_UTENTI);
+		Log.writeRoutineLog(this.getClass(), "salvo utente " + utente.getUsername(), Log.HIGH_PRIORITY);
+		if(os.startsWith("Windows")){
+			scriviSuFile(doc, Nomi.FILE_UTENTI_WIN);
+		} else {
+			scriviSuFile(doc, Nomi.FILE_UTENTI);
+		}
 
 
 	}
 
 	public void scriviCategoria(Categoria cat) {
 		Nomi nomeFile=null;
-		if(cat.getNome().equals(Nomi.CAT_PARTITA_CALCIO.getNome()))
-			nomeFile = Nomi.FILE_PARTITA_CALCIO;
-		else if(cat.getNome().equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()))
-			nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA;
+		if(cat.getNome().equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
+			if(os.startsWith("Windows"))
+				nomeFile = Nomi.FILE_PARTITA_CALCIO_WIN;
+			else 
+				nomeFile = Nomi.FILE_PARTITA_CALCIO;
+		}
+		else if(cat.getNome().equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome())) {
+			if(os.startsWith("Windows"))
+				nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA_WIN;
+			else 
+				nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA;
+		}
 		Document doc = fdx.creaDocument(nomeFile);
 
 
@@ -93,10 +117,18 @@ public class ScriviXML {
 
 	public void scriviEvento(Evento evento) {
 		Nomi nomeFile=null;
-		if(evento.getCategoria().equals(Nomi.CAT_PARTITA_CALCIO.getNome()))
-			nomeFile = Nomi.FILE_PARTITA_CALCIO;
-		else if(evento.getCategoria().equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()))
-			nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA;
+		if(evento.getCategoria().equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
+			if(os.startsWith("Windows"))
+				nomeFile = Nomi.FILE_NOTIFICHE_PENDENTI_WIN;
+			else 
+				nomeFile = Nomi.FILE_PARTITA_CALCIO;
+		}
+		else if(evento.getCategoria().equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome())) {
+			if(os.startsWith("Windows"))
+				nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA_WIN;
+			else 
+				nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA;
+		}
 		Document doc = fdx.creaDocument(nomeFile);
 
 
@@ -115,11 +147,11 @@ public class ScriviXML {
 		scriviNuovoEvento(doc, evento, newEvento);
 		elenco.appendChild(newEvento);
 
-		Log.writeRoutineLog(this.getClass(), "scrivo evento ");
+		Log.writeRoutineLog(this.getClass(), "scrivo evento ", Log.MEDIUM_PRIORITY);
 		scriviSuFile(doc, nomeFile);
 
 	}
-	
+
 	public void scriviNuovoEvento(Document doc, Evento evento, Element nodoEvento) {
 		scriviCampo(evento.getTitolo(), nodoEvento, doc);
 		scriviCampo(evento.getPartecipantiNecessari(), nodoEvento, doc);
@@ -145,7 +177,7 @@ public class ScriviXML {
 		statoEvento.appendChild(stato);
 		nodoEvento.appendChild(statoEvento);
 	}
-	
+
 	public void sovrascriviEvento(Document doc, Evento evento, Element nodoEvento) {
 		sovrascriviCampo(evento.getTitolo(), nodoEvento);
 		sovrascriviCampo(evento.getPartecipantiNecessari(), nodoEvento);
@@ -270,7 +302,7 @@ public class ScriviXML {
 			e.printStackTrace();
 		}
 
-		Log.writeRoutineLog(this.getClass(), "Scrittura su file " + file.getNome());
+		Log.writeRoutineLog(this.getClass(), "Scrittura su file " + file.getNome(), Log.LOW_PRIORITY);
 	}
 
 	public void scriviNotifichePendenti(Map<String, LinkedList<Notifica>> notifichePendenti) {
@@ -285,8 +317,11 @@ public class ScriviXML {
 	}
 
 	public void cancellaNotifica(Notifica notifica, Utente utente) {
-		Document doc = fdx.creaDocument(Nomi.FILE_UTENTI);
-
+		Document doc = null;
+		if(os.startsWith("Windows"))
+			doc= fdx.creaDocument(Nomi.FILE_UTENTI_WIN);
+		else
+			doc = fdx.creaDocument(Nomi.FILE_UTENTI);
 		Element elenco = (Element) doc.getElementsByTagName(Nomi.TAG_ELENCO.getNome()).item(0);
 		NodeList listaUtenti = elenco.getElementsByTagName(Nomi.TAG_UTENTE.getNome());
 		Element nodoUtente = null;
@@ -308,14 +343,19 @@ public class ScriviXML {
 				break;
 			}
 		}
-
-		scriviSuFile(doc, Nomi.FILE_UTENTI);
+		if(os.startsWith("Windows"))
+			scriviSuFile(doc, Nomi.FILE_UTENTI_WIN);
+		else
+			scriviSuFile(doc, Nomi.FILE_UTENTI);
 
 	}
 
 	public void cancellaUtente(String username) {
-		Document doc = fdx.creaDocument(Nomi.FILE_UTENTI);
-
+		Document doc = null;
+		if(os.startsWith("Windows"))
+			doc= fdx.creaDocument(Nomi.FILE_UTENTI_WIN);
+		else
+			doc = fdx.creaDocument(Nomi.FILE_UTENTI);
 		Element elenco = (Element) doc.getElementsByTagName(Nomi.TAG_ELENCO.getNome()).item(0);
 		NodeList lista = elenco.getElementsByTagName(Nomi.TAG_UTENTE.getNome());
 		Element nodoUtente = null;
@@ -323,12 +363,16 @@ public class ScriviXML {
 			String nome =((Element)lista.item(i)).getElementsByTagName(Nomi.TAG_NOME.getNome()).item(0).getTextContent();
 			if(nome.equals(username)) {
 				nodoUtente = (Element)lista.item(i);
-				Log.writeRoutineLog(this.getClass(), username + " rimosso");
+				Log.writeRoutineLog(this.getClass(), username + " rimosso", Log.HIGH_PRIORITY);
 			}
 		}
 		elenco.removeChild(nodoUtente);
 
-		scriviSuFile(doc, Nomi.FILE_UTENTI);
+		if(os.startsWith("Windows"))
+			scriviSuFile(doc, Nomi.FILE_UTENTI_WIN);
+		else
+			scriviSuFile(doc, Nomi.FILE_UTENTI);
+
 	}
 
 

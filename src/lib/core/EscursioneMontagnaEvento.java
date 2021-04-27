@@ -67,6 +67,7 @@ public class EscursioneMontagnaEvento extends Evento {
 	}
 	
 	public String setIstruttore(String costoIstruttore) {
+		
 		if(!ControlloCampo.controlloIntero(costoIstruttore).equals(Campo.OK))
 			return ControlloCampo.controlloIntero(costoIstruttore);
 		istruttore.setValore(Integer.parseInt(costoIstruttore));

@@ -19,6 +19,7 @@ public class ControllerBacheca implements ActionListener {
 
 	private ViewBC viewBC;
 	private List<Categoria> categorie;
+	private String nomeCat;
 	private Evento evento; //da trasformare in un model in cui ho anche istruttore e attrezzatura
 	private String azioneInCorso;
 	private PanelCreaEvento pce;
@@ -43,8 +44,8 @@ public class ControllerBacheca implements ActionListener {
 			}
 			else {
 				TreePath selPath = viewBC.getSelectionPath();
-				String cat = selPath.getPathComponent(selPath.getPathCount()-2).toString(); //ricevo la categoria
-				if(cat.equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
+				nomeCat = selPath.getPathComponent(selPath.getPathCount()-2).toString(); //ricevo la categoria
+				if(nomeCat.equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
 					int index;
 					for(index=0; index<categorie.size(); index++) {
 						if(categorie.get(index).getNome().equals(Nomi.CAT_PARTITA_CALCIO.getNome()))
@@ -52,7 +53,7 @@ public class ControllerBacheca implements ActionListener {
 					}
 					if(selPath.getLastPathComponent().toString().equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
 						List<String> interessati = categorie.get(index).getPersoneInteressate();
-						pce = new PanelCreaEvento(cat, interessati, this);
+						pce = new PanelCreaEvento(nomeCat, interessati, this);
 						viewBC.addPanel(pce);
 
 
@@ -69,7 +70,7 @@ public class ControllerBacheca implements ActionListener {
 
 					}
 				}
-				else if(cat.equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome())) {
+				else if(nomeCat.equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome())) {
 					int index;
 					for(index=0; index<categorie.size(); index++) {
 						if(categorie.get(index).getNome().equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()))
@@ -77,11 +78,11 @@ public class ControllerBacheca implements ActionListener {
 					}
 					if(selPath.getLastPathComponent().toString().equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
 						List<String> interessati = categorie.get(index).getPersoneInteressate();
-						pce = new PanelCreaEvento(cat, interessati, this);
+						pce = new PanelCreaEvento(nomeCat, interessati, this);
 						viewBC.addPanel(pce);
 					}
 					else {
-						
+
 						for(EscursioneMontagnaEvento escursione: (List<EscursioneMontagnaEvento>)categorie.get(index).getBacheca()) {
 							if(selPath.getLastPathComponent().toString().equals(escursione.getTitolo().getValore()))
 								evento = escursione;
@@ -117,9 +118,23 @@ public class ControllerBacheca implements ActionListener {
 			this.notify();
 		}
 
+		else if(e.getActionCommand().equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
+			azioneInCorso = Nomi.AZIONE_CREA_EVENTO.getNome();
+			String esito;
+
+			esito = setEvento();
+
+			if(esito.equals(Evento.OK))
+				this.notify();
+			else
+				mostraEsito(esito);
+				
+		}
+
 		else if(e.getActionCommand().equals("Indietro")) {
 			viewBC.removePanelEsterno();
 		}
+
 
 
 
@@ -161,6 +176,66 @@ public class ControllerBacheca implements ActionListener {
 		viewBC.setCategorie(cat);
 		viewBC.repaint();
 
+	}
+
+	public String setEvento() {
+		String ritorno;
+		if(nomeCat.equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
+			evento = new PartitaCalcioEvento();
+			ritorno = ((PartitaCalcioEvento) evento).setSesso(pce.getSesso());
+			if(!ritorno.equals(Evento.OK))
+				return ritorno;
+			ritorno =((PartitaCalcioEvento) evento).setEta(pce.getEta());
+			if(!ritorno.equals(Evento.OK))
+				return ritorno;
+		}
+		else if(nomeCat.equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome())) {
+			evento = new EscursioneMontagnaEvento();
+			ritorno =((EscursioneMontagnaEvento) evento).setIstruttore(pce.getIstruttore());
+			if(!ritorno.equals(Evento.OK))
+				return ritorno;
+			ritorno =((EscursioneMontagnaEvento) evento).setAttrezzatura(pce.getAttrezzatura());
+			if(!ritorno.equals(Evento.OK))
+				return ritorno;
+		}
+		ritorno = evento.setTitolo(pce.getTitolo());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setPartecipantiNecessari(pce.getPartecipanti());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setTolleranzaPartecipanti(pce.getTolleranzaPartecipanti());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setTermineUltimo(pce.getTermineUltimo());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setTermineUltimoRitiro(pce.getTermineUltimoRitiro());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setLuogo(pce.getLuogo());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setDataInizio(pce.getDataInizio(), pce.getOraInizio());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setDataFine(pce.getDataFine(), pce.getOraFine());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setDurata(pce.getDurata());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setDurata(pce.getDurata());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		ritorno = evento.setCompresoQuota(pce.getCompresoQuota());
+		ritorno = evento.setNote(pce.getNote());
+
+		return ritorno;
+	}
+	
+	public List<String> getInviti(){
+		return pce.getInviti();
 	}
 
 

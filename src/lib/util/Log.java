@@ -10,8 +10,14 @@ import java.util.Scanner;
 
 public class Log {
 
-	private static File file = new File("data/log.txt");
-	private static File error = new File("data/error.txt");
+	private static File file;
+	private static File error; 
+	private static int verbose=0;
+
+	public static final int TOP_PRIORITY = 0;
+	public static final int HIGH_PRIORITY = 1;
+	public static final int MEDIUM_PRIORITY = 2;
+	public static final int LOW_PRIORITY =3;
 
 	private static String writeMessageLog(Class classname, String logToWrite) {
 		Calendar calendar = Calendar.getInstance();
@@ -21,25 +27,35 @@ public class Log {
 		String log = data+ " "  + nameclass + " " + logToWrite + "\n";
 		return log;
 	}
-	
-	public static void writeRoutineLog(Class classname, String logToWrite) {
+
+	public static void writeRoutineLog(Class classname, String logToWrite, int v) {
 		String log = writeMessageLog(classname, logToWrite);
-		FileWriter fw = null;
-		try {
-			fw = new FileWriter(file, true);
-			fw.write(log);
-			fw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		if(v<2) {
+			FileWriter fw = null;
+			file =new File("data/log.txt");
+			if(!file.exists()) {
+				file = new File("../data/log.txt");
+			}
+			try {
+				fw = new FileWriter(file, true);
+				fw.write(log);
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-
-
-		System.out.println(log);
+		if(v<=verbose) {
+			System.out.println(log);
+		}
 	}
-	
+
 	public static void writeErrorLog(Class classname, String logToWrite) {
 		String log = writeMessageLog(classname, logToWrite);
 		FileWriter fw = null;
+		error = new File("data/error.txt");
+		if(!error.exists()) {
+			error = new File("../data/error.txt");
+		}
 		try {
 			fw = new FileWriter(error, true);
 			fw.write(log);
@@ -51,7 +67,12 @@ public class Log {
 
 		System.err.println(log);
 	}
-	
+
+	public static void setVerbose(int v) {
+		if(v>0 && v<4) {
+			verbose = v;
+		}
+	}
 
 
 

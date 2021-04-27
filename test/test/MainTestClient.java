@@ -1,4 +1,4 @@
-package newGUI;
+package test;
 
 import java.io.IOException;
 import java.net.InetAddress;

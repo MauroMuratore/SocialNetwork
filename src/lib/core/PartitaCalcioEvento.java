@@ -89,7 +89,7 @@ public class PartitaCalcioEvento extends Evento {
 
 	public String setSesso(String _sesso) {
 		if(_sesso.equals("")) {
-			return sesso.getNome() + VUOTO;
+			return Nomi.CAMPO_SESSO.getNome() + VUOTO;
 		}
 		sesso.setValore(_sesso);
 		return OK;
@@ -100,6 +100,9 @@ public class PartitaCalcioEvento extends Evento {
 	}
 
 	public String setEta(String _eta) {
+		if(_eta.equals("")) {
+			return OK;
+		}
 		if(ControlloCampo.controlloIntero(_eta).equals(Campo.FORMATO_INTERO_SBAGLIATO))
 			return Campo.FORMATO_INTERO_SBAGLIATO;
 		eta.setValore(Integer.parseInt(_eta));

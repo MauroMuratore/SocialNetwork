@@ -41,6 +41,7 @@ public abstract class Evento implements Serializable {
 	public static final String OK = "OK";
 	public static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato � errato";
 	public static final String PARTECIPANTI_NECESSARI_MIN = "Partecipanti minimi necessari";
+	public static final String DATA_PASSATA ="La data è già passata";
 
 	/**
 	 * Da usare per la lettura da disco
@@ -56,7 +57,10 @@ public abstract class Evento implements Serializable {
 		this.partecipantiNecessari = partecipantiNecessari;
 		this.partecipanti= new LinkedList<String>(partecipanti);
 		this.termineUltimo = termineUltimo;
-		this.termineUltimoRitiro = termineUltimoRitiro;
+		if(termineUltimoRitiro!=null)
+			this.termineUltimoRitiro = termineUltimoRitiro;
+		else
+			this.termineUltimoRitiro = termineUltimo;
 		this.luogo = luogo;
 		this.dataInizio = dataInizio;
 		this.durata = durata;
@@ -90,7 +94,11 @@ public abstract class Evento implements Serializable {
 		this.titolo = titolo;
 		this.partecipantiNecessari = partecipantiMax;
 		this.termineUltimo = termineUltimo;
-		this.termineUltimoRitiro=termineUltimoRitiro;
+		System.out.println(titolo.getValoreString() + termineUltimo.getValoreString());
+		if(termineUltimoRitiro!=null)
+			this.termineUltimoRitiro = termineUltimoRitiro;
+		else
+			this.termineUltimoRitiro = termineUltimo;
 		this.luogo = luogo;
 		this.dataInizio = dataInizio;
 		this.durata = durata;
@@ -181,21 +189,38 @@ public abstract class Evento implements Serializable {
 		proprietario=_proprietario;
 	}
 
+	/**
+	 * DA USARE DOPO SetTermineUltimo
+	 * @param _termineUltimoRitiro
+	 * @return
+	 */
 	public String setTermineUltimoRitiro(String _termineUltimoRitiro) {
+		if(_termineUltimoRitiro.equals("")) {
+			return OK;
+		}
 		if(!ControlloCampo.controlloData(_termineUltimoRitiro).equals(Campo.OK))
-			return ControlloCampo.controlloData(_termineUltimoRitiro);
-		termineUltimoRitiro.setValore(ControlloCampo.assumiData(_termineUltimoRitiro));
+			return Nomi.CAMPO_TERMINE_ULTIMO_RITIRO.getNome() + ControlloCampo.controlloData(_termineUltimoRitiro);
+
+		Date date = new Date(System.currentTimeMillis()); 
+		GregorianCalendar oggi = new GregorianCalendar();
+		oggi.setTime(date);
+
+		GregorianCalendar dataCampo = ControlloCampo.assumiData(_termineUltimoRitiro);
+		if(dataCampo.before(oggi))
+			return DATA_PASSATA;
+
+		termineUltimoRitiro.setValore(dataCampo);
 		return OK;
 	}
 
 	public String setPartecipantiNecessari(String _partecipantiNecessari) {
 		_partecipantiNecessari.trim();
 		if(ControlloCampo.controlloIntero(_partecipantiNecessari).equals(Campo.FORMATO_INTERO_SBAGLIATO)) {
-			return Campo.FORMATO_INTERO_SBAGLIATO;
+			return Nomi.CAMPO_PARTECIPANTI_MAX.getNome() + Campo.FORMATO_INTERO_SBAGLIATO;
 		}
 		int partNec = Integer.parseInt(_partecipantiNecessari);
 		if(partNec<=0) {
-			return PARTECIPANTI_NECESSARI_MIN;
+			return Nomi.CAMPO_PARTECIPANTI_MAX.getNome() + PARTECIPANTI_NECESSARI_MIN;
 		}
 		partecipantiNecessari.setValore(Integer.parseInt(_partecipantiNecessari));
 		return OK;
@@ -204,8 +229,17 @@ public abstract class Evento implements Serializable {
 
 	public String setTermineUltimo(String data) {
 		if(!ControlloCampo.controlloData(data).equals(Campo.OK))
-			return ControlloCampo.controlloData(data);
-		termineUltimoRitiro.setValore(ControlloCampo.assumiData(data));
+			return Nomi.CAMPO_TERMINE_ULTIMO.getNome() + ControlloCampo.controlloData(data);
+		Date date = new Date(System.currentTimeMillis()); 
+		GregorianCalendar oggi = new GregorianCalendar();
+		oggi.setTime(date);
+
+		GregorianCalendar dataCampo = ControlloCampo.assumiData(data);
+		if(dataCampo.before(oggi))
+			return DATA_PASSATA;
+
+		if(termineUltimoRitiro.getValore()==null)
+			termineUltimoRitiro.setValore(ControlloCampo.assumiData(data));
 		termineUltimo.setValore(ControlloCampo.assumiData(data));
 		return OK;
 	}
@@ -220,49 +254,61 @@ public abstract class Evento implements Serializable {
 
 	public String setDataInizio(String data, String ora) {
 		if(!ControlloCampo.controlloOra(data, ora).equals(Campo.OK))
-			return ControlloCampo.controlloOra(data, ora);
+			return Nomi.CAMPO_DATA_INIZIO.getNome() + ControlloCampo.controlloOra(data, ora);
+		Date date = new Date(System.currentTimeMillis()); 
+		GregorianCalendar oggi = new GregorianCalendar();
+		oggi.setTime(date);
+		
+		GregorianCalendar dataCampo = ControlloCampo.assumiOra(data, ora);
+		if(dataCampo.before(oggi))
+			return DATA_PASSATA;
+		
 		dataInizio.setValore(ControlloCampo.assumiOra(data, ora));
 		return OK;
 	}
 
 	public String setDurata(String _durata) {
+		if(_durata.equals("")){
+			return OK;
+		}
 		if(ControlloCampo.controlloIntero(_durata).equals(Campo.FORMATO_INTERO_SBAGLIATO))
-			return Campo.FORMATO_INTERO_SBAGLIATO;
+			return Nomi.CAMPO_DURATA.getNome() + Campo.FORMATO_INTERO_SBAGLIATO;
 		durata.setValore(Integer.parseInt(_durata));
 		return OK;
 	}
 
 	public String setQuotaIndividuale(String _quotaIndividuale) {
 		if(ControlloCampo.controlloIntero(_quotaIndividuale).equals(Campo.FORMATO_INTERO_SBAGLIATO))
-			return Campo.FORMATO_INTERO_SBAGLIATO;
+			return Nomi.CAMPO_QUOTA_IND.getNome() + Campo.FORMATO_INTERO_SBAGLIATO;
 		quotaIndividuale.setValore(Integer.parseInt(_quotaIndividuale));
 		return OK;
 	}
 
 	public String setCompresoQuota(String _compresoQuota) {
-		if(_compresoQuota.equals("")) {
-			return compresoQuota.getNome() + VUOTO;
-		}
 		compresoQuota.setValore(_compresoQuota);
 		return OK;
 	}
 
 	public String setDataFine(String data, String ora) {
+		if(data.equals("")) {
+			return OK;
+		}
 		if(!ControlloCampo.controlloOra(data, ora).equals(Campo.OK))
-			return ControlloCampo.controlloOra(data, ora);
+			return Nomi.CAMPO_DATA_FINE.getNome() + ControlloCampo.controlloOra(data, ora);
 		dataFine.setValore(ControlloCampo.assumiOra(data, ora));
 		return OK;
 	}
 
 	public String setNote(String _note) {
-		if(_note.equals("")) {
-			return note.getNome() + VUOTO;
-		}
 		note.setValore(_note);
 		return OK;
 	}
 
 	public String setTolleranzaPartecipanti(String _tolleranzaPartecipanti) {
+		if(_tolleranzaPartecipanti.equals("")) {
+			tolleranzaPartecipanti.setValore(0);
+			return OK;
+		}
 		if(!ControlloCampo.controlloIntero(_tolleranzaPartecipanti).equals(OK)) {
 			return ControlloCampo.controlloIntero(_tolleranzaPartecipanti);
 		}
@@ -297,7 +343,9 @@ public abstract class Evento implements Serializable {
 		//passaggio da aperto a
 		if(stato.equals(StatoEvento.APERTO)) {
 			//chiuso
-			if(termineUltimo.getValore().after(oggi) || termineUltimo.getValore().equals(oggi)) {
+
+			if(termineUltimo.getValore().after(oggi)
+					|| termineUltimo.getValore().equals(oggi)) {
 				if(partecipantiNecessari.getValore().intValue() <= partecipanti.size()
 						&& partecipantiNecessari.getValore().intValue()+tolleranzaPartecipanti.getValore().intValue()>=partecipanti.size() ) {
 					stato=StatoEvento.CHIUSO;
@@ -355,7 +403,6 @@ public abstract class Evento implements Serializable {
 		oggi.setTime(date);
 		Notifica ritorno;
 		if(!proprietario.equals(_proprietario)) {
-			Log.writeRoutineLog(this.getClass(), "proprietario diverso " + proprietario );
 			ritorno = new Notifica (this, Notifica.PROPRIETARIO_DIVERSO);
 		}
 		else if(oggi.before(termineUltimoRitiro.getValore()) || oggi.equals(termineUltimoRitiro.getValore())) {
