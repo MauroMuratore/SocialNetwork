@@ -11,8 +11,8 @@ import javax.swing.JSplitPane;
 
 import lib.core.Notifica;
 import lib.core.Utente;
+import lib.net.ModelModificaUtente;
 import lib.util.Nomi;
-import net.ModelModificaUtente;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;

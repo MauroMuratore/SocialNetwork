@@ -14,7 +14,7 @@ import lib.net.Channel;
 import lib.util.ControlloCampo;
 import lib.util.Log;
 import lib.util.Nomi;
-import net.ModelModificaUtente;
+import lib.net.ModelModificaUtente;
 
 public class MainServer {
 

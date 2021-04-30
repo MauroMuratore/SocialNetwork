@@ -6,8 +6,8 @@ import java.util.List;
 
 import lib.core.Notifica;
 import lib.core.Utente;
+import lib.net.ModelModificaUtente;
 import lib.util.Nomi;
-import net.ModelModificaUtente;
 import newGUI.JError;
 import newGUI.body.ControllerBody;
 
@@ -18,7 +18,7 @@ public class ControllerAP implements ActionListener{
 	private String azione;
 	private Integer indiceNotifica;
 	private PanelModificaUtente pmu;
-	private ModelModificaUtente mmu;
+	private lib.net.ModelModificaUtente mmu;
 	private ActionListener father;
 	
 	
@@ -27,7 +27,7 @@ public class ControllerAP implements ActionListener{
 		viewAP = new ViewAP(utente, this, father);
 		azione=null;
 		indiceNotifica = null;
-		mmu = new ModelModificaUtente();
+		mmu = new lib.net.ModelModificaUtente();
 		father =_father;
 		viewAP.setActionListener(_father);
 	}

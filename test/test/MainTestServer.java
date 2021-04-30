@@ -13,7 +13,7 @@ import lib.core.Notifica;
 import lib.core.PartitaCalcioEvento;
 import lib.net.Channel;
 import lib.util.Nomi;
-import net.ModelModificaUtente;
+import lib.net.ModelModificaUtente;
 import server.SocialNetwork;
 
 public class MainTestServer {
