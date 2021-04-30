@@ -284,14 +284,24 @@ public class ScriviXML {
 	 * @param doc
 	 * @param file
 	 */
-	private void scriviSuFile(Document doc, Nomi file) {
+	private void scriviSuFile(Document doc, Nomi fileName) {
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = null;
 		try {
 			transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(file.getNome()));
+			File file = new File(fileName.getNome());
+			if(!file.exists()) {
+				String os = System.getProperty("os.name");
+				if(os.startsWith("Windows")){
+					file = new File("..\\" + fileName.getNome());
+				}
+				else {
+					file = new File("../" + fileName.getNome());
+				}
+			}
+			StreamResult result = new StreamResult(file);
 			transformer.transform(source, result);
 
 		} catch (TransformerConfigurationException e) {
@@ -302,7 +312,7 @@ public class ScriviXML {
 			e.printStackTrace();
 		}
 
-		Log.writeRoutineLog(this.getClass(), "Scrittura su file " + file.getNome(), Log.LOW_PRIORITY);
+		Log.writeRoutineLog(this.getClass(), "Scrittura su file " + fileName.getNome(), Log.LOW_PRIORITY);
 	}
 
 	public void scriviNotifichePendenti(Map<String, LinkedList<Notifica>> notifichePendenti) {

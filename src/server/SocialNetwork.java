@@ -320,8 +320,8 @@ public class SocialNetwork {
 	 * @param notifica
 	 * @return NOTIFICA_CANCELLATA
 	 */
-	public String cancellaNotifica(Notifica notifica) {
-		utente.cancellaNotifica(notifica);
+	public String cancellaNotifica(int index) {
+		Notifica notifica =utente.cancellaNotifica(index);
 		Log.writeRoutineLog(this.getClass(), "cancello notifica ", Log.MEDIUM_PRIORITY);
 		consultaDB.cancellaNotifica(notifica, utente);
 
@@ -414,6 +414,36 @@ public class SocialNetwork {
 
 		consultaDB.salvaUtente(getUtente());
 
+		return Utente.MODIFICA_RIUSCITA;
+	}
+	
+	public String modificaUtente(int etaMin, int etaMax, boolean catPartita, boolean catEscursione) {
+		if(etaMin>etaMax)
+			return Nomi.SN_ETAMIN_MAGG_ETAMAX.getNome();
+		utente.setEtaMin(etaMin);
+		utente.setEtaMax(etaMax);
+		if(catPartita) {
+			if(!categorie.get(Nomi.CAT_PARTITA_CALCIO.getNome()).getPersoneInteressate().contains(utente.getUsername())) {
+				categorie.get(Nomi.CAT_PARTITA_CALCIO.getNome()).getPersoneInteressate().add(utente.getUsername());
+				utente.aggiungiInteresse(Nomi.CAT_PARTITA_CALCIO.getNome());
+			}
+		}else {
+			categorie.get(Nomi.CAT_PARTITA_CALCIO.getNome()).getPersoneInteressate().remove(utente.getUsername());
+			utente.removeInteresse(Nomi.CAT_PARTITA_CALCIO.getNome());
+		}
+		if(catEscursione) {
+			if(!categorie.get(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()).getPersoneInteressate().contains(utente.getUsername())) {
+				categorie.get(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()).getPersoneInteressate().add(utente.getUsername());
+				utente.aggiungiInteresse(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome());
+			}
+		}else {
+			categorie.get(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()).getPersoneInteressate().remove(utente.getUsername());
+			utente.removeInteresse(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome());
+		}
+		
+		consultaDB.salvaCategorie(categorie);
+		consultaDB.salvaUtente(utente);
+		
 		return Utente.MODIFICA_RIUSCITA;
 	}
 

@@ -12,7 +12,7 @@ public class Log {
 
 	private static File file;
 	private static File error; 
-	private static int verbose=0;
+	private static int verbose=1;
 
 	public static final int TOP_PRIORITY = 0;
 	public static final int HIGH_PRIORITY = 1;
@@ -69,8 +69,9 @@ public class Log {
 	}
 
 	public static void setVerbose(int v) {
-		if(v>0 && v<4) {
+		if(v>=0 && v<4) {
 			verbose = v;
+			Log.writeRoutineLog(Log.class, "cambiato verbosita a " + v, 0);
 		}
 	}
 

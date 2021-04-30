@@ -60,6 +60,9 @@ public abstract class Categoria<E extends Evento> implements Serializable{
 	}
 
 	public String getDescrizione() {
+		if(descrizione==null) {
+			return " ";
+		}
 		return descrizione;
 	}
 

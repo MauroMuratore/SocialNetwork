@@ -27,9 +27,11 @@ public class FactoryDocXML {
 				if(os.startsWith("Windows")){
 					file = new File("..\\" + fileName.getNome());
 				}
-				else
+				else {
 					file = new File("../" + fileName.getNome());
+				}
 			}
+			
 			doc = builder.parse(file);
 		} catch (SAXException | IOException | ParserConfigurationException e) {
 			Log.writeErrorLog(this.getClass(), "errore nella creazione del docXML");

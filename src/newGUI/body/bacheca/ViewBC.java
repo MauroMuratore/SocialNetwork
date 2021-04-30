@@ -34,19 +34,21 @@ public class ViewBC extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public ViewBC(List<Categoria> categorie) {
+	public ViewBC(List<Categoria> cat, ActionListener son) {
 		layout = new CardLayout(0, 0);
 		setLayout(layout);
 		panelCategorie = new JPanel();
 		tree = new JTree();
 		tree.setBounds(0, 0, 438, 257);
-		setCategorie(categorie);
+		setCategorie(cat);
 		JScrollPane scrollPane = new JScrollPane(tree);
 		panelCategorie.add(scrollPane);
 
 		btnAvanti = new JButton("Avanti");
 		panelCategorie.add(btnAvanti, BorderLayout.SOUTH);
 		btnAvanti.setPreferredSize(getMinimumSize());
+		btnAvanti.addActionListener(son);
+		btnAvanti.setActionCommand("Avanti");
 
 		repaint();
 	}
@@ -55,10 +57,6 @@ public class ViewBC extends JPanel {
 		return tree.getSelectionPath();
 	}
 
-	public void addActionListener(ActionListener al) {
-		btnAvanti.addActionListener(al);
-		btnAvanti.setActionCommand("Avanti");
-	}
 
 	public void addPanel(JPanel panel) {
 		panelEsterno = panel;
@@ -95,6 +93,9 @@ public class ViewBC extends JPanel {
 		tree.setModel(model);
 		tree.setRootVisible(false);
 		tree.setFont(new Font(tree.getFont().getFontName(), Font.PLAIN, 24));
+		
+		revalidate();
+		repaint();
 
 	}
 }

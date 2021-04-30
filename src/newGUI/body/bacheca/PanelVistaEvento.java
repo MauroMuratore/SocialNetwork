@@ -36,7 +36,7 @@ public class PanelVistaEvento extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelVistaEvento(Evento evento, ActionListener al) {
+	public PanelVistaEvento(Evento evento, ActionListener al, ActionListener father) {
 
 
 		setLayout(new BorderLayout(0, 0));
@@ -191,12 +191,15 @@ public class PanelVistaEvento extends JPanel {
 		add(panelButton, BorderLayout.SOUTH);
 
 		btnIscrizione = new JButton(Nomi.AZIONE_ISCRIZIONE.getNome());
+		btnIscrizione.addActionListener(father);
 		btnIscrizione.addActionListener(al);
 		btnIscrizione.setActionCommand(Nomi.AZIONE_ISCRIZIONE.getNome());
 		btnRevoca = new JButton(Nomi.AZIONE_DISISCRIZIONE.getNome());
+		btnRevoca.addActionListener(father);
 		btnRevoca.addActionListener(al);
 		btnRevoca.setActionCommand(Nomi.AZIONE_DISISCRIZIONE.getNome());
 		btnCancella = new JButton(Nomi.AZIONE_CANCELLA_EVENTO.getNome());
+		btnCancella.addActionListener(father);
 		btnCancella.addActionListener(al);
 		btnCancella.setActionCommand(Nomi.AZIONE_CANCELLA_EVENTO.getNome());
 		btnIndietro = new JButton("Indietro");

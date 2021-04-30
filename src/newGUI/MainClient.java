@@ -8,6 +8,7 @@ import java.util.List;
 
 import lib.net.Channel;
 import lib.util.Nomi;
+import newGUI.body.ControllerBody;
 import newGUI.login.ControllerLogin;
 import newGUI.login.ModelLogin;
 
@@ -15,6 +16,7 @@ public class MainClient {
 
 	private static Channel channel;
 	private static ControllerLogin controllerLogin;
+	private static ControllerBody controllerBody;
 	private static int port = 4444;
 
 	public static void main(String[] args) {
@@ -31,7 +33,9 @@ public class MainClient {
 		channel = new Channel(socket);
 		controllerLogin = new ControllerLogin(channel);
 		controllerLogin.login();
-
+		
+		controllerBody = new ControllerBody(channel);
+		controllerBody.cicloVita();
 
 
 

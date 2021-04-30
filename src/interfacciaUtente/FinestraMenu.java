@@ -897,7 +897,7 @@ public class FinestraMenu {
 				{	
 					String titolo=sn.getUtente().getNotifiche().get(count).getMessaggio()+" TITOLO: "+sn.getUtente().getNotifiche().get(count).getEvento().getTitolo().getValore();
 					if(titolo.equals(listaNot.getSelectedItem())){
-						sn.cancellaNotifica(sn.getUtente().getNotifiche().get(count));
+						//sn.cancellaNotifica(sn.getUtente().getNotifiche().get(count));
 						System.out.println(sn.getUtente().getNotifiche().size());
 						costruisciFinestraAP();
 					}

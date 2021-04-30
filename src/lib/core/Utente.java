@@ -92,8 +92,10 @@ public class Utente implements Serializable {
 		return notifiche.add(not);
 	}
 
-	public void cancellaNotifica(Notifica notifica) {
-		notifiche.remove(notifica);
+	public Notifica cancellaNotifica(int index) {
+		Notifica ritorno = notifiche.get(index);
+		notifiche.remove(ritorno);
+		return ritorno;
 			
 	}
 

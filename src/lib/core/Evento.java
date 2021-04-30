@@ -36,10 +36,10 @@ public abstract class Evento implements Serializable {
 
 
 	public static final String EVENTO_VALIDO = "Evento valido";
-	public static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento � gia esistente";
-	public static final String VUOTO = "ATTENZIONE: il campo � vuoto";
+	public static final String EVENTO_ESISTENTE = "ATTENZIONE: l'evento e' gia esistente";
+	public static final String VUOTO = "ATTENZIONE: il campo e' vuoto";
 	public static final String OK = "OK";
-	public static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato � errato";
+	public static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato e' errato";
 	public static final String PARTECIPANTI_NECESSARI_MIN = "Partecipanti minimi necessari";
 	public static final String DATA_PASSATA ="La data è già passata";
 
@@ -349,19 +349,19 @@ public abstract class Evento implements Serializable {
 				if(partecipantiNecessari.getValore().intValue() <= partecipanti.size()
 						&& partecipantiNecessari.getValore().intValue()+tolleranzaPartecipanti.getValore().intValue()>=partecipanti.size() ) {
 					stato=StatoEvento.CHIUSO;
-					ritorno= new Notifica(this, Notifica.CHIUSO);
+					ritorno= new Notifica(this, titolo.getValoreString() + Notifica.CHIUSO);
 				}					
 			}
 			//fallito
 			if(termineUltimo.getValore().before(oggi)){
 				stato=StatoEvento.FALLITO;
-				ritorno= new Notifica(this, Notifica.FALLITO);
+				ritorno= new Notifica(this, titolo.getValoreString() + Notifica.FALLITO);
 			}
 		}
 		else if(stato.equals(StatoEvento.CONCLUSO)) {
 			if(dataFine.getValore().before(oggi)) {
 				stato=StatoEvento.CONCLUSO;
-				ritorno= new Notifica(this, Notifica.CONCLUSO);
+				ritorno= new Notifica(this, titolo.getValoreString() +Notifica.CONCLUSO);
 			}
 		}
 
@@ -384,15 +384,15 @@ public abstract class Evento implements Serializable {
 				limitePartecipanti = limitePartecipanti + tolleranzaPartecipanti.getValore().intValue();
 			if(partecipanti.size()<limitePartecipanti) {
 				partecipanti.add(nome);
-				ritorno = Notifica.ISCRIZIONE;
+				ritorno = Notifica.ISCRIZIONE + titolo.getValoreString();
 			}
 			else
-				ritorno = Notifica.NUMERO_MAX_PARTECIPANTI;
+				ritorno = titolo.getValoreString() + Notifica.NUMERO_MAX_PARTECIPANTI;
 
 		}else if(partecipanti.contains(nome))
-			ritorno = Notifica.ISCRIZIONE_GIA_FATTA;
+			ritorno = Notifica.ISCRIZIONE_GIA_FATTA + titolo.getValoreString();
 		else 
-			ritorno = Notifica.ERRORE_DI_ISCRIZIONE;
+			ritorno = titolo.getValoreString() + Notifica.ERRORE_DI_ISCRIZIONE;
 		return ritorno;
 
 	}
@@ -403,15 +403,15 @@ public abstract class Evento implements Serializable {
 		oggi.setTime(date);
 		Notifica ritorno;
 		if(!proprietario.equals(_proprietario)) {
-			ritorno = new Notifica (this, Notifica.PROPRIETARIO_DIVERSO);
+			ritorno = new Notifica (this, titolo.getValoreString() + Notifica.PROPRIETARIO_DIVERSO);
 		}
 		else if(oggi.before(termineUltimoRitiro.getValore()) || oggi.equals(termineUltimoRitiro.getValore())) {
 			stato=StatoEvento.CANCELLATO;
-			ritorno = new Notifica (this, Notifica.EVENTO_CANCELLATO);
+			ritorno = new Notifica (this, titolo.getValoreString() +Notifica.EVENTO_CANCELLATO);
 
 		}
 		else 
-			ritorno= new Notifica (this, Notifica.OLTRE_TUR);
+			ritorno= new Notifica (this, Notifica.OLTRE_TUR +titolo.getValoreString());
 		return ritorno;
 	}
 
@@ -424,14 +424,14 @@ public abstract class Evento implements Serializable {
 		}
 		Notifica ritorno=null;
 		if(oggi.after(termineUltimoRitiro.getValore())) {
-			ritorno = new Notifica(this, Notifica.OLTRE_TUR);
+			ritorno = new Notifica(this, Notifica.OLTRE_TUR + titolo.getValoreString());
 		}
 		else if(!partecipanti.contains(username)) {
-			ritorno = new Notifica(this, Notifica.NON_ISCRITTO);
+			ritorno = new Notifica(this, Notifica.NON_ISCRITTO +titolo.getValoreString());
 		}
 		else if(partecipanti.contains(username)) {
 			partecipanti.remove(username);
-			ritorno = new Notifica(this, Notifica.REVOCA_ISCRIZIONE);
+			ritorno = new Notifica(this, Notifica.REVOCA_ISCRIZIONE +  titolo.getValoreString());
 		}
 		return ritorno;
 	}

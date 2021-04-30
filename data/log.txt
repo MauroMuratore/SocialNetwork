@@ -1,52 +1,40 @@
 
-22-04-2021 20:46:31 server.database.LeggiXML leggi utente mauro123
-22-04-2021 20:46:31 server.SocialNetwork login di mauro123
-22-04-2021 20:54:29 server.database.FactoryNodoXML creo il nodo lista di partecipanti partecipanti
-22-04-2021 20:54:29 server.database.ScriviXML scrivo evento 
-22-04-2021 20:54:29 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
-22-04-2021 20:54:29 server.SocialNetwork Inviti spediti
-22-04-2021 20:54:29 server.SocialNetwork persone interessate informate
-22-04-2021 20:54:29 server.database.FactoryNodoXML 0 true
-22-04-2021 20:54:29 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
-22-04-2021 20:55:41 server.database.LeggiXML leggi utente mauro123
-22-04-2021 20:55:41 server.SocialNetwork login di mauro123
-22-04-2021 20:57:25 server.database.LeggiXML leggi utente mauro123
-22-04-2021 20:57:25 server.SocialNetwork login di mauro123
-22-04-2021 20:58:25 server.database.LeggiXML leggi utente mauro123
-22-04-2021 20:58:25 server.SocialNetwork login di mauro123
-22-04-2021 20:58:53 server.SocialNetwork cancella evento scrittura 
-22-04-2021 20:58:53 server.database.FactoryNodoXML 0 true
-22-04-2021 20:58:53 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
-22-04-2021 21:14:05 server.database.LeggiXML leggi utente mauro123
-22-04-2021 21:14:05 server.SocialNetwork login di mauro123
-22-04-2021 21:20:01 server.database.LeggiXML leggi utente mauro123
-22-04-2021 21:20:01 server.SocialNetwork login di mauro123
-22-04-2021 21:23:14 server.database.LeggiXML leggi utente mauro123
-22-04-2021 21:23:14 server.SocialNetwork login di mauro123
-22-04-2021 21:24:01 server.database.FactoryNodoXML creo il nodo lista di partecipanti partecipanti
-22-04-2021 21:24:01 server.database.ScriviXML scrivo evento 
-22-04-2021 21:24:01 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
-22-04-2021 21:24:01 server.SocialNetwork Inviti spediti
-22-04-2021 21:24:01 server.SocialNetwork persone interessate informate
-22-04-2021 21:24:01 server.database.FactoryNodoXML 0 true
-22-04-2021 21:24:01 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
-23-04-2021 16:28:02 server.database.LeggiXML leggi utente mauro123
-23-04-2021 16:28:02 server.SocialNetwork login di mauro123
-23-04-2021 16:29:14 server.database.LeggiXML leggi utente mauro123
-23-04-2021 16:29:14 server.SocialNetwork login di mauro123
-23-04-2021 16:29:29 server.database.LeggiXML leggi utente mauro123
-23-04-2021 16:29:29 server.SocialNetwork login di mauro123
-23-04-2021 16:29:53 server.database.FactoryNodoXML 0 true
-23-04-2021 16:29:53 server.database.ScriviXML Scrittura su file data/categoriaPartitaCalcio.xml
-23-04-2021 16:29:53 server.database.ScriviXML salvo utente mauro123
-23-04-2021 16:29:53 server.database.ScriviXML Scrittura su file data/utenti.xml
-23-04-2021 16:33:15 server.database.LeggiXML leggi utente mauro123
-23-04-2021 16:33:15 server.SocialNetwork login di mauro123
-23-04-2021 17:53:59 server.database.LeggiXML leggi utente mauro123
-23-04-2021 17:53:59 server.SocialNetwork login di mauro123
-24-04-2021 16:05:33 server.database.LeggiXML leggi utente mauro123
-24-04-2021 16:05:33 server.SocialNetwork login di mauro123
-24-04-2021 16:09:12 server.database.LeggiXML leggi utente mauro123
-24-04-2021 16:09:12 server.SocialNetwork login di mauro123
-24-04-2021 16:09:19 server.database.LeggiXML leggi utente mauro123
-24-04-2021 16:09:19 server.SocialNetwork login di mauro123
+29-04-2021 18:32:11 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:32:11 server.SocialNetwork login di mauro123
+29-04-2021 18:32:30 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:32:58 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:33:05 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:33:12 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:33:31 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:34:46 server.SocialNetwork cancella evento scrittura 
+29-04-2021 18:39:08 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:39:08 server.SocialNetwork login di mauro123
+29-04-2021 18:39:51 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:42:13 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:42:13 server.SocialNetwork login di mauro123
+29-04-2021 18:42:30 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:44:18 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:44:18 server.SocialNetwork login di mauro123
+29-04-2021 18:46:35 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:46:35 server.SocialNetwork login di mauro123
+29-04-2021 18:46:55 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:47:08 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:48:08 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:48:08 server.SocialNetwork login di mauro123
+29-04-2021 18:48:23 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:52:10 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:52:10 server.SocialNetwork login di mauro123
+29-04-2021 18:52:36 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:53:39 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:53:39 server.SocialNetwork login di mauro123
+29-04-2021 18:53:57 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:55:06 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:55:06 server.SocialNetwork login di mauro123
+29-04-2021 18:55:38 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:55:38 server.SocialNetwork login di mauro123
+29-04-2021 18:56:16 server.database.ScriviXML salvo utente mauro123
+29-04-2021 18:59:17 server.database.LeggiXML leggi utente mauro123
+29-04-2021 18:59:18 server.SocialNetwork login di mauro123
+29-04-2021 18:59:32 server.database.ScriviXML salvo utente mauro123
+29-04-2021 19:02:19 server.database.LeggiXML leggi utente mauro123
+29-04-2021 19:02:19 server.SocialNetwork login di mauro123

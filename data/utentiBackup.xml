@@ -1,544 +1,255 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <elenco>
-
-<utente>
-<nome>alessandro</nome>
-<hash>monteverde</hash>
-<elenco>
-<notifica>
-<descrizione>nuovo evento aperto</descrizione>
-<id>1295033731</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>1295033731</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>iscrizione gia fatta</descrizione>
-<id>1295033731</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>SEI STATO INVITATOmauro123</descrizione>
-<id>1296495555</id>
-<letto>false</letto>
-<data>
-<anno>2019</anno>
-<mese>5</mese>
-<giorno>12</giorno>
-<ora>22</ora>
-</data>
-</notifica>
-<notifica>
-<descrizione>nuovo evento aperto</descrizione>
-<id>1296495555</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>1297027164</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>1428603161</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>iscrizione gia fatta </descrizione>
-<id>1428603161</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>revocata iscrizione con successo </descrizione>
-<id>1428603161</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>1428603161</id>
-<letto>false</letto>
-</notifica>
+    <utente>
+        <nome>mauro123</nome>
+        <hash>123123123</hash>
+        <elenco>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-364904061</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-364904061</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-364904061</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184716050</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>utente non iscritto </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>utente non iscritto </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-364904061</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-364904061</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-364904061</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-364904061</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>utente non iscritto </descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-184373436</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>revocata iscrizione con successo </descrizione>
+                <id>-103035947</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>Ti sei iscritto all'evento</descrizione>
+                <id>-103035947</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta </descrizione>
+                <id>-83228873</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta a prova Escursione Montagna</descrizione>
+                <id>-103084795</id>
+                <letto>false</letto>
+            </notifica>
+        </elenco>
+        <eventi_creati/>
+        <eta_min>20</eta_min>
+        <eta_max>34</eta_max>
+        <interessi>
+            <nome>escursione in montagna</nome>
+        </interessi>
+    </utente>
 </elenco>
-<eventi_creati>
-<evento>1297027164</evento>
-<evento>1428603161</evento>
-</eventi_creati>
-<eta_min>12</eta_min>
-<eta_max>22</eta_max>
-<interessi>
-<nome>partita calcio</nome>
-</interessi>
-</utente>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<utente>
-<nome>mauro123</nome>
-<hash>123123123</hash>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<elenco>
-<notifica>
-<descrizione>revocata iscrizione con successo</descrizione>
-<id>1295033731</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>1295033731</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>mauro123</descrizione>
-<id>-1152859672</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>revocata iscrizione con successo </descrizione>
-<id>-1152859672</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>-1152859672</id>
-<letto>false</letto>
-</notifica>
-</elenco>
-<eventi_creati>
-<evento>-1152859672</evento>
-</eventi_creati>
-<eta_min>20</eta_min>
-<eta_max>22</eta_max>
-<interessi>
-<nome>partita calcio</nome>
-</interessi>
-</utente>
-<utente>
-<nome>mauro</nome>
-<hash>123123123</hash>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<elenco>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>1297027164</id>
-<letto>false</letto>
-</notifica>
-
-
-
-
-
-
-
-
-<notifica>
-<descrizione>revocata iscrizione con successo </descrizione>
-<id>-1482246906</id>
-<letto>false</letto>
-</notifica>
-
-
-<notifica>
-<descrizione>revocata iscrizione con successo </descrizione>
-<id>-1482246906</id>
-<letto>false</letto>
-</notifica>
-
-<notifica>
-<descrizione>mauro</descrizione>
-<id>-1156699264</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>iscrizione gia fatta </descrizione>
-<id>-1156699264</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>revocata iscrizione con successo </descrizione>
-<id>-1156699264</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>-1156699264</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>iscrizione gia fatta </descrizione>
-<id>-1156699264</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>revocata iscrizione con successo </descrizione>
-<id>-1156699264</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>Ti sei iscritto all'evento</descrizione>
-<id>-1156699264</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>iscrizione gia fatta </descrizione>
-<id>-1482246906</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>revocata iscrizione con successo </descrizione>
-<id>-1482246906</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>utente non iscritto </descrizione>
-<id>-1482246906</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>iscrizione gia fatta </descrizione>
-<id>-1482246906</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<data>
-<anno>2021</anno>
-<mese>3</mese>
-<giorno>10</giorno>
-<ora>12</ora>
-</data>
-<descrizione>SEI STATO INVITATOmauro123</descrizione>
-<id>-1152859672</id>
-<letto>false</letto>
-</notifica>
-<notifica>
-<descrizione>nuovo evento aperto </descrizione>
-<id>-1152859672</id>
-<letto>false</letto>
-</notifica>
-</elenco>
-<eventi_creati>
-<evento>361124015</evento>
-<evento>361331030</evento>
-<evento>-1482246906</evento>
-<evento>-1156699264</evento>
-</eventi_creati>
-<eta_min>12</eta_min>
-<eta_max>31</eta_max>
-<interessi>
-<nome>partita calcio</nome>
-<nome>escursione in montagna</nome>
-</interessi>
-</utente>
-</elenco>
- 

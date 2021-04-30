@@ -8,21 +8,21 @@ public class Notifica implements Serializable{
 	private String messaggio;
 	private boolean letta;
 	
-	public static final String INVITO = "SEI STATO INVITATO";
-	public static final String ISCRIZIONE = "Ti sei iscritto all'evento";
-	public static final String CHIUSO = "L'evento ha chiuso le iscrizioni ";
-	public static final String COSTO_FINALE = "il costo dell'evento e' ";
-	public static final String FALLITO = "L'evento non ha raggiunto gli iscritti ";
-	public static final String CONCLUSO = "L'evento e' concluso " ;
+	public static final String INVITO = "SEI STATO INVITATO a";
+	public static final String ISCRIZIONE = "Ti sei iscritto a ";
+	public static final String CHIUSO = " ha chiuso le iscrizioni ";
+	public static final String COSTO_FINALE = " ha un costo finale di ";
+	public static final String FALLITO = " non ha raggiunto gli iscritti ";
+	public static final String CONCLUSO = " e' concluso " ;
 	public static final String ERRORE_DI_ISCRIZIONE = "errore di iscrizione ";
-	public static final String PROPRIETARIO_DIVERSO = "proprietario diverso ";
-	public static final String EVENTO_CANCELLATO ="evento cancellato ";
-	public static final String OLTRE_TUR = "impossibile, oltre termine ultimo di ritiro ";
-	public static final String NON_ISCRITTO = "utente non iscritto ";
-	public static final String REVOCA_ISCRIZIONE = "revocata iscrizione con successo ";
-	public static final String ISCRIZIONE_GIA_FATTA = "iscrizione gia fatta ";
+	public static final String PROPRIETARIO_DIVERSO = " ha un proprietario diverso ";
+	public static final String EVENTO_CANCELLATO =" è stato cancellato cancellato ";
+	public static final String OLTRE_TUR = "impossibile, superato il ultimo di ritiro di ";
+	public static final String NON_ISCRITTO = "utente non iscritto a ";
+	public static final String REVOCA_ISCRIZIONE = "revocata iscrizione con successo da ";
+	public static final String ISCRIZIONE_GIA_FATTA = "iscrizione gia fatta a ";
 	public static final String NUOVO_EVENTO_APERTO = "nuovo evento aperto ";
-	public static final String NUMERO_MAX_PARTECIPANTI = "iscrizione negata, numero massimo partecipanti raggiunto";
+	public static final String NUMERO_MAX_PARTECIPANTI = " ha già raggiunto il numero massimo partecipanti";
 	
 	public Notifica(Evento _evento, String mes) {
 		evento=_evento;

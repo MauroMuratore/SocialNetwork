@@ -15,6 +15,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+
 import java.awt.ScrollPane;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
@@ -48,7 +50,7 @@ public class PanelCreaEvento extends JPanel {
 	private JTextField textIstruttore;
 	private JList invitabili;
 
-	public PanelCreaEvento(String categoria, List<String> personeInteressate, ActionListener al) {
+	public PanelCreaEvento(String categoria, List<String> personeInteressate, ActionListener al, ActionListener father) {
 		setLayout(new BorderLayout(0, 0));
 		panelCentrale = new JPanel();
 		panelButton = new JPanel();
@@ -281,6 +283,7 @@ public class PanelCreaEvento extends JPanel {
 		scrollPane.add(panelInterno);
 
 		btnCreaEvento = new JButton(Nomi.AZIONE_CREA_EVENTO.getNome());
+		btnCreaEvento.addActionListener(father);
 		btnCreaEvento.addActionListener(al);
 		btnCreaEvento.setActionCommand(Nomi.AZIONE_CREA_EVENTO.getNome());
 		btnIndietro = new JButton("Indietro");

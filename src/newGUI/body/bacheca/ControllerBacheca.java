@@ -14,6 +14,7 @@ import lib.core.Notifica;
 import lib.core.PartitaCalcioEvento;
 import lib.util.Nomi;
 import newGUI.JError;
+import newGUI.body.ControllerBody;
 
 public class ControllerBacheca implements ActionListener {
 
@@ -25,11 +26,12 @@ public class ControllerBacheca implements ActionListener {
 	private PanelCreaEvento pce;
 	private boolean attrezzatura = false;
 	private boolean istruttore = false;
-
-	public ControllerBacheca(List<Categoria> cat) {
+	private ActionListener father;
+	
+	public ControllerBacheca(List<Categoria> cat, ActionListener _father) {
 		categorie = new ArrayList<Categoria>(cat);
-		viewBC = new ViewBC(cat);
-		viewBC.addActionListener(this);
+		viewBC = new ViewBC(cat, this);
+		father=_father;
 	}
 
 	public ViewBC getViewBC() {
@@ -38,6 +40,7 @@ public class ControllerBacheca implements ActionListener {
 
 	@Override
 	public synchronized void actionPerformed(ActionEvent e) {
+	
 		if(e.getActionCommand().equals("Avanti")) {
 			if(viewBC.getSelectionPath()==null) {
 				return;
@@ -53,7 +56,7 @@ public class ControllerBacheca implements ActionListener {
 					}
 					if(selPath.getLastPathComponent().toString().equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
 						List<String> interessati = categorie.get(index).getPersoneInteressate();
-						pce = new PanelCreaEvento(nomeCat, interessati, this);
+						pce = new PanelCreaEvento(nomeCat, interessati, this, father);
 						viewBC.addPanel(pce);
 
 
@@ -66,7 +69,7 @@ public class ControllerBacheca implements ActionListener {
 							}
 						}
 
-						viewBC.addPanel(new PanelVistaEvento(evento, this));
+						viewBC.addPanel(new PanelVistaEvento(evento, this, father));
 
 					}
 				}
@@ -78,7 +81,7 @@ public class ControllerBacheca implements ActionListener {
 					}
 					if(selPath.getLastPathComponent().toString().equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
 						List<String> interessati = categorie.get(index).getPersoneInteressate();
-						pce = new PanelCreaEvento(nomeCat, interessati, this);
+						pce = new PanelCreaEvento(nomeCat, interessati, this, father);
 						viewBC.addPanel(pce);
 					}
 					else {
@@ -88,7 +91,7 @@ public class ControllerBacheca implements ActionListener {
 								evento = escursione;
 						}
 
-						viewBC.addPanel(new PanelVistaEvento(evento, this));
+						viewBC.addPanel(new PanelVistaEvento(evento, this, father));
 
 					}
 				}
@@ -105,17 +108,21 @@ public class ControllerBacheca implements ActionListener {
 			}
 			else if(istruttore)
 				azioneInCorso = Nomi.AZIONE_ISCRIZIONE_IST.getNome();
-			this.notify();
+			
+			this.notifyAll();
+			
 		}
 
 		else if(e.getActionCommand().equals(Nomi.AZIONE_DISISCRIZIONE.getNome())) {
 			azioneInCorso = Nomi.AZIONE_DISISCRIZIONE.getNome();
 			this.notify();
+			
 		}
 
 		else if(e.getActionCommand().equals(Nomi.AZIONE_CANCELLA_EVENTO.getNome())) {
 			azioneInCorso = Nomi.AZIONE_CANCELLA_EVENTO.getNome();
 			this.notify();
+			
 		}
 
 		else if(e.getActionCommand().equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
@@ -124,11 +131,12 @@ public class ControllerBacheca implements ActionListener {
 
 			esito = setEvento();
 
-			if(esito.equals(Evento.OK))
+			if(esito.equals(Evento.OK)) {
 				this.notify();
+			}
 			else
 				mostraEsito(esito);
-				
+
 		}
 
 		else if(e.getActionCommand().equals("Indietro")) {
@@ -150,16 +158,11 @@ public class ControllerBacheca implements ActionListener {
 	}
 
 	public synchronized String getAzione() {
-		try {
-			this.wait();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		attrezzatura =false;
 		istruttore = false;
 		return azioneInCorso;
 	}
+	
 
 	public Evento getEvento() {
 		return evento;
@@ -171,10 +174,9 @@ public class ControllerBacheca implements ActionListener {
 		new JError(esito);
 	}
 
-	public void updateCat(List<Categoria> cat) {
+	public void update(List<Categoria> cat) {
 		categorie = cat;
 		viewBC.setCategorie(cat);
-		viewBC.repaint();
 
 	}
 
@@ -233,7 +235,7 @@ public class ControllerBacheca implements ActionListener {
 
 		return ritorno;
 	}
-	
+
 	public List<String> getInviti(){
 		return pce.getInviti();
 	}

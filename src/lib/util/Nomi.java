@@ -74,14 +74,18 @@ public enum Nomi {
 	SN_ETAMIN_MAGG_ETAMAX ("Eta minima maggiore di eta massima"),
 	SN_INVITI_SPEDITI ("Inviti spediti"),
 	NET_CHIUSURA_SOCKET("Close"),
+	NET_LIST_CONTINUA("nuovo elemento in arrivo"),
+	NET_EOL("fineLista"),
 	AZIONE_DISISCRIZIONE("Disiscriviti"),
 	AZIONE_CANCELLA_EVENTO("Cancella evento"),
+	AZIONE_CANCELLA_NOTIFICA("Cancella Notifica"),
 	AZIONE_MODIFICA_PROFILO("Modifica profilo"),
 	AZIONE_CREA_EVENTO("Crea evento"),
 	AZIONE_ISCRIZIONE("Iscriviti"),
 	AZIONE_ISCRIZIONE_ATT("Iscriviti attrezzatura"),
 	AZIONE_ISCRIZIONE_IST("Iscriviti istruttore"),
-	AZIONE_ISCRIZIONE_ATT_IST("Iscriviti attrezzatura istruttore")
+	AZIONE_ISCRIZIONE_ATT_IST("Iscriviti attrezzatura istruttore"),
+	AZIONE_LOGOUT("Logout")
 	;
 	
 	
