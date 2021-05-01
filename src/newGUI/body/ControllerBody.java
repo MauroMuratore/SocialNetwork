@@ -63,17 +63,22 @@ public class ControllerBody implements ActionListener {
 			else if(controller==CONTROLLER_AP) 
 				azione = controllerAP.getAzione();
 
-			
-			
+
+
 			if(controller==CONTROLLER_BC) {
 				Evento eventoDaInviare = controllerBC.getEvento();
-				if(!eventoDaInviare.valido()) {
-					continue;
-				}
-				channel.write(azione);
-				channel.write(eventoDaInviare);
 				if(azione.equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
+					if(!eventoDaInviare.valido()) {
+						continue;
+					}
+					channel.write(azione);
+					channel.write(eventoDaInviare);
+
 					channel.write(controllerBC.getInviti());
+				}
+				else {
+					channel.write(azione);
+					channel.write(eventoDaInviare);
 				}
 			}
 
@@ -111,24 +116,24 @@ public class ControllerBody implements ActionListener {
 
 		}while(true);
 	}
-	
+
 	@Override
 	public synchronized void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
 		case "Logout" : channel.write(Nomi.NET_CHIUSURA_SOCKET.getNome());
 		System.exit(0);
 		break;
-		
+
 		case "Area Personale": controller = CONTROLLER_AP;
 		viewBody.showView(CONTROLLER_AP);
 		toContinue=true;
 		break;
-		
+
 		case "Vista Bacheca": controller = CONTROLLER_BC;
 		viewBody.showView(CONTROLLER_BC);
 		toContinue=true;
 		break;
-		
+
 		default: 
 			toContinue=false;
 		}
@@ -185,7 +190,7 @@ public class ControllerBody implements ActionListener {
 					String interessato = (String) channel.read();
 					cat.addPersonaInteressata(interessato);
 				}while(true);
-				
+
 				if(nomeCat.equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
 					do {
 						String mex = (String) channel.read();
@@ -194,7 +199,7 @@ public class ControllerBody implements ActionListener {
 						PartitaCalcioEvento pce = (PartitaCalcioEvento) channel.read();
 						cat.aggiungiEvento(pce);
 					}while(true);
-					
+
 				}else if(nomeCat.equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome())) {
 					do {
 						String mex = (String) channel.read();
@@ -203,7 +208,7 @@ public class ControllerBody implements ActionListener {
 						EscursioneMontagnaEvento eme = (EscursioneMontagnaEvento) channel.read();
 						cat.aggiungiEvento(eme);
 					}while(true);
-					
+
 				}
 				categorie.add(cat);
 			}while (true);
@@ -211,11 +216,11 @@ public class ControllerBody implements ActionListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return categorie;
 	}
 
-	
+
 
 
 
