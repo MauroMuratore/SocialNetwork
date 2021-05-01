@@ -8,6 +8,6 @@ grep "\S" ../data/escursioneMontagna.xml > ../data/escursioneBackup.xml
 grep "\S" ../data/escursioneBackup.xml > ../data/escursioneMontagna.xml 
 grep "\S" ../data/utenti.xml > ../data/utentiBackup.xml
 grep "\S" ../data/utentiBackup.xml > ../data/utenti.xml
-echo "eliminazione degli spazi e backup"
+echo "eliminazione degli spazi e impostato i backup"
 
 exit 0

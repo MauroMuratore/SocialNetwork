@@ -2,24 +2,24 @@
 
 if [[ $# -eq 0 ]]
 then
-echo ../data/categoriaPartitaCalcioBackup.xml  > ../data/categoriaPartitaCalcio.xml
-echo ../data/escursioneBackup.xml > ../data/escursioneMontagna.xml 
-echo ../data/utentiBackup.xml > ../data/utenti.xml
+cat ../data/categoriaPartitaCalcioBackup.xml  > ../data/categoriaPartitaCalcio.xml
+cat ../data/escursioneBackup.xml > ../data/escursioneMontagna.xml 
+cat ../data/utentiBackup.xml > ../data/utenti.xml
 echo "restore backup"
 
 elif [[ $1 -eq 1 ]]
 then 
-echo ../data/categoriaPartitaCalcioBackup.xml  > ../data/categoriaPartitaCalcio.xml
+cat ../data/categoriaPartitaCalcioBackup.xml  > ../data/categoriaPartitaCalcio.xml
 echo "restore backup partita di calcio"
 
 elif [[ $1 -eq 2 ]]
 then 
-echo ../data/escursioneBackup.xml > ../data/escursioneMontagna.xml 
+cat ../data/escursioneBackup.xml > ../data/escursioneMontagna.xml 
 echo "restore backup escursione"
 
 elif [[ $1 -eq 3 ]]
 then 
-echo ../data/utentiBackup.xml > ../data/utenti.xml
+cat ../data/utentiBackup.xml > ../data/utenti.xml
 echo "restore backup utenti"
 
 else
