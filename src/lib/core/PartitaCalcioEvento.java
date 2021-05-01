@@ -57,7 +57,10 @@ public class PartitaCalcioEvento extends Evento {
 
 	public boolean valido() {
 		ConsultaDB cdb = ConsultaDB.getInstance();
-		if(partecipantiNecessari.getValore()==null) {
+		if(titolo.getValore()==null) {
+			return false;
+		}
+		else if(partecipantiNecessari.getValore()==null) {
 			return false;
 		}
 		else if(termineUltimo.getValore()==null) {

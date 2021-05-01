@@ -37,7 +37,7 @@ public class ControlloCampo {
 					return Campo.FORMATO_DATA_SBAGLIATO;
 			}
 			else if (mese ==2) {
-				if(giorno<1 || giorno > 28) {
+				if(giorno<1 || giorno > 29) {
 					return Campo.FORMATO_DATA_SBAGLIATO;
 				}
 			}
@@ -53,7 +53,7 @@ public class ControlloCampo {
 					return Campo.FORMATO_DATA_SBAGLIATO;
 			}
 			else if (mese ==2) {
-				if(giorno<1 || giorno > 27) {
+				if(giorno<1 || giorno > 28) {
 					return Campo.FORMATO_DATA_SBAGLIATO;
 				}
 			}

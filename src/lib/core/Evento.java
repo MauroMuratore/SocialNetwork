@@ -42,6 +42,8 @@ public abstract class Evento implements Serializable {
 	public static final String FORMATO_SBAGLIATO = "ATTENZIONE: il formato e' errato";
 	public static final String PARTECIPANTI_NECESSARI_MIN = "Partecipanti minimi necessari";
 	public static final String DATA_PASSATA ="La data è già passata";
+	private static final String DATA_ISCRIZIONE_NON_VALIDA = "Termine ultimo iscrizione non valido";
+	private static final String FINE_PRIMA_INZIO = "La data di fine è precendente a quella di inizio";
 
 	/**
 	 * Da usare per la lettura da disco
@@ -208,6 +210,10 @@ public abstract class Evento implements Serializable {
 		GregorianCalendar dataCampo = ControlloCampo.assumiData(_termineUltimoRitiro);
 		if(dataCampo.before(oggi))
 			return DATA_PASSATA;
+		
+		
+			
+		
 
 		termineUltimoRitiro.setValore(dataCampo);
 		return OK;
@@ -238,9 +244,20 @@ public abstract class Evento implements Serializable {
 		if(dataCampo.before(oggi))
 			return DATA_PASSATA;
 
+		if(dataInizio.getValore()==null) {
+		}
+		else {
+			if(dataCampo.after(dataInizio.getValore()) ) {
+				return DATA_ISCRIZIONE_NON_VALIDA;
+			}
+		}
+		
 		if(termineUltimoRitiro.getValore()==null)
 			termineUltimoRitiro.setValore(ControlloCampo.assumiData(data));
 		termineUltimo.setValore(ControlloCampo.assumiData(data));
+		
+		
+		
 		return OK;
 	}
 
@@ -262,6 +279,10 @@ public abstract class Evento implements Serializable {
 		GregorianCalendar dataCampo = ControlloCampo.assumiOra(data, ora);
 		if(dataCampo.before(oggi))
 			return DATA_PASSATA;
+		
+		if(dataCampo.before(termineUltimo.getValore())) {
+			return DATA_ISCRIZIONE_NON_VALIDA;
+		}
 		
 		dataInizio.setValore(ControlloCampo.assumiOra(data, ora));
 		return OK;
@@ -295,7 +316,13 @@ public abstract class Evento implements Serializable {
 		}
 		if(!ControlloCampo.controlloOra(data, ora).equals(Campo.OK))
 			return Nomi.CAMPO_DATA_FINE.getNome() + ControlloCampo.controlloOra(data, ora);
-		dataFine.setValore(ControlloCampo.assumiOra(data, ora));
+		
+		GregorianCalendar dataControllo = ControlloCampo.assumiOra(data, ora);
+		if(dataControllo.before(dataInizio.getValore())) {
+			return FINE_PRIMA_INZIO;
+		}
+		
+		dataFine.setValore(dataControllo);
 		return OK;
 	}
 

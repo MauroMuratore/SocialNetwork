@@ -117,7 +117,10 @@ public class EscursioneMontagnaEvento extends Evento {
 	@Override
 	public boolean valido() {
 		ConsultaDB cdb = ConsultaDB.getInstance();
-		if(partecipantiNecessari.getValore()==null) {
+		if(titolo.getValore()==null) {
+			return false;
+		}
+		else if(partecipantiNecessari.getValore()==null) {
 			return false;
 		}
 		else if(termineUltimo.getValore()==null) {

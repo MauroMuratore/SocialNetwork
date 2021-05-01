@@ -63,17 +63,22 @@ public class ControllerBody implements ActionListener {
 			else if(controller==CONTROLLER_AP) 
 				azione = controllerAP.getAzione();
 
-			System.out.println(" --- " + azione);
-			channel.write(azione);
-
+			
+			
 			if(controller==CONTROLLER_BC) {
-				channel.write(controllerBC.getEvento());
+				Evento eventoDaInviare = controllerBC.getEvento();
+				if(!eventoDaInviare.valido()) {
+					continue;
+				}
+				channel.write(azione);
+				channel.write(eventoDaInviare);
 				if(azione.equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
 					channel.write(controllerBC.getInviti());
 				}
 			}
 
 			else if(controller==CONTROLLER_AP) {
+				channel.write(azione);
 				if(azione.equals(Nomi.AZIONE_CANCELLA_NOTIFICA.getNome())) {
 					channel.write(controllerAP.getIndiceNotifica());
 				}else if(azione.equals(Nomi.AZIONE_MODIFICA_PROFILO.getNome())) {
@@ -109,7 +114,6 @@ public class ControllerBody implements ActionListener {
 	
 	@Override
 	public synchronized void actionPerformed(ActionEvent e) {
-		System.out.println("sono stato premuto " + e.getActionCommand() );
 		switch(e.getActionCommand()) {
 		case "Logout" : channel.write(Nomi.NET_CHIUSURA_SOCKET.getNome());
 		System.exit(0);
@@ -127,7 +131,6 @@ public class ControllerBody implements ActionListener {
 		
 		default: 
 			toContinue=false;
-			System.out.println(e.getActionCommand());
 		}
 		;
 
@@ -141,7 +144,6 @@ public class ControllerBody implements ActionListener {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("ricevuto l'utente con " + ritorno.getNotifiche().size() + " notifiche");
 		return ritorno;
 	}
 
@@ -157,7 +159,6 @@ public class ControllerBody implements ActionListener {
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("ricevo le notifiche utente " +ritorno.size());
 		return ritorno;
 	}
 

@@ -216,8 +216,8 @@ public class MainServer {
 			}
 		}
 
-		System.out.println("invio aggiornamenti");
-		System.out.println("l'utente ha " +  social.getUtente().getNotifiche().size() + " notifiche");
+		Log.writeRoutineLog(MainServer.class, "invio aggiornamenti", 2);
+		
 
 		invioCategorie();
 		invioNotifiche();
@@ -241,7 +241,6 @@ public class MainServer {
 				for(PartitaCalcioEvento pce: (List<PartitaCalcioEvento>) cat.getBacheca()) {
 					channel.write(Nomi.NET_LIST_CONTINUA.getNome());
 					channel.write(pce);
-					System.out.println(pce.getTitolo().getValoreString());
 				}
 				channel.write(Nomi.NET_EOL.getNome());
 			}
@@ -249,7 +248,6 @@ public class MainServer {
 				for(EscursioneMontagnaEvento eme: (List<EscursioneMontagnaEvento>) cat.getBacheca()) {
 					channel.write(Nomi.NET_LIST_CONTINUA.getNome());
 					channel.write(eme);
-					System.out.println(eme.getTitolo().getValoreString());
 				}
 				channel.write(Nomi.NET_EOL.getNome());
 			}
