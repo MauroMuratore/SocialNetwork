@@ -164,7 +164,7 @@ public class ControllerBacheca implements ActionListener {
 	}
 	
 
-	public Evento getEvento() {
+	public synchronized Evento getEvento() {
 		return evento;
 	}
 
@@ -230,6 +230,10 @@ public class ControllerBacheca implements ActionListener {
 		ritorno = evento.setDurata(pce.getDurata());
 		if(!ritorno.equals(Evento.OK))
 			return ritorno;
+		ritorno = evento.setQuotaIndividuale(pce.getQuota());
+		if(!ritorno.equals(Evento.OK))
+			return ritorno;
+		
 		ritorno = evento.setCompresoQuota(pce.getCompresoQuota());
 		ritorno = evento.setNote(pce.getNote());
 

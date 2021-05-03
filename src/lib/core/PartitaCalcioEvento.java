@@ -56,7 +56,6 @@ public class PartitaCalcioEvento extends Evento {
 	}
 
 	public boolean valido() {
-		ConsultaDB cdb = ConsultaDB.getInstance();
 		if(titolo.getValore()==null) {
 			return false;
 		}
@@ -75,11 +74,8 @@ public class PartitaCalcioEvento extends Evento {
 		else if(quotaIndividuale.getValore()==null) {
 			return false;
 		}
-		else if(cdb.controllaEvento(getIdEvento()))
-			return false;
-		else if(termineUltimoRitiro.getValore()==null) {
-			return false;
-		}
+
+
 		return true;
 	}
 
