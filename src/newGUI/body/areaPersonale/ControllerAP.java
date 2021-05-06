@@ -74,6 +74,7 @@ public class ControllerAP implements ActionListener{
 	}
 	
 	public Integer getIndiceNotifica() {
+		System.out.println(indiceNotifica);
 		return indiceNotifica;
 	}
 	
@@ -88,6 +89,8 @@ public class ControllerAP implements ActionListener{
 			if(c>='0'  && c<='9') {
 				daTrasformare = daTrasformare + c;
 			}
+			else 
+				break;
 		}
 		int ritorno = Integer.parseInt(daTrasformare);
 		
