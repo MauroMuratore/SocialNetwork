@@ -13,7 +13,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class JError extends JDialog implements MouseListener {
+public class JAvviso extends JDialog implements MouseListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JButton okButton;
@@ -23,9 +23,9 @@ public class JError extends JDialog implements MouseListener {
 	/**
 	 * Create the dialog.
 	 */
-	public JError(String error) {
+	public JAvviso(String error) {
 		setBounds(100, 100, 450, 300);
-		setTitle("ERRORE");
+		setTitle("Avviso");
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(50, 50, 30, 50));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);

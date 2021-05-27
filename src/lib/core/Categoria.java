@@ -26,7 +26,7 @@ public abstract class Categoria<E extends Evento> implements Serializable{
 		nome=_nome;
 		descrizione=_descrizione;
 		bacheca= new ArrayList<E>(lista);
-		
+
 		personeInteressate = new LinkedList<String>(_personeInteressate);
 	}
 
@@ -36,7 +36,9 @@ public abstract class Categoria<E extends Evento> implements Serializable{
 	}
 
 	public void removePersonaInteressata(String _personaInteressata) {
-		personeInteressate.remove(_personaInteressata);
+		if(personeInteressate.contains(_personaInteressata)) {
+			personeInteressate.remove(_personaInteressata);
+		}
 	}
 
 	public LinkedList<String> getPersoneInteressate() {

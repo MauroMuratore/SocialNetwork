@@ -89,8 +89,12 @@ public class ConsultaDB {
 		scrittura.cancellaNotifica(notifica, utente);
 	}
 	
-	public void cancellaUtente(String username) {
+	public void eliminaUtente(String username) {
 		scrittura.cancellaUtente(username);
+	}
+	
+	public void eliminaEvento(Evento evento) {
+		scrittura.eliminaEvento(evento);
 	}
 	
 	public Hashtable<String, LinkedList<Notifica>> leggiNotifichePendenti() {

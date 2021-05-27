@@ -25,32 +25,45 @@ public class TestLogin {
 	}
 	
 	@Test
-	public void testLogin() {
+	public void testLoginPWSbagliata() {
 		//test con password sbagliata
 		String ritorno = sn.login(utest.getUsername(), "utenteTes"); 
 		assertEquals(Nomi.SN_PW_SBAGLIATA.getNome(), ritorno);
 		
+	}
+	
+	@Test
+	public void testLoginPWVuota() {
 		//test con password vuota
-		ritorno = sn.login(utest.getUsername(), "");
+		String ritorno = sn.login(utest.getUsername(), "");
 		assertEquals(Nomi.SN_PW_SBAGLIATA.getNome(), ritorno);
-		
+	}
+	
+	@Test
+	public void testLoginNomeSbagliato() {
 		//test con nome sbagliato
-		ritorno = sn.login("utente", utest.getPassword());
+		String ritorno = sn.login("utente", utest.getPassword());
 		assertEquals(Nomi.SN_ID_INESISTENTE.getNome(), ritorno);
-		
+	}
+	
+	@Test
+	public void testLoginNomeVuoto(){
 		//test con nome vuote
-		ritorno = sn.login("", utest.getPassword());
+		String ritorno = sn.login("", utest.getPassword());
 		assertEquals(Nomi.SN_ID_INESISTENTE.getNome(), ritorno);
-		
-		//test con nome e password corretti
-		ritorno = sn.login(utest.getUsername(), utest.getPassword());
+	
+	}
+	
+	@Test
+	public void testLoginCorretto() {
+		String ritorno = sn.login(utest.getUsername(), utest.getPassword());
 		assertEquals(Nomi.SN_BENVENUTO.getNome(), ritorno);
 		assertEquals(utest.getUsername(), sn.getUtente().getUsername());
 	}
 		
 	@After
 	public void reset() {
-		cdb.cancellaUtente(utest.getUsername());
+		cdb.eliminaUtente(utest.getUsername());
 	}
 	
 

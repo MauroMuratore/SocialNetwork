@@ -11,7 +11,7 @@ import java.util.List;
 
 import lib.net.Channel;
 import lib.util.Nomi;
-import newGUI.JError;
+import newGUI.JAvviso;
 
 public class ControllerLogin implements ActionListener, WindowListener {
 
@@ -28,7 +28,7 @@ public class ControllerLogin implements ActionListener, WindowListener {
 			listCat = (List<String>) channel.read();
 		} catch (IOException e) {
 			System.err.println("perdita connessione con il server");
-			new JError("perdita connessione con il server");
+			new JAvviso("perdita connessione con il server");
 			e.printStackTrace();
 
 		}
@@ -77,7 +77,7 @@ public class ControllerLogin implements ActionListener, WindowListener {
 	}
 
 	public void displayError(String error) {
-		new JError(error);
+		new JAvviso(error);
 	}
 
 	public void dispose() {
@@ -111,11 +111,11 @@ public class ControllerLogin implements ActionListener, WindowListener {
 				risposta = (String) channel.read();
 			} catch (IOException e) {
 				System.err.println("perdita connessione con il server");
-				new JError("perdita connessione con il server");
+				new JAvviso("perdita connessione con il server");
 				e.printStackTrace();
 			}
 			if(!risposta.equals(Nomi.SN_BENVENUTO.getNome())) {
-				new JError(risposta);
+				new JAvviso(risposta);
 			}
 
 

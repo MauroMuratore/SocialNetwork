@@ -72,6 +72,7 @@ public enum Nomi {
 	SN_PW_DIVERSE ("ATTENZIONE! : password diverse"),
 	SN_NOTIFICA_CANCELLATA ("Notifica cancellata"),
 	SN_ETAMIN_MAGG_ETAMAX ("Eta minima maggiore di eta massima"),
+	SN_NUMERO_NEGATIVO("Numero negativo, inserire numero maggiore di zero"),
 	SN_INVITI_SPEDITI ("Inviti spediti"),
 	NET_CHIUSURA_SOCKET("Close"),
 	NET_LIST_CONTINUA("nuovo elemento in arrivo"),

@@ -21,6 +21,8 @@ public class TestRegistrazione {
 	String[] categorie;
 	String pw, conferma;
 
+	String ritorno;
+
 	@Before
 	public void setUp() {
 		utest = new Utente ("utenteRegistrato", "utenteRegistrato", 1, 10);
@@ -37,66 +39,100 @@ public class TestRegistrazione {
 	}
 
 	@Test
-	public void test() {
+	public void testUserVuoto() {
 		//test con username vuoto
-		String ritorno = sn.registrazione(stringaVuota, pw, conferma, etaMin, etaMax, categorie);
+		ritorno = sn.registrazione(stringaVuota, pw, conferma, etaMin, etaMax, categorie);
 		assertEquals(Nomi.SN_ID_CORTO.getNome(), ritorno);
 
+	}
+
+	@Test
+	public void testUserCorto() {
 		//test con username.lenght=6
 		ritorno = sn.registrazione(stringaCorta, pw, conferma, etaMin, etaMax, categorie);
 		assertEquals(Nomi.SN_ID_CORTO.getNome(), ritorno);
+	}
 
+	@Test
+	public void testUserInUso() {
 		//test con username gia' in uso
 		ritorno = sn.registrazione(utest.getUsername(), pw, conferma, etaMin, etaMax, categorie);
-		assertEquals(Nomi.SN_ID_IN_USO.getNome(), ritorno);
 
+		assertEquals(Nomi.SN_ID_IN_USO.getNome(), ritorno);
+	}
+
+	@Test
+	public void testPWCorta() {
 		//test con pw corta (<7)
 		ritorno = sn.registrazione(username, stringaCorta, conferma, etaMin, etaMax, categorie);
+		System.out.println("pw corta" +ritorno);
 		assertEquals(Nomi.SN_PW_CORTA.getNome(), ritorno);
+	}
 
+	@Test
+	public void testPWVuota() {
 		//test con pw vuota
 		ritorno = sn.registrazione(username, stringaVuota, conferma, etaMin, etaMax, categorie);
+
 		assertEquals(Nomi.SN_PW_CORTA.getNome(), ritorno);
 
+	}
+
+	@Test
+	public void testConfermaVuota() {
 		//test con conferma vuota
 		ritorno = sn.registrazione(username, pw, stringaVuota, etaMin, etaMax, categorie);
+
 		assertEquals(Nomi.SN_PW_DIVERSE.getNome(), ritorno);
-		
+	}
+
+	@Test
+	public void testPWConfermaVuoti() {
 		//test con pw vuota e conferma vuota
 		ritorno = sn.registrazione(username, stringaVuota, stringaVuota, etaMin, etaMax, categorie);
+
 		assertEquals(Nomi.SN_PW_CORTA.getNome(), ritorno);
 
+	}
+
+	@Test
+	public void testPWConfermaDiversi() {
 		//test con conferma diversa
 		ritorno = sn.registrazione(username, pw, "passwordTes", etaMin, etaMax, categorie);
-		assertEquals(Nomi.SN_PW_DIVERSE.getNome(), ritorno);
-		
-		/*
-		//test con input vuoti per etaMin e etaMax
-		ritorno = sn.registrazione(username, pw, conferma, stringaVuota, stringaVuota, categorie);
-		assertEquals(Campo.STRINGA_VUOTA, ritorno);
-		
-		//test con input non validi per etaMin e etaMax
-		ritorno = sn.registrazione(username, pw, conferma, "abcd", "!£$%", categorie);
-		assertEquals(Campo.FORMATO_INTERO_SBAGLIATO, ritorno);
-		
-		//test con input negativi per etaMin e etaMax
-		ritorno = sn.registrazione(username, pw, conferma, "-5", "-2" , categorie);
-		assertEquals(Campo.FORMATO_INTERO_SBAGLIATO, ritorno);
 
+		assertEquals(Nomi.SN_PW_DIVERSE.getNome(), ritorno);
+	}
+
+	@Test
+	public void testEtaNegative() {
+		//test con input negativi per etaMin e etaMax
+		ritorno = sn.registrazione(username, pw, conferma, -5, -2 , categorie);
+
+		assertEquals(Nomi.SN_NUMERO_NEGATIVO.getNome(), ritorno);
+
+	}
+
+	@Test
+	public void testEtaMinMaggioreEtaMax() {
 		//test con etaMin e etaMax validi, etaMin > etaMax
-		ritorno = sn.registrazione(username, pw, conferma, "1", "0", categorie);
-		assertEquals(SocialNetwork.ETAMIN_MAGG_ETAMAX, ritorno);
-		*/
-		//test per registrazione corretta
+		ritorno = sn.registrazione(username, pw, conferma, 1, 0, categorie);
+
+		assertEquals(Nomi.SN_ETAMIN_MAGG_ETAMAX.getNome(), ritorno);
+	}
+
+	@Test
+	public void testRegCorretta() {
 		ritorno = sn.registrazione(username, pw, conferma, etaMin, etaMax, categorie);
 		assertEquals(Nomi.SN_BENVENUTO.getNome(), ritorno);
 		assertEquals(username, sn.getUtente().getUsername());
+		cdb.eliminaUtente(username);
 	}
-	
+
+
 	@After
 	public void reset() {
-		cdb.cancellaUtente(utest.getUsername());
-		cdb.cancellaUtente(username);
+		cdb.eliminaUtente(utest.getUsername());
+		
 	}
 
 

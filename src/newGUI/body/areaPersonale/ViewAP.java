@@ -41,6 +41,7 @@ public class ViewAP extends JPanel {
 	private DefaultListModel<String> modelList;
 	private PanelModificaUtente panelMU;
 	private CardLayout layoutVistaOModifica;
+	private JLabel lblNotifiche;
 
 	public ViewAP(Utente utente, ActionListener al, ActionListener father) {
 
@@ -93,6 +94,11 @@ public class ViewAP extends JPanel {
 		for(int i=0; i<utente.getNotifiche().size(); i++) {
 			modelList.addElement(i + " " + utente.getNotifiche().get(i).getMessaggio());
 		}
+		
+		lblNotifiche = new JLabel("Elenco notifiche");
+		lblNotifiche.setFont(new Font(getFont().getFontName(), Font.BOLD, 18));
+		notifichePanel.add(lblNotifiche);
+		
 
 		listNotifiche = new JList<String>(modelList);
 		listNotifiche.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

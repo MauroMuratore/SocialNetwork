@@ -50,7 +50,7 @@ public class PanelCreaEvento extends JPanel {
 	private JTextField textIstruttore;
 	private JList invitabili;
 
-	public PanelCreaEvento(String categoria, List<String> personeInteressate, ActionListener al, ActionListener father) {
+	public PanelCreaEvento(String categoria, List<String> personeInteressate, ActionListener al, ActionListener father, String utente) {
 		setLayout(new BorderLayout(0, 0));
 		panelCentrale = new JPanel();
 		panelButton = new JPanel();
@@ -236,7 +236,7 @@ public class PanelCreaEvento extends JPanel {
 		} else if (categoria.equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome())) {
 			c.gridx = 0;
 			c.gridy = 12;
-			JLabel lblAtt = new JLabel("Attrezzatura ");
+			JLabel lblAtt = new JLabel("Attrezzatura* ");
 			lblAtt.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 			panelInterno.add(lblAtt, c);
 			textAttrezzatura = new JTextField(25);
@@ -247,7 +247,7 @@ public class PanelCreaEvento extends JPanel {
 
 			c.gridx = 0;
 			c.gridy = 13;
-			JLabel lblIstr = new JLabel("Istruttore ");
+			JLabel lblIstr = new JLabel("Istruttore* ");
 			lblIstr.setFont(new Font(getFont().getFontName(), Font.PLAIN, 24));
 			panelInterno.add(lblIstr, c);
 			textIstruttore = new JTextField(25);
@@ -266,7 +266,8 @@ public class PanelCreaEvento extends JPanel {
 
 		DefaultListModel<String> listaModel = new DefaultListModel<>();
 		for(String p: personeInteressate) {
-			listaModel.addElement(p);
+			if(!p.equals(utente))
+				listaModel.addElement(p);
 		}
 
 		invitabili = new JList(listaModel);

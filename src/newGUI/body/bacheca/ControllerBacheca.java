@@ -13,7 +13,7 @@ import lib.core.Evento;
 import lib.core.Notifica;
 import lib.core.PartitaCalcioEvento;
 import lib.util.Nomi;
-import newGUI.JError;
+import newGUI.JAvviso;
 import newGUI.body.ControllerBody;
 
 public class ControllerBacheca implements ActionListener {
@@ -27,11 +27,13 @@ public class ControllerBacheca implements ActionListener {
 	private boolean attrezzatura = false;
 	private boolean istruttore = false;
 	private ActionListener father;
+	private String utente;
 	
-	public ControllerBacheca(List<Categoria> cat, ActionListener _father) {
+	public ControllerBacheca(List<Categoria> cat, ActionListener _father, String _utente) {
 		categorie = new ArrayList<Categoria>(cat);
 		viewBC = new ViewBC(cat, this);
 		father=_father;
+		utente = _utente;
 	}
 
 	public ViewBC getViewBC() {
@@ -56,7 +58,7 @@ public class ControllerBacheca implements ActionListener {
 					}
 					if(selPath.getLastPathComponent().toString().equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
 						List<String> interessati = categorie.get(index).getPersoneInteressate();
-						pce = new PanelCreaEvento(nomeCat, interessati, this, father);
+						pce = new PanelCreaEvento(nomeCat, interessati, this, father, utente);
 						viewBC.addPanel(pce);
 
 
@@ -81,7 +83,7 @@ public class ControllerBacheca implements ActionListener {
 					}
 					if(selPath.getLastPathComponent().toString().equals(Nomi.AZIONE_CREA_EVENTO.getNome())) {
 						List<String> interessati = categorie.get(index).getPersoneInteressate();
-						pce = new PanelCreaEvento(nomeCat, interessati, this, father);
+						pce = new PanelCreaEvento(nomeCat, interessati, this, father, utente);
 						viewBC.addPanel(pce);
 					}
 					else {
@@ -171,7 +173,7 @@ public class ControllerBacheca implements ActionListener {
 	public void mostraEsito(String esito) {
 
 		viewBC.removePanelEsterno();
-		new JError(esito);
+		new JAvviso(esito);
 	}
 
 	public void update(List<Categoria> cat) {

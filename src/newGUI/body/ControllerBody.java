@@ -30,8 +30,6 @@ public class ControllerBody implements ActionListener {
 	private int controller;
 	private String azione;
 	private boolean toContinue =false;
-	private Object synchroToken;
-
 
 	public static final int CONTROLLER_BC = 0;
 	public static final int CONTROLLER_AP = 1;
@@ -39,8 +37,10 @@ public class ControllerBody implements ActionListener {
 
 	public ControllerBody(Channel _channel) {
 		channel =_channel;
-		controllerBC = new ControllerBacheca(leggiCat(), this);
-		controllerAP = new ControllerAP(leggiUtente(), this);
+		List<Categoria> cat = leggiCat();
+		Utente utente = leggiUtente();
+		controllerBC = new ControllerBacheca(cat, this, utente.getUsername());
+		controllerAP = new ControllerAP(utente, this);
 		viewBody = new ViewBody(controllerBC.getViewBC(), controllerAP.getViewAP(), this);
 
 	}

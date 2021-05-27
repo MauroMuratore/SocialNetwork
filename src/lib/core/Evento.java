@@ -376,7 +376,41 @@ public abstract class Evento implements Serializable {
 				if(partecipantiNecessari.getValore().intValue() <= partecipanti.size()
 						&& partecipantiNecessari.getValore().intValue()+tolleranzaPartecipanti.getValore().intValue()>=partecipanti.size() ) {
 					stato=StatoEvento.CHIUSO;
-					ritorno= new Notifica(this, titolo.getValoreString() + Notifica.CHIUSO);
+					ritorno= new Notifica(this, titolo.getValoreString() +" " + Notifica.CHIUSO + "l'evento si terra' a " + luogo.getValoreString() 
+					+ " in data " + dataInizio.getValoreString() +" e il costo e' " + quotaIndividuale.getValoreString());
+				}					
+			}
+			//fallito
+			if(termineUltimo.getValore().before(oggi)){
+				stato=StatoEvento.FALLITO;
+				ritorno= new Notifica(this, titolo.getValoreString() + Notifica.FALLITO);
+			}
+		}
+		else if(stato.equals(StatoEvento.CONCLUSO)) {
+			if(dataFine.getValore().before(oggi)) {
+				stato=StatoEvento.CONCLUSO;
+				ritorno= new Notifica(this, titolo.getValoreString() +Notifica.CONCLUSO);
+			}
+		}
+
+
+		//devo salvare in caso lo stato sia cambiato
+		return ritorno;
+	}
+	
+	public Notifica testCambioStato(GregorianCalendar oggi) {
+		Notifica ritorno=null;
+		//passaggio da aperto a
+		if(stato.equals(StatoEvento.APERTO)) {
+			//chiuso
+
+			if(termineUltimo.getValore().after(oggi)
+					|| termineUltimo.getValore().equals(oggi)) {
+				if(partecipantiNecessari.getValore().intValue() <= partecipanti.size()
+						&& partecipantiNecessari.getValore().intValue()+tolleranzaPartecipanti.getValore().intValue()>=partecipanti.size() ) {
+					stato=StatoEvento.CHIUSO;
+					ritorno= new Notifica(this, titolo.getValoreString() +" " + Notifica.CHIUSO + "l'evento si terra' a " + luogo.getValoreString() 
+					+ " in data " + dataInizio.getValoreString() +" e il costo e' " + quotaIndividuale.getValoreString());
 				}					
 			}
 			//fallito

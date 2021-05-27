@@ -98,6 +98,9 @@ public class SocialNetwork {
 			int etaMin = Integer.parseInt(minEta);
 			int etaMax = Integer.parseInt(maxEta);
 			 */
+			if(minEta<0 || maxEta<0) {
+				return Nomi.SN_NUMERO_NEGATIVO.getNome();
+			}
 			if(minEta>maxEta)
 				return Nomi.SN_ETAMIN_MAGG_ETAMAX.getNome();
 
@@ -109,6 +112,8 @@ public class SocialNetwork {
 			consultaDB.salvaCategorie(categorie);
 			setUtente(username);
 			return Nomi.SN_BENVENUTO.getNome();
+			
+			
 		} else
 			return Nomi.SN_ID_IN_USO.getNome();
 	}
@@ -141,8 +146,16 @@ public class SocialNetwork {
 		return 0;
 	}
 
-	public void cancellaUtente(String username) {
-		consultaDB.cancellaUtente(username);
+	public void eliminaUtente(String username) {
+		for(String key: categorie.keySet()) {
+			categorie.get(key).removePersonaInteressata(username);
+		}
+		consultaDB.eliminaUtente(username);
+		consultaDB.salvaCategorie(categorie);
+	}
+
+	public void eliminaEvento(Evento evento) {
+		consultaDB.eliminaEvento(evento);
 	}
 
 	/**
@@ -238,8 +251,8 @@ public class SocialNetwork {
 		invitaUtenti(personeInvitate, evento);
 		categorie.get(evento.getCategoria()).aggiungiEvento(evento);
 		informaInteressati(evento);
+		
 
-		consultaDB.scriviEvento(evento);
 		return "Evento creato";
 
 	}
@@ -348,7 +361,7 @@ public class SocialNetwork {
 		Notifica ritorno = evento.cancella(utente.getUsername());
 		utente.riceviNotifica(ritorno);
 		aggiornamentoNotifiche(ritorno);
-		Log.writeRoutineLog(this.getClass(), "cancella evento scrittura ", Log.HIGH_PRIORITY);
+		Log.writeRoutineLog(this.getClass(), ritorno.getMessaggio(), Log.HIGH_PRIORITY);
 		consultaDB.scriviEvento(evento);
 		aggiornaEvento(evento);
 		return ritorno.getMessaggio();
@@ -416,7 +429,7 @@ public class SocialNetwork {
 
 		return Utente.MODIFICA_RIUSCITA;
 	}
-	
+
 	public String modificaUtente(int etaMin, int etaMax, boolean catPartita, boolean catEscursione) {
 		if(etaMin>etaMax)
 			return Nomi.SN_ETAMIN_MAGG_ETAMAX.getNome();
@@ -440,10 +453,10 @@ public class SocialNetwork {
 			categorie.get(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()).getPersoneInteressate().remove(utente.getUsername());
 			utente.removeInteresse(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome());
 		}
-		
+
 		consultaDB.salvaCategorie(categorie);
 		consultaDB.salvaUtente(utente);
-		
+
 		return Utente.MODIFICA_RIUSCITA;
 	}
 
@@ -459,13 +472,14 @@ public class SocialNetwork {
 		Categoria cat = categorie.get(categoria);
 		for(Evento e : (ArrayList<Evento>)cat.getBacheca()) { //poi tutti gli eventi
 			for(String partecipante: e.getPartecipanti()) { //con tutti i loro partecipanti
+				if(!utente.getUsername().equals(e.getProprietario()))
+					continue;
 				if(!personeInvitabili.contains(partecipante))
 					personeInvitabili.add(partecipante);
 			}
 		}
-
-
-		personeInvitabili.remove(utente.getUsername());
+		if(personeInvitabili.contains(utente.getUsername()))
+			personeInvitabili.remove(utente.getUsername());
 		return personeInvitabili;
 	}
 
@@ -496,8 +510,9 @@ public class SocialNetwork {
 		for(String interessato: (LinkedList<String>)categorie.get(evento.getCategoria()).getPersoneInteressate()) {
 			if(notificheDaInoltrare.get(interessato)==null) 
 				notificheDaInoltrare.put(interessato, new LinkedList<Notifica>());
-			notificheDaInoltrare.get(interessato).add(new Notifica(evento, Notifica.NUOVO_EVENTO_APERTO));	
+			notificheDaInoltrare.get(interessato).add(new Notifica(evento, Notifica.NUOVO_EVENTO_APERTO + " "+evento.getTitolo().getValoreString()));	
 		}
+		
 		Log.writeRoutineLog(this.getClass(),"persone interessate informate", Log.MEDIUM_PRIORITY);
 	}
 

@@ -8,7 +8,7 @@ import lib.core.Notifica;
 import lib.core.Utente;
 import lib.net.ModelModificaUtente;
 import lib.util.Nomi;
-import newGUI.JError;
+import newGUI.JAvviso;
 import newGUI.body.ControllerBody;
 
 public class ControllerAP implements ActionListener{
@@ -101,7 +101,7 @@ public class ControllerAP implements ActionListener{
 		if(esito.equals(Utente.MODIFICA_RIUSCITA)) {
 			viewAP.aggiornaUtente(mmu);
 		}
-		new JError(esito);
+		new JAvviso(esito);
 		
 	}
 

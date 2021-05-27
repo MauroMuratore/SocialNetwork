@@ -136,21 +136,37 @@ public class FactoryNodoXML {
 	public Element creaNodoCategoria(Document doc, Categoria cat) {
 		Element categoria = (Element) doc.getElementsByTagName(Nomi.TAG_CATEGORIA.getNome()).item(0);
 
+		//controllo se è presente in cat ma non nel doc
 		for(String personaInteressata: (LinkedList<String>) cat.getPersoneInteressate()) {
-			boolean notPresent = true;
+			boolean notPresentInDoc = true;
 			for(int i=0; i<categoria.getElementsByTagName(Nomi.PERSONE_INTERESSATE.getNome()).getLength(); i++) {
 				Element personaNodo = (Element) categoria.getElementsByTagName(Nomi.PERSONE_INTERESSATE.getNome()).item(i);
 				String persona = personaNodo.getTextContent();
 				if(persona.equals(personaInteressata)) {
-					notPresent = false;
+					notPresentInDoc = false;
 					break;
 				}
 			}
 			Element personaNodo = null;
-			if(notPresent) {
+			if(notPresentInDoc) {
 				personaNodo = doc.createElement(Nomi.PERSONE_INTERESSATE.getNome());
 				personaNodo.setTextContent(personaInteressata);
 				categoria.appendChild(personaNodo);
+			}
+		}
+		//controllo se è presente in doc ma non in cat
+		for(int i=0; i<categoria.getElementsByTagName(Nomi.PERSONE_INTERESSATE.getNome()).getLength(); i++) {
+			boolean presentInCat = false;
+			Element personaNodo = (Element) categoria.getElementsByTagName(Nomi.PERSONE_INTERESSATE.getNome()).item(i);
+			String persona = personaNodo.getTextContent();
+			for(String personaInteressata: (LinkedList<String>) cat.getPersoneInteressate()) {
+				if(persona.equals(personaInteressata)) {
+					presentInCat=true;
+					break;
+				}				
+			}
+			if(!presentInCat) {
+				categoria.removeChild(personaNodo);
 			}
 		}
 		return categoria;

@@ -97,7 +97,8 @@ public class EscursioneMontagnaEvento extends Evento {
 		if(ritorno==null)
 			return ritorno;
 		if(ritorno.getMessaggio().equals(Notifica.CHIUSO)) {
-			ritorno = new Notifica(this, Notifica.CHIUSO + Notifica.COSTO_FINALE);
+			ritorno = new Notifica(this, titolo.getValoreString() +" " + Notifica.CHIUSO + "l'evento si terra' a " + luogo.getValoreString() 
+			+ " in data " + dataInizio.getValoreString() + Notifica.COSTO_FINALE);
 		}
 		return ritorno;
 	}

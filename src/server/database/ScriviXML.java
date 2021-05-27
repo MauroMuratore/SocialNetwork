@@ -372,6 +372,7 @@ public class ScriviXML {
 		for(int i=0; i<lista.getLength(); i++) {
 			String nome =((Element)lista.item(i)).getElementsByTagName(Nomi.TAG_NOME.getNome()).item(0).getTextContent();
 			if(nome.equals(username)) {
+
 				nodoUtente = (Element)lista.item(i);
 				Log.writeRoutineLog(this.getClass(), username + " rimosso", Log.HIGH_PRIORITY);
 			}
@@ -383,6 +384,37 @@ public class ScriviXML {
 		else
 			scriviSuFile(doc, Nomi.FILE_UTENTI);
 
+	}
+
+	public void eliminaEvento(Evento evento) {
+		Nomi nomeFile=null;
+		if(evento.getCategoria().equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
+			if(os.startsWith("Windows"))
+				nomeFile = Nomi.FILE_NOTIFICHE_PENDENTI_WIN;
+			else 
+				nomeFile = Nomi.FILE_PARTITA_CALCIO;
+		}
+		else if(evento.getCategoria().equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome())) {
+			if(os.startsWith("Windows"))
+				nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA_WIN;
+			else 
+				nomeFile = Nomi.FILE_ESCURSIONE_MONTAGNA;
+		}
+		Document doc = fdx.creaDocument(nomeFile);
+
+		Element elenco = (Element) doc.getElementsByTagName(Nomi.TAG_ELENCO.getNome()).item(0);
+		//evento esistente
+		for(int i=0; i< elenco.getElementsByTagName(Nomi.TAG_EVENTO.getNome()).getLength(); i++) {
+			Element nodoEvento = (Element) elenco.getElementsByTagName(Nomi.TAG_EVENTO.getNome()).item(i);
+			int idNodo = Integer.parseInt(nodoEvento.getAttribute("id"));
+			if(evento.getIdEvento()==idNodo) {
+				elenco.removeChild(nodoEvento);				
+				break;
+			}
+		}
+
+		Log.writeRoutineLog(this.getClass(), "elimino evento ", Log.MEDIUM_PRIORITY);
+		scriviSuFile(doc, nomeFile);
 	}
 
 

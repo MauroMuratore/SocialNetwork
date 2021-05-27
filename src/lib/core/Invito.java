@@ -9,7 +9,7 @@ public class Invito extends Notifica implements Serializable{
 	private GregorianCalendar dataInvito;
 	
 	public Invito(Evento _evento) {
-		super(_evento, Notifica.INVITO + _evento.getProprietario());
+		super(_evento, Notifica.INVITO + _evento.getTitolo().getValoreString() + " da " +  _evento.getProprietario());
 		dataInvito = new GregorianCalendar();
 	}
 	
