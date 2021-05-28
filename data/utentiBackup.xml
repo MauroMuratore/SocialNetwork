@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <elenco>
     <utente>
+        <nome>daniela.muratore</nome>
+        <hash>danieladiego</hash>
+        <elenco>
+            <notifica>
+                <descrizione>daniela.muratore</descrizione>
+                <id>1271780123</id>
+                <letto>false</letto>
+            </notifica>
+            <notifica>
+                <descrizione>iscrizione gia fatta a Calcio new</descrizione>
+                <id>1271780123</id>
+                <letto>false</letto>
+            </notifica>
+        </elenco>
+        <eventi_creati>
+            <evento>1271780123</evento>
+        </eventi_creati>
+        <eta_min>19</eta_min>
+        <eta_max>40</eta_max>
+        <interessi>
+            <nome>Escursione in montagna</nome>
+            <nome>Partita di calcio</nome>
+        </interessi>
+    </utente>
+    <utente>
         <nome>mauro123</nome>
         <hash>123123123</hash>
         <elenco>
@@ -11,10 +36,21 @@
             </notifica>
         </elenco>
         <eventi_creati/>
-        <eta_min>20</eta_min>
+        <eta_min>24</eta_min>
         <eta_max>30</eta_max>
         <interessi>
             <nome>escursione in montagna</nome>
+        </interessi>
+    </utente>
+    <utente>
+        <nome>genoveffo</nome>
+        <hash>123123123</hash>
+        <elenco/>
+        <eventi_creati/>
+        <eta_min>2</eta_min>
+        <eta_max>8</eta_max>
+        <interessi>
+            <nome>Escursione in montagna</nome>
         </interessi>
     </utente>
 </elenco>

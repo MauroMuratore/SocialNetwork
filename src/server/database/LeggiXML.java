@@ -144,7 +144,7 @@ public class LeggiXML {
 		int id = Integer.parseInt(evento.getAttribute("id"));
 		String proprietario = evento.getElementsByTagName(Nomi.CAMPO_PROPRIETARIO.getNome()).item(0).getTextContent();
 		Campo<String> titolo = leggiCampo(evento, String.class, Nomi.CAMPO_TITOLO);
-		Campo<Integer> nPartecipanti = leggiCampo(evento, Integer.class, Nomi.CAMPO_PARTECIPANTI_MAX);
+		Campo<Integer> nPartecipanti = leggiCampo(evento, Integer.class, Nomi.CAMPO_PARTECIPANTI_MIN);
 		Campo<GregorianCalendar> termineUltimo = leggiCampo(evento, GregorianCalendar.class, Nomi.CAMPO_TERMINE_ULTIMO);
 		Campo<String> luogo = leggiCampo(evento, String.class, Nomi.CAMPO_LUOGO);
 		Campo<GregorianCalendar> dataInizio= leggiCampo(evento, GregorianCalendar.class, Nomi.CAMPO_DATA_INIZIO);

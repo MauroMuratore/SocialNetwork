@@ -39,7 +39,7 @@ public class PartitaCalcioEvento extends Evento {
 	public PartitaCalcioEvento() {
 		super();
 		titolo = new Campo<String>(Nomi.CAMPO_TITOLO.getNome(), "", true);
-		partecipantiNecessari = new Campo<Integer>(Nomi.CAMPO_PARTECIPANTI_MAX.getNome(), "", true);
+		partecipantiNecessari = new Campo<Integer>(Nomi.CAMPO_PARTECIPANTI_MIN.getNome(), "", true);
 		termineUltimo = new Campo<GregorianCalendar>(Nomi.CAMPO_TERMINE_ULTIMO.getNome(), "", true);
 		luogo = new Campo<String>(Nomi.CAMPO_LUOGO.getNome(), "", true);
 		dataInizio = new Campo<GregorianCalendar>(Nomi.CAMPO_DATA_INIZIO.getNome(), "", true);
@@ -57,21 +57,27 @@ public class PartitaCalcioEvento extends Evento {
 
 	public boolean valido() {
 		if(titolo.getValore()==null) {
+			
 			return false;
 		}
 		else if(partecipantiNecessari.getValore()==null) {
+
 			return false;
 		}
 		else if(termineUltimo.getValore()==null) {
+			
 			return false;
 		}
 		else if(luogo.getValore()==null) {
 			return false;
 		}
-		else if(dataInizio.getValore()==null) {
+		else if(dataInizio.getValore()==null) { 
 			return false;
 		}
 		else if(quotaIndividuale.getValore()==null) {
+			return false;
+		}
+		else if(sesso.getValore()==null) {
 			return false;
 		}
 

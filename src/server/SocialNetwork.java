@@ -112,8 +112,8 @@ public class SocialNetwork {
 			consultaDB.salvaCategorie(categorie);
 			setUtente(username);
 			return Nomi.SN_BENVENUTO.getNome();
-			
-			
+
+
 		} else
 			return Nomi.SN_ID_IN_USO.getNome();
 	}
@@ -124,13 +124,13 @@ public class SocialNetwork {
 	 */
 	private void setUtente(String id) {
 		utente = consultaDB.caricaUtente(id);
-		Log.writeRoutineLog(this.getClass(), "login di " + utente.getUsername(), Log.TOP_PRIORITY);
+		Log.writeRoutineLog(this.getClass(), "login di " + utente.getUsername(), Log.MEDIUM_PRIORITY);
 		aggiornamentoUtente();
 	}
 
 	public void logout() {
 		salvaTutto();
-		Log.writeRoutineLog(this.getClass(), "logut di " + utente.getUsername(), Log.TOP_PRIORITY);
+		Log.writeRoutineLog(this.getClass(), "logut di " + utente.getUsername(), Log.MEDIUM_PRIORITY);
 		utente = null;
 
 	}
@@ -224,8 +224,10 @@ public class SocialNetwork {
 
 	public void gestisciIscrizione(Evento evento, String messaggio) {
 		utente.riceviNotifica(new Notifica(evento, messaggio));
-		if (evento.cambioStato() != null)
-			aggiornamentoNotifiche(evento.cambioStato());
+		Notifica not = evento.cambioStato();
+		if (not!= null) {
+			aggiornamentoNotifiche(not);
+		}
 		consultaDB.scriviEvento(evento);
 		consultaDB.salvaUtente(utente);
 	}
@@ -251,7 +253,7 @@ public class SocialNetwork {
 		invitaUtenti(personeInvitate, evento);
 		categorie.get(evento.getCategoria()).aggiungiEvento(evento);
 		informaInteressati(evento);
-		
+
 
 		return "Evento creato";
 
@@ -512,7 +514,7 @@ public class SocialNetwork {
 				notificheDaInoltrare.put(interessato, new LinkedList<Notifica>());
 			notificheDaInoltrare.get(interessato).add(new Notifica(evento, Notifica.NUOVO_EVENTO_APERTO + " "+evento.getTitolo().getValoreString()));	
 		}
-		
+
 		Log.writeRoutineLog(this.getClass(),"persone interessate informate", Log.MEDIUM_PRIORITY);
 	}
 

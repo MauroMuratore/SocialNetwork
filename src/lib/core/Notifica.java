@@ -23,6 +23,7 @@ public class Notifica implements Serializable{
 	public static final String ISCRIZIONE_GIA_FATTA = "iscrizione gia fatta a ";
 	public static final String NUOVO_EVENTO_APERTO = "nuovo evento aperto ";
 	public static final String NUMERO_MAX_PARTECIPANTI = " ha già raggiunto il numero massimo partecipanti";
+	public static final String TUI_PASSATO = "Termine ultimo iscrizione passato";
 	
 	public Notifica(Evento _evento, String mes) {
 		evento=_evento;

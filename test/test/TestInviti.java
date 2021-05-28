@@ -5,14 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.LinkedList;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import lib.core.Notifica;
 import lib.core.PartitaCalcioEvento;
+import lib.util.Log;
 import lib.util.Nomi;
 import server.SocialNetwork;
 
@@ -36,8 +35,10 @@ class TestInviti {
 	
 	@BeforeEach
 	void setUp()  {
+		Log.setVerbose(0);
 		cat[0] = Nomi.CAT_PARTITA_CALCIO.getNome(); 
 		sn.registrazione(usernameNN, password, password, etaMin, etaMin+1, vuoto);
+		sn.logout();
 		sn.registrazione(usernameIN, password, password, etaMin, etaMin+1, cat);
 		sn.logout();
 		sn.registrazione(usernameNP1, password, password, etaMin, etaMin+1, vuoto);
@@ -78,7 +79,6 @@ class TestInviti {
 		eventoPassato.setQuotaIndividuale("1");
 		eventoPassato.setTermineUltimo("20/10/2022");
 		eventoPassato.setTermineUltimoRitiro("19/10/2022");
-		eventoPassato.setTitolo("Test inviti");
 		eventoPassato.setTolleranzaPartecipanti("1");
 		eventoPassato.setSesso("Maschio");
 		eventoPassato.setEta("12");
@@ -192,7 +192,6 @@ class TestInviti {
 		sn.eliminaUtente(usernameNN);
 		sn.eliminaUtente(usernameNP1);
 		sn.eliminaUtente(usernameNP2);
-		System.out.println("-------------------------------------------------------");
 	}
 
 

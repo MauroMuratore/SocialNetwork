@@ -74,11 +74,12 @@ public class ViewBC extends JPanel {
 		DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("root");
 		DefaultTreeModel model = new DefaultTreeModel(rootNode);
 		for(Categoria cat: categorie) {
+			
 			DefaultMutableTreeNode catNodo = new DefaultMutableTreeNode (cat.getNome());
 
 			for(Evento evento: (List<Evento>) cat.getBacheca()) {
-				if(!evento.getStato().equals(StatoEvento.CANCELLATO))
-					catNodo.add(new DefaultMutableTreeNode(evento.getTitolo().getValore()));
+				if(!evento.getStato().equals(StatoEvento.CANCELLATO) && !evento.getStato().equals(StatoEvento.CONCLUSO))
+						catNodo.add(new DefaultMutableTreeNode(evento.getTitolo().getValore()));
 			}
 
 			DefaultMutableTreeNode nuovoEventoNodo = new DefaultMutableTreeNode(Nomi.AZIONE_CREA_EVENTO.getNome());
@@ -92,6 +93,7 @@ public class ViewBC extends JPanel {
 
 		tree.setModel(model);
 		tree.setRootVisible(false);
+		tree.setCellRenderer(new NodeTreeCellRenderer());
 		tree.setFont(new Font(tree.getFont().getFontName(), Font.PLAIN, 24));
 		
 		revalidate();

@@ -19,11 +19,11 @@ public class ControlloCampo {
 		if(!data.contains("/")) 
 			return Campo.FORMATO_SBAGLIATO;
 		String[] campiData = data.split("/", 3);
-		if(controlloIntero(campiData[0]).equals(Campo.FORMATO_SBAGLIATO))
+		if(controlloIntero(campiData[0]).equals(Campo.FORMATO_INTERO_SBAGLIATO))
 			return Campo.FORMATO_SBAGLIATO;	
-		else if(controlloIntero(campiData[1]).equals(Campo.FORMATO_SBAGLIATO))
+		else if(controlloIntero(campiData[1]).equals(Campo.FORMATO_INTERO_SBAGLIATO))
 			return Campo.FORMATO_SBAGLIATO;
-		else if(controlloIntero(campiData[2]).equals(Campo.FORMATO_SBAGLIATO))
+		else if(controlloIntero(campiData[2]).equals(Campo.FORMATO_INTERO_SBAGLIATO))
 			return Campo.FORMATO_SBAGLIATO;			
 		int giorno = Integer.parseInt(campiData[0]);
 		int mese = Integer.parseInt(campiData[1]);
@@ -92,10 +92,11 @@ public class ControlloCampo {
 	 * OK
 	 */
 	public static String controlloOra(String data, String ora) {
-		if(!controlloData(data).equals(Campo.OK))
+		if(!controlloData(data).equals(Campo.OK)) {
 			return Campo.FORMATO_SBAGLIATO;
-		if(controlloIntero(ora).equals(Campo.FORMATO_SBAGLIATO))
-			return Campo.FORMATO_SBAGLIATO;
+		}
+		//if(controlloIntero(ora).equals(Campo.FORMATO_INTERO_SBAGLIATO))
+		//	return Campo.FORMATO_SBAGLIATO;
 		String[] campiOra = ora.split(":", 2);
 		if(!controlloIntero(campiOra[0]).equals(Campo.OK)) {
 			return controlloIntero(campiOra[0]);
@@ -135,6 +136,7 @@ public class ControlloCampo {
 	public static String controlloIntero(String intero) {
 		if(intero.equals(""))
 			return Campo.STRINGA_VUOTA;
+		
 		for(int i=0; i<intero.length(); i++) {
 			char c = intero.charAt(i);
 			if(c<'0' || c>'9')

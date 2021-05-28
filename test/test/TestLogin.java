@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import lib.core.Utente;
+import lib.util.Log;
 import lib.util.Nomi;
 import server.SocialNetwork;
 import server.database.ConsultaDB;
@@ -18,6 +19,7 @@ public class TestLogin {
 	
 	@Before
 	public void setUp() {
+		Log.setVerbose(0);
 		sn = SocialNetwork.getInstance();
 		utest = new Utente ("utenteTest", "utenteTest", 1, 10);
 		cdb = ConsultaDB.getInstance();
