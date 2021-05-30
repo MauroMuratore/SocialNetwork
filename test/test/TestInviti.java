@@ -182,7 +182,7 @@ class TestInviti {
 	}
 
 	@AfterEach
-	void reset(){
+	void tearDown(){
 		sn.eliminaEvento(eventoPassato);
 		sn.eliminaEvento(eventoTest);
 		sn.eliminaUtente(invitante);

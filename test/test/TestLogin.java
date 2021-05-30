@@ -64,7 +64,7 @@ public class TestLogin {
 	}
 		
 	@After
-	public void reset() {
+	public void tearDown() {
 		cdb.eliminaUtente(utest.getUsername());
 	}
 	

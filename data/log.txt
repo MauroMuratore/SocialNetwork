@@ -1,1 +1,1848 @@
 
+28-05-2021 15:54:06 server.database.LeggiXML leggi utente mauro123
+28-05-2021 15:55:15 server.database.LeggiXML leggi utente mauro123
+28-05-2021 15:58:35 server.database.LeggiXML leggi utente mauro123
+28-05-2021 15:59:56 server.database.LeggiXML leggi utente mauro123
+30-05-2021 12:05:07 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username2
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username3
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username4
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username5
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:05:07 server.SocialNetwork titolo è stato cancellato cancellato 
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:07 server.database.ScriviXML username1 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML username2 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML username3 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML username4 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML username5 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML creatore rimosso
+30-05-2021 12:05:07 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username2
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username3
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username4
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username5
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username2
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username3
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:07 server.database.ScriviXML username1 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML username2 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML username3 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML username4 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML username5 rimosso
+30-05-2021 12:05:07 server.database.ScriviXML creatore rimosso
+30-05-2021 12:05:07 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username2
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username3
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:07 server.database.LeggiXML leggi utente username4
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:07 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username5
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:08 server.database.ScriviXML username1 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username2 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username3 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username4 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username5 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML creatore rimosso
+30-05-2021 12:05:08 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username3
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username4
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username5
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username3
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:08 server.database.ScriviXML username1 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username2 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username3 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username4 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username5 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML creatore rimosso
+30-05-2021 12:05:08 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username3
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username4
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username5
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.ScriviXML username1 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username2 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username3 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username4 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username5 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML creatore rimosso
+30-05-2021 12:05:08 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username3
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username3
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username4
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username4
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username5
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username5
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username1
+30-05-2021 12:05:08 server.database.LeggiXML leggi utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.ScriviXML salvo utente username2
+30-05-2021 12:05:08 server.database.ScriviXML username1 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username2 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username3 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username4 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML username5 rimosso
+30-05-2021 12:05:08 server.database.ScriviXML creatore rimosso
+30-05-2021 12:10:51 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username4
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username5
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:10:51 server.SocialNetwork titolo è stato cancellato cancellato 
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:51 server.database.ScriviXML username1 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username2 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username3 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username4 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username5 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML creatore rimosso
+30-05-2021 12:10:51 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username4
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username5
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.ScriviXML username1 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username2 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username3 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username4 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username5 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML creatore rimosso
+30-05-2021 12:10:51 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username4
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username5
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:51 server.database.ScriviXML username1 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username2 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username3 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username4 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML username5 rimosso
+30-05-2021 12:10:51 server.database.ScriviXML creatore rimosso
+30-05-2021 12:10:51 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username4
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username5
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:51 server.database.LeggiXML leggi utente username2
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username3
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:52 server.database.ScriviXML username1 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username2 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username3 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username4 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username5 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML creatore rimosso
+30-05-2021 12:10:52 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username2
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username3
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username4
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username5
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:52 server.database.ScriviXML username1 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username2 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username3 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username4 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username5 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML creatore rimosso
+30-05-2021 12:10:52 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username2
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username3
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username3
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username4
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username4
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username5
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username5
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente creatore
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente creatore
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username1
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username1
+30-05-2021 12:10:52 server.database.LeggiXML leggi utente username2
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:52 server.database.ScriviXML salvo utente username2
+30-05-2021 12:10:52 server.database.ScriviXML username1 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username2 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username3 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username4 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML username5 rimosso
+30-05-2021 12:10:52 server.database.ScriviXML creatore rimosso
+30-05-2021 12:13:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:50 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente invitante
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente invitante
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente invitante
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 12:13:50 server.database.ScriviXML invitante rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameIN rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameNN rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 12:13:50 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente invitante
+30-05-2021 12:13:50 server.database.LeggiXML leggi utente invitante
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente invitante
+30-05-2021 12:13:50 server.database.ScriviXML invitante rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameIN rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameNN rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 12:13:50 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 12:13:50 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:13:50 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente invitante
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente invitante
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente invitante
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 12:13:51 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 12:13:51 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 12:13:51 server.database.ScriviXML invitante rimosso
+30-05-2021 12:13:51 server.database.ScriviXML usernameIN rimosso
+30-05-2021 12:13:51 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 12:13:51 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 12:13:51 server.database.ScriviXML usernameNN rimosso
+30-05-2021 12:13:51 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 12:13:51 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 12:16:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:16:18 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 12:16:18 server.database.ScriviXML utenteTest rimosso
+30-05-2021 12:16:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:16:18 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 12:16:18 server.database.ScriviXML utenteTest rimosso
+30-05-2021 12:16:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:16:18 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 12:16:18 server.database.ScriviXML utenteTest rimosso
+30-05-2021 12:16:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:16:18 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 12:16:18 server.database.ScriviXML utenteTest rimosso
+30-05-2021 12:16:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 12:16:18 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 12:16:18 server.database.LeggiXML leggi utente utenteTest
+30-05-2021 12:16:18 server.database.ScriviXML utenteTest rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteT
+30-05-2021 13:28:46 server.database.LeggiXML leggi utente utenteT
+30-05-2021 13:28:46 server.database.ScriviXML utenteT rimosso
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 13:28:46 lib.util.Log cambiato verbosita a 0
+30-05-2021 13:28:46 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 13:28:46 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 17:07:00 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:07:00 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:07:00 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:07:00 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:07:00 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:07:00 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:07:00 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:07:00 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:07:00 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:08:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:08:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:08:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:08:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:08:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:08:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:08:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:08:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:08:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:10:58 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:10:58 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:10:58 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:10:58 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:10:58 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:10:58 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:10:58 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:10:58 lib.util.Log cambiato verbosita a 0
+30-05-2021 17:10:58 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteT
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:13:21 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:13:21 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:13:21 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:04 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:05 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:05 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:05 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteT
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:15:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:15:56 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:15:56 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteT
+30-05-2021 23:18:19 server.database.LeggiXML leggi utente utenteT
+30-05-2021 23:18:19 server.database.ScriviXML utenteT rimosso
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:19 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:18:19 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:18:24 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:24 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:18:24 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:18:24 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:24 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:18:24 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:18:24 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:24 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:18:24 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:18:24 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:24 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:18:24 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:18:24 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:24 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:18:24 server.database.LeggiXML leggi utente utenteTest
+30-05-2021 23:18:24 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:18:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML username1 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username2 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username3 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username4 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username5 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML creatore rimosso
+30-05-2021 23:18:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML username1 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username2 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username3 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username4 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username5 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML creatore rimosso
+30-05-2021 23:18:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML username1 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username2 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username3 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username4 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username5 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML creatore rimosso
+30-05-2021 23:18:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML username1 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username2 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username3 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username4 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username5 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML creatore rimosso
+30-05-2021 23:18:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML username1 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username2 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username3 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username4 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username5 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML creatore rimosso
+30-05-2021 23:18:56 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username1
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username2
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username3
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username4
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente username5
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:18:56 server.database.ScriviXML username1 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username2 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username3 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username4 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML username5 rimosso
+30-05-2021 23:18:56 server.database.ScriviXML creatore rimosso
+30-05-2021 23:19:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:04 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:10 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:19:10 server.database.ScriviXML invitante rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 23:19:10 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:19:10 server.database.ScriviXML invitante rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 23:19:10 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:19:10 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:19:10 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:19:10 server.database.ScriviXML invitante rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:19:10 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 23:20:09 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:20:09 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:20:09 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:20:09 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:20:09 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:20:09 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:20:09 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:20:09 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:20:09 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:20:09 server.database.ScriviXML invitante rimosso
+30-05-2021 23:20:09 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:20:09 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:20:09 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:20:09 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:20:09 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:20:09 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 23:20:20 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:20:20 server.database.ScriviXML invitante rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 23:20:20 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:20:20 server.database.ScriviXML invitante rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 23:20:20 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:20:20 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:20:20 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:20:20 server.database.ScriviXML invitante rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:20:20 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 23:21:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username5
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:18 server.database.ScriviXML username1 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username2 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username3 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username4 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username5 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML creatore rimosso
+30-05-2021 23:21:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username5
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:18 server.database.ScriviXML username1 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username2 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username3 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username4 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username5 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML creatore rimosso
+30-05-2021 23:21:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username5
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:18 server.database.ScriviXML username1 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username2 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username3 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username4 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username5 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML creatore rimosso
+30-05-2021 23:21:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username5
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:18 server.database.ScriviXML username1 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username2 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username3 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username4 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML username5 rimosso
+30-05-2021 23:21:18 server.database.ScriviXML creatore rimosso
+30-05-2021 23:21:18 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:18 server.database.LeggiXML leggi utente username5
+30-05-2021 23:21:18 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:19 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:19 server.database.ScriviXML username1 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML username2 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML username3 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML username4 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML username5 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML creatore rimosso
+30-05-2021 23:21:19 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:19 server.database.LeggiXML leggi utente username1
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username1
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:19 server.database.LeggiXML leggi utente username2
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username2
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:19 server.database.LeggiXML leggi utente username3
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username3
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:19 server.database.LeggiXML leggi utente username4
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username4
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:19 server.database.LeggiXML leggi utente username5
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente username5
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:19 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:21:19 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:21:19 server.database.ScriviXML username1 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML username2 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML username3 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML username4 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML username5 rimosso
+30-05-2021 23:21:19 server.database.ScriviXML creatore rimosso
+30-05-2021 23:24:15 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:15 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:24:15 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:24:15 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:15 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:24:15 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:24:15 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:15 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:24:15 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:24:15 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:15 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:24:15 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:24:15 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:15 server.database.ScriviXML salvo utente utenteTest
+30-05-2021 23:24:15 server.database.LeggiXML leggi utente utenteTest
+30-05-2021 23:24:15 server.database.ScriviXML utenteTest rimosso
+30-05-2021 23:24:22 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:22 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:22 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:22 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:22 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:22 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:22 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:22 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:22 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:22 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:22 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:22 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:22 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:22 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:22 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:22 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:22 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:22 server.database.ScriviXML salvo utente utenteT
+30-05-2021 23:24:23 server.database.LeggiXML leggi utente utenteT
+30-05-2021 23:24:23 server.database.ScriviXML utenteT rimosso
+30-05-2021 23:24:23 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:23 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:23 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:23 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:23 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:23 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:23 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:23 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:23 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:23 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:23 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:23 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:23 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:23 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:23 server.database.ScriviXML salvo utente utenteRegistrato
+30-05-2021 23:24:23 server.database.ScriviXML utenteRegistrato rimosso
+30-05-2021 23:24:57 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML username1 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username2 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username3 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username4 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username5 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML creatore rimosso
+30-05-2021 23:24:57 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML username1 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username2 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username3 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username4 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username5 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML creatore rimosso
+30-05-2021 23:24:57 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML username1 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username2 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username3 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username4 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username5 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML creatore rimosso
+30-05-2021 23:24:57 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML username1 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username2 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username3 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username4 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username5 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML creatore rimosso
+30-05-2021 23:24:57 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML username1 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username2 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username3 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username4 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username5 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML creatore rimosso
+30-05-2021 23:24:57 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username1
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username2
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username3
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username4
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente username5
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:24:57 server.database.ScriviXML username1 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username2 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username3 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username4 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML username5 rimosso
+30-05-2021 23:24:57 server.database.ScriviXML creatore rimosso
+30-05-2021 23:25:02 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:02 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:02 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:02 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:02 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:02 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:02 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:02 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:02 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente username1
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente username2
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente username3
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente username4
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente username5
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:29 server.database.ScriviXML username1 rimosso
+30-05-2021 23:25:29 server.database.ScriviXML username2 rimosso
+30-05-2021 23:25:29 server.database.ScriviXML username3 rimosso
+30-05-2021 23:25:29 server.database.ScriviXML username4 rimosso
+30-05-2021 23:25:29 server.database.ScriviXML username5 rimosso
+30-05-2021 23:25:29 server.database.ScriviXML creatore rimosso
+30-05-2021 23:25:29 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente username1
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente username2
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente username3
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:29 server.database.LeggiXML leggi utente username4
+30-05-2021 23:25:29 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML username1 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username2 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username3 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username4 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username5 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML creatore rimosso
+30-05-2021 23:25:30 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username1
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username2
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username3
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username4
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML username1 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username2 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username3 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username4 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username5 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML creatore rimosso
+30-05-2021 23:25:30 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username1
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username2
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username3
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username4
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML username1 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username2 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username3 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username4 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username5 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML creatore rimosso
+30-05-2021 23:25:30 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username1
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username2
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username3
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username4
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML username1 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username2 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username3 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username4 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username5 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML creatore rimosso
+30-05-2021 23:25:30 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username1
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username1
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username2
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username2
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username3
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username3
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username4
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username4
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente username5
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:25:30 server.database.ScriviXML username1 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username2 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username3 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username4 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML username5 rimosso
+30-05-2021 23:25:30 server.database.ScriviXML creatore rimosso
+30-05-2021 23:34:42 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:34:42 server.GestioneEventi titolo è stato cancellato cancellato 
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.ScriviXML username1 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username2 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username3 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username4 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username5 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML creatore rimosso
+30-05-2021 23:34:42 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML username1 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username2 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username3 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username4 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username5 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML creatore rimosso
+30-05-2021 23:34:42 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.ScriviXML username1 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username2 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username3 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username4 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username5 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML creatore rimosso
+30-05-2021 23:34:42 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML username1 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username2 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username3 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username4 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username5 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML creatore rimosso
+30-05-2021 23:34:42 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML username1 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username2 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username3 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username4 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username5 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML creatore rimosso
+30-05-2021 23:34:42 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username3
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username4
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username5
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente creatore
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente creatore
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username1
+30-05-2021 23:34:42 server.database.LeggiXML leggi utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML salvo utente username2
+30-05-2021 23:34:42 server.database.ScriviXML username1 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username2 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username3 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username4 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML username5 rimosso
+30-05-2021 23:34:42 server.database.ScriviXML creatore rimosso
+30-05-2021 23:34:47 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:34:47 server.database.ScriviXML invitante rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 23:34:47 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:34:47 server.database.ScriviXML invitante rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameNP2 rimosso
+30-05-2021 23:34:47 lib.util.Log cambiato verbosita a 0
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameNP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameNP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente invitante
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente invitante
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIN
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIN
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP1
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP1
+30-05-2021 23:34:47 server.database.LeggiXML leggi utente usernameIP2
+30-05-2021 23:34:47 server.database.ScriviXML salvo utente usernameIP2
+30-05-2021 23:34:47 server.database.ScriviXML invitante rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameIN rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameIP1 rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameIP2 rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameNN rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameNP1 rimosso
+30-05-2021 23:34:47 server.database.ScriviXML usernameNP2 rimosso

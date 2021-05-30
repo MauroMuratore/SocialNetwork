@@ -287,6 +287,7 @@ public abstract class Evento implements Serializable {
 		}
 
 		dataInizio.setValore(ControlloCampo.assumiOra(data, ora));
+		
 		return OK;
 	}
 

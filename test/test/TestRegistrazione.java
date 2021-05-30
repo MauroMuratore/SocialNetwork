@@ -131,7 +131,7 @@ public class TestRegistrazione {
 
 
 	@After
-	public void reset() {
+	public void tearDown() {
 		cdb.eliminaUtente(utest.getUsername());
 		
 	}
