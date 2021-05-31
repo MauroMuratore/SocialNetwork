@@ -1846,3 +1846,5 @@
 30-05-2021 23:34:47 server.database.ScriviXML usernameNN rimosso
 30-05-2021 23:34:47 server.database.ScriviXML usernameNP1 rimosso
 30-05-2021 23:34:47 server.database.ScriviXML usernameNP2 rimosso
+31-05-2021 10:53:46 server.database.LeggiXML leggi utente mauro123
+31-05-2021 10:54:40 server.database.LeggiXML leggi utente mauro123
