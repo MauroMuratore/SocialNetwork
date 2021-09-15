@@ -13,11 +13,11 @@ import lib.core.Utente;
 import lib.util.Log;
 import lib.util.Nomi;
 
-public class GestisciNotificheDaInoltrare {
+public class GestioneNotificheDaInoltrare {
 	
 	
 	
-	public GestisciNotificheDaInoltrare() {
+	public GestioneNotificheDaInoltrare() {
 		
 	}
 	

@@ -31,8 +31,6 @@ public class MainServer {
 					Log.setVerbose(verbose);
 
 			}
-
-
 		social = SocialNetwork.getInstance();
 		//creazione del server socket
 		try {

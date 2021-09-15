@@ -74,7 +74,7 @@ public enum Nomi {
 	SN_BENVENUTO ("BENVENUTO"),
 	SN_ID_INESISTENTE ("ATTENZIONE! : username inesistente"),
 	SN_ID_CORTO ("ATTENZIONE! : id troppo corto"),
-	SN_PW_SBAGLIATA ("ATTENZIONE! : password sbalgiata"),
+	SN_PW_SBAGLIATA ("ATTENZIONE! : password sbagliata"),
 	SN_PW_CORTA ("ATTENZIONE! : passoword troppo corta"),
 	SN_ID_IN_USO ("ATTENZIONE! : username in uso"),
 	SN_PW_DIVERSE ("ATTENZIONE! : password diverse"),

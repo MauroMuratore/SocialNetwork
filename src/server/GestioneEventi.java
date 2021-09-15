@@ -15,11 +15,11 @@ import server.database.ConsultaDB;
 public class GestioneEventi {
 	
 	private ConsultaDB consultaDB;
-	private GestisciNotificheDaInoltrare gestisciNotifiche;
+	private GestioneNotificheDaInoltrare gestisciNotifiche;
 	
 	public GestioneEventi() {
 		consultaDB = ConsultaDB.getInstance();
-		gestisciNotifiche = new GestisciNotificheDaInoltrare();
+		gestisciNotifiche = new GestioneNotificheDaInoltrare();
 	}
 	
 	public void aggiornaCategoria(Evento e, Hashtable<String, Categoria> categorie) {
