@@ -24,7 +24,7 @@ public class SocialNetwork {
 	private ConsultaDB consultaDB;
 	private Hashtable<String, LinkedList<Notifica>> notificheDaInoltrare;
 	
-	private Logger logger;
+	private GestioneAccesso logger;
 	private GestioneNotificheDaInoltrare gestisciNotifiche;
 	private GestioneUtente gestioneUtente;
 	private GestioneEventi gestioneEventi;
@@ -37,7 +37,7 @@ public class SocialNetwork {
 		categorie.put(pdc.getNome(), pdc);
 		categorie.put(emc.getNome(), emc);
 		notificheDaInoltrare = consultaDB.leggiNotifichePendenti();
-		logger = new Logger();
+		logger = new GestioneAccesso();
 		gestisciNotifiche = new GestioneNotificheDaInoltrare();
 		gestioneUtente = new GestioneUtente();
 		gestioneEventi = new GestioneEventi();

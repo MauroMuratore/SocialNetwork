@@ -8,12 +8,12 @@ import lib.util.Log;
 import lib.util.Nomi;
 import server.database.ConsultaDB;
 
-public class Logger {
+public class GestioneAccesso {
 
 	private ConsultaDB consultaDB;
 	private Hashtable<String, Categoria> categorie;
 
-	public Logger() {
+	public GestioneAccesso() {
 		consultaDB = ConsultaDB.getInstance();
 	}
 
