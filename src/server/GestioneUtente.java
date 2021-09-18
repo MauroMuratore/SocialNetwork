@@ -58,6 +58,7 @@ public class GestioneUtente {
 		consultaDB.salvaCategorie(categorie);
 		consultaDB.salvaUtente(_utente);
 		utente=_utente;
+		Log.writeRoutineLog(this.getClass(), "modificato utente " + utente.getUsername(), Log.HIGH_PRIORITY);
 
 		return Utente.MODIFICA_RIUSCITA;
 	}

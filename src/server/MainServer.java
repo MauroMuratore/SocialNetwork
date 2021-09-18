@@ -32,6 +32,7 @@ public class MainServer {
 
 			}
 		social = SocialNetwork.getInstance();
+		Log.writeRoutineLog(MainServer.class, "Inizio nuova sessione", Log.TOP_PRIORITY);
 		//creazione del server socket
 		try {
 			server = new ServerSocket(port);

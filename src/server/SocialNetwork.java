@@ -94,13 +94,13 @@ public class SocialNetwork {
 	 */
 	private void setUtente(String id) {
 		utente = consultaDB.caricaUtente(id);
-		Log.writeRoutineLog(this.getClass(), "login di " + utente.getUsername(), Log.MEDIUM_PRIORITY);
+		Log.writeRoutineLog(this.getClass(), "login di " + utente.getUsername(), Log.TOP_PRIORITY);
 		gestisciNotifiche.aggiornamentoUtente(utente, notificheDaInoltrare);
 	}
 
 	public void logout() {
 		salvaTutto();
-		Log.writeRoutineLog(this.getClass(), "logut di " + utente.getUsername(), Log.MEDIUM_PRIORITY);
+		Log.writeRoutineLog(this.getClass(), "logut di " + utente.getUsername(), Log.TOP_PRIORITY);
 		utente = null;
 	}
 

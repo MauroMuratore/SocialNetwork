@@ -38,6 +38,7 @@ public class GestioneEventi {
 		String messaggio = evento.iscrizione(utente.getUsername(), istr, attr);
 		gestisciIscrizione(evento, messaggio, utente, notificheDaInoltrare);	
 		aggiornaCategoria(evento, categorie);
+		Log.writeRoutineLog(getClass(), "iscrizione utente " + utente.getUsername() + " a " + evento.getTitolo().getValore(), Log.MEDIUM_PRIORITY);
 		return messaggio;
 	}
 	
@@ -54,6 +55,7 @@ public class GestioneEventi {
 		String messaggio = evento.iscrizione(utente.getUsername());
 		gestisciIscrizione(evento, messaggio, utente, notificheDaInoltrare);
 		aggiornaCategoria(evento, categorie);
+		Log.writeRoutineLog(getClass(), "iscrizione utente " + utente.getUsername() + " a " + evento.getTitolo().getValore(), Log.MEDIUM_PRIORITY);
 		return messaggio;
 	}
 	
@@ -83,7 +85,7 @@ public class GestioneEventi {
 		Notifica ritorno = evento.cancella(utente.getUsername());
 		utente.riceviNotifica(ritorno);
 		gestisciNotifiche.aggiornamentoNotifiche(ritorno, utente, notificheDaInoltrare);
-		Log.writeRoutineLog(this.getClass(), ritorno.getMessaggio(), Log.HIGH_PRIORITY);
+		Log.writeRoutineLog(this.getClass(), ritorno.getMessaggio(), Log.MEDIUM_PRIORITY);
 		consultaDB.scriviEvento(evento);
 		aggiornaCategoria(evento, categorie);
 		return ritorno.getMessaggio();
@@ -109,7 +111,7 @@ public class GestioneEventi {
 		gestisciNotifiche.invitaUtenti(personeInvitate, evento, notificheDaInoltrare);
 		categorie.get(evento.getCategoria()).aggiungiEvento(evento);
 		gestisciNotifiche.informaInteressati(evento, categorie, notificheDaInoltrare);
-
+		Log.writeRoutineLog(getClass(), "creazione evento " + evento.getTitolo().getDescrizione() + "da parte di " + utente.getUsername(), Log.MEDIUM_PRIORITY);
 		return utente;
 
 	}

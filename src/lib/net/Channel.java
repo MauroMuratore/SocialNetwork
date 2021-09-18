@@ -18,6 +18,7 @@ public class Channel implements AutoCloseable{
 		this.socket=socket;
 		setOutput();
 		setInput();
+		Log.writeRoutineLog(getClass(), "creato nuovo channel", Log.TOP_PRIORITY);
 
 	}
 
@@ -37,6 +38,7 @@ public class Channel implements AutoCloseable{
 			Log.writeErrorLog(this.getClass(), "errore channel output");
 			e.printStackTrace();
 		}
+		
 	}
 
 	public void write(Object obj){
@@ -58,6 +60,8 @@ public class Channel implements AutoCloseable{
 			Object ritorno = input.readObject();
 			if(ritorno.equals(Nomi.NET_CHIUSURA_SOCKET))
 				throw new IOException();
+			
+			
 
 
 
@@ -82,6 +86,8 @@ public class Channel implements AutoCloseable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		Log.writeRoutineLog(getClass(), "Chiusura channel", Log.TOP_PRIORITY);
 	}
 
 }

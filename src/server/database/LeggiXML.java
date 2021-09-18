@@ -121,7 +121,8 @@ public class LeggiXML {
 			ritorno = new PartitaCalcioCat<>(nome, descrizione, bacheca, personeInteressate);
 		else if(categoria.equals(Nomi.CAT_ESCURSIOME_MONTAGNA.getNome()))
 			ritorno = new EscursioneMontagnaCat<>(nome, descrizione, bacheca, personeInteressate);
-
+		
+		Log.writeRoutineLog(getClass(), "Lettura categoria", Log.MEDIUM_PRIORITY);
 		return ritorno;
 	}
 
@@ -305,6 +306,8 @@ public class LeggiXML {
 				ritorno.add(new Notifica(evento, messaggio, letto));
 
 		}
+		
+		Log.writeRoutineLog(getClass(), "lettura notifiche", Log.MEDIUM_PRIORITY);
 
 		return ritorno;
 	}
@@ -371,6 +374,8 @@ public class LeggiXML {
 			ritorno.put(nomeUtente, leggiNotifiche(utente));
 
 		}
+		
+		Log.writeRoutineLog(getClass(), "Lettura notifiche pendenti", Log.MEDIUM_PRIORITY);
 
 
 		return ritorno;
