@@ -52,12 +52,6 @@ public class MainClient {
 		controllerBody = new ControllerBody(channel);
 		controllerBody.cicloVita();
 
-
-
 	}
-
-
-
-
 
 }

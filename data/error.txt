@@ -8,3 +8,17 @@
 30-05-2021 23:49:16 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
 31-05-2021 10:54:00 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
 31-05-2021 10:55:07 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+14-09-2021 16:26:13 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+14-09-2021 16:26:53 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+14-09-2021 16:50:58 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+14-09-2021 22:44:09 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+15-09-2021 11:47:19 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+15-09-2021 11:48:57 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+15-09-2021 11:50:43 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+15-09-2021 13:01:37 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+19-09-2021 17:20:36 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+19-09-2021 17:36:14 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+19-09-2021 17:36:20 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+19-09-2021 17:42:25 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+19-09-2021 17:42:28 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa
+21-09-2021 19:58:47 server.MainServer Impossibile leggere dal client. Chiusura socket improvvisa

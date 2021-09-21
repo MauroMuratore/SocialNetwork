@@ -8,13 +8,13 @@ import org.junit.Test;
 import lib.core.Utente;
 import lib.util.Log;
 import lib.util.Nomi;
-import server.SocialNetwork;
+import server.GestoreServizi;
 import server.database.ConsultaDB;
 
 public class TestRegistrazione {
 
 	Utente utest;
-	SocialNetwork sn;
+	GestoreServizi sn;
 	ConsultaDB cdb;
 	String username, stringaCorta, stringaVuota;
 	int etaMin, etaMax;
@@ -27,7 +27,7 @@ public class TestRegistrazione {
 	public void setUp() {
 		Log.setVerbose(0);
 		utest = new Utente ("utenteRegistrato", "utenteRegistrato", 1, 10);
-		sn = SocialNetwork.getInstance();
+		sn = GestoreServizi.getInstance();
 		cdb = ConsultaDB.getInstance();
 		cdb.salvaUtente(utest);
 		username = "utenteT";

@@ -8,19 +8,19 @@ import org.junit.Test;
 import lib.core.Utente;
 import lib.util.Log;
 import lib.util.Nomi;
-import server.SocialNetwork;
+import server.GestoreServizi;
 import server.database.ConsultaDB;
 
 public class TestLogin {
 
 	Utente utest;
-	SocialNetwork sn;
+	GestoreServizi sn;
 	ConsultaDB cdb;
 	
 	@Before
 	public void setUp() {
 		Log.setVerbose(0);
-		sn = SocialNetwork.getInstance();
+		sn = GestoreServizi.getInstance();
 		utest = new Utente ("utenteTest", "utenteTest", 1, 10);
 		cdb = ConsultaDB.getInstance();
 		cdb.salvaUtente(utest);		

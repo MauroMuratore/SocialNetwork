@@ -13,7 +13,7 @@ import lib.core.Notifica;
 import lib.core.PartitaCalcioEvento;
 import lib.util.Log;
 import lib.util.Nomi;
-import server.SocialNetwork;
+import server.GestoreServizi;
 
 class TestInviti {
 	
@@ -26,7 +26,7 @@ class TestInviti {
 	String usernameIP2 = "usernameIP2";
 	String password ="123123123";
 	int etaMin = 5;
-	SocialNetwork sn = SocialNetwork.getInstance();
+	GestoreServizi sn = GestoreServizi.getInstance();
 	String[] cat = new String[1];
 	String[] vuoto = new String[0];
 	PartitaCalcioEvento eventoTest = new PartitaCalcioEvento();

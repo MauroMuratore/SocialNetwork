@@ -13,7 +13,7 @@ import lib.core.PartitaCalcioEvento;
 import lib.core.StatoEvento;
 import lib.util.Log;
 import lib.util.Nomi;
-import server.SocialNetwork;
+import server.GestoreServizi;
 
 class TestCambioStato{
 	
@@ -27,7 +27,7 @@ class TestCambioStato{
 	String password ="123123123";
 	int etaMin = 5;
 	String[] cat = new String[1];
-	SocialNetwork sn = SocialNetwork.getInstance();
+	GestoreServizi sn = GestoreServizi.getInstance();
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -49,6 +49,7 @@ class TestCambioStato{
 		pce.setTolleranzaPartecipanti("1");
 		pce.setDataInizio("12/1/2022", "15:00");
 		pce.setTermineUltimo("10/1/2022");
+		pce.setTermineUltimoRitiro("8/1/2022");
 		pce.setQuotaIndividuale("10");
 		pce.setLuogo("qui");
 		pce.setSesso("maschio");
@@ -117,6 +118,9 @@ class TestCambioStato{
 		sn.logout();
 		sn.login(username3, password);
 		sn.iscrizione(pce);
+		GregorianCalendar oggi = new GregorianCalendar();
+		oggi.set(2022, 1, 9);
+		pce.testCambioStato(oggi);
 		assertEquals(StatoEvento.CHIUSO, pce.getStato());
 	}
 	
@@ -131,13 +135,14 @@ class TestCambioStato{
 		sn.logout();
 		sn.login(username3, password);
 		sn.iscrizione(pce);
-		assertEquals(StatoEvento.CHIUSO, pce.getStato());
 		GregorianCalendar oggi = new GregorianCalendar();
+		oggi.set(2022, 1, 9);
+		pce.testCambioStato(oggi);
+		assertEquals(StatoEvento.CHIUSO, pce.getStato());
 		oggi.set(2022, 3, 15);
 		pce.testCambioStato(oggi);
 		assertEquals(StatoEvento.CONCLUSO, pce.getStato());
 	}
-	
-	
+		
 
 }

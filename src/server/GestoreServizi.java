@@ -16,9 +16,9 @@ import lib.util.Log;
 import lib.util.Nomi;
 import server.database.ConsultaDB;
 
-public class SocialNetwork {
+public class GestoreServizi {
 	// UML QUANDO E' FINITO
-	private static SocialNetwork sn;
+	private static GestoreServizi sn;
 	private Hashtable<String, Categoria> categorie;
 	private Utente utente;
 	private ConsultaDB consultaDB;
@@ -29,7 +29,7 @@ public class SocialNetwork {
 	private GestioneUtente gestioneUtente;
 	private GestioneEventi gestioneEventi;
 
-	private SocialNetwork(ConsultaDB cDB) {
+	private GestoreServizi(ConsultaDB cDB) {
 		this.consultaDB=cDB;
 		categorie = new Hashtable<String, Categoria>();
 		PartitaCalcioCat pdc = (PartitaCalcioCat) consultaDB.leggiCategoria(Nomi.CAT_PARTITA_CALCIO.getNome());
@@ -46,9 +46,9 @@ public class SocialNetwork {
 		// quando vengono caricate gli eventi bisogna fare un controllo sulle notifiche
 	}
 
-	public static SocialNetwork getInstance() {
+	public static GestoreServizi getInstance() {
 		if(sn== null) 
-			sn=new SocialNetwork(ConsultaDB.getInstance()) ;
+			sn=new GestoreServizi(ConsultaDB.getInstance()) ;
 		return sn;
 	}
 

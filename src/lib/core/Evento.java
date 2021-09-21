@@ -375,7 +375,8 @@ public abstract class Evento implements Serializable {
 			//chiuso
 
 			if(termineUltimo.getValore().after(oggi)|| termineUltimo.getValore().equals(oggi)) {
-				if(partecipantiNecessari.getValore().intValue()+tolleranzaPartecipanti.getValore().intValue()==partecipanti.size() ) {
+				if(partecipantiNecessari.getValore().intValue()+tolleranzaPartecipanti.getValore().intValue()==partecipanti.size() 
+						&& termineUltimoRitiro.getValore().before(oggi)) {
 					stato=StatoEvento.CHIUSO;
 					ritorno= new Notifica(this, titolo.getValoreString() +" " + Notifica.CHIUSO + "l'evento si terra' a " + luogo.getValoreString() 
 					+ " in data " + dataInizio.getValoreString() +" e il costo e' " + quotaIndividuale.getValoreString());
@@ -421,14 +422,14 @@ public abstract class Evento implements Serializable {
 		Notifica ritorno=null;
 		if(stato.equals(StatoEvento.APERTO)) {
 			//chiuso
-
 			if(termineUltimo.getValore().after(oggi)|| termineUltimo.getValore().equals(oggi)) {
-				if(partecipantiNecessari.getValore().intValue()+tolleranzaPartecipanti.getValore().intValue()==partecipanti.size() ) {
+				if(partecipantiNecessari.getValore().intValue()+tolleranzaPartecipanti.getValore().intValue()==partecipanti.size() 
+						&& termineUltimoRitiro.getValore().before(oggi)) {
 					stato=StatoEvento.CHIUSO;
 					ritorno= new Notifica(this, titolo.getValoreString() +" " + Notifica.CHIUSO + "l'evento si terra' a " + luogo.getValoreString() 
 					+ " in data " + dataInizio.getValoreString() +" e il costo e' " + quotaIndividuale.getValoreString());
 					
-				}					
+				}	
 			}
 
 			else {
