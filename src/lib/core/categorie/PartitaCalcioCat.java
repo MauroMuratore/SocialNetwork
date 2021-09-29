@@ -1,4 +1,4 @@
-package lib.core;
+package lib.core.categorie;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -9,11 +9,11 @@ import javax.swing.tree.TreePath;
 
 import gui.JAvviso;
 import gui.body.ControllerBody;
-import lib.core.Categoria;
-import lib.core.EscursioneMontagnaEvento;
-import lib.core.Evento;
-import lib.core.Notifica;
-import lib.core.PartitaCalcioEvento;
+import lib.core.categorie.Categoria;
+import lib.core.eventi.EscursioneMontagnaEvento;
+import lib.core.eventi.Evento;
+import lib.core.eventi.PartitaCalcioEvento;
+import lib.core.utenti.Notifica;
 import lib.util.Nomi;
 
 public class ControllerBacheca implements ActionListener {

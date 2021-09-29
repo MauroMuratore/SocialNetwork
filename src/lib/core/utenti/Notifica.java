@@ -1,6 +1,8 @@
-package lib.core;
+package lib.core.utenti;
 
 import java.io.Serializable;
+
+import lib.core.eventi.Evento;
 
 public class Notifica implements Serializable{
 	

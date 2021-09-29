@@ -6,8 +6,8 @@ import java.util.List;
 
 import gui.JAvviso;
 import gui.body.ControllerBody;
-import lib.core.Notifica;
-import lib.core.Utente;
+import lib.core.utenti.Notifica;
+import lib.core.utenti.Utente;
 import lib.net.ModelModificaUtente;
 import lib.util.Nomi;
 

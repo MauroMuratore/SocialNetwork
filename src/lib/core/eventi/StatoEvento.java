@@ -1,5 +1,5 @@
 
-package lib.core;
+package lib.core.eventi;
 
 public enum StatoEvento {
 	

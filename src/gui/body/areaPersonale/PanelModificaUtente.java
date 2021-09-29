@@ -12,7 +12,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import lib.core.Utente;
+import lib.core.utenti.Utente;
 import lib.util.Nomi;
 
 import java.awt.Dimension;

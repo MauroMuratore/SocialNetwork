@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.List;
 
-import lib.core.Categoria;
-import lib.core.EscursioneMontagnaEvento;
-import lib.core.Evento;
-import lib.core.Notifica;
-import lib.core.PartitaCalcioEvento;
+import lib.core.categorie.Categoria;
+import lib.core.eventi.EscursioneMontagnaEvento;
+import lib.core.eventi.Evento;
+import lib.core.eventi.PartitaCalcioEvento;
+import lib.core.utenti.Notifica;
 import lib.net.Channel;
 import lib.net.ModelModificaUtente;
 import lib.util.Log;

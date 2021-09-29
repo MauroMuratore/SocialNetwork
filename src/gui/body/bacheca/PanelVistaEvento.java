@@ -5,9 +5,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import lib.core.EscursioneMontagnaEvento;
-import lib.core.Evento;
-import lib.core.PartitaCalcioEvento;
+import lib.core.eventi.EscursioneMontagnaEvento;
+import lib.core.eventi.Evento;
+import lib.core.eventi.PartitaCalcioEvento;
 import lib.util.Nomi;
 
 import java.awt.FlowLayout;

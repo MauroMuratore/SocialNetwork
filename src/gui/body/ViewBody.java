@@ -20,8 +20,8 @@ import javax.swing.tree.DefaultTreeModel;
 
 import gui.body.areaPersonale.ViewAP;
 import gui.body.bacheca.ViewBC;
-import lib.core.Categoria;
-import lib.core.Evento;
+import lib.core.categorie.Categoria;
+import lib.core.eventi.Evento;
 import lib.util.Nomi;
 
 import javax.swing.tree.DefaultMutableTreeNode;

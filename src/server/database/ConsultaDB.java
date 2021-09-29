@@ -9,12 +9,12 @@ import java.util.Map;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import lib.core.Categoria;
-import lib.core.Evento;
-import lib.core.Notifica;
-import lib.core.PartitaCalcioCat;
-import lib.core.PartitaCalcioEvento;
-import lib.core.Utente;
+import lib.core.categorie.Categoria;
+import lib.core.categorie.PartitaCalcioCat;
+import lib.core.eventi.Evento;
+import lib.core.eventi.PartitaCalcioEvento;
+import lib.core.utenti.Notifica;
+import lib.core.utenti.Utente;
 import lib.util.Nomi;
 
 public class ConsultaDB {

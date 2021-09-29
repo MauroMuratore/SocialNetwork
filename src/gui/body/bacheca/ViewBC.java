@@ -6,9 +6,9 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import lib.core.Categoria;
-import lib.core.Evento;
-import lib.core.StatoEvento;
+import lib.core.categorie.Categoria;
+import lib.core.eventi.Evento;
+import lib.core.eventi.StatoEvento;
 import lib.util.Nomi;
 
 import javax.swing.JTree;

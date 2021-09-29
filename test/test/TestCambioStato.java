@@ -9,8 +9,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import lib.core.PartitaCalcioEvento;
-import lib.core.StatoEvento;
+import lib.core.eventi.PartitaCalcioEvento;
+import lib.core.eventi.StatoEvento;
 import lib.util.Log;
 import lib.util.Nomi;
 import server.gestori.GestoreServizi;

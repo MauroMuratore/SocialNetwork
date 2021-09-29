@@ -1,10 +1,12 @@
 
-package lib.core;
+package lib.core.categorie;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import lib.core.eventi.Evento;
 
 public abstract class Categoria<E extends Evento> implements Serializable{
 

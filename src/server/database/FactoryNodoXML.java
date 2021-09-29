@@ -12,13 +12,13 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import lib.core.Campo;
-import lib.core.Categoria;
-import lib.core.Evento;
-import lib.core.Invito;
-import lib.core.Notifica;
-import lib.core.StatoEvento;
-import lib.core.Utente;
+import lib.core.categorie.Categoria;
+import lib.core.eventi.Campo;
+import lib.core.eventi.Evento;
+import lib.core.eventi.StatoEvento;
+import lib.core.utenti.Invito;
+import lib.core.utenti.Notifica;
+import lib.core.utenti.Utente;
 import lib.util.Log;
 import lib.util.Nomi;
 
