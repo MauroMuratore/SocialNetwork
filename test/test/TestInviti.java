@@ -13,7 +13,7 @@ import lib.core.Notifica;
 import lib.core.PartitaCalcioEvento;
 import lib.util.Log;
 import lib.util.Nomi;
-import server.GestoreServizi;
+import server.gestori.GestoreServizi;
 
 class TestInviti {
 	

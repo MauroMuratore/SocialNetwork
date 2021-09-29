@@ -13,7 +13,7 @@ import lib.core.PartitaCalcioEvento;
 import lib.core.StatoEvento;
 import lib.util.Log;
 import lib.util.Nomi;
-import server.GestoreServizi;
+import server.gestori.GestoreServizi;
 
 class TestCambioStato{
 	

@@ -145,10 +145,6 @@ public class ControllerBacheca implements ActionListener {
 			viewBC.removePanelEsterno();
 		}
 
-
-
-
-
 		else if(e.getActionCommand().equals("Select Att"))
 			attrezzatura = !attrezzatura;
 

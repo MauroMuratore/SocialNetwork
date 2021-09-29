@@ -57,7 +57,7 @@ public class NodeTreeCellRenderer implements TreeCellRenderer  {
 	@Override
 	public Component getTreeCellRendererComponent(JTree tree, Object nodo, boolean selected,
 			boolean expanded, boolean leaf,	int row, boolean focus) {
-		
+				
 		if(((DefaultMutableTreeNode)nodo).getUserObject().equals(Nomi.CAT_PARTITA_CALCIO.getNome())) {
 			label.setIcon(new ImageIcon(football.getPath()));
 			label.setText(Nomi.CAT_PARTITA_CALCIO.getNome());
@@ -74,6 +74,9 @@ public class NodeTreeCellRenderer implements TreeCellRenderer  {
 			label.setIcon(new ImageIcon(event.getPath()));
 			label.setText((String)((DefaultMutableTreeNode)nodo).getUserObject());
 		}
+		
+		
+		
 		
 		return label;
 	}

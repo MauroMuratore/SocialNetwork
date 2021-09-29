@@ -13,6 +13,7 @@ import lib.net.Channel;
 import lib.net.ModelModificaUtente;
 import lib.util.Log;
 import lib.util.Nomi;
+import server.gestori.GestoreServizi;
 
 public class ConversatoreClient {
 	

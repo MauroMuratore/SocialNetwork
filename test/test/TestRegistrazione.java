@@ -8,8 +8,8 @@ import org.junit.Test;
 import lib.core.Utente;
 import lib.util.Log;
 import lib.util.Nomi;
-import server.GestoreServizi;
 import server.database.ConsultaDB;
+import server.gestori.GestoreServizi;
 
 public class TestRegistrazione {
 

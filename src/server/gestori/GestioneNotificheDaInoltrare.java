@@ -1,4 +1,4 @@
-package server;
+package server.gestori;
 
 import java.util.Hashtable;
 import java.util.LinkedList;
