@@ -1,5 +1,5 @@
 
-package lib.core.categorie;
+package lib.core;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

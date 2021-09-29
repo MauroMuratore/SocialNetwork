@@ -2,7 +2,7 @@ package lib.util;
 
 import java.util.GregorianCalendar;
 
-import lib.core.eventi.Campo;
+import lib.core.Campo;
 
 public class ControlloCampo {
 	/**

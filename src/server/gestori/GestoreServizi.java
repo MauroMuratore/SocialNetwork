@@ -2,15 +2,15 @@ package server.gestori;
 
 import java.util.*;
 
-import lib.core.categorie.Categoria;
-import lib.core.categorie.EscursioneMontagnaCat;
-import lib.core.categorie.PartitaCalcioCat;
-import lib.core.eventi.Campo;
-import lib.core.eventi.EscursioneMontagnaEvento;
-import lib.core.eventi.Evento;
-import lib.core.utenti.Invito;
-import lib.core.utenti.Notifica;
-import lib.core.utenti.Utente;
+import lib.core.Campo;
+import lib.core.Categoria;
+import lib.core.EscursioneMontagnaCat;
+import lib.core.EscursioneMontagnaEvento;
+import lib.core.Evento;
+import lib.core.Invito;
+import lib.core.Notifica;
+import lib.core.PartitaCalcioCat;
+import lib.core.Utente;
 import lib.util.ControlloCampo;
 import lib.util.Log;
 import lib.util.Nomi;

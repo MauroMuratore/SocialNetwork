@@ -4,12 +4,12 @@ import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
 
-import lib.core.categorie.Categoria;
-import lib.core.eventi.EscursioneMontagnaEvento;
-import lib.core.eventi.Evento;
-import lib.core.utenti.Invito;
-import lib.core.utenti.Notifica;
-import lib.core.utenti.Utente;
+import lib.core.Categoria;
+import lib.core.EscursioneMontagnaEvento;
+import lib.core.Evento;
+import lib.core.Invito;
+import lib.core.Notifica;
+import lib.core.Utente;
 import lib.util.Log;
 import lib.util.Nomi;
 

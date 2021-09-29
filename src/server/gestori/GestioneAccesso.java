@@ -2,8 +2,8 @@ package server.gestori;
 
 import java.util.Hashtable;
 
-import lib.core.categorie.Categoria;
-import lib.core.utenti.Utente;
+import lib.core.Categoria;
+import lib.core.Utente;
 import lib.util.Log;
 import lib.util.Nomi;
 import server.database.ConsultaDB;

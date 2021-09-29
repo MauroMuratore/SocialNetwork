@@ -1,10 +1,9 @@
 
-package lib.core.eventi;
+package lib.core;
 
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-import lib.core.utenti.Notifica;
 import lib.util.ControlloCampo;
 import lib.util.Nomi;
 import server.database.ConsultaDB;

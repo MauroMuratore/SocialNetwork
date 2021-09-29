@@ -1,5 +1,5 @@
 
-package lib.core.eventi;
+package lib.core;
 
 import java.io.Serializable;
 import java.sql.Time;
@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-import lib.core.utenti.Notifica;
 import lib.util.ControlloCampo;
 import lib.util.Log;
 import lib.util.Nomi;

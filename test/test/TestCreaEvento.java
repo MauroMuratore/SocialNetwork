@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import lib.core.eventi.Campo;
-import lib.core.eventi.EscursioneMontagnaEvento;
-import lib.core.eventi.Evento;
-import lib.core.eventi.PartitaCalcioEvento;
+import lib.core.Campo;
+import lib.core.EscursioneMontagnaEvento;
+import lib.core.Evento;
+import lib.core.PartitaCalcioEvento;
 import lib.util.Log;
 import lib.util.Nomi;
 

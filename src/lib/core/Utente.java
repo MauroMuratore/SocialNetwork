@@ -1,5 +1,5 @@
 
-package lib.core.utenti;
+package lib.core;
 
 import java.io.Serializable;
 import java.util.ArrayList;

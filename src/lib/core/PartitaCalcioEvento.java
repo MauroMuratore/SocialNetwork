@@ -1,5 +1,5 @@
 
-package lib.core.eventi;
+package lib.core;
 
 import java.util.GregorianCalendar;
 import java.util.LinkedList;

@@ -21,15 +21,15 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
-import lib.core.categorie.Categoria;
-import lib.core.eventi.Campo;
-import lib.core.eventi.EscursioneMontagnaEvento;
-import lib.core.eventi.Evento;
-import lib.core.eventi.PartitaCalcioEvento;
-import lib.core.eventi.StatoEvento;
-import lib.core.utenti.Invito;
-import lib.core.utenti.Notifica;
-import lib.core.utenti.Utente;
+import lib.core.Campo;
+import lib.core.Categoria;
+import lib.core.EscursioneMontagnaEvento;
+import lib.core.Evento;
+import lib.core.Invito;
+import lib.core.Notifica;
+import lib.core.PartitaCalcioEvento;
+import lib.core.StatoEvento;
+import lib.core.Utente;
 import lib.util.Log;
 import lib.util.Nomi;
 

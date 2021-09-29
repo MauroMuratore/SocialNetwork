@@ -9,14 +9,14 @@ import java.util.List;
 
 import gui.body.areaPersonale.ControllerAP;
 import gui.body.bacheca.ControllerBacheca;
-import lib.core.categorie.Categoria;
-import lib.core.categorie.EscursioneMontagnaCat;
-import lib.core.categorie.PartitaCalcioCat;
-import lib.core.eventi.EscursioneMontagnaEvento;
-import lib.core.eventi.Evento;
-import lib.core.eventi.PartitaCalcioEvento;
-import lib.core.utenti.Notifica;
-import lib.core.utenti.Utente;
+import lib.core.Categoria;
+import lib.core.EscursioneMontagnaCat;
+import lib.core.EscursioneMontagnaEvento;
+import lib.core.Evento;
+import lib.core.Notifica;
+import lib.core.PartitaCalcioCat;
+import lib.core.PartitaCalcioEvento;
+import lib.core.Utente;
 import lib.net.Channel;
 import lib.util.Nomi;
 

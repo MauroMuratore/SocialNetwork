@@ -9,8 +9,8 @@ import java.util.List;
 
 import javax.swing.JSplitPane;
 
-import lib.core.utenti.Notifica;
-import lib.core.utenti.Utente;
+import lib.core.Notifica;
+import lib.core.Utente;
 import lib.net.ModelModificaUtente;
 import lib.util.Nomi;
 

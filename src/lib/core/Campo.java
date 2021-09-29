@@ -1,4 +1,4 @@
-package lib.core.eventi;
+package lib.core;
 
 import java.io.Serializable;
 import java.util.ArrayList;
